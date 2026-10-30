@@ -78,6 +78,7 @@ a{color:var(--gold)}
     <div id="done" class="hide">
       <p class="ok" id="hello"></p>
       <a class="btn" href="index.html">Go to notes</a>
+      <button id="out" class="btn ghost" type="button">Sign out</button>
     </div>
 
     <div class="msg" id="msg" role="alert"></div>
@@ -101,6 +102,9 @@ a{color:var(--gold)}
   try { firebase.initializeApp(cfg.firebase); } catch (e) { fail('Sign-in setup has a problem. Ask your teacher.'); return; }
   const auth = firebase.auth();
   const db = firebase.firestore();
+  // Stay signed in on this device until the student signs out.
+  auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL).catch(() => {});
+  $('out').addEventListener('click', () => auth.signOut().then(() => location.reload()));
 
   async function saveStudent(user){
     await db.collection('students').doc(user.uid).set({

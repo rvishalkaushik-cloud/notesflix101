@@ -894,6 +894,7 @@ CHAPTERS.forEach(function(c){
     </nav>
     <div class="spacer"></div>
     <div class="search"><span aria-hidden="true">⌕</span><input id="q" type="search" placeholder="Search a topic" aria-label="Search notes"></div>
+    <a class="btn btn-ghost" id="acct" href="login.html" hidden>Sign in</a>
     <button class="btn btn-ghost" id="installBtn" type="button">Install</button>
     <a class="btn btn-red" id="waTop" href="#premium">WhatsApp</a>
   </div>
@@ -2225,6 +2226,32 @@ CHAPTERS.forEach(function(c){
   })();
 
   render();
+})();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/firebase@10.12.2/firebase-app-compat.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/firebase@10.12.2/firebase-auth-compat.js"></script>
+<script src="auth-config.js"></script>
+<script>
+/* Student sign-in on the home screen. Shows "Sign in", or the student's first name once signed in. */
+(function(){
+  const cfg = window.NF_AUTH || {};
+  if (!cfg.requireLogin) return;
+  const acct = document.getElementById('acct');
+  try {
+    if (!firebase.apps.length) firebase.initializeApp(cfg.firebase);
+    const auth = firebase.auth();
+    auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL).catch(() => {});
+    acct.hidden = false;
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        acct.textContent = 'Hi, ' + ((user.displayName || user.email || 'Student').split(' ')[0]);
+        acct.removeAttribute('href');
+      } else {
+        acct.textContent = 'Sign in';
+        acct.href = 'login.html';
+      }
+    });
+  } catch (e) { /* home page still works without sign-in */ }
 })();
 </script>
 </body>
