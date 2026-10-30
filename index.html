@@ -1,0 +1,2231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+<title>Notesflix 101</title>
+<meta name="description" content="Free interactive Business Studies and Accountancy notes for CBSE Class XI and XII, by Vishal Sir, C&amp;S Classes, Gurugram.">
+<meta property="og:title" content="Notesflix 101">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0a">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#0a0a0a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta property="og:description" content="Free interactive CBSE Commerce notes — read, click, test yourself.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&family=Luckiest+Guy&family=Caveat:wght@600;700&display=swap">
+<style>
+/* Layout: a cinema billboard on top, then horizontal shelves of hand-drawn note posters. */
+:root{
+  --ink:#0a0a0a; --ink-2:#141414; --ink-3:#1f1f1f;
+  --red:#e50914; --gold:#f5c518; --green:#46d369;
+  --paper:#f5f5f5; --paper-dim:#a8a8a8; --line:#2a2a2a;
+  --display:'Bebas Neue','Oswald','Arial Narrow',sans-serif;
+  --body:'Barlow','Segoe UI',system-ui,sans-serif;
+  --ease-out:cubic-bezier(.23,1,.32,1);
+  --ease-in-out:cubic-bezier(.77,0,.175,1);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{
+  -webkit-tap-highlight-color:transparent;   /* no grey flash on tap */
+  -webkit-text-size-adjust:100%;             /* no font inflation in landscape */
+  overscroll-behavior:none;                  /* no pull-to-refresh mid-scroll */
+}
+button,a,[role="button"],.card,.ep,.rcard,.classtab,.rail-btn{
+  touch-action:manipulation;                 /* fire click at once, no double-tap wait */
+  user-select:none;-webkit-user-select:none; /* long-press acts, never selects the label */
+  -webkit-touch-callout:none;
+}
+input,textarea,select{font-size:16px}        /* under 16px and iOS zooms in and stays there */
+body{background:var(--ink);color:var(--paper);font-family:var(--body);font-size:16px;line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%}
+[hidden]{display:none !important}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:4px}
+.wrap{width:100%;max-width:1320px;margin-inline:auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+
+/* top bar */
+.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:linear-gradient(180deg,rgba(10,10,10,.97) 62%,rgba(10,10,10,0));backdrop-filter:blur(6px);transition:background .2s}
+.topbar.solid{background:#0a0a0a;border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:41;background:#0a0a0a}
+.topbar .wrap{display:flex;align-items:center;gap:14px;padding-block:12px;flex-wrap:wrap}
+.logo{font-family:var(--display);font-size:clamp(26px,5vw,38px);letter-spacing:.05em;color:var(--red);text-shadow:0 0 22px rgba(229,9,20,.45);line-height:1;white-space:nowrap;text-decoration:none}
+.logo span{color:var(--paper)}
+.topbar nav{display:flex;gap:16px;flex-wrap:wrap}
+.topbar nav a{font-size:13.5px;font-weight:600;color:var(--paper-dim);text-decoration:none}
+
+.spacer{flex:1 1 auto;min-width:0}
+.search{display:flex;align-items:center;gap:8px;background:var(--ink-3);border:1px solid var(--line);border-radius:3px;padding:7px 11px;min-width:0}
+.search input{background:none;border:0;color:var(--paper);font-family:var(--body);font-size:16px;width:min(180px,40vw);min-width:0}
+.search input::placeholder{color:#6d6d6d}
+.search input:focus{outline:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--body);font-weight:700;font-size:14px;padding:10px 18px;border-radius:3px;border:0;cursor:pointer;text-decoration:none;transition:transform .12s ease,background .18s ease}
+.btn:active{transform:scale(.97)}
+/* press feedback: native controls answer the instant a finger lands */
+.card,.rcard,.ep,.classtab,.ep-tick,.ep-share,.rail-btn,.ch-close,.story-poster{transition:transform .12s var(--ease-out)}
+.card:active,.rcard:active,.story-poster:active{transform:scale(.985)}
+.ep:active,.classtab:active{transform:scale(.99)}
+.ep-tick:active,.ep-share:active,.rail-btn:active,.ch-close:active{transform:scale(.92)}
+.btn-red{background:var(--red);color:#fff}
+.btn-ghost{background:rgba(109,109,110,.55);color:#fff}
+.btn-light{background:var(--paper);color:#111}
+.btn-lg{padding:13px 26px;font-size:16px}
+
+/* billboard */
+.billboard{position:relative;overflow:hidden;border-bottom:1px solid #000}
+.bb-bg{position:absolute;inset:0;z-index:0;background:radial-gradient(1000px 420px at 72% 26%,rgba(229,9,20,.55),transparent 62%),linear-gradient(135deg,#1a0206,#2a0409 48%,#0a0a0a)}
+.bb-doodles{position:absolute;inset:0;z-index:1;opacity:.3;pointer-events:none;display:flex;align-items:center;gap:40px;padding-inline:20px;overflow:hidden}
+.bb-doodles svg{flex:0 0 auto;width:120px;height:72px;color:#fff;animation:drift 22s linear infinite}
+.bb-doodles svg:nth-child(even){animation-duration:30s;opacity:.7}
+@keyframes drift{0%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-14px) rotate(2deg)}100%{transform:translateY(0) rotate(-2deg)}}
+.bb-fade{position:absolute;inset:0;z-index:2;background:linear-gradient(90deg,#0a0a0a 6%,rgba(10,10,10,.86) 44%,rgba(10,10,10,.3) 78%,rgba(10,10,10,.92) 100%),linear-gradient(180deg,rgba(10,10,10,.7) 0%,rgba(10,10,10,0) 38%,rgba(10,10,10,.98) 100%)}
+.billboard .wrap{position:relative;z-index:3;padding-block:clamp(40px,8vw,88px) clamp(32px,6vw,66px)}
+.bb-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(24px,4vw,46px);align-items:center}
+.bb-inner{max-width:640px;min-width:0}
+
+/* doodle reel */
+.reel{min-width:0;background:rgba(10,10,10,.5);border:1px solid var(--line);border-radius:7px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.6)}
+.reel-head{display:flex;align-items:center;gap:10px;padding:9px 12px;border-bottom:1px solid var(--line);background:rgba(0,0,0,.4)}
+.reel-head .dot{width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 10px var(--red);flex:none;animation:blink 2.4s ease-in-out infinite}
+@keyframes blink{50%{opacity:.35}}
+.reel-head .lbl{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--paper-dim)}
+.reel-head .spacer2{flex:1 1 auto;min-width:0}
+.reel-head button{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);color:var(--paper);border-radius:3px;padding:4px 11px;font:700 12px var(--body);cursor:pointer}
+
+.reel-stage{position:relative;aspect-ratio:16/10;max-width:100%;background:linear-gradient(160deg,#120306,#0c0c0c)}
+.reel-stage svg,.film-stage svg{position:absolute;inset:0;width:100%;height:100%}
+.reel-stage svg:not(.on),.film-stage svg:not(.on){opacity:0}
+.reel-stage svg.on,.film-stage svg.on{opacity:1;transition:opacity .4s}
+.reel-stage .ink,.film-stage .ink{fill:none;stroke:#fff;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset var(--d,.9s) ease var(--t,0s)}
+.reel-stage .on .ink,.film-stage .on .ink{stroke-dashoffset:0}
+.reel-stage .accent,.film-stage .accent{stroke:var(--red)}
+.reel-stage .gold,.film-stage .gold{stroke:var(--gold)}
+.reel-stage text,.film-stage text{fill:#e8e8e8;font:600 11px var(--body);opacity:0}
+.reel-stage .on text,.film-stage .on text{opacity:1;transition:opacity .5s}
+.reel-cap{padding:11px 13px 7px;font-size:14px;color:#dcdcdc;min-height:52px}
+.reel-cap b{color:var(--paper);display:block;font-family:var(--display);font-size:19px;letter-spacing:.03em;line-height:1.1;margin-bottom:2px}
+.reel-time{display:flex;gap:4px;padding:0 13px 13px}
+.reel-time button{flex:1;height:4px;border:0;padding:0;background:rgba(255,255,255,.2);border-radius:99px;cursor:pointer;overflow:hidden;position:relative}
+.reel-time button i{position:absolute;inset:0;background:var(--red);border-radius:99px;transform:scaleX(0);transform-origin:left}
+.reel-time button.done i{transform:scaleX(1)}
+.reel-time button.live i{transform:scaleX(1);transition:transform linear}
+.kicker{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--paper-dim);margin-bottom:14px}
+.kicker b{color:var(--red);font-family:var(--display);font-size:18px;letter-spacing:.08em}
+h1{font-family:var(--display);font-size:clamp(42px,8.4vw,80px);line-height:.93;letter-spacing:.012em;margin:0 0 14px;text-wrap:balance;text-shadow:0 4px 30px rgba(0,0,0,.8)}
+h1 em{font-style:normal;color:var(--red)}
+.bb-sub{font-size:clamp(15px,2.2vw,18px);color:#d6d6d6;max-width:58ch;margin:0 0 16px}
+.bb-meta{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;color:var(--paper-dim);font-size:13.5px;font-weight:600;margin-bottom:22px}
+.bb-meta .pill{border:1px solid #3a3a3a;border-radius:3px;padding:2px 8px;font-size:12px;letter-spacing:.06em}
+.bb-meta .match{color:var(--green)}
+.bb-actions{display:flex;flex-wrap:wrap;gap:12px}
+
+/* shelves */
+main{padding-block:clamp(26px,5vw,42px) 10px}
+.row{margin-block:clamp(26px,4.5vw,44px)}
+.row-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:12px}
+.row-head h2{font-family:var(--display);font-size:clamp(23px,3.6vw,30px);letter-spacing:.04em;margin:0;line-height:1}
+.row-head .note{font-size:13.5px;color:var(--paper-dim);font-weight:500}
+.row-head .tagfree{color:var(--green);font-weight:700;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase}
+.rail-shell{position:relative}
+.rail{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(230px,272px);gap:12px;overflow-x:auto;scroll-snap-type:x proximity;padding-block:6px 18px;scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:#3a3a3a transparent}
+.rail::-webkit-scrollbar{height:7px}
+.rail::-webkit-scrollbar-thumb{background:#3a3a3a;border-radius:99px}
+.rail::-webkit-scrollbar-track{background:transparent}
+.rail-btn{position:absolute;top:44%;transform:translateY(-50%);width:38px;height:80px;border:0;border-radius:3px;cursor:pointer;background:rgba(10,10,10,.75);color:#fff;font-size:20px;display:none;z-index:5}
+
+.rail-btn.prev{left:-6px}.rail-btn.next{right:-6px}
+
+/* poster card */
+.card{position:relative;scroll-snap-align:start;min-width:0;background:var(--ink-2);border:1px solid var(--line);border-radius:5px;overflow:hidden;cursor:pointer;text-align:left;color:inherit;font:inherit;padding:0;display:flex;flex-direction:column;transition:transform .22s var(--ease-out),box-shadow .22s ease,border-color .22s ease}
+.card:focus-visible{border-color:#4a4a4a;box-shadow:0 18px 44px rgba(0,0,0,.75),0 0 0 1px rgba(229,9,20,.35);z-index:3}
+.thumb{position:relative;aspect-ratio:16/10;max-width:100%;overflow:hidden;display:block}
+.thumb .art{position:absolute;inset:0;width:100%;height:100%;display:block}
+.thumb .subj{position:absolute;left:10px;top:9px;z-index:2;font-size:10.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.2);padding:3px 7px;border-radius:2px;color:#f0f0f0}
+.thumb .lock{position:absolute;right:9px;top:8px;z-index:2;width:28px;height:28px;border-radius:50%;background:rgba(0,0,0,.65);display:grid;place-items:center;font-size:14px}
+.thumb .playbar{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.2);z-index:2}
+.thumb .playbar i{display:block;height:100%;background:var(--red)}
+.card-body{padding:12px 13px 14px;display:flex;flex-direction:column;gap:7px;flex:1;min-width:0}
+.card-title{font-weight:700;font-size:15px;line-height:1.3;margin:0;min-width:0}
+.card-sub{font-size:12.5px;color:var(--paper-dim);margin:0;min-width:0}
+.card-foot{display:flex;align-items:center;gap:9px;margin-top:auto;font-size:12px;color:var(--paper-dim);font-weight:600}
+.card-foot .free{color:var(--green);letter-spacing:.08em;text-transform:uppercase;font-size:11px}
+.card-foot .locked{color:var(--gold);letter-spacing:.08em;text-transform:uppercase;font-size:11px}
+.card-foot .dot{width:3px;height:3px;border-radius:50%;background:#555}
+.card .go{position:absolute;right:11px;bottom:calc(11px + 0px);width:30px;height:30px;border-radius:50%;background:var(--paper);color:#111;display:grid;place-items:center;font-size:12px;opacity:0;transform:translateY(6px);transition:opacity .2s,transform .2s}
+.card:focus-visible .go{opacity:1;transform:translateY(0)}
+.empty{color:var(--paper-dim);font-size:14px;padding:16px 0}
+
+/* class tabs */
+.classbar{position:sticky;top:calc(env(safe-area-inset-top,0px) + 58px);z-index:30;background:rgba(10,10,10,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.classbar .wrap{display:flex;gap:8px;align-items:center;padding-block:10px;flex-wrap:wrap}
+.classtab{background:none;border:1px solid var(--line);color:var(--paper-dim);border-radius:3px;padding:8px 20px;font:700 14px var(--body);cursor:pointer;letter-spacing:.03em}
+
+.classtab[aria-selected="true"]{background:var(--paper);color:#111;border-color:var(--paper)}
+.classbar .hint{font-size:12.5px;color:#6d6d6d;margin-left:4px}
+
+/* chapter grid */
+.chapters{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:16px}
+.chapters .thumb{aspect-ratio:900/330}
+.chapters .thumb::after{content:"";position:absolute;inset:auto 0 0;height:46%;background:linear-gradient(180deg,transparent,rgba(0,0,0,.75));z-index:1;pointer-events:none}
+.thumb .epcount{position:absolute;right:9px;bottom:9px;z-index:2;font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(0,0,0,.66);border:1px solid rgba(255,255,255,.22);padding:3px 8px;border-radius:2px;color:#f0f0f0}
+.thumb img.art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+
+/* chapter page */
+.ch-scrim{position:fixed;inset:0;z-index:55;background:rgba(0,0,0,.84);overflow-y:auto;overscroll-behavior:contain;opacity:0;transition:opacity .2s ease;padding:max(22px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(40px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.ch-sheet{width:min(880px,100%);margin-inline:auto;background:var(--ink-2);border:1px solid var(--line);border-radius:7px;overflow:hidden;box-shadow:0 36px 90px rgba(0,0,0,.85);position:relative;transform:scale(.97);transition:transform .22s var(--ease-out)}
+.ch-close{position:absolute;right:12px;top:12px;z-index:6;width:36px;height:36px;border-radius:50%;border:0;background:rgba(10,10,10,.8);color:#fff;font-size:19px;cursor:pointer;line-height:1}
+
+.ch-banner{position:relative;aspect-ratio:900/330;max-width:100%;overflow:hidden;background:#111}
+.ch-banner .art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ch-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.1) 30%,rgba(20,20,20,.96) 100%)}
+.ch-shade.light{background:linear-gradient(180deg,transparent 60%,rgba(20,20,20,.55) 100%)}
+.ch-cap.below{position:static;padding:16px 22px 0}
+.ch-cap{position:absolute;left:0;right:0;bottom:0;padding:18px 22px;z-index:2}
+.ch-eyebrow{display:block;font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--paper-dim);margin-bottom:5px}
+.ch-cap h2{font-family:var(--display);font-size:clamp(28px,5.4vw,46px);letter-spacing:.03em;margin:0;line-height:1;text-wrap:balance}
+.ch-meta{display:flex;align-items:center;gap:9px;flex-wrap:wrap;padding:16px 22px 0;font-size:13px;font-weight:600;color:var(--paper-dim)}
+.ch-meta .free{color:var(--green);text-transform:uppercase;letter-spacing:.08em;font-size:11.5px}
+.ch-tag{padding:8px 22px 0;margin:0;color:#cfcfcf;max-width:62ch}
+.ch-actions{padding:16px 22px 4px}
+.ch-list-head{font-family:var(--display);font-size:22px;letter-spacing:.04em;margin:18px 0 0;padding:0 22px;color:var(--paper)}
+.eps{display:grid;gap:2px;padding:12px 12px 18px}
+.ep{display:flex;align-items:center;gap:13px;width:100%;text-align:left;font:inherit;color:inherit;background:none;border:0;border-radius:5px;padding:11px 10px;cursor:pointer;min-width:0;transition:background .15s}
+.ep:focus-visible{background:rgba(255,255,255,.07)}
+.ep-no{flex:none;width:26px;text-align:center;font-family:var(--display);font-size:23px;color:var(--paper-dim);font-variant-numeric:tabular-nums}
+.ep-thumb{flex:none;position:relative;width:124px;aspect-ratio:16/10;border-radius:4px;overflow:hidden;background:#111}
+.ep-thumb .art{position:absolute;inset:0;width:100%;height:100%}
+.ep-lock{position:absolute;right:5px;top:4px;font-size:12px;background:rgba(0,0,0,.7);border-radius:50%;width:22px;height:22px;display:grid;place-items:center}
+.ep-txt{display:grid;gap:3px;min-width:0;flex:1}
+.ep-title{font-weight:700;font-size:15px;line-height:1.3}
+.ep-desc{font-size:12.5px;color:var(--paper-dim);line-height:1.4}
+.ep-foot{display:flex;align-items:center;gap:8px;font-size:11.5px;font-weight:700;color:var(--paper-dim)}
+.ep-foot .free{color:var(--green);text-transform:uppercase;letter-spacing:.08em}
+.ep-foot .locked{color:var(--gold);text-transform:uppercase;letter-spacing:.08em}
+.ep-play{flex:none;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.1);display:grid;place-items:center;font-size:11px;color:var(--paper)}
+
+@media (max-width:560px){
+  .ep-thumb{width:88px}
+  .ep-no{width:18px;font-size:19px}
+  .ep-desc{display:none}
+}
+
+.card.soon .thumb{filter:saturate(.55) brightness(.62)}
+
+.card.soon .go{display:none}
+.epcount.soon{background:rgba(245,197,24,.18);border-color:rgba(245,197,24,.5);color:var(--gold)}
+.ch-empty{padding:4px 22px 18px;margin:0;color:var(--paper-dim);max-width:60ch;font-size:14px}
+
+/* the story band */
+.story{border-block:1px solid var(--line);background:linear-gradient(180deg,#0d0406,#0a0a0a)}
+.story .wrap{padding-block:clamp(28px,5vw,46px);display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(22px,4vw,44px);align-items:center}
+.story h2{font-family:var(--display);font-size:clamp(28px,5vw,44px);letter-spacing:.03em;margin:0 0 10px;line-height:1}
+.story p{color:#cfcfcf;margin:0 0 18px;max-width:52ch}
+.story .kicker{margin-bottom:12px}
+.story-poster{position:relative;aspect-ratio:16/9;max-width:100%;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:linear-gradient(160deg,#140306,#0b0b0b);cursor:pointer;display:block;width:100%;padding:0}
+.story-poster svg{position:absolute;inset:0;width:100%;height:100%}
+.story-poster .ink{fill:none;stroke:#fff;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.story-poster .accent{stroke:var(--red)}
+.story-poster .playbtn{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:62px;height:62px;border-radius:50%;background:rgba(229,9,20,.92);display:grid;place-items:center;color:#fff;font-size:21px;box-shadow:0 10px 30px rgba(229,9,20,.45);transition:transform .18s}
+
+.story-poster .runtime{position:absolute;right:10px;bottom:9px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(0,0,0,.66);border:1px solid rgba(255,255,255,.2);padding:3px 8px;border-radius:2px;color:#e8e8e8}
+
+/* the film player */
+.film{position:fixed;inset:0;z-index:70;background:#060606;display:flex;flex-direction:column;justify-content:center;overflow-y:auto;overscroll-behavior:contain;opacity:0;transition:opacity .2s ease;padding:max(14px,env(safe-area-inset-top,0px)) max(14px,env(safe-area-inset-right,0px)) max(14px,env(safe-area-inset-bottom,0px)) max(14px,env(safe-area-inset-left,0px))}
+.film-top{display:flex;align-items:center;gap:12px;padding-bottom:10px;flex:0 0 auto;position:absolute;left:max(14px,env(safe-area-inset-left,0px));right:max(14px,env(safe-area-inset-right,0px));top:max(14px,env(safe-area-inset-top,0px))}
+.film-top .lbl{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--paper-dim)}
+.film-top .spacer2{flex:1 1 auto}
+.film-top button{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:var(--paper);border-radius:3px;padding:6px 14px;font:700 13px var(--body);cursor:pointer}
+
+.film-stage text{font-size:7.5px;letter-spacing:.06em}
+.film-stage{position:relative;flex:0 0 auto;width:100%;max-width:1000px;margin-inline:auto;aspect-ratio:16/10;max-height:62dvh;background:linear-gradient(160deg,#140306,#0a0a0a);border-radius:6px;overflow:hidden}
+.film-cap{max-width:1000px;margin-inline:auto;width:100%;padding:16px 4px 0;min-height:86px}
+.film-cap b{display:block;font-family:var(--display);font-size:clamp(22px,4vw,30px);letter-spacing:.03em;color:var(--paper);line-height:1.05;margin-bottom:4px}
+.film-cap span{color:#d0d0d0;font-size:clamp(14px,2.2vw,16px)}
+.film-time{display:flex;gap:4px;max-width:1000px;margin-inline:auto;width:100%;padding:14px 4px 0}
+.film-time i{flex:1;height:4px;background:rgba(255,255,255,.2);border-radius:99px;overflow:hidden;position:relative}
+.film-time i b{position:absolute;inset:0;background:var(--red);border-radius:99px;display:block;transform:scaleX(0);transform-origin:left}
+.film-time i.done b{transform:scaleX(1)}
+.film-time i.live b{transform:scaleX(1);transition:transform linear}
+.film-end{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:14px;text-align:center;background:rgba(6,6,6,.94);padding:20px}
+.film-end h3{font-family:var(--display);font-size:clamp(28px,6vw,46px);letter-spacing:.03em;margin:0;line-height:1}
+.film-end p{color:#cfcfcf;margin:0;max-width:44ch}
+.film-end .row2{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+@media (max-width:860px){.story .wrap{grid-template-columns:1fr}}
+
+/* progress, sharing, search results */
+.card .ring{position:absolute;right:9px;top:8px;z-index:3;width:30px;height:30px}
+.card .ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.card .ring circle{fill:none;stroke-width:3.4}
+.card .ring .bg{stroke:rgba(0,0,0,.55)}
+.card .ring .fg{stroke:var(--green);stroke-linecap:round}
+.card .ring b{position:absolute;inset:0;display:grid;place-items:center;font-size:9.5px;font-weight:800;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.9)}
+.thumb .playbar i.seen{background:var(--green)}
+.card-foot .prog{color:var(--green)}
+
+.ep.done .ep-title{color:var(--paper-dim)}
+.ep-tick{flex:none;width:30px;height:30px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:none;color:var(--paper-dim);display:grid;place-items:center;font-size:13px;cursor:pointer;padding:0}
+
+.ep-tick.on{background:var(--green);border-color:var(--green);color:#07210f}
+.ep-share{flex:none;width:30px;height:30px;border-radius:50%;border:0;background:rgba(255,255,255,.1);color:var(--paper);display:grid;place-items:center;font-size:13px;cursor:pointer;padding:0}
+
+.ep-acts{display:flex;gap:7px;flex:none;align-items:center}
+.ep-seen{color:var(--green);font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+
+.ch-prog{padding:0 22px;margin:10px 0 0}
+.ch-prog .track{height:5px;border-radius:99px;background:rgba(255,255,255,.16);overflow:hidden}
+.ch-prog .track i{display:block;height:100%;background:var(--green);border-radius:99px;transform-origin:left;transition:transform .25s var(--ease-out)}
+.ch-prog span{display:block;font-size:12px;color:var(--paper-dim);margin-top:6px;font-weight:600}
+
+.resume{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(250px,290px);gap:12px;overflow-x:auto;padding-block:6px 16px;scroll-snap-type:x proximity;scrollbar-width:thin;scrollbar-color:#3a3a3a transparent}
+.resume::-webkit-scrollbar{height:7px}
+.resume::-webkit-scrollbar-thumb{background:#3a3a3a;border-radius:99px}
+.rcard{scroll-snap-align:start;min-width:0;background:var(--ink-2);border:1px solid var(--line);border-radius:5px;overflow:hidden;cursor:pointer;text-align:left;font:inherit;color:inherit;padding:0;display:flex;flex-direction:column;transition:transform .2s var(--ease-out),border-color .2s}
+.rcard:focus-visible{transform:translateY(-3px);border-color:#4a4a4a}
+.rcard .rthumb{position:relative;aspect-ratio:16/9;max-width:100%;overflow:hidden}
+.rcard .rthumb .art{position:absolute;inset:0;width:100%;height:100%}
+.rcard .rbar{position:absolute;left:0;right:0;bottom:0;height:4px;background:rgba(255,255,255,.22)}
+.rcard .rbar i{display:block;height:100%;background:var(--red)}
+.rcard .rbody{padding:11px 12px 13px;display:grid;gap:5px;min-width:0}
+.rcard .rt{font-weight:700;font-size:14.5px;line-height:1.3;min-width:0}
+.rcard .rc{font-size:12px;color:var(--paper-dim)}
+.rcard .rgo{font-size:11.5px;font-weight:700;color:var(--red);letter-spacing:.06em;text-transform:uppercase}
+
+.hits{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.countdown{display:inline-flex;align-items:center;gap:7px;background:rgba(229,9,20,.14);border:1px solid rgba(229,9,20,.45);border-radius:3px;padding:3px 10px;font-size:12.5px;font-weight:700;color:#ff8d94;letter-spacing:.03em}
+.countdown b{color:#fff;font-variant-numeric:tabular-nums}
+#installBtn{display:none}
+.toast{position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:90;background:#1c1c1c;border:1px solid var(--line);color:var(--paper);padding:11px 18px;border-radius:4px;font-size:14px;font-weight:600;box-shadow:0 14px 40px rgba(0,0,0,.6)}
+
+/* overlays: shown by adding .in on the next frame, so the transition has a start state */
+.ch-scrim.in,.scrim.in,.film.in{opacity:1}
+.ch-scrim.in .ch-sheet,.scrim.in .modal{transform:scale(1)}
+
+/* the grid lands in sequence rather than all at once */
+.chapters .card{animation:cardIn .34s var(--ease-out) both}
+@keyframes cardIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.chapters .card:nth-child(1){animation-delay:0ms}
+.chapters .card:nth-child(2){animation-delay:40ms}
+.chapters .card:nth-child(3){animation-delay:80ms}
+.chapters .card:nth-child(4){animation-delay:120ms}
+.chapters .card:nth-child(5){animation-delay:160ms}
+.chapters .card:nth-child(6){animation-delay:200ms}
+.chapters .card:nth-child(n+7){animation-delay:240ms}
+
+/* premium */
+.premium{margin-block:clamp(34px,6vw,58px);border-block:1px solid var(--line);background:radial-gradient(900px 300px at 12% 0%,rgba(229,9,20,.2),transparent 62%),linear-gradient(180deg,#120406,#0a0a0a)}
+.premium .wrap{padding-block:clamp(30px,5vw,50px)}
+.premium-grid{display:grid;grid-template-columns:1.25fr .95fr;gap:clamp(22px,4vw,46px);align-items:center}
+.premium h2{font-family:var(--display);font-size:clamp(30px,5.4vw,46px);letter-spacing:.03em;margin:0 0 12px;line-height:1}
+.premium p{color:#cfcfcf;margin:0 0 16px;max-width:54ch}
+.perks{list-style:none;margin:0 0 22px;padding:0;display:grid;gap:9px}
+.perks li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;color:#dcdcdc}
+.perks li::before{content:"▸";color:var(--red);line-height:1.5}
+.contact-card{background:var(--ink-2);border:1px solid var(--line);border-radius:6px;padding:20px;display:grid;gap:12px;min-width:0}
+.contact-card .who{font-family:var(--display);font-size:26px;letter-spacing:.04em;line-height:1}
+.contact-card .who small{display:block;font-family:var(--body);font-size:12.5px;letter-spacing:.14em;color:var(--red);font-weight:700;text-transform:uppercase}
+.numline{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:#0f0f0f;border:1px dashed #3a3a3a;border-radius:4px;padding:10px 12px}
+.numline b{font-size:17px;letter-spacing:.04em;font-variant-numeric:tabular-nums;user-select:all}
+.copy-ok{color:var(--green);font-size:12.5px;font-weight:700}
+.mini{font-size:12.5px;color:var(--paper-dim);margin:0}
+
+/* modal */
+.scrim{position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.8);display:grid;place-items:center;overscroll-behavior:contain;opacity:0;transition:opacity .2s ease;padding:max(18px,env(safe-area-inset-top,0px)) max(18px,env(safe-area-inset-right,0px)) max(18px,env(safe-area-inset-bottom,0px)) max(18px,env(safe-area-inset-left,0px));overflow-y:auto}
+.modal{width:min(480px,100%);background:var(--ink-2);border:1px solid var(--line);border-radius:7px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.8);transform:scale(.97);transition:transform .22s var(--ease-out)}
+.modal-top{padding:18px 20px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,rgba(229,9,20,.22),transparent);display:flex;align-items:flex-start;gap:12px}
+.modal-top h3{font-family:var(--display);font-size:26px;letter-spacing:.04em;margin:0;line-height:1.05}
+.modal-top p{margin:5px 0 0;font-size:13.5px;color:var(--paper-dim)}
+.x{margin-left:auto;background:none;border:0;color:var(--paper-dim);font-size:22px;cursor:pointer;line-height:1;padding:0 2px}
+
+form{padding:18px 20px 20px;display:grid;gap:13px}
+.field{display:grid;gap:5px;min-width:0}
+.field label{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--paper-dim)}
+.field input,.field select{background:#0f0f0f;border:1px solid #333;border-radius:4px;color:var(--paper);padding:11px 12px;font-family:var(--body);font-size:16px;width:100%;min-width:0}
+.field input:focus,.field select:focus{border-color:var(--red);outline:none}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.err{color:#ff6b6b;font-size:12.5px;margin:0}
+.formfoot{display:grid;gap:9px;margin-top:3px}
+.formnote{font-size:12px;color:#8a8a8a;margin:0;line-height:1.5}
+
+footer{border-top:1px solid var(--line);margin-top:10px}
+footer .wrap{padding-block:30px 40px;display:grid;gap:14px}
+.foot-top{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.foot-links{display:flex;gap:18px;flex-wrap:wrap;font-size:13.5px;color:var(--paper-dim)}
+.foot-links a{text-decoration:none;color:inherit}
+
+.copy{font-size:12.5px;color:#6d6d6d;margin:0}
+
+@media (max-width:980px){.bb-grid{grid-template-columns:1fr}.bb-inner{max-width:none}.reel{max-width:560px}}
+@media (max-width:860px){.premium-grid{grid-template-columns:1fr}.topbar nav{display:none}}
+@media (max-width:460px){.two{grid-template-columns:1fr}.rail{grid-auto-columns:minmax(200px,78vw)}}
+@media (prefers-reduced-motion:reduce){
+  /* keep opacity and colour, which carry meaning; drop everything that moves */
+  *{scroll-behavior:auto !important}
+  *{transition-property:opacity,background-color,border-color,color,box-shadow !important;transition-duration:.15s !important}
+  .bb-doodles svg,.reel-head .dot{animation:none !important}
+  .chapters .card{animation:none !important;opacity:1}
+  .card:active,.rcard:active,.ep:active,.classtab:active,.story-poster:active,
+  .ep-tick:active,.ep-share:active,.rail-btn:active,.ch-close:active,.btn:active{transform:none}
+  .ch-sheet,.modal{transform:none}
+  .reel-stage .ink,.film-stage .ink{transition:none !important;stroke-dashoffset:0}
+}
+
+/* every hover style lives here: on a phone the first tap would otherwise stick */
+@media (hover:hover) and (pointer:fine){
+.topbar nav a:hover{color:var(--paper)}
+.btn-red:hover{background:#ff1420}
+.btn-ghost:hover{background:rgba(109,109,110,.78)}
+.btn-light:hover{background:#fff}
+.reel-head button:hover{background:rgba(255,255,255,.2)}
+.rail-btn:hover{background:rgba(10,10,10,.95)}
+@media (min-width:900px){.rail-shell:hover .rail-btn{display:block}}
+.card:hover{border-color:#4a4a4a;box-shadow:0 18px 44px rgba(0,0,0,.75),0 0 0 1px rgba(229,9,20,.35);z-index:3}
+.card:hover .go{opacity:1;transform:translateY(0)}
+.classtab:hover{color:var(--paper);border-color:#4a4a4a}
+.ch-close:hover{background:#000}
+.ep:hover{background:rgba(255,255,255,.07)}
+.ep:hover .ep-play{background:var(--paper);color:#111}
+.card.soon:hover .thumb{filter:saturate(.8) brightness(.8)}
+.story-poster:hover .playbtn{transform:translate(-50%,-50%) scale(1.1)}
+.film-top button:hover{background:rgba(255,255,255,.2)}
+.ep-tick:hover{border-color:var(--green);color:var(--green)}
+.ep-share:hover{background:rgba(37,211,102,.9);color:#06220f}
+.rcard:hover{transform:translateY(-3px);border-color:#4a4a4a}
+.x:hover{color:#fff}
+.foot-links a:hover{color:#fff}
+}
+
+/* =====================================================================
+   DARK NOTEBOOK
+   The original dark Netflix palette, written on a black notebook page:
+   faint graph lines, a red margin rule, marker headings, masking tape.
+   Appended last and additive only — it sets no layout and renames nothing,
+   so deleting this block leaves the plain dark build exactly as it was.
+   ===================================================================== */
+:root{
+  --marker:'Luckiest Guy','Bebas Neue','Arial Narrow',sans-serif;
+  --hand:'Caveat','Segoe Script','Bradley Hand',cursive;
+  --grid:rgba(255,255,255,.035);
+  --edge:rgba(255,255,255,.16);
+  --tape:rgba(246,205,74,.82);
+}
+
+/* ---------- the page: a black sheet of graph paper ---------- */
+body{
+  background-color:#0a0a0a;
+  background-image:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/><feColorMatrix type='saturate' values='0'/></filter><rect width='150' height='150' filter='url(%23n)' opacity='.05'/></svg>"),
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size:150px 150px, 34px 34px, 34px 34px;
+  background-attachment:fixed;
+}
+
+/* punched binding and the red margin rule down the left edge */
+body::after{
+  content:"";position:fixed;left:0;top:0;bottom:0;width:48px;z-index:35;pointer-events:none;
+  background:
+    radial-gradient(circle at 24px 34px, rgba(0,0,0,.9) 0 7px, rgba(255,255,255,.16) 7px 9px, transparent 9px) 0 0/48px 72px repeat-y,
+    linear-gradient(90deg, rgba(255,255,255,.035), transparent 72%);
+  border-right:1px solid rgba(229,9,20,.3);
+}
+@media (max-width:1100px){ body::after{display:none} }
+@media (min-width:1101px){ .wrap{padding-left:max(60px,env(safe-area-inset-left,0px))} }
+
+/* ---------- marker lettering ---------- */
+.logo{font-family:var(--marker);letter-spacing:.02em}
+h1,.row-head h2,.ch-cap h2,.ch-list-head,.premium h2,.story h2,.reel-cap b,.film-cap b,.film-end h3,.contact-card .who{
+  font-family:var(--marker);letter-spacing:.015em;
+}
+h1{line-height:1.02;text-shadow:0 4px 24px rgba(0,0,0,.75)}
+/* a marker stroke under the word that matters */
+h1 em{
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='12' preserveAspectRatio='none'><path d='M3 8c42-5 90-6 150-2 18 1 30 2 44 3' fill='none' stroke='%23e50914' stroke-width='5' stroke-linecap='round'/></svg>");
+  background-repeat:no-repeat;background-position:0 94%;background-size:100% 11px;
+  padding-bottom:.06em;
+}
+.bb-sub mark{
+  background:rgba(246,205,74,.88);color:#241c05;
+  padding:.04em .22em;border-radius:3px 9px 4px 8px;
+}
+.row-head .note,.classbar .hint,.copy,.empty{font-family:var(--hand);font-size:17px;font-weight:700}
+.copy{font-size:15.5px}
+
+/* section headings get a hand-drawn underline instead of a highlighter */
+.row-head h2,.ch-list-head{
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='10' preserveAspectRatio='none'><path d='M4 7c56-4 118-5 190-3 16 0 28 1 42 2' fill='none' stroke='%23e50914' stroke-width='4' stroke-linecap='round' opacity='.85'/></svg>");
+  background-repeat:no-repeat;background-position:0 100%;background-size:100% 9px;
+  padding-bottom:7px;
+}
+
+/* ---------- everything drawn with a pen ---------- */
+.btn{border:2px solid rgba(255,255,255,.22);border-radius:14px 10px 16px 9px;box-shadow:2px 3px 0 rgba(0,0,0,.65)}
+.btn:active{transform:translate(2px,3px) scale(.99);box-shadow:0 0 0 rgba(0,0,0,.65)}
+.btn-red{border-color:rgba(255,255,255,.3)}
+.btn-light{border-color:#111}
+.search{border:2px solid rgba(255,255,255,.2);border-radius:999px}
+
+.card,.rcard{
+  border:2px solid var(--edge);
+  border-radius:16px 9px 17px 8px;
+  box-shadow:4px 5px 0 rgba(0,0,0,.6);
+}
+.thumb{border-bottom:2px solid var(--edge)}
+.ep-thumb{border:2px solid var(--edge);border-radius:8px 5px 9px 5px}
+.ep-tick,.ep-share{border:2px solid var(--edge)}
+.rail-btn{border:2px solid var(--edge);border-radius:6px 4px 7px 4px}
+.classtab{border:2px solid var(--edge);border-radius:12px 10px 4px 4px;box-shadow:2px 2px 0 rgba(0,0,0,.6)}
+.classtab[aria-selected="true"]{box-shadow:2px 2px 0 rgba(0,0,0,.6), inset 0 -4px 0 var(--red)}
+.contact-card,.modal,.story-poster{border:2px solid var(--edge);border-radius:14px 10px 15px 9px}
+.classbar{border-bottom:1px dashed rgba(255,255,255,.14)}
+.billboard{border-bottom:1px dashed rgba(255,255,255,.14)}
+.story{border-block:1px dashed rgba(255,255,255,.14)}
+footer{border-top:1px dashed rgba(255,255,255,.14)}
+.numline{border:2px dashed rgba(255,255,255,.22)}
+
+/* ---------- masking tape ---------- */
+.reel{
+  border:3px solid rgba(255,255,255,.2);
+  border-radius:16px 10px 18px 10px;
+  box-shadow:5px 6px 0 rgba(0,0,0,.6), 0 26px 50px rgba(0,0,0,.5);
+  position:relative;
+}
+.reel::before,.reel::after{
+  content:"";position:absolute;width:86px;height:25px;z-index:6;pointer-events:none;
+  background:linear-gradient(135deg, var(--tape), rgba(236,186,40,.7));
+  box-shadow:0 2px 6px rgba(0,0,0,.5);
+}
+.reel::before{left:-20px;top:-12px;transform:rotate(-7deg)}
+.reel::after{right:-20px;top:-12px;transform:rotate(6deg)}
+
+.ch-sheet{
+  border:3px solid rgba(255,255,255,.22);
+  border-radius:18px 12px 18px 12px;
+  box-shadow:6px 8px 0 rgba(0,0,0,.6), 0 40px 80px rgba(0,0,0,.65);
+}
+.ch-sheet::before{
+  content:"";position:absolute;left:50%;top:6px;width:124px;height:25px;margin-left:-62px;z-index:7;
+  background:linear-gradient(135deg, var(--tape), rgba(236,186,40,.7));
+  transform:rotate(-1.5deg);box-shadow:0 2px 6px rgba(0,0,0,.5);pointer-events:none;
+}
+
+/* ---------- a couple of margin doodles in the hero ---------- */
+.billboard .wrap::before{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.14;
+  background-repeat:no-repeat;
+  background-image:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='70' height='70' fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><path d='M35 8l7 17 18 2-13 12 4 18-16-9-16 9 4-18L10 27l18-2z'/></svg>"),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='86' height='60' fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><path d='M6 52c16-34 44-46 74-44'/><path d='M66 4l14 4-4 14'/></svg>"),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='54' height='54' fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><path d='M27 6v42M6 27h42'/></svg>");
+  background-position:right 4% top 6%, left 1% bottom 8%, left 26% top 8%;
+}
+.bb-doodles{opacity:.1;align-items:flex-start;padding-top:34px;gap:74px}
+.bb-doodles svg{width:76px;height:50px}
+
+/* ---------- small corrections ---------- */
+.countdown{border-radius:4px 12px 6px 11px;transform:rotate(-1deg)}
+.ch-prog .track{border:1px solid rgba(255,255,255,.14)}
+.toast{border:2px solid var(--edge);border-radius:12px 8px 12px 8px}
+
+@media (hover:hover) and (pointer:fine){
+  .card:hover,.rcard:hover{
+    box-shadow:7px 9px 0 rgba(0,0,0,.6), 0 0 0 1px rgba(229,9,20,.45);
+    transform:translate(-2px,-3px) rotate(-.3deg);
+  }
+}
+@media (prefers-reduced-motion:reduce){
+  .countdown{transform:none}
+  .card:hover,.rcard:hover{transform:none}
+}
+
+</style>
+</head>
+<body>
+
+<!-- =====================================================================
+     EDIT THIS BLOCK TO ADD OR MOVE NOTES.
+     tier: "free"   -> opens immediately
+           "locked" -> opens after the student fills the short form
+     url : a file in this repo, e.g. "notes/price-mix.html"
+     art : picture on the poster — see the ART list further down
+     ===================================================================== -->
+<script>
+const CONFIG = {
+  whatsapp: "918130122362",     // country code + number, no plus sign, no spaces
+  teacher:  "Vishal Sir",
+  brand:    "C&S Classes",
+  googleFormUrl: "",            // optional: paste a Google Form link to offer it as well
+  examDate: "2027-02-15"        // first CBSE paper — shows a countdown in the hero. Set "" to hide it
+};
+
+/* Each CHAPTER is a series. Its episodes are the notes, in study order.
+   thumb: leave "" to use the drawn artwork, or point at a picture e.g. "img/ch11.jpg"
+   tier:  "free" opens at once · "locked" asks for the short form first            */
+const CHAPTERS = [
+
+  { id:"ent-u6", cls:"XII", subject:"Entrepreneurship", unit:"Unit", num:"6", title:"Resource Mobilization",
+    tagline:"From your own savings to the stock exchange: how a growing business finds the money.",
+    art:"coins", thumb:"", episodes:[
+      { id:"ent-resource-mob", title:"Resource Mobilization: Revision Walkthrough", mins:22, tier:"free", art:"coins", desc:"How a growing business finds money, from owner's savings to outside investors.", url:"notes/ent-resource-mobilization.html", keys:"mobilization investors angel venture capital securities institutions scroller entrepreneurs regulator sections equity entry dotnav resource funds investor development issue specialised financing early exchange sources primary expand location dots buying public india" }
+    ]},
+
+  // ===================== CLASS XII · BUSINESS STUDIES =====================
+  { id:"ch01", cls:"XII", subject:"Business Studies", num:"1", title:"Nature and Significance of Management",
+    tagline:"What management actually is, and why it sits behind everything that works.",
+    art:"blueprint", thumb:"img/ch01.jpg", episodes:[] },
+
+  { id:"ch02", cls:"XII", subject:"Business Studies", num:"2", title:"Principles of Management",
+    tagline:"Fayol's fourteen principles and Taylor's scientific management, on a real shop floor.",
+    art:"gears", thumb:"img/ch02.jpg",
+    episodes:[
+      { id:"fayol-1", title:"Fayol's Principles — Part 1", mins:30, tier:"free", art:"blueprint",
+        desc:"The first seven principles, with flashcards, a quiz and case studies.",
+        url:"notes/fayol-principles-1.html", keys:"authority unity interest employees fair orders discipline responsibility employee command decentralisation division organisation principle centralisation fayol managers balance efficiency higher award code dadu decisions lower penalties specialisation agreements codel objective team confusion employer everyone fairly incentives individual levels obedience remuneration staff breaks comes deck principles respect tasks applied conflicting equitable general letter local managerial marketing non-financial organisation's productivity recognition satisfaction setview accountability acts applies bonus branch chant discount duty efforts ffecec firmness foremanship functional gets girl given goals hair hook interests keeps morale reconcile rehne results salary seen shirt skin superior task technical worker answerable" },
+      { id:"fayol-2", title:"Fayol's Principles — Part 2", mins:32, tier:"free", art:"gears",
+        desc:"The remaining principles, a flip wall, match-pairs and a case lab.",
+        url:"notes/fayol-principles-2.html", keys:"employees equity chain authority initiative team gang plank scalar discipline everything kindness social strength union justice award discrimination esprit fair corps principle reasonable security spirit stability staff divide rule managers training turnover unity gender ideas suggestion tenure loyalty fayol loyal period same-level superiors builds departments directly employee formal remuneration saves trained within among frequent levels principles religion things treatment urgent avoid carry command communication emergency enthusiasm labelled labour learn letter limits orders rewards setview caste code codel contact department devoted esie freedom hospital lets perform raises recruitment reports results settle transfers because dadu delay direct" },
+      { id:"taylor", title:"Taylor's Scientific Management", mins:35, tier:"free", art:"target",
+        desc:"Taylor's principles and techniques, with doodle stories, a 3D concept card and exam traps.",
+        url:"notes/taylor-scientific-management.html", keys:"workers study rate method output higher scientific training selection methods cooperation foremen taylor trust attitude mental revolution working tests worker machines standardisation efficiency lower piece principle proper clerk fixes gains planning rule skill speed thumb fitness award conditions differential factory functional guidance route science surplus aptitude department fatigue foremanship goals conflict increase shared sides development doing fixed improvement mutual partners specialist standards uniformity command continuous experiment individualism inspector layout principles productivity specialised supervision train unity among code codel earns harmony managers recipe setview skills taylor's understanding father ffffff guesswork habit instruction justify kitchen paid plans" },
+      { id:"mgmt-cases", title:"Case Study Practice", mins:40, tier:"free"   , art:"brain",
+        desc:"Every question type, a timed paper, and how marks are actually awarded.",
+        url:"notes/principles-case-studies.html", keys:"principles workers evneed principle study scientific unity command output worker efficien managers taylor authority fixed fair higher interest method orders technique conflict employees rest theory wage efficiency fatigue fayol lower piece single stopwatch team chain employee gang mental rate rule staff supervisor bonus harmony incentive justice planning qbyid special streak superior task training department differential directly earns instruction movements others profits renderq shirt simplification skilled taken thumb trained treats agreements answerable approve balance chosen clerk confusion cooperat discipline divid division dual experiment experiments followed foremanship functional gets given hours kindness levels paper plank raise reaches" }
+    ]},
+
+  { id:"ch03", cls:"XII", subject:"Business Studies", num:"3", title:"Business Environment",
+    tagline:"The forces outside the firm that decide what it can and cannot do.",
+    art:"globe", thumb:"img/ch03.jpg",
+    episodes:[
+      { id:"biz-env", title:"Business Environment in 3D", mins:35, tier:"free", art:"globe",
+        desc:"Meaning, features, importance and all five dimensions, with the memory codes.",
+        url:"notes/business-environment.html", keys:"forces general specific cmode vault award demonetisation features firms social dimensions political tagson demon legal technological citytabs demand dims island shuf affect bindflips citypanel competitors health water city defender digital dimension directly economic feat importance interest objectives radar sort warning affects announce apply bank binddb booking code dimbtns feature flash games gbin home illustrative indirectly inter-relatedness investors lock mean pavilion rate rates ring smart suppliers syllabus ticket tried uncertainty around black carry cigarette codes complexity defshow defstart dimp dpos economy explore force glow gopen gsort impact income investment links loop minutes opportunity planning refresh relativity" }
+    ]},
+
+  { id:"ch04", cls:"XII", subject:"Business Studies", num:"4", title:"Planning",
+    tagline:"Deciding today what the business will do tomorrow — then choosing the right kind of plan.",
+    art:"notebook", thumb:"img/ch04.jpg",
+    episodes:[
+      { id:"planning", title:"Planning in 3D", mins:38, tier:"free", art:"notebook",
+        desc:"Features, merits, limitations and the planning process, with the S DIES IF code.",
+        url:"notes/planning.html", keys:"planning qcur plans code dies gate policy questpanel objectives qsel quest rule award features importance limitations single-use spot standing types bindflips future games gates reduces alternative buildcode climb decision fest gopen making mean merit merits penalty premises seen shuf stall tags temple aarav achieved alternatives bonus budget codes courses developing evaluating feat feature follow-up futuristic gchoice general identifying impd implementing limitation links miss pervasive planner poison potion procedure programme refresh results rigidity secs selecting setting sir's specific standards takes thinking tile ahead allows apply assumptions bind btns buildexam buildfeat buildimp buildlim buildmeaning buildprocess buildquiz buildrev" },
+      { id:"types-of-plans", title:"Types of Plans", mins:36, tier:"free", art:"blueprint",
+        desc:"Objective to budget in Plan Town, a compare lab and a battle arena of games.",
+        url:"notes/types-of-plans.html", keys:"plans budget policy rule procedure method programme standing objectives resources strategy single-use discretion general tasks specific stall penalty expected results chronological competitors types award course objective broad rigid year cash fest prescribed complaint decisions numerical policies within real detailed doing fixed period props routine sequence town dates guides token trip actual ends exceptions hours lakh long-term procedures terms thinking allowed apply comprehensive crore days free given launch lessons refund sell smoking achieve decides disc factory funds measurable one-time plates prescribes recruitment rival school simplified staff steamers week annual calc code compare delivery dimensions everything figures" }
+    ]},
+
+  { id:"ch05", cls:"XII", subject:"Business Studies", num:"5", title:"Organising",
+    tagline:"A three-part story: build the team, build the structure, then hand over the power.",
+    art:"blueprint", thumb:"img/ch05.jpg",
+    episodes:[
+      { id:"organising-1", title:"Part 1 — The Organising Arc", mins:35, tier:"free", art:"teacher",
+        desc:"Build the team: meaning, the five building blocks and the organising process.",
+        url:"notes/organising-1.html", keys:"organising stat cine team chaos fest xponce importance tries sound dirty scenes selring checks rescue stations wake endintro missions problem scope situation strategist arcto auto-play camupdate centre checkach cinematic command comms documentelement exit finance gamec kian lastfocus layout logistics reporting seen setrm tasks volunteers arial battle benefit budget defs duties event exponentialramptovalueattime gamea gameb gamee hint init introt isrm meaningquiz mentor onstart organiser outlist poppins posters predict renderfinal roles rotate sched sentence setplay shortcuts solution station student venue anchor arka authority bcine bordercolor buildfinal buildnav chain cplay decides department design donecount exam-ready explorer fillrect flix" },
+      { id:"organising-2", title:"Part 2 — The Structure Arc", mins:38, tier:"free", art:"blueprint",
+        desc:"Build the system: functional and divisional structure, formal and informal organisation.",
+        url:"notes/organising-2.html", keys:"informal fest division formal divisional cine functional stat organisation reports chart finance team checkach marketing accounts department links reporting chaos functions recap kian publicity system cinematic design detective limitation limitations organising runs scenes selring struct advantage advantages grouped sort sorter sound sports tpopen xponce accountable authority auto-play chaoshit event gold managing music onstart science scope arcto chshown communication desk documentelement dotted duplication expo funds goals grapevine higher kids lastfocus missions paused pink responsibility rotate sc-fi sets shortcuts venues volunteers belongs camupdate centre command comparison correctly data-m decisions departmental departments dirty emoji exit exponentialramptovalueattime features fest’s" },
+      { id:"organising-3", title:"Part 3 — The Power Arc", mins:38, tier:"free", art:"gears",
+        desc:"Delegate, empower, succeed: authority, responsibility, accountability and decentralisation.",
+        url:"notes/organising-3.html", keys:"authority delegation venue decentralisation policy kian accountability decisions decision managers fest duty responsibility levels budget centralisation routine within superior chain cine office principal stat subordinate results delegate away duties keeps scope venues volunteers local matters overall staff anil approve decentralise flows organisation subordinates tara zoya centralised checkach decentralised deleg lower passed xponce accountable arena branch branches limits matching recap team answerable approved auth coordination elements initiative owner problem send spread decides grant importance optional predict sound tokens tpopen arrangement centralise creativity dirty even food growth limit models onstart organising outlet scenes sports task chaos chshown" }
+    ]},
+
+  { id:"ch06", cls:"XII", subject:"Business Studies", num:"6", title:"Staffing",
+    tagline:"Find the right crew, put them through the filter, then grow and reward them.",
+    art:"teacher", thumb:"img/ch06.jpg",
+    episodes:[
+      { id:"staffing-1", title:"Part 1 — Find the Right Crew", mins:36, tier:"free", art:"teacher",
+        desc:"Meaning, importance, features and the recruitment sources.",
+        url:"notes/staffing-1.html", keys:"staffing recruitment cheek external internal wave stroke-width cine stat sources source fest smile feat checkach crew importance recruit arena apply positions predict recap wallfloor xponce crisis features onstart scenes star candidates cinematic dash feature hiring merits neutral organising sound tpopen agencies auto-play contractors desk endintro havoc inside kian missions outside rotate scope shock sorter staff stroke-dasharray arcto chshown consultants documentelement employees guidance ishub lastfocus paused problems setrm sparkle stroke-linecap transfers vacancies vacancy wanted advertisement advertising always battle branch chairs comparison data-next direct emoji employment exchanges exit exponentialramptovalueattime flipcards happens hqchbox init inithqpaneltext introt jobs kiosk" },
+      { id:"staffing-2", title:"Part 2 — The Great Filter", mins:38, tier:"free", art:"target",
+        desc:"Selection step by step: tests, the interview and joining.",
+        url:"notes/staffing-2.html", keys:"selection tests recruitment stroke-width stat candidates cine smile story aarav orientation bffcc checkach placement staffing interview arena cheek wave analysis screening applications auto-play contract door gates picture recap xponce cinematic meera negative onstart passmsg hall scenes sound stroke-dasharray tpopen workforce filters great intelligence interest missions paused personality positive scope screener shortlisted stgo storm ststop trade unfit wallfloor workload apply aptitude arcto brightworks candidate checks chshown documentelement executive funnel gate gauntlet guidance invites joining offer preliminary rejects rotate shortcuts sort storyfig textalign training appraisal battle career charge come compensation dash data-next decision development emoji exit exponentialramptovalueattime" },
+      { id:"staffing-3", title:"Part 3 — Grow, Assess, Reward", mins:36, tier:"free", art:"certificate",
+        desc:"Training and development, appraisal, promotion and pay.",
+        url:"notes/staffing-3.html", keys:"training appraisal aarav development promotion stat career cine staffing appr checkach meth arena comp planning smile cheek methods promo recap term auto-play compensation xponce year assess cinematic highway onstart passmsg benefits reward scenes sort sound tpopen away direct dirty grow growth indirect long missions paused picture scope sorter stgo storm story ststop study wake aarav’s arcto calls chshown documentelement gates guidance hwait learning manpower method organisation placement promote rotate running setcount shortcuts skills stations train week actual battle bffcc bonus brightworks camupdate candreset career-oriented comparison course data-next discuss emoji employee exit exponentialramptovalueattime feedback happens hqchbox" }
+    ]},
+
+  { id:"ch07", cls:"XII", subject:"Business Studies", num:"7", title:"Directing",
+    tagline:"Four parts: take charge, light the spark, lead the way, then get the message through.",
+    art:"megaphone", thumb:"img/ch07.jpg",
+    episodes:[
+      { id:"directing-1", title:"Part 1 — The Captain's Call", mins:36, tier:"free", art:"teacher",
+        desc:"Meaning, importance, features and supervision.",
+        url:"notes/directing-1.html", keys:"directing fest kian supervision supervisor workers motivation riya communication smile leadership flows initiates team cine starts importance takes crew directs feedback continuous efforts badge organisation planning stability volunteers keeps subordinates blocks cheek elements plans resources features overseeing poster predict sound html instructions integrates levels mega mount principal scenes staffing direct employees moving one-time problems schedule tells directions discipline feature guiding month motivate sparkle stat tpopen willingly xponce arrr auto-play begins copes efficient goals instruct managers onstart prize provides recruitment send shared staff stations supervisors checkach chshown cinematic committed contact instruction less mmeta motivating moves nobody" },
+      { id:"directing-2", title:"Part 2 — The Spark", mins:38, tier:"free", art:"brain",
+        desc:"Motivation, Maslow's hierarchy and financial and non-financial incentives.",
+        url:"notes/directing-2.html", keys:"motivation recognition safety esteem incentives bonus non-financial social financial tension physiological status cine employee sharing fest incentive self-actualisation security stock team unsatisfied employees retirement zoya enrichment wants goals satisfied html badge blocks drives effort perquisites positive food pension poster smile attitude benefits importance kian lowest maslow mount negative participation predict scenes sparkle xponce ability behaviour growth pyramid shares spark allowances decor empowerment inner motive search sound stat tpopen achieve auto-play belonging creativity freedom lower maslow’s onstart stations turnover wage worker absenteeism allowance authority changes checkach chshown cinematic comes driven fair fear feels friends higher levels" },
+      { id:"directing-3", title:"Part 3 — The Compass", mins:36, tier:"free", art:"target",
+        desc:"Leadership: qualities, styles and when each one works.",
+        url:"notes/directing-3.html", keys:"leader autocratic democratic laissez-faire leadership fest leaders team morale decisions cine integrity qualities smile alone freedom goals skills task orders situation styles features badge influences knowledge poster behaviour blocks builds communication decides decisiveness importance initiative khan motivation mount relations scenes slower xponce bose creative html kian limit predict situational skilled staff continuous crew develops keeps others shock sound stat story towards tpopen auto-play cheek emergency guidance influence maintains onstart personal room speed stations takes arrr checkach chshown cinematic compass creativity followers ideas introduces limits merits mmeta self-confidence social sparkle teams willingly calm confusion consultation decor" },
+      { id:"directing-4", title:"Part 4 — The Signal", mins:36, tier:"free", art:"megaphone",
+        desc:"Communication: the process, formal and informal networks, and the barriers.",
+        url:"notes/directing-4.html", keys:"feedback communication noise sender fest receiver barrier media understanding formal grapevine cine kian chain informal information organisational personal barriers decoding semantic smile psychological zoya everyone badge coordination single blocks channel facts ideas morale network poster sound circular cooperation efficiency mount predict reply scenes xponce downward feelings html loop networks others picture receiver’s sharp signal starts symbols understood decisions free importance peace replies send stat tpopen understands working auto-play directing disturbs drum exchange lack levels loud news onstart response rumours schedule stations upward channels chat checkach chshown cinematic converting elements inverted jargon language listener mmeta problems" }
+    ]},
+
+  { id:"ch08", cls:"XII", subject:"Business Studies", num:"8", title:"Controlling",
+    tagline:"Set the standard, measure the work, correct the gap — and see why planning needs it.",
+    art:"target", thumb:"img/ch08.jpg",
+    episodes:[
+      { id:"controlling-1", title:"Part 1 — The Reality Check", mins:40, tier:"free", art:"chart",
+        desc:"Meaning, importance, features and the planning-controlling link.",
+        url:"notes/controlling-1.html", keys:"controlling planning standards fest actual checks cine compare deviation deviations motivation team corrective efficient planned resources coordination staffing tickets badge feedback results riya against discipline goals benefit kian pervasive poster blocks continuous judging neel importance mount organisation predict scenes ahead html objectives checking cy-r features improve improves lessons monitor plans sound stat tpopen whether xponce accomplishing auto-play beats blind budget compares goal-oriented onstart percent recruitment stations track wastage year’s zoya checkach chshown cinematic controls decor drive measure mmeta sold staff ticket twins accuracy advance because cx-r delegation fair finding future gauge late meaningless missions needle" },
+      { id:"controlling-2", title:"Part 2 — The Final Arc", mins:40, tier:"free", art:"gears",
+        desc:"Every step in the process of control, worked through in order.",
+        url:"notes/controlling-2.html", keys:"standards deviation actual deviations planning cause corrective compare fest measure controlling setting exception cine critical measuring analyse quantitative tickets kian neel tolerance badge blocks comparing feedback percent qualitative zoya analysing poster success ticket areas costly dashboard reported riya html mount reports scenes acceptable checking observation significant track xponce analysis cy-r inside sold stat team tpopen auto-play concurrent drive during employees external factors machines onstart personal predict preliminary report resistance room sample staff staffing stations against because checkach chshown cinematic come comparison everything ffffff mmeta outside policy sound supplementary taking advance attention begins closely cx-r delegation" }
+    ]},
+
+  { id:"ch09", cls:"XII", subject:"Business Studies", num:"9", title:"Financial Management",
+    tagline:"How much money the business needs, where it comes from and where it goes.",
+    art:"coins", thumb:"img/ch09.jpg", episodes:[
+      { id:"fm-money-matters", title:"Money Matters", mins:30, tier:"free", art:"coins", desc:"Business finance, its role and objectives, and the three financial decisions.", url:"notes/fm-money-matters.html", keys:"wealth budgeting dividend capital investment assets maximisation modernise shareholders financing funds irreversible equity optimal diversify criteria cash nexora inflow flows invest procurement shares quantum payback factors fixed invested expand fbanner composition debt primary maximise receivables risk exceeds mount zayn reflected huge affecting objective reversed depreciation loan sources involve lifeblood decs richer affects involved affect risky expenses receipts account land exceed" },
+      { id:"fm-raise-share", title:"Raise It, Share It", mins:30, tier:"free", art:"pricetag", desc:"The financing decision and the dividend decision, with their factors.", url:"notes/fm-raise-share.html", keys:"dividend financing debt flotation shareholders earnings dividends equity contractual constraints retained funds factors borrowed cash fixed loan capital dilute stability owners retain affecting reaction deductible risk riskier operating constraint taxation considerations crore interest shares preference maximising growth depressed legal access burden opportunities repayment debentures repaid companies cheaper payout quantum stable borrow nexora ffac dfac prefer mount agreement eleven loans costlier" },
+      { id:"fm-plan-balance", title:"Plan and Balance", mins:30, tier:"free", art:"documents", desc:"Financial planning, capital structure and trading on equity.", url:"notes/fm-plan-balance.html", keys:"debt equity ebit interest funds capital dscr lever trading coverage blueprint repayment leverage flotation ratio lakh flexibility risk borrowing favourable shareholders factors borrowed unfavourable cash absolute optimal dividend earnings owners balance shares shocks peers keyframes mount flex investment timing unnecessary align fourteen deductible regulatory inset debentures sebi financing affecting raises baloo norms grid zayn gradient borrow fixed unnecessarily reserves dilutes" },
+      { id:"fm-fixed-working", title:"Long and Short Money", mins:32, tier:"free", art:"gears", desc:"Fixed capital, working capital and the operating cycle.", url:"notes/fm-fixed-working.html", keys:"capital cycle assets debtors fixed gross availed factors operating intensive cash collaboration leasing credit inflation technique liabilities prospects diversification season liquidity lease irreversible investment upgradation lakh affecting seasonal nature prepaid growth requirement financing efficiency land allowed technology budgeting peak liberal absolute profitability alternatives dividend machines operations sources facilities scarce depression fixf keyframes boom mount suppliers stock flex align lean machinery" }
+    ] },
+
+  { id:"ch10", cls:"XII", subject:"Business Studies", num:"10", title:"Financial Markets",
+    tagline:"Money market, capital market, the stock exchange and SEBI.",
+    art:"chart", thumb:"img/ch10.jpg", episodes:[
+      { id:"fm-money-market", title:"Where Money Meets", mins:32, tier:"free", art:"bank", desc:"Financial markets and the money market, its participants and instruments.", url:"notes/fm-money-market.html", keys:"instruments bill commercial treasury savings unsecured liquidity instrument capital deposit banks productive markets discovery bridge participants assets coupon promissory mobilise days maturity funds issued outlay creditworthy liquid discount shares repayable negotiable safer reserve inter savers bonds households bearer companies kiara borrows certificate mkbanner allocative absolute nexora investors zero sebi redeemed mobilisation exchange mobilises cash keyframes highly behalf mount businesses flex" },
+      { id:"fm-capital-market", title:"The Capital Market", mins:32, tier:"free", art:"chart", desc:"Capital market, primary and secondary markets, and the stock exchange.", url:"notes/fm-capital-market.html", keys:"secondary securities primary existing exchange liquidity floatation capital cult stock prospectus shares investors marketability formation issue speculation exchanges nexora equity private sebi offer rights placement brokers proportion institutional public banks kiara shareholders sale resell markets method funds supply issues regulated absolute methods economic reinvestment disinvestment keyframes debt commercial pricing transactions spreading ownership investor issuing mount flex consists bonds debentures intermediaries" },
+      { id:"fm-trading-demat", title:"Click, Trade, Settle", mins:34, tier:"free", art:"notebook", desc:"Stock exchange trading, demat accounts and settlement, with a trading simulator.", url:"notes/fm-trading-demat.html", keys:"demat depository broker settlement securities account participant electronic dematerialisation sebi nsdl shares certificates cdsl trading investor execution bullrun executed credits contract credited brokers cancelled trade theft rolling electronically settled settle registered procedure exchange holds forgery brokerage kiara stock volta pendcash grandfather pledging form markets simulator prospectus request trades institution depositories execute holdings absolute transfer registrar entries nexora pend kite intermediary" },
+      { id:"fm-sebi", title:"The Market Watchdog", mins:28, tier:"free", art:"shield", desc:"SEBI: why it exists, its objectives and its three functions.", url:"notes/fm-sebi.html", keys:"sebi protective regulatory regulate insider rigging intermediaries statutory investors brokers watchdog development practices securities malpractices investor exchanges trading conduct develop audit unofficial issuers registration interim markets training research unfair powers protect bids regulation takeovers april mutual merchant bankers takeover broker fees misleading stock depository inquiries fraudulent inspection serves exchange participants absolute secret flexible prevent objectives sensitive penalty protection delays referee" },
+      { id:"fm-revision", title:"Financial Markets: Revision Walkthrough", mins:25, tier:"free", art:"bank", desc:"The whole chapter in one walkthrough: savings, markets, stock exchange and SEBI.", url:"notes/fm-revision.html", keys:"securities funds household investors liquidity scroller households entry brokers investor exchange sections sebi savings dotnav capital security secondary existing markets dots commercial shares fair jobs hands firms trading india issue safety" }
+    ] },
+
+  { id:"ch11", cls:"XII", subject:"Business Studies", num:"11", title:"Marketing Management",
+    tagline:"One running case — the NOVA smart bottle — carried through all four Ps.",
+    art:"megaphone", thumb:"img/ch11.jpg",
+    episodes:[
+      { id:"philosophies", title:"Marketing Management Philosophies", mins:25, tier:"free", art:"teacher",
+        desc:"Production, product, selling, marketing and societal concepts.",
+        url:"notes/marketing-philosophies.html", keys:"marketing selling getelementbyid societal promotion satisfaction society explore products features sell aggressive philosophy satisfy students affordability approach availability factory food long-term modal objective packaging philosophies solved distribution dots myopia smartphone social thinks volume welfare affordable brand centre cheap competitors consumers customer-centric detective discounts eco-friendly efforts improving journey persuasion pointers product-centric profitability research scroller secs shop society-centric thinking actually around balances became calls caring choices column considering convince data-no easily efficiency enough environmental firms hard healthy high higher insurance interactive interests keeps launches launching lower mass nobody onscroll prefer premium produce represents responsibility sale satisfied society's" },
+      { id:"product", title:"Product, Branding, Packaging & Labelling", mins:35, tier:"free", art:"package",
+        desc:"The four Ps, then everything the product itself carries.",
+        url:"notes/marketing-mix-product.html", keys:"brand packaging information labelling branding spoken trademark container registered marketing symbol drink identity package promotion wrapper giving service bottle protection recognised carton convenience identification ingredients legally quantity students distinct distinctive handling identifies orange phone primary services today anything benefits design easier easy exclusive freshsip functions legal offered protects recognise rights secondary secs transport transportation zento after-sales beverage buying callouts cbse children compare creates damage describes description designing energy fictional gnbtn grading inside know let's logo look months offering openbtn owner producing pronounce protected provides registration sale scroller seal seen shipping shoes smartphone today's visually warranty" },
+      { id:"price", title:"Price Mix", mins:25, tier:"free"   , art:"pricetag",
+        desc:"Six factors behind a price, with a costing simulation.",
+        url:"notes/price-mix.html", keys:"demand nova marketing pricing premium utility government bottle competition factors influence limit regulations lower competitor legal methods objectives scenario charge high promotion smart willingness competitors decision distribution objective perceive positioning survival upper affect applicable conditions controls depends determining extent growth secs taxes after-sales competitive decisions elements fall happen happens higher intensity interactive interrelated long maximisation obtain perceived pill policies prices recover scroller sell selling service sets tolocalestring wants advertising branding buyer's children consider customer's digital exam-ready firm's ignore important increase keywords labour later leadership matched onscroll output packaging paid picks quantity reduces revenue several strategy" },
+      { id:"place", title:"Place Mix", mins:28, tier:"free"   , art:"truck",
+        desc:"Channels, transport, warehousing and inventory.",
+        url:"notes/place-mix.html", keys:"retailer consumer distribution producer channel nova wholesaler bottles direct stock agent warehousing intermediary route transportation processing inventory indirect intermediaries orders involved channels one-level physically sells storage three-level two-level warehouse appropriate bottle components movement sale availability component directly manufacturers nova's received road covers dispatch factory fulfilling moves receiving recording retailers stages stored supplies water bnext children city excess journey prepared products retail secs shop stores transport ultimate unnecessary wholesalers bslots carry consumers delivery dispatched inter keeps keywords little maintaining making moving online quantity rail routes runroute runroutes scroller shops smart store storing truck website write accurate" },
+      { id:"promotion", title:"Promotion Mix", mins:35, tier:"free"   , art:"megaphone",
+        desc:"Advertising, personal selling, sales promotion and public relations.",
+        url:"notes/promotion-mix.html", keys:"promotion advertising personal selling nova public relations media communication tool awareness demonstration purchase buyers short-term bottle immediate promote form marketing non-personal nova's audience brand campaign favourable feedback free identified large paid relationships salesperson sponsor balanced discount encourage launch presentation products publicity reaches creates designed incentives interaction interest know mass objective offer smart social trial view advertisement biggest conversation explanation face hydration incentive increase matters objections qualities radio release secs television budget children community company's compare corporate counselling coverage critics demonstrates digital elements encourages feature gift great hoardings inform keyword keywords lakh lobbying newspaper newspapers objectives" },
+      { id:"mm-revision", title:"Quick Revision", mins:20, tier:"free", art:"notebook",
+        desc:"The whole chapter in one fast pass before the exam.",
+        url:"notes/marketing-revision.html", keys:"marketing pricing selling premium promotion expand philosophies products real satisfy regardless actually amazon's assumption balances continuous core customer's cycle decline demand distribution efficiency growth hard innovation insurance introduction life maturity methods myopia obsession psychological rivals section societal stages strategic strategy tile timeshare volume walkthrough whether active advertising affordable aggressive aggressively already apple apple's approach assembly behind boost brief builds built businesses chains cheaper checking classic clever coca-cola's commands commitment communication competition competition-based competitive competitors controlling cost-based coverage covered customer-first data-id data-reveal decisions decrease deliver digital direct discipline discount dotnav dots easy ecosystem elements ends environmental" },
+      { id:"case-lab", title:"Case Lab — Marketing Masters", mins:60, tier:"free"   , art:"brain",
+        desc:"32 cases for 1, 3, 4 and 6 marks, with hints and model answers.",
+        url:"notes/marketing-case-lab.html", keys:"promotion marketing advertising brand nova distribution selling channel packaging functions information bottle stock labelling demand stores free freshbite greencart retailers government personal pricing buyers processing quicksip design inventory relations delivery storage transportation urbanweave competition elements features legal objective shops symbol channels direct last public sell sells warehousing website grading orders retail retailer rivals wholesaler awareness branding one-level philosophy premium social warranty children demonstrations designing face pack publicity purchase registered two-level utility celebrity consumer credit draft hist local products tube attempted brightstart communication factors gathering helpline identification nova's objectives paid protection pureglow renderdash satisfaction standardisation submit" }
+    ]},
+
+  { id:"ch12", cls:"XII", subject:"Business Studies", num:"12", title:"Consumer Protection",
+    tagline:"Your rights as a buyer, the forums that enforce them, and how a case is actually filed.",
+    art:"shield", thumb:"img/ch12.jpg",
+    episodes:[
+      { id:"consumer-1", title:"Consumer Protection — Part 1", mins:24, tier:"free", art:"shield",
+        desc:"Consumer rights, responsibilities and who can complain.",
+        url:"notes/consumer-protection-1.html", keys:"consumer protection consumers exploitation practices services unfair consideration interests trade commercial information resale service buyer legal phone aarav active buys reasons rights bought ignorance long-term purchase safeguarding social goto paid personal protecting responsibility seller view framework interest products unorganised alone buying claims defective fair grievances livelihood misleading situation trust uses widespread conditions definition free know large moral overcharging phones protect repair scroller self-employment sellers society thinking approved avails awareness because businesses covers defect government hires illustrative important intervention justification laptop provides purchases resources treating whether aarav's always business-side charges clearly covered deal decision discount displayed" },
+      { id:"consumer-2", title:"Consumer Protection — Part 2", mins:30, tier:"free", art:"documents",
+        desc:"Redressal machinery, consumer forums and how a complaint is filed.",
+        url:"notes/consumer-protection-2.html", keys:"consumer commission complaint rights compensation lakh national crore file district service cause deficiency consumers unfair within refund defect advertisement appeal ccpa misleading paid years commissions consideration orders repair mean protection trade court days jurisdiction payment remedies complainant corrective diff party relief replacement responsibilities association opposite recognised remedy removal seller against appeals binding evidence labels limitation safety clip complaints date educate informed ngos ordered redressal regulator services sufficient supreme calc facts fault hazardous interest legal responsibility warranty awareness cash claims deposit fixed hears module quasi-judicial stories trap cancel exceed expiry heard memo online phone practices proof" },
+      { id:"cp-practice", title:"Practice Lab", mins:45, tier:"free"   , art:"target",
+        desc:"MCQs, 3, 4 and 6-mark labs and case studies, with full-marks structure.",
+        url:"notes/consumer-protection-practice-lab.html", keys:"commission consumer compensation lakh district cause refund deficiency years complaint consumers days file within ccpa national informed unfair crore seller bill association complain consideration orders safety defect hazardous interest paid rights sufficient advertisement corrective legal services misleading payment recognised replacement responsibility service trade binding evidence labels loss party relief agmark injury opposite protection record repair court facts heard information jurisdiction reasons commissions complaints guardian reliefs withdraw appeal complainant date discontinue hallmark negligence parent records redressal regulator removal supreme against aware cancel compare delay dispute expiry genuine manufacturer ngos proof publish tips withdrawal appeals awareness cash" }
+    ]},
+
+  // ===================== CLASS XII · ACCOUNTANCY =====================
+  { id:"acc-deb", cls:"XII", subject:"Accountancy", num:"", title:"Issue of Debentures",
+    tagline:"Company accounts worked entry by entry — at par, at premium and at discount.",
+    art:"certificate", thumb:"",
+    episodes:[
+      { id:"debentures", title:"Issue of Debentures — Workbook", mins:40, tier:"free"   , art:"certificate",
+        desc:"Journal entries at par, premium and discount, worked step by step.",
+        url:"notes/debentures-workbook.html", keys:"debentures premium issue getelementbyid debenture loss issued loan entry securities bank collateral redemption security discount suspense vendor particulars allotment terms topic credited face liability year borrowings consideration received redeemable secs written account asset balance cash journal long-term machinery method purchase rest solution taken accounts against general interest msgs recorded secured accountancy debit finance liabilities mohan nominal nothing passed settled settlement sir's wans workspace write-off assets cbse charged classes count created creditors debited divide dotnav entries exists fixed goodwill holders last less nova paid practise principal purchased quizmsg real repaid repay scorenum sheet shown started worked" }
+    ]},
+
+  // ===================== CLASS XII · ENTREPRENEURSHIP =====================
+  { id:"ent-u1", cls:"XII", subject:"Entrepreneurship", unit:"Unit", num:"1", title:"Entrepreneurial Opportunity",
+    tagline:"Spotting an idea worth building, and testing whether it can actually stand up.",
+    art:"brain", thumb:"img/ent-u1.jpg",
+    episodes:[
+      { id:"ent-opportunity", title:"The Opportunity Hunters", mins:45, tier:"free", art:"brain",
+        desc:"Seven modules on sensing, scanning and assessing an entrepreneurial opportunity.",
+        url:"notes/ent-opportunity-hunters.html", keys:"opportunity book trends ideas innovation problem resources demand competition creative creativity existing opportunities service products evidence factors identification assessment supply incubation verification badge germination module trade commercial elements aarav cine mira problems technology trend economic illumination social preparation scanning ways zayn ability fields legal real spotting field food natural operation sector students talk future kiara trading-related blocks entrepreneur micro nexora planning sensing sources technological xponce changes enterprise growth html information learning pestel scope stations technical advantage analytical assumption complexity efforts local online poster committee early government macro organising research scenes solution source survey ecological income" }
+    ]},
+
+  { id:"ent-u2", cls:"XII", subject:"Entrepreneurship", unit:"Unit", num:"2", title:"Enterprise Planning",
+    tagline:"Pick the right form of business, then write the plan that holds it together.",
+    art:"blueprint", thumb:"img/ent-u2.jpg",
+    episodes:[
+      { id:"ent-blueprint", title:"The Blueprint Begins", mins:40, tier:"free", art:"blueprint",
+        desc:"Forms of business organisation, starting with sole proprietorship.",
+        url:"notes/ent-blueprint-begins.html", keys:"sole sector form private limited proprietorship public liability utility risk book joint government unlimited legal cine economic feature forms owned capital employment owner partnership profession shop service badge welfare individual local regularity sale satya suitable characteristics entity separate blocks family non-economic shoes aarav beneficiary decisions easy manufacturing mount personal poster scenes services trading venture formalities others secrecy selling entrepreneur financing html predict stat tpopen xponce artistic auto-play co-operative controlled debts departmental enterprise onstart ownership proprietor stations checkach chshown cinematic consider desk earning exchange higher huge knowledge late loss managed minimum mmeta one-time sound specialised store" },
+      { id:"ent-partners", title:"Partners and Companies", mins:40, tier:"free", art:"documents",
+        desc:"Partnership, company and co-operative — and choosing the right form.",
+        url:"notes/ent-partners-companies.html", keys:"partnership public private liability book form shares limited capital partners members deed unlimited feature partner seal cine mutual companies aarav sole transfer agency lakh artificial continuity badge contract directors entity heavy mira risk separate agreement suitable blocks html legal managerial current factors funds huge minimum mount personal poster scenes shareholders complex invitation limit persons unregistered against choice faith features proprietorship stat suit tpopen written xponce association auto-play characteristics company’s debts firms government invite liable nexora onstart operations party predict registrar restricted stations status transferable winding agent arises checkach chshown cinematic claim co-operative contact contents ends" },
+      { id:"ent-plan", title:"The Business Plan", mins:40, tier:"free", art:"notebook",
+        desc:"A road map for the venture, section by section.",
+        url:"notes/ent-business-plan.html", keys:"marketing book cash financial venture pitch operational proforma cine planning elevator appendix badge funds manufacturing risk break-even importance organisational profile routing balance html internal manpower sheet shipping written blocks components financing form inspection analysis elements income credit decisions deck dispatching mount poster scenes scheduling aarav fixed introductory investors nexora promotion revenue viability goals investment projected social stat tiffin tiffins tpopen trip variables xponce auto-play bank cover description external follow-up machinery minus onstart output potential predict presentation road service stakeholders stations checkach chshown cinematic formats kitchen mmeta month obstacles ownership procure resources sells shimla sound strategy" }
+    ]},
+
+  { id:"ent-u3", cls:"XII", subject:"Entrepreneurship", unit:"Unit", num:"3", title:"Enterprise Marketing",
+    tagline:"Goals, the mix, the brand, the price and finally getting the word out.",
+    art:"megaphone", thumb:"img/ent-u3.jpg",
+    episodes:[
+      { id:"ent-compass", title:"The Marketing Compass", mins:46, tier:"free", art:"target",
+        desc:"Marketing goals, strategy and the elements of the mix.",
+        url:"notes/ent-marketing-compass.html", keys:"aldi achievable goals fuzzy book compass strategy smart actionable aaker measurable hostel setting blind relevant brands nexora promotion tiffins famous tagline branding deadline stretch attainable meal revenue stanton tiffin generating clarity shoppers march specific instagram labelling reels deadlines focused sustainable stretches kotler scoreboard quantifiable proactive liked alignment david absolute taste brand location achieving mails leaflets incorporating concentrate keyframes packaging optimal" },
+      { id:"ent-brand", title:"The Brand Studio", mins:38, tier:"free", art:"package",
+        desc:"Branding, logo, tagline and intellectual property.",
+        url:"notes/ent-brand-studio.html", keys:"brand tagline patent logo book branding trade symbol maggi clove secret numeric spoken toothpaste labelling amul studio pleasing brandr packaging design invention offensive lifebuoy memorable intellectual confidential corporate family liril godrej creations adaptable exclusive visual tiffin industrial umbrella imitation dramatic anchors protects qualities nexora tata distinct burn vocalised ponds comparative arches disclosure legal recognised protect entrepreneur girl rights individual identifies" },
+      { id:"ent-price", title:"Price, Place and the Sales Plan", mins:40, tier:"free", art:"pricetag",
+        desc:"Pricing, channels of distribution and the sales strategy.",
+        url:"notes/ent-price-place-sales.html", keys:"channel penetration skimming variable pricing producer book middlemen retailer adopters disadvantages strategy disadvantage wholesaler buyers perishable channels bargaining advantages producers considerations indirect manufacturer toothpaste perishability ignores zero advantage recovers adoption customised scattered competitors backfire early types remote rural agents factors flows goodwill launch nexora possibilities litres dickering bargain consumer industrial recover conscious consumers negative standardised switchers skim siblings eventual anticipated" },
+      { id:"ent-promo", title:"Spread the Word", mins:42, tier:"free", art:"megaphone",
+        desc:"Promotion, the tools behind it and what comes after.",
+        url:"notes/ent-spread-the-word.html", keys:"aida book negotiation promotion vendor vendors cinema advertising mass integrative blockbuster subhiksha promotions failure sponsorship media relations corfam nexora stakeholders distributive targeted uncontrolled listings personal relationships desire lack inductive inappropriate deductive public directory radio persuasive strategy tiffin familiar competitions informative inadequate cause employee loyalty audience mail television stationery inform roles causes poor outdoor unworkable ceasing medium word location spread displays" }
+    ]},
+
+  { id:"ent-u4", cls:"XII", subject:"Entrepreneurship", unit:"Unit", num:"4", title:"Enterprise Growth Strategies",
+    tagline:"Once it works, make it bigger — by expanding, by adding value, or by joining forces.",
+    art:"crane", thumb:"img/ent-u4.jpg",
+    episodes:[
+      { id:"ent-grow", title:"Grow or Die", mins:36, tier:"free", art:"chart",
+        desc:"Expansion routes and how franchising actually works.",
+        url:"notes/ent-grow-or-die.html", keys:"franchise franchisor franchisee franchising franchisees goli expansion book vada royalty outlets internal agreement maintenance advantages proprietary nexora proven continuing singer franchised disadvantage royalties opportunity mergers growth disadvantages operating expertise untapped distribute training manual cities types stores expand acquisitions grow capital ongoing manufacturing site raymond routes popular advantage vending isaac pune cream upgrades tyre structural hygienic acceptance local brand street ritu" },
+      { id:"ent-value", title:"Add Value", mins:34, tier:"free", art:"gears",
+        desc:"Value addition and every link in the value chain.",
+        url:"notes/ent-add-value.html", keys:"porter outbound inbound added logistics cheese cultural primary addition commodity book milk infrastructure procurement outputs branded environmental nexora types operations cause technology kosher inputs recycled adding mutually technological fuel tiffins services serving sipper grated related convenience wood warranties culture efficiently subscriptions modifying michael chainimg leadership advantage moving exclusive absolute cotton outdated human merger harm english obtained attitudes requirements food wildlife" },
+      { id:"ent-join", title:"Join Forces", mins:35, tier:"free", art:"crane",
+        desc:"Mergers and acquisitions — the types, the reasons and the risks.",
+        url:"notes/ent-join-forces.html", keys:"synergy merger cadbury book mergers acquisition absorption hostile kraft conglomerate consolidation amalgamation horizontal acquisitions corus diligence chrysler daimler curse citigroup acquiring integration tata types unrelated winner tomco subsidiary packright merged acquirer merge pence boardroom absorbed entity leverage combined vertical forms supplier culture friendly failure nexora assets synergies rare overstated mobilink disney broadcom accelerated private capacity operating difficulties competency markets clients" }
+    ]},
+
+  // ===================== CLASS XI · BUSINESS STUDIES =====================
+  { id:"ch13", cls:"XI", subject:"Business Studies", num:"13", title:"Entrepreneurship Development",
+    tagline:"From an idea to a working enterprise — and the thinking in between.",
+    art:"brain", thumb:"img/ch13.jpg", episodes:[] },
+
+  { id:"ch14", cls:"XI", subject:"Business Studies", num:"14", title:"International Business",
+    tagline:"The complete export and import journey, from the first enquiry to the payment landing home.",
+    art:"globe", thumb:"img/ch14.jpg",
+    episodes:[
+      { id:"ib-1", title:"International Business — Part 1", mins:26, tier:"free", art:"globe",
+        desc:"Why countries trade, and the ways a firm can go global.",
+        url:"notes/international-business-1.html", keys:"trade international india export countries country exporter buyer foreign credit services exchange firms benefits domestic import creditworthiness getelementbyid invoice proforma capacity delivery dubai enquiry financial importer indian payment quantity terms assess buyers economies global quotation risk scroller wider choice dragged growth higher markets produce resources sold abroad accepting active agency bank consumers currency days importer's increase journey non-payment procedure products reputation royal sale sections sells sends utilisation zone abcd access around benefit beyond border borders buyer's buys changes containing cooperation cotton development drop economic enters expand fashion generally germany globe greater happens home immediately japan" },
+      { id:"export-2", title:"Export Procedure — Part 2", mins:30, tier:"free"   , art:"ship",
+        desc:"From enquiry and order to production and pre-shipment.",
+        url:"notes/export-procedure-2.html", keys:"export exporter clearance finance pre-shipment inspection buyer shipment ecgc bank rcmc excise licence specifications account packaging payment slotstate applicable foreign importer protection risks active against enquiry formalities promotion certificate council creditworthiness factory materials procurement quantity relevant sample scroller ship specified unlock code credit import inspbusy obtain obtained obtaining passport prescribed procure quotation requirements slotsel according authorised authorities authority checks children concerned cover customs delivery exchange execute identification insurance journey lakh necessary non-payment poolel procedure produce receipt receiving registration-cum-membership road sections setcur specific specification terms unique working-capital abroad advertise approved asks assessing benefits buyer's capital checkpoint" },
+      { id:"export-3", title:"Export Procedure — Part 3", mins:28, tier:"free"   , art:"documents",
+        desc:"Shipping bill, mate's receipt and the documents in between.",
+        url:"notes/export-procedure-3.html", keys:"shipping port origin india certificate shipment spice insurance policy country specimen applicable royal exporter railway cargo cartons cochin jebel fictional illustrative importer receive transit actual covered loss specified boxes captain during forwarding issued receipt subject authorised carton certifies clearance cover customs date educational export exported gift issue produced ship claim concessions exclusions insured october originate premium risks sections weight applies conditions damage eligible entry field gross indian instruction kochi loaded parentelement procedure quantity tariff terms vary accepted active against agent arrangement authorities authority booking contract description documents establish filled foods global issuing missed probable requirements" },
+      { id:"customs", title:"Customs Clearance — Step 13", mins:22, tier:"free"   , art:"stamp",
+        desc:"What happens at the port before goods are allowed out.",
+        url:"notes/customs-clearance.html", keys:"customs port shipping bill carting documents cargo export exporter dock clearance entry agent submitted appraiser certificate ship specimen copies formalities gate instruction permission permit spice shed staff supporting india insurance origin appropriate cleared royal superintendent policy sections stored authorities commercial country credit description exporter's file forwarding house inspection invoice letter marine vessel able address captain cartons contract exported fictional loaded necessary personally poolel prepares present related because clearing discharged dragged educational examine illustrative inner inside obtained obtaining office prepare receive shipment slotsel wrap actual along already applicable appoint appoints boxes carry children cochin completed current" },
+      { id:"shipment-pay", title:"From Shipment to Payment — Steps 14–17", mins:26, tier:"free"   , art:"bank",
+        desc:"Bill of lading, invoice, letter of credit and getting paid.",
+        url:"notes/shipment-to-payment.html", keys:"receipt bill payment lading invoice shipping mate's freight shipment importer exporter commercial clean issued remarks adverse cartons condition documents port spice foul quantity terms received apparent bank cargo procedure agreed contract india mate officer export packaging royal payable records ship's acknowledges arrangement authorised carriage date specimen evidence illustrative description exporter's global importer's issues sent ship states according agent paid prepared draft packages relevant carrying credit damage foods letter pays proforma securing trading address banking boxes charge customs educational entry origin premium released sections vessel acknowledging applicable cochin conditions currency distinguish documentary exchange gift important india's" },
+      { id:"import", title:"Import Trade Mission", mins:30, tier:"free"   , art:"crane",
+        desc:"The import procedure run as a mission you work through.",
+        url:"notes/import-trade-mission.html", keys:"documents importer exporter import bill payment bank nova terms customs foreign shipping indent delivery enquiry exchange released trade components licence supplier credit quantity ship against dock pays letter shipment export advice finance india pacific entry release acceptance undertaking carrier charges clearance invoice port arrival nova's currency topic date duty officer stages subject agreed arranging illustrative receipt vessel draft issued obtain retirement banks buyer electronics lading later paid placing quotation restricted sight complying funds indian manifest paying proforma sends applicable arrange arrangement bank's general obtaining party request usance captain mate parties sent singapore country freight october" },
+      { id:"arena-ib", title:"Practice Arena", mins:35, tier:"free"   , art:"target",
+        desc:"Timed questions across the whole export-import chapter.",
+        url:"notes/practice-arena-ib.html", keys:"export receipt bill shipping certificate importer customs invoice bank origin payment country issued lading clearance exporter blitz credit games inspection international pre-shipment carting import mate's moves code contract hints letter roll against agent cargo carriage date ecgc finance non-payment port shipment solved trade commercial dock documents exchange procedure risks screenshot spice bonus captain cells council foreign lock mate pairs passage produced proforma promotion rcmc received report royal sections specified tleft wcells arena artifact casemax certifies claude crossword enquiry excise freight grid https insurance obtaining officer railway risk ship star starcheck weight word activate adverse badge" },
+      { id:"trade-quest", title:"Trade Quest Practice", mins:25, tier:"free", art:"truck", desc:"Timed practice on internal trade, retail and GST, and international business.", url:"notes/trade-quest.html", keys:"shipping customs igst indent bill itinerant international export mock nation departmental retailers trade mate import cgst sgst importer stores internal jacks store shops receipt manufacturers credit haryana traders nations exporter documents wholesalers living foreign peddlers gatt street ship retailer enquiry roof wholesaler clearance lading inter duty punjab payment quest services specialty utgst hawkers geneva shop tariffs obtaining shipment procedure chapters" }
+    ]},
+  { id:"xi-u1", cls:"XI", subject:"Business Studies", unit:"Unit", num:"1", title:"Business, Trade and Commerce",
+    tagline:"What business is, why it exists, and how trade grew in India.",
+    art:"notebook", thumb:"", episodes:[
+      { id:"xi-what-is-business", title:"What Is Business?", mins:25, tier:"free", art:"notebook", desc:"Business, profession and employment: meaning and characteristics.", url:"notes/xi-what-is-business.html", keys:"profession employment economic chai professional regularity salary characteristics occupation love characteristic regular career sentiment dealings qualification appointment conduct establishment doctor affection reward earning personalised livelihood uncertain commerce living clerk patriotism employer sale uncertainty cooking human mother wages regularly chartered econ formalities production undertaken clinic transfer norms council stall rainy occupations absolute membership family irregular ethics careers zayn profile engage accountants" },
+      { id:"xi-objectives", title:"Objectives and Industry", mins:25, tier:"free", art:"target", desc:"Objectives of business, the role of profit, and industry: primary, secondary, tertiary.", url:"notes/xi-objectives-industry.html", keys:"industry tertiary genetic extractive tree commerce assembling synthetical construction analytical secondary primary fishing fish breeding processing manufacturing objectives innovation poultry mining standing cement productivity reputation society refinery nurseries lumbering hatchery indicates belt classification industries income objective chai cattle subgroups dams conveyor responsibility approval expansion farming sugar banking earning hunting attitude trade stall auxiliaries social areas survival roads efficiency worker resources" },
+      { id:"xi-commerce-risk", title:"Commerce and Business Risk", mins:25, tier:"free", art:"shield", desc:"Commerce: trade and its auxiliaries, and the risks of doing business.", url:"notes/xi-commerce-risk.html", keys:"hindrance commerce auxiliaries trade auxiliary warehousing shillong removes causes sweaters entrepot hindrances speculative winter natural banking wool export wholesale insurance nature eliminated uncertainties ludhiana import transportation economic internal sweater communication cause possibility transport human uncertainty fire retail summer industry advertising inadequate information reward road till mechanical earthquake dishonesty truck loss theft failure exchange flood clears competition absolute buyers famine comm" },
+      { id:"xi-history-trade", title:"History of Trade in India", mins:25, tier:"free", art:"globe", desc:"Trade and commerce in India through the ages: indigenous banking, intermediaries, transport and merchants.", url:"notes/xi-history-trade.html", keys:"indigenous silk ancient communities world merchants centres trade guilds colonial intermediaries bankers india horses merchant tamralipti reforms nagarseth economy spices mahajans broach imports caravans ports routes multani chinese route deposits banking advances weaver taxila distant decline western varanasi ujjain peshawar kaveripatta commission agents north land distributors largest gave commerce punjabi overland museum mithila mathura gujarat guild enhanced bhats trading chief" }
+    ]},
+
+  { id:"xi-u2", cls:"XI", subject:"Business Studies", unit:"Unit", num:"2", title:"Forms of Business Organisation",
+    tagline:"Choosing how to own and run a business: alone, in partners, or as a company.",
+    art:"documents", thumb:"", episodes:[
+      { id:"xi-sole-huf", title:"Sole Proprietorship and HUF", mins:25, tier:"free", art:"package", desc:"Sole proprietorship: features, merits and limitations; the HUF business.", url:"notes/xi-sole-huf.html", keys:"sole karta proprietorship rohan liability unlimited eldest coparceners confidentiality birth hindu continuity limited family owner merit merits accomplishment members formation generations undivided membership limitations closure textile ancestral illness incentive personal assets proprietor owned store priya member entity debts manages successive dadaji governed limitation forms feature death lakh recipient grandfather managed separate shuts fromp sense bearer shop partnership house coparcener grocery" },
+      { id:"xi-partnership", title:"Partnership", mins:25, tier:"free", art:"documents", desc:"Partnership: features, types of partners, the partnership deed and registration.", url:"notes/xi-partnership.html", keys:"partner partnership partners deed sleeping nominal liability priya harpreet unlimited estoppel registration thread tale agency continuity minor active capital merits agreement secret merit conflicts mutual limited profits liable disputes contributes joint types optional lends formation parties skills limitations sole dormant holding balanced partnerships meena file consequences retirement possibility acting limitation secrecy manages dissolution registrar public lack design proprietorship outsiders unregistered" },
+      { id:"xi-cooperative", title:"Cooperative Societies", mins:25, tier:"free", art:"teacher", desc:"Cooperative societies: concept, features, merits, limitations and types.", url:"notes/xi-cooperative.html", keys:"cooperative members farmers society member vote housing voluntary producers limited societies liability dairy coop merits milk motive voting votes moneylenders sahyog middlemen consumer cooperatives limitations partnership meena contributed merit credit welfare existence equality inefficiency democratic compulsory secrecy incomes harpreet limitation stable economy types registration farming farmer formation committee rohan opinion membership seeds loans fair priya sole marketing strength houses litre" },
+      { id:"xi-the-company", title:"The Company", mins:25, tier:"free", art:"certificate", desc:"Company: features, types (private, public, One Person Company) and choosing a form.", url:"notes/xi-the-company.html", keys:"private liability perpetual members public limited sole succession directors nominee artificial invitation transfer entity meena merits formation proprietorship continuity shareholders existence steelworks cooperative seal choice partnership limitations merit companies member secrecy shares rohan legal oligarchic boardroom separate bharat regulations professional thread tale limitation impersonal factors skyline restricted numerous harpreet capital oligarchy nominate ktype apps unpaid lack feature sued considerations complexity" },
+      { id:"xi-formation", title:"Formation of a Company", mins:25, tier:"free", art:"stamp", desc:"Stages of forming a company and the important documents.", url:"notes/xi-formation.html", keys:"incorporation subscription commencement skyline registrar clause memorandum declaration feasibility association clauses apps ratified charter documents stages promotion articles approval vires ultra certificate signatories conclusive prospectus formation proposed capital sebi powers professionals allotment consent statutory directors forming filed bankers subscribers promoters opportunity subordinate existence beyond underwriters acts consents evidence private minimum internal identical technical liability necessity born legal public shares companies" }
+    ]},
+
+  { id:"xi-u3", cls:"XI", subject:"Business Studies", unit:"Unit", num:"3", title:"Public, Private and Global Enterprises",
+    tagline:"Who owns the business: the state, private owners, or the whole world.",
+    art:"bank", thumb:"", episodes:[
+      { id:"xi-public-sector", title:"Public Sector and Departmental Undertakings", mins:25, tier:"free", art:"bank", desc:"Public and private sector; forms of public enterprise; departmental undertakings.", url:"notes/xi-public-sector.html", keys:"ministry sector departmental private undertakings public treasury owned servants tape parliament enterprises economy interference merits undertaking revenue pump sectors cooperative accountability accountable merit security civil joseph arjun insensitive limitations statutory political water individuals defence owns ananya national audit department limitation forms oldest appropriation corporation flexibility budget global corporations delays dept govt railways train wholly funded minister partly enterprise accounting joint" },
+      { id:"xi-statutory", title:"Statutory Corporations and Government Companies", mins:25, tier:"free", art:"gears", desc:"The three forms of public enterprise compared, with merits and limitations.", url:"notes/xi-statutory.html", keys:"corporation statutory autonomy corporations parliament companies airports deshi flexibility entity powers evades govt civil servants departmental private enterprises interference special merit vayu subsidiary limitation public ministry merits department separate owned constitutional amendment relevance audit fatima steel contracts feature corruption sued independently corp limitations central wholly holds forms legal arjun global freedom stake joseph unhealthy subsidiaries pubforms absolute shareholding sole revenue" },
+      { id:"xi-global", title:"Global Enterprises", mins:25, tier:"free", art:"globe", desc:"Multinational corporations: meaning and seven features.", url:"notes/xi-global.html", keys:"global enterprises globatech countries centralised headquarters territory branches collaboration innovation huge advanced technology international enterprise strategies broad mncs joseph credibility foreign policy marketing aggressive corporations country departmental private feature multinational globe capital pune bonds public brand interference statutory ministry appropriation framework extend standards expansion phones industrial labs foldable branch tape corporation brands indian civil tenzin operations several special home absolute" },
+      { id:"xi-joint-ventures", title:"Joint Ventures and PPP", mins:25, tier:"free", art:"crane", desc:"Joint ventures: meaning, types and benefits; public-private partnership.", url:"notes/xi-joint-ventures.html", keys:"joint contractual kaze venture private ashoka jointly entity motors owned swiftride metro partners public innovation partner equity access expertise technology partnership ventures benefits risks enterprises increased roads established global pooling networks rewards brand franchise dealers capacity joining tasks agreement resources benefit pragati businesses hands obligations infra india markets hospitals exercises allocates ngos managed types foreign electric labour railways cars absolute" }
+    ]},
+
+  { id:"xi-u4", cls:"XI", subject:"Business Studies", unit:"Unit", num:"4", title:"Business Services",
+    tagline:"The banks, insurers and post offices that keep business moving.",
+    art:"shield", thumb:"", episodes:[
+      { id:"xi-bank-accounts", title:"Business Services and Bank Accounts", mins:25, tier:"free", art:"bank", desc:"Business services, banking and the types of bank account.", url:"notes/xi-bank-accounts.html", keys:"account deposit sameer savings recurring withdrawals deposits accounts fixed warehousing banking interest lump overdraft insurance vault sweep wmax sahyog penalty communication sweets nisha kavya month sweeps imran transport lends types riya sweet hindrance post period saving households absolute growrace banksim acctpick laddoos transportation shop enterprises transactions keyframes flex businesses maturity deposited align automatically withdrawal sugar restricted delivers inset withdraw trucks" },
+      { id:"xi-digital-payments", title:"Banking Services and Digital Payments", mins:25, tier:"free", art:"pricetag", desc:"Bank draft, overdraft, cash credit, e-banking and digital payments.", url:"notes/xi-digital-payments.html", keys:"banking draft overdraft sameer ussd prepaid aeps credit aadhaar internet digital cash overdrawn payee account fingerprint neft dishonoured holders amount micro bounce mobile limit rtgs payments withdrawn wallets wallet cheque anywhere security commission sahyog imps jaipur atms balance interest method deposit assets payment digipay dialling imran phone withdraw diwali riya charged debit kavya convenience swipe ebank electronic sugar supplier branch" },
+      { id:"xi-insurance-principles", title:"Insurance Principles", mins:25, tier:"free", art:"shield", desc:"Insurance: how risk and premium work, and the seven principles.", url:"notes/xi-insurance-principles.html", keys:"indemnity insured insurable subrogation insurer proximate faith mitigation sameer loss fire utmost insurance contribution cause principles claim premium claims principle insurers suraksha lakh salvage disclose scrap actual neighbour policy peril dominant marine contract interest hist simulate imran operation sues umbrella thieves mult kavach compensates claimdesk shop burnt nisha theft suffer sweets protection uninsured corollaries concealment aman chance fact subject proportion" },
+      { id:"xi-insurance-types", title:"Types of Insurance and Postal Services", mins:25, tier:"free", art:"truck", desc:"Life, health, fire and marine insurance; the postal services.", url:"notes/xi-insurance-types.html", keys:"insurance marine fire post hull freight indemnity postal health parcel courier cargo accidental tracked sagar insured cashless carpets assured mail ship door sameer voyage loss insurable imran actual deliver delivery perils insurer aman registered policy speed intentional death contract circuit reimbursement bound proof surgical heat letters hospital storm claim sail riya envelopes pirates types premiums medical lost papers shipping flame" }
+    ]},
+
+];
+
+// every episode also knows its chapter and its number in the season
+const NOTES = [];
+CHAPTERS.forEach(function(c){
+  c.episodes.forEach(function(e, i){
+    e.chapter = c; e.cls = c.cls; e.subject = c.subject; e.no = i + 1;
+    NOTES.push(e);
+  });
+});
+</script>
+<!-- ======================= END OF EDITABLE BLOCK ======================= -->
+
+<header class="topbar" id="topbar">
+  <div class="wrap">
+    <a class="logo" href="#top">NOTESFLIX <span>101</span></a>
+    <nav>
+      <a href="#browse">Chapters</a>
+      <a href="#premium">Complete Notes</a>
+    </nav>
+    <div class="spacer"></div>
+    <div class="search"><span aria-hidden="true">⌕</span><input id="q" type="search" placeholder="Search a topic" aria-label="Search notes"></div>
+    <button class="btn btn-ghost" id="installBtn" type="button">Install</button>
+    <a class="btn btn-red" id="waTop" href="#premium">WhatsApp</a>
+  </div>
+</header>
+
+<section class="billboard" id="top">
+  <div class="bb-bg"></div>
+  <div class="bb-doodles" id="bbDoodles" aria-hidden="true"></div>
+  <div class="bb-fade"></div>
+  <div class="wrap">
+   <div class="bb-grid">
+    <div class="bb-inner">
+      <div class="kicker"><b>C&amp;S</b> CLASSES · VISHAL SIR</div>
+      <h1>Commerce you can <em>binge</em>.</h1>
+      <p class="bb-sub">Interactive Business Studies and Accountancy notes for CBSE Class XI and XII. Read them, click through them, test yourself. Every note is free — <mark>no login, no form, no fees.</mark></p>
+      <div class="bb-meta">
+        <span class="match">Everything free</span>
+        <span class="pill">CLASS XI &amp; XII</span>
+        <span class="pill">BST · ACCOUNTANCY</span>
+        <span id="countMeta">28 notes</span>
+        <span class="countdown" id="countdown" hidden></span>
+      </div>
+      <div class="bb-actions">
+        <a class="btn btn-light btn-lg" href="#browse">▶ Start reading</a>
+        <a class="btn btn-ghost btn-lg" href="#premium">ⓘ Get the complete set</a>
+      </div>
+    </div>
+
+    <div class="reel" id="reel">
+      <div class="reel-head">
+        <span class="dot" aria-hidden="true"></span>
+        <span class="lbl">Now playing · Doodle reel</span>
+        <span class="spacer2"></span>
+        <button type="button" id="reelToggle" aria-label="Pause the doodle reel">Pause</button>
+      </div>
+      <div class="reel-stage" id="reelStage"></div>
+      <p class="reel-cap" id="reelCap" aria-live="polite"></p>
+      <div class="reel-time" id="reelTime"></div>
+    </div>
+   </div>
+  </div>
+</section>
+
+<div class="classbar" id="browse">
+  <div class="wrap">
+    <button class="classtab" type="button" data-cls="XII" aria-selected="true">Class XII</button>
+    <button class="classtab" type="button" data-cls="XI" aria-selected="false">Class XI</button>
+    <span class="hint">Pick a chapter to see every note inside it</span>
+  </div>
+</div>
+
+<main id="shelves"></main>
+
+<div class="ch-scrim" id="chScrim" hidden>
+  <div class="ch-sheet" role="dialog" aria-modal="true" aria-label="Chapter">
+    <button class="ch-close" id="chClose" type="button" aria-label="Close chapter">&times;</button>
+    <div id="chBody"></div>
+  </div>
+</div>
+
+<section class="story" id="story">
+  <div class="wrap">
+    <div>
+      <div class="kicker"><b>C&amp;S</b> CLASSES · THE STORY</div>
+      <h2>Why these notes exist</h2>
+      <p>A two-minute film about a student, forty photocopied pages, and what changed when the notes started answering back.</p>
+      <button class="btn btn-red btn-lg" id="storyPlay" type="button">▶ Watch the story</button>
+    </div>
+    <button class="story-poster" id="storyPoster" type="button" aria-label="Play the story film">
+      <span class="playbtn" aria-hidden="true">▶</span>
+      <span class="runtime">2 min</span>
+    </button>
+  </div>
+</section>
+
+<section class="premium" id="premium">
+  <div class="wrap">
+    <div class="premium-grid">
+      <div>
+        <h2>The Complete Set</h2>
+        <p>What you see here is the trailer. The full chapter-by-chapter set — every topic, every case study, every practice paper — is for C&amp;S Classes students.</p>
+        <ul class="perks">
+          <li>Class XI and XII — Business Studies, Accountancy, Entrepreneurship</li>
+          <li>Four to five interactive notes per chapter, in study order</li>
+          <li>Case labs, practice arenas and previous-year questions</li>
+          <li>Doubt solving directly with Vishal Sir</li>
+        </ul>
+        <a class="btn btn-red btn-lg" id="waMain" href="#">Message on WhatsApp</a>
+      </div>
+      <div class="contact-card">
+        <div class="who"><small>C&amp;S Classes</small>Vishal Sir</div>
+        <p class="mini">Send your name and class. You will get the access details and fee structure in the same chat.</p>
+        <div class="numline">
+          <b id="phoneText">+91 81301 22362</b>
+          <button class="btn btn-ghost" id="copyBtn" type="button">Copy</button>
+          <span class="copy-ok" id="copyOk" hidden>Copied</span>
+        </div>
+        <p class="mini">Gurugram · Commerce coaching for Class XI–XII</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <span class="logo" style="font-size:26px">NOTESFLIX <span>101</span></span>
+      <div class="spacer"></div>
+      <div class="foot-links">
+        <a href="#browse">Chapters</a>
+        <a href="#premium">Complete Notes</a>
+        <a id="waFoot" href="#">WhatsApp</a>
+      </div>
+    </div>
+    <p class="copy">Notes by Vishal Sir · C&amp;S Classes, Gurugram · Free to read and share. Not for resale. All companies used in the cases are fictional and made for teaching.</p>
+  </div>
+</footer>
+
+<div class="film" id="film" hidden>
+  <div class="film-top">
+    <span class="lbl">Notesflix 101 · The story</span>
+    <span class="spacer2"></span>
+    <button type="button" id="filmPause">Pause</button>
+    <button type="button" id="filmClose">Close</button>
+  </div>
+  <div class="film-stage" id="filmStage"></div>
+  <p class="film-cap" id="filmCap" aria-live="polite"></p>
+  <div class="film-time" id="filmTime"></div>
+</div>
+
+<div class="scrim" id="scrim" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+    <div class="modal-top">
+      <div>
+        <h3 id="mTitle">One minute, then it's all yours</h3>
+        <p>Fill this in once and every locked note on this site opens — still free.</p>
+      </div>
+      <button class="x" id="closeM" type="button" aria-label="Close">×</button>
+    </div>
+    <form id="unlockForm" novalidate>
+      <div class="field">
+        <label for="fName">Name</label>
+        <input id="fName" name="name" type="text" autocomplete="name" placeholder="Your full name" required>
+      </div>
+      <div class="two">
+        <div class="field">
+          <label for="fClass">Class</label>
+          <select id="fClass" name="class" required>
+            <option value="">Choose</option>
+            <option>Class XI</option>
+            <option>Class XII</option>
+            <option>Repeater</option>
+            <option>Teacher</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="fPhone">WhatsApp number</label>
+          <input id="fPhone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="10 digits" required>
+        </div>
+      </div>
+      <div class="field">
+        <label for="fSchool">School or city</label>
+        <input id="fSchool" name="school" type="text" placeholder="Where you study">
+      </div>
+      <p class="err" id="formErr" hidden></p>
+      <div class="formfoot">
+        <button class="btn btn-red btn-lg" type="submit">Unlock the notes</button>
+        <a class="btn btn-ghost" id="formAlt" href="#" target="_blank" rel="noopener" hidden>Fill the Google Form instead</a>
+        <p class="formnote">Your details go to Vishal Sir as a ready-made WhatsApp message — you only press send. The number is used for notes and updates, nothing else.</p>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- hand-drawn poster art ---------- */
+  var S = {
+    teacher:'<path d="M26 22h62v40H26z"/><path d="M34 34h30M34 42h22M34 50h34"/><path d="M58 40l10-8 8 10 10-14"/><circle cx="110" cy="30" r="7"/><path d="M110 37v18M110 42l-9 7M110 42l9 5M110 55l-7 14M110 55l7 14"/><path d="M101 49l-8-6"/>',
+    package:'<path d="M46 34l34-14 34 14v30L80 78 46 64z"/><path d="M46 34l34 14 34-14M80 48v30"/><path d="M62 27l34 14"/><path d="M96 56h14v10H96z"/><path d="M100 60h6"/><path d="M28 40c6-6 12-6 18 0"/><path d="M26 56h10"/>',
+    pricetag:'<path d="M44 26h34l30 30-34 34-30-30z"/><circle cx="60" cy="42" r="6"/><path d="M78 56h18M78 56c7 0 7 8 0 8h-0l12 12M78 64h18"/><path d="M118 34c8 4 10 12 6 20"/><circle cx="30" cy="68" r="7"/><circle cx="44" cy="78" r="5"/>',
+    truck:'<path d="M20 30h62v34H20z"/><path d="M82 42h20l16 14v8H82z"/><circle cx="44" cy="70" r="8"/><circle cx="104" cy="70" r="8"/><path d="M20 64h62M118 64h8"/><path d="M90 46h10l8 8H90z"/><path d="M128 34h16M132 44h12M136 54h8"/>',
+    megaphone:'<path d="M34 44l44-18v46L34 58z"/><path d="M34 44H22v14h12z"/><path d="M48 60v14h12V64"/><path d="M90 34c10 6 10 24 0 32"/><path d="M102 26c16 10 16 38 0 48"/><path d="M118 20c22 14 22 50 0 64"/>',
+    notebook:'<path d="M40 20h62v58H40z"/><path d="M40 20h-8v58h8"/><path d="M54 36h34M54 46h34M54 56h22"/><path d="M96 58l8 8 16-18"/><circle cx="118" cy="30" r="10"/><path d="M118 24v6l4 3"/>',
+    chart:'<path d="M26 74h108"/><path d="M40 62h12v12H40zM60 44h12v30H60zM80 52h12v22H80zM100 30h12v44h-12z"/><path d="M34 40l20-14 18 10 20-18 24 8"/><path d="M118 24l8 2-2 8"/>',
+    coins:'<ellipse cx="54" cy="36" rx="22" ry="8"/><path d="M32 36v10c0 4 10 8 22 8s22-4 22-8V36"/><path d="M32 50v10c0 4 10 8 22 8s22-4 22-8V50"/><path d="M96 28h26M96 28c10 0 10 10 0 10h-0l18 16M96 38h26"/><path d="M90 66h40"/>',
+    shield:'<path d="M52 24l30-10 30 10v26c0 18-14 28-30 34-16-6-30-16-30-34z"/><path d="M68 46l10 10 18-20"/><circle cx="26" cy="40" r="7"/><path d="M26 47v16M26 52l-8 6M26 52l8 4M26 63l-6 12M26 63l6 12"/>',
+    certificate:'<path d="M34 22h72v44H34z"/><path d="M46 34h48M46 44h36M46 54h26"/><circle cx="104" cy="62" r="11"/><path d="M98 71l-4 14 10-5 10 5-4-14"/><path d="M118 30c8 2 12 8 10 16"/>',
+    globe:'<circle cx="62" cy="48" r="28"/><path d="M34 48h56M62 20c12 14 12 42 0 56M62 20c-12 14-12 42 0 56"/><path d="M96 28c14-6 30-4 40 6"/><path d="M110 22l12 10-14 8"/><path d="M100 64c10 8 24 8 34 0"/>',
+    ship:'<path d="M28 60h98l-12 18H40z"/><path d="M44 60V40h50v20"/><path d="M56 44h12v12H56zM78 44h12v12H78z"/><path d="M94 40l20 6v14"/><path d="M20 78c8 6 16 6 24 0s16-6 24 0 16 6 24 0 16-6 24 0"/>',
+    documents:'<path d="M38 20h40l14 14v40H38z"/><path d="M78 20v14h14"/><path d="M50 44h28M50 54h28M50 64h18"/><path d="M100 34h22v44h-36V62"/><circle cx="112" cy="56" r="9"/><path d="M119 63l8 10"/>',
+    stamp:'<path d="M52 66h56v10H52z"/><path d="M60 66V50c0-8 8-6 8-14s-4-14 12-14 12 6 12 14-8 6-8 14v16"/><path d="M44 80h72"/><path d="M26 34c6 0 10 4 10 10"/><path d="M122 26l10 8-8 10"/>',
+    bank:'<path d="M34 40l32-18 32 18z"/><path d="M40 40v26M56 40v26M76 40v26M92 40v26"/><path d="M30 70h72M30 76h72"/><path d="M118 34h18v26h-18z"/><path d="M122 42h10M122 50h10"/><circle cx="66" cy="32" r="4"/>',
+    crane:'<path d="M34 78V26h8v52"/><path d="M38 26h66l-10 14H38"/><path d="M86 40v14"/><path d="M74 54h26v18H74z"/><path d="M62 78h72"/><path d="M80 60h14M80 66h14"/><circle cx="118" cy="30" r="6"/>',
+    brain:'<path d="M58 28c-14 0-22 10-22 20s8 20 22 20h26c14 0 22-8 22-20s-8-20-22-20z"/><path d="M58 32c0 8-10 8-10 16s10 8 10 16M84 32c0 8 10 8 10 16s-10 8-10 16"/><path d="M70 36v36"/><path d="M62 72v10h20V72"/><path d="M118 34l8-6M122 48h10M116 60l8 6"/>',
+    blueprint:'<path d="M60 16h40v22H60z"/><circle cx="80" cy="27" r="5"/><path d="M80 38v10M44 48h72M44 48v12M116 48v12"/><path d="M26 60h36v22H26zM98 60h36v22H98z"/><path d="M36 70h16M36 76h12M108 70h16M108 76h12"/>',
+    gears:'<circle cx="60" cy="44" r="18"/><circle cx="60" cy="44" r="7"/><path d="M60 26v-8M60 70v-8M42 44h-8M86 44h8M47 31l-6-6M73 57l6 6M73 31l6-6M47 57l-6 6"/><circle cx="106" cy="68" r="12"/><circle cx="106" cy="68" r="5"/><path d="M106 56v-6M106 86v-6M94 68h-6M124 68h-6"/>',
+    target:'<circle cx="64" cy="48" r="28"/><circle cx="64" cy="48" r="17"/><circle cx="64" cy="48" r="6"/><path d="M92 20l-28 28"/><path d="M92 20l2 12 12 2-14 6"/><path d="M110 60h18l-6 16h-6z"/><path d="M114 76v6h10v-6"/>'
+  };
+  var PAL = {
+    teacher:["#1d2a6b","#4f2bb8"], package:["#5a2bb8","#b32c7a"], pricetag:["#8a3b07","#c9750b"],
+    truck:["#065f52","#0f8a6b"], megaphone:["#8c1220","#d14a19"], notebook:["#1f3a8a","#2f6bff"],
+    chart:["#0b3d66","#1192b8"], coins:["#6b4a05","#b58608"], shield:["#0d4d3a","#1f9e62"],
+    certificate:["#4a1d6b","#8a33b5"], globe:["#0a3b5c","#1577b5"], ship:["#0c3550","#1a6e9e"],
+    documents:["#45305e","#6f4fa8"], stamp:["#6b1020","#b32436"], bank:["#17384f","#2a7a8c"],
+    crane:["#5c3b08","#a8710f"], brain:["#5a1550","#a32b8a"], target:["#7a1414","#d13b2a"],
+    blueprint:["#13294f","#2f6bff"], gears:["#4a3005","#b5820c"]
+  };
+  function artSVG(key, wide){
+    var p = PAL[key] || ["#2a0409","#e50914"];
+    var d = S[key] || S.notebook;
+    var gid = "g" + key + (wide ? "w" : "");
+    // the banner is wider than a card, so the drawing keeps its size and the colour fills the rest
+    var W = wide ? 320 : 160, H = wide ? 137 : 100;
+    var shift = wide ? ' transform="translate(80 18)"' : '';
+    return '<svg class="art" viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="xMidYMid slice" aria-hidden="true">'
+      + '<defs><linearGradient id="'+gid+'" x1="0" y1="0" x2="1" y2="1">'
+      + '<stop offset="0" stop-color="'+p[0]+'"/><stop offset="1" stop-color="'+p[1]+'"/></linearGradient></defs>'
+      + '<rect width="'+W+'" height="'+H+'" fill="url(#'+gid+')"/>'
+      + '<g stroke="rgba(255,255,255,.10)" stroke-width="7" stroke-linecap="round">'
+      + '<path d="M-10 '+(H+10)+'L60 -10"/><path d="M40 '+(H+18)+'L112 -8"/><path d="M96 '+(H+20)+'L168 -4"/>'
+      + (wide ? '<path d="M200 '+(H+20)+'L272 -4"/><path d="M268 '+(H+20)+'L340 -4"/>' : '') + '</g>'
+      + '<g fill="none" stroke="#fff" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round" opacity=".93"'+shift+'>'
+      + d + '</g></svg>';
+  }
+
+  /* ---------- storage ---------- */
+  var KEY = "notesflix101.student", student = null;
+  try{ var raw = localStorage.getItem(KEY); if(raw) student = JSON.parse(raw); }catch(e){}
+  function saveStudent(o){ try{ localStorage.setItem(KEY, JSON.stringify(o)); }catch(e){} }
+  function unlocked(){ return !!student; }
+
+  /* ---------- what the student has read (this browser only) ---------- */
+  var PKEY = "notesflix101.progress", P = { done:{}, opened:{}, last:null };
+  try{
+    var pr = localStorage.getItem(PKEY);
+    if(pr){ var o = JSON.parse(pr); P.done = o.done || {}; P.opened = o.opened || {}; P.last = o.last || null; }
+  }catch(e){}
+  function saveP(){ try{ localStorage.setItem(PKEY, JSON.stringify(P)); }catch(e){} }
+  function isDone(id){ return !!P.done[id]; }
+  function isOpened(id){ return !!P.opened[id]; }
+  function doneCount(c){ return c.episodes.filter(function(e){ return isDone(e.id); }).length; }
+  function toast(msg){
+    var t = document.createElement("div");
+    t.className = "toast"; t.textContent = msg;
+    document.body.appendChild(t);
+    setTimeout(function(){ t.remove(); }, 2200);
+  }
+  function noteLink(e){
+    var base = location.href.replace(/[?#].*$/, "").replace(/index\.html$/, "");
+    return base + e.url;
+  }
+  function shareNote(e){
+    var msg = e.title + " — free interactive notes from Notesflix 101\n" + noteLink(e);
+    var a = document.createElement("a");
+    a.href = "https://wa.me/?text=" + encodeURIComponent(msg);
+    a.target = "_blank"; a.rel = "noopener";
+    document.body.appendChild(a); a.click(); a.remove();
+  }
+
+  /* ---------- whatsapp ---------- */
+  function waLink(msg){ return "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(msg); }
+  var askPaid = "Hello " + CONFIG.teacher + ", I came from Notesflix 101. I would like the complete " + CONFIG.brand + " notes. My class is: ";
+  ["waTop","waMain","waFoot"].forEach(function(id){
+    var el = document.getElementById(id);
+    if(el){ el.href = waLink(askPaid); el.target = "_blank"; el.rel = "noopener"; }
+  });
+
+  /* ---------- browse: classes, chapters, episodes ---------- */
+  var host = document.getElementById("shelves");
+  var filter = "";
+  var activeClass = "XII";
+
+  function freeCount(c){
+    return c.episodes.filter(function(e){ return e.tier === "free"; }).length;
+  }
+  function totalMins(c){
+    return c.episodes.reduce(function(a, e){ return a + e.mins; }, 0);
+  }
+  function poster(src, art, wide){
+    if(src){
+      return '<img class="art" src="' + src + '" alt="" loading="lazy">';
+    }
+    return artSVG(art, wide);
+  }
+  function matchesChapter(c){
+    if(!filter) return true;
+    var hay = c.title + " " + c.tagline + " " + c.subject + " " + c.cls + " " +
+      c.episodes.map(function(e){ return e.title + " " + e.desc + " " + (e.keys || ""); }).join(" ");
+    return hay.toLowerCase().indexOf(filter) > -1;
+  }
+
+  function chapterCard(c){
+    var card = document.createElement("button");
+    card.type = "button";
+    card.className = "card";
+    card.setAttribute("aria-label", "Chapter " + (c.num || "") + " " + c.title + ", " + c.episodes.length + " notes");
+
+    var empty = !c.episodes.length;
+    if(empty) card.classList.add("soon");
+
+    var thumb = document.createElement("div");
+    thumb.className = "thumb";
+    thumb.innerHTML = poster(c.thumb, c.art);
+    if(c.num && !c.thumb){            // a picture already carries its chapter number
+      var ch = document.createElement("span");
+      ch.className = "subj";
+      ch.textContent = (c.unit || "Chapter") + " " + c.num;
+      thumb.appendChild(ch);
+    }
+    var cnt = document.createElement("span");
+    cnt.className = "epcount" + (empty ? " soon" : "");
+    cnt.textContent = empty ? "Coming soon"
+      : c.episodes.length + (c.episodes.length === 1 ? " note" : " notes");
+    thumb.appendChild(cnt);
+    var dn = empty ? 0 : doneCount(c);
+    if(!empty){
+      var bar = document.createElement("span");
+      bar.className = "playbar";
+      var fi = document.createElement("i");
+      fi.className = "seen";
+      fi.style.width = Math.round(dn / c.episodes.length * 100) + "%";
+      bar.appendChild(fi);
+      thumb.appendChild(bar);
+      if(dn){
+        var ring = document.createElement("span");
+        ring.className = "ring";
+        var pct = dn / c.episodes.length, C = 2 * Math.PI * 12;
+        ring.innerHTML = '<svg viewBox="0 0 30 30" aria-hidden="true">'
+          + '<circle class="bg" cx="15" cy="15" r="12"/>'
+          + '<circle class="fg" cx="15" cy="15" r="12" stroke-dasharray="' + C.toFixed(1)
+          + '" stroke-dashoffset="' + (C * (1 - pct)).toFixed(1) + '"/></svg>'
+          + '<b>' + (dn === c.episodes.length ? "✓" : dn) + '</b>';
+        thumb.appendChild(ring);
+      }
+    }
+    card.appendChild(thumb);
+
+    var body = document.createElement("div");
+    body.className = "card-body";
+    var t = document.createElement("p"); t.className = "card-title"; t.textContent = c.title;
+    var s2 = document.createElement("p"); s2.className = "card-sub"; s2.textContent = c.tagline;
+    var f = document.createElement("div"); f.className = "card-foot";
+    if(empty){
+      var w = document.createElement("span");
+      w.className = "locked"; w.textContent = "In the works";
+      f.appendChild(w);
+    } else {
+      var tag = document.createElement("span");
+      tag.className = "free";
+      tag.textContent = "Free";
+      var dot = document.createElement("span"); dot.className = "dot";
+      var meta = document.createElement("span");
+      meta.textContent = c.episodes.length + (c.episodes.length === 1 ? " note · " : " notes · ") + totalMins(c) + " min";
+      f.appendChild(tag); f.appendChild(dot); f.appendChild(meta);
+      if(dn){
+        var d2 = document.createElement("span"); d2.className = "dot";
+        var pg = document.createElement("span"); pg.className = "prog";
+        pg.textContent = dn === c.episodes.length ? "Finished" : dn + " read";
+        f.appendChild(d2); f.appendChild(pg);
+      }
+    }
+    body.appendChild(t); body.appendChild(s2); body.appendChild(f);
+    card.appendChild(body);
+
+    var go = document.createElement("span");
+    go.className = "go"; go.textContent = "▶"; go.setAttribute("aria-hidden","true");
+    card.appendChild(go);
+
+    card.addEventListener("click", function(){ openChapter(c); });
+
+    if(window.matchMedia && !window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+      card.addEventListener("pointermove", function(ev){
+        if(ev.pointerType === "touch") return;
+        var r = card.getBoundingClientRect();
+        var px = (ev.clientX - r.left) / r.width - 0.5;
+        var py = (ev.clientY - r.top) / r.height - 0.5;
+        card.style.transform = "perspective(820px) rotateY(" + (px*7).toFixed(2) + "deg) rotateX(" + (-py*7).toFixed(2) + "deg) scale(1.04)";
+      });
+      card.addEventListener("pointerleave", function(){ card.style.transform = ""; });
+      card.addEventListener("blur", function(){ card.style.transform = ""; });
+    }
+    return card;
+  }
+
+  function episodeCard(e, label){
+    var card = document.createElement("button");
+    card.type = "button";
+    card.className = "rcard";
+    card.setAttribute("aria-label", e.title + " — open");
+    var th = document.createElement("span");
+    th.className = "rthumb";
+    th.innerHTML = artSVG(e.art);
+    var bar = document.createElement("span"); bar.className = "rbar";
+    var fi = document.createElement("i");
+    fi.style.width = isDone(e.id) ? "100%" : (isOpened(e.id) ? "45%" : "0");
+    bar.appendChild(fi); th.appendChild(bar);
+    card.appendChild(th);
+    var bd = document.createElement("span"); bd.className = "rbody";
+    var t = document.createElement("span"); t.className = "rt"; t.textContent = e.title;
+    var c2 = document.createElement("span"); c2.className = "rc";
+    c2.textContent = "Class " + e.cls + " · " + e.chapter.title;
+    var g = document.createElement("span"); g.className = "rgo";
+    g.textContent = label || (isDone(e.id) ? "Read again" : isOpened(e.id) ? "Continue" : "Start");
+    bd.appendChild(t); bd.appendChild(c2); bd.appendChild(g);
+    card.appendChild(bd);
+    card.addEventListener("click", function(){ openNote(e); });
+    return card;
+  }
+
+  function strip(title, items, id, label){
+    var sec = document.createElement("section");
+    sec.className = "row";
+    if(id) sec.id = id;
+    var inner = document.createElement("div"); inner.className = "wrap";
+    var head = document.createElement("div"); head.className = "row-head";
+    var h2 = document.createElement("h2"); h2.textContent = title;
+    head.appendChild(h2);
+    inner.appendChild(head);
+    var rail = document.createElement("div");
+    rail.className = id === "hits" ? "hits" : "resume";
+    items.forEach(function(e){ rail.appendChild(episodeCard(e, label)); });
+    inner.appendChild(rail);
+    sec.appendChild(inner);
+    return sec;
+  }
+
+  function render(){
+    host.textContent = "";
+    var shown = 0;
+
+    if(filter){
+      var hits = NOTES.filter(function(e){
+        return (e.title + " " + e.desc + " " + (e.keys || "") + " " + e.chapter.title)
+          .toLowerCase().indexOf(filter) > -1;
+      });
+      if(hits.length) host.appendChild(strip(hits.length + (hits.length === 1 ? " note matches" : " notes match"), hits.slice(0, 12), "hits"));
+    } else {
+      // carry on where they left off
+      var resume = NOTES.filter(function(e){ return isOpened(e.id) && !isDone(e.id); });
+      resume.sort(function(a, b){ return (P.opened[b.id] || 0) - (P.opened[a.id] || 0); });
+      var nextUp = [];
+      if(P.last){
+        var lastNote = NOTES.filter(function(e){ return e.id === P.last; })[0];
+        if(lastNote){
+          var sib = lastNote.chapter.episodes;
+          for(var i = 0; i < sib.length; i++){
+            if(!isDone(sib[i].id) && !isOpened(sib[i].id)){ nextUp.push(sib[i]); break; }
+          }
+        }
+      }
+      var row = resume.concat(nextUp.filter(function(e){ return resume.indexOf(e) < 0; })).slice(0, 8);
+      if(row.length) host.appendChild(strip("Carry on where you left off", row, "resume"));
+    }
+
+    ["XII","XI"].forEach(function(cl){
+      if(!filter && cl !== activeClass) return;
+
+      var list = CHAPTERS.filter(function(c){ return c.cls === cl && matchesChapter(c); });
+      if(!list.length) return;
+
+      var subjects = [];
+      list.forEach(function(c){ if(subjects.indexOf(c.subject) < 0) subjects.push(c.subject); });
+
+      subjects.forEach(function(sub){
+        var items = list.filter(function(c){ return c.subject === sub; });
+        var sec = document.createElement("section");
+        sec.className = "row";
+        sec.id = "row-" + cl + "-" + sub.toLowerCase().replace(/\s+/g, "-");
+
+        var inner = document.createElement("div");
+        inner.className = "wrap";
+
+        var head = document.createElement("div");
+        head.className = "row-head";
+        var h2 = document.createElement("h2");
+        h2.textContent = "Class " + cl + " · " + sub;
+        head.appendChild(h2);
+        var nt = document.createElement("span");
+        nt.className = "note";
+        nt.textContent = items.length + (items.length === 1 ? " chapter" : " chapters") + " · open one to see its notes";
+        head.appendChild(nt);
+        inner.appendChild(head);
+
+        var grid = document.createElement("div");
+        grid.className = "chapters";
+        items.forEach(function(c){ grid.appendChild(chapterCard(c)); shown++; });
+        inner.appendChild(grid);
+
+        sec.appendChild(inner);
+        host.appendChild(sec);
+      });
+    });
+
+    if(!shown){
+      var p = document.createElement("div");
+      p.className = "wrap";
+      p.innerHTML = '<p class="empty">Nothing matches that search.</p>';
+      host.appendChild(p);
+    }
+    var cm = document.getElementById("countMeta");
+    if(cm) cm.textContent = NOTES.length + " notes";
+  }
+
+  /* ---------- chapter page (the series view) ---------- */
+  var chScrim = document.getElementById("chScrim");
+  var chBody = document.getElementById("chBody");
+  var chBack = null;
+
+  function openChapter(c){
+    chBody.textContent = "";
+
+    var banner = document.createElement("div");
+    banner.className = "ch-banner";
+    banner.innerHTML = poster(c.thumb, c.art, true);
+    var shade = document.createElement("div"); shade.className = "ch-shade";
+    banner.appendChild(shade);
+
+    var cap = document.createElement("div");
+    cap.className = "ch-cap";
+    var eyebrow = document.createElement("span");
+    eyebrow.className = "ch-eyebrow";
+    eyebrow.textContent = "Class " + c.cls + " · " + c.subject
+      + (c.num ? " · " + (c.unit || "Chapter") + " " + c.num : "");
+    var h = document.createElement("h2");
+    h.textContent = c.title;
+    cap.appendChild(eyebrow); cap.appendChild(h);
+
+    if(c.thumb){
+      // the artwork already carries the chapter title, so the words go underneath it
+      shade.classList.add("light");
+      chBody.appendChild(banner);
+      cap.classList.add("below");
+      chBody.appendChild(cap);
+    } else {
+      banner.appendChild(cap);
+      chBody.appendChild(banner);
+    }
+
+    var meta = document.createElement("div");
+    meta.className = "ch-meta";
+    meta.innerHTML = c.episodes.length
+      ? '<span class="free">Free to read</span>'
+        + '<span class="dot"></span><span>' + c.episodes.length + ' notes</span>'
+        + '<span class="dot"></span><span>' + totalMins(c) + ' min in all</span>'
+      : '<span class="locked">Coming soon</span>';
+    chBody.appendChild(meta);
+
+    var tag = document.createElement("p");
+    tag.className = "ch-tag";
+    tag.textContent = c.tagline;
+    chBody.appendChild(tag);
+
+    if(c.episodes.length){
+      var pw = document.createElement("div");
+      pw.className = "ch-prog";
+      var dn2 = doneCount(c);
+      pw.innerHTML = '<div class="track"><i style="transform:scaleX(' + (dn2 / c.episodes.length).toFixed(3)
+        + ')"></i></div><span>' + dn2 + ' of ' + c.episodes.length + ' read</span>';
+      chBody.appendChild(pw);
+    }
+
+    var playRow = document.createElement("div");
+    playRow.className = "ch-actions";
+    if(c.episodes.length){
+      var first = c.episodes[0];
+      var play = document.createElement("button");
+      play.type = "button";
+      play.className = "btn btn-light btn-lg";
+      play.textContent = "▶ Start with note 1";
+      play.addEventListener("click", function(){ openNote(first); });
+      playRow.appendChild(play);
+    } else {
+      var ask = document.createElement("a");
+      ask.className = "btn btn-red btn-lg";
+      ask.href = waLink("Hello " + CONFIG.teacher + "! When will the Notesflix 101 notes for "
+        + c.title + " (Class " + c.cls + ") be ready? Please let me know.");
+      ask.target = "_blank"; ask.rel = "noopener";
+      ask.textContent = "Ask when it is ready";
+      playRow.appendChild(ask);
+    }
+    chBody.appendChild(playRow);
+
+    var hd = document.createElement("h3");
+    hd.className = "ch-list-head";
+    hd.textContent = c.episodes.length ? "Notes in this chapter" : "Not written yet";
+    chBody.appendChild(hd);
+
+    if(!c.episodes.length){
+      var msg = document.createElement("p");
+      msg.className = "ch-empty";
+      msg.textContent = "This chapter is still being built. The notes for it will appear here as soon as they are ready — the chapters above with a note count are the ones you can read today.";
+      chBody.appendChild(msg);
+    }
+
+    var list = document.createElement("div");
+    list.className = "eps";
+    c.episodes.forEach(function(e){
+      var locked = e.tier === "locked" && !unlocked();
+      var row = document.createElement("button");
+      row.type = "button";
+      row.className = "ep";
+      row.setAttribute("aria-label", "Note " + e.no + ": " + e.title + (locked ? " — unlock to read" : ""));
+
+      var no = document.createElement("span");
+      no.className = "ep-no";
+      no.textContent = e.no;
+      row.appendChild(no);
+
+      var th = document.createElement("span");
+      th.className = "ep-thumb";
+      th.innerHTML = artSVG(e.art);
+      if(locked){
+        var lk = document.createElement("span");
+        lk.className = "ep-lock"; lk.textContent = "🔒"; lk.setAttribute("aria-hidden","true");
+        th.appendChild(lk);
+      }
+      row.appendChild(th);
+
+      var txt = document.createElement("span");
+      txt.className = "ep-txt";
+      var t1 = document.createElement("span"); t1.className = "ep-title"; t1.textContent = e.title;
+      var t2 = document.createElement("span"); t2.className = "ep-desc"; t2.textContent = e.desc;
+      var t3 = document.createElement("span");
+      t3.className = "ep-foot";
+      t3.innerHTML = (isDone(e.id) ? '<span class="ep-seen">✓ Read</span>'
+          : '<span class="' + (locked ? "locked" : "free") + '">' + (locked ? "Unlock" : "Free") + '</span>')
+        + '<span class="dot"></span><span>' + e.mins + ' min</span>';
+      txt.appendChild(t1); txt.appendChild(t2); txt.appendChild(t3);
+      row.appendChild(txt);
+
+      var acts = document.createElement("span");
+      acts.className = "ep-acts";
+
+      var tick = document.createElement("button");
+      tick.type = "button";
+      tick.className = "ep-tick" + (isDone(e.id) ? " on" : "");
+      tick.textContent = "✓";
+      tick.title = isDone(e.id) ? "Mark as not read" : "Mark as read";
+      tick.setAttribute("aria-label", tick.title);
+      tick.addEventListener("click", function(ev){
+        ev.stopPropagation();
+        if(isDone(e.id)) delete P.done[e.id]; else P.done[e.id] = Date.now();
+        saveP();
+        openChapter(c);
+        render();
+      });
+      acts.appendChild(tick);
+
+      var sh = document.createElement("button");
+      sh.type = "button";
+      sh.className = "ep-share";
+      sh.textContent = "↗";
+      sh.title = "Send this note on WhatsApp";
+      sh.setAttribute("aria-label", sh.title);
+      sh.addEventListener("click", function(ev){ ev.stopPropagation(); shareNote(e); });
+      acts.appendChild(sh);
+
+      var pl = document.createElement("span");
+      pl.className = "ep-play";
+      pl.textContent = "▶";
+      pl.setAttribute("aria-hidden","true");
+      acts.appendChild(pl);
+      row.appendChild(acts);
+
+      if(isDone(e.id)) row.classList.add("done");
+      row.addEventListener("click", function(){ openNote(e); });
+      list.appendChild(row);
+    });
+    chBody.appendChild(list);
+
+    chBack = document.activeElement;
+    chScrim.hidden = false;
+    requestAnimationFrame(function(){ chScrim.classList.add("in"); });
+    document.body.style.overflow = "hidden";
+    chBody.parentNode.scrollTop = 0;
+    setTimeout(function(){ document.getElementById("chClose").focus(); }, 30);
+  }
+
+  function closeChapter(){
+    chScrim.classList.remove("in");
+    setTimeout(function(){ if(!chScrim.classList.contains("in")) chScrim.hidden = true; }, 200);
+    if(document.getElementById("scrim").hidden) document.body.style.overflow = "";
+    if(chBack && chBack.focus) chBack.focus();
+  }
+  document.getElementById("chClose").addEventListener("click", closeChapter);
+  chScrim.addEventListener("click", function(ev){ if(ev.target === chScrim) closeChapter(); });
+  document.addEventListener("keydown", function(ev){
+    if(ev.key === "Escape" && !chScrim.hidden && document.getElementById("scrim").hidden) closeChapter();
+  });
+
+  /* ---------- class tabs ---------- */
+  document.querySelectorAll(".classtab").forEach(function(b){
+    b.addEventListener("click", function(){
+      activeClass = b.dataset.cls;
+      document.querySelectorAll(".classtab").forEach(function(x){
+        x.setAttribute("aria-selected", x === b ? "true" : "false");
+      });
+      render();
+      var first = host.querySelector(".row");
+      if(first) first.scrollIntoView({ behavior:"smooth", block:"start" });
+    });
+  });
+
+  /* ---------- opening a note ---------- */
+  var pending = null;
+  function go(url){
+    var a = document.createElement("a");
+    a.href = url; a.target = "_blank"; a.rel = "noopener";
+    document.body.appendChild(a); a.click(); a.remove();
+  }
+  function openNote(n){
+    P.opened[n.id] = Date.now();
+    P.last = n.id;
+    saveP();
+    render();
+    if(n.tier === "free" || unlocked()){ go(n.url); return; }
+    pending = n; openModal();
+  }
+
+  /* ---------- modal ---------- */
+  var scrim = document.getElementById("scrim");
+  var form = document.getElementById("unlockForm");
+  var errEl = document.getElementById("formErr");
+  var lastFocus = null;
+
+  function openModal(){
+    lastFocus = document.activeElement;
+    scrim.hidden = false;
+    requestAnimationFrame(function(){ scrim.classList.add("in"); });
+    document.body.style.overflow = "hidden";
+    var alt = document.getElementById("formAlt");
+    if(CONFIG.googleFormUrl){ alt.href = CONFIG.googleFormUrl; alt.hidden = false; } else { alt.hidden = true; }
+    setTimeout(function(){ document.getElementById("fName").focus(); }, 30);
+  }
+  function closeModal(){
+    scrim.classList.remove("in");
+    setTimeout(function(){ if(!scrim.classList.contains("in")) scrim.hidden = true; }, 200);
+    document.body.style.overflow = "";
+    errEl.hidden = true;
+    if(lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  document.getElementById("closeM").addEventListener("click", closeModal);
+  scrim.addEventListener("click", function(ev){ if(ev.target === scrim) closeModal(); });
+  document.addEventListener("keydown", function(ev){ if(ev.key === "Escape" && !scrim.hidden) closeModal(); });
+
+  function fail(m){ errEl.textContent = m; errEl.hidden = false; return false; }
+
+  form.addEventListener("submit", function(ev){
+    ev.preventDefault();
+    var name = document.getElementById("fName").value.trim();
+    var cls = document.getElementById("fClass").value;
+    var phone = document.getElementById("fPhone").value.replace(/\D/g, "");
+    var school = document.getElementById("fSchool").value.trim();
+    if(name.length < 2) return fail("Please type your name.");
+    if(!cls) return fail("Please choose your class.");
+    if(phone.length < 10) return fail("Please enter a 10-digit WhatsApp number.");
+
+    student = { name:name, cls:cls, phone:phone, school:school, at:new Date().toISOString() };
+    saveStudent(student);
+
+    var msg = "Hello " + CONFIG.teacher + "! I just unlocked the free notes on Notesflix 101."
+      + "\nName: " + name
+      + "\nClass: " + cls
+      + "\nNumber: " + phone
+      + (school ? "\nSchool / City: " + school : "")
+      + "\n\nPlease also send me the details of the complete " + CONFIG.brand + " notes.";
+    go(waLink(msg));
+
+    closeModal();
+    render();
+    if(pending){ var p = pending; pending = null; setTimeout(function(){ go(p.url); }, 380); }
+  });
+
+  /* ---------- search, copy, scroll ---------- */
+  var q = document.getElementById("q");
+  q.addEventListener("input", function(){ filter = q.value.trim().toLowerCase(); render(); });
+
+  document.getElementById("copyBtn").addEventListener("click", function(){
+    var el = document.getElementById("phoneText");
+    var ok = document.getElementById("copyOk");
+    function flash(){ ok.hidden = false; setTimeout(function(){ ok.hidden = true; }, 1800); }
+    function selectFallback(){
+      var r = document.createRange(); r.selectNodeContents(el);
+      var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+    }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(el.textContent.trim()).then(flash, selectFallback);
+    } else { selectFallback(); }
+  });
+
+  window.addEventListener("scroll", function(){
+    document.getElementById("topbar").classList.toggle("solid", window.scrollY > 40);
+  }, { passive:true });
+
+  /* ---------- doodle reel ---------- */
+  (function(){
+    var stage = document.getElementById("reelStage");
+    var capEl = document.getElementById("reelCap");
+    var timeEl = document.getElementById("reelTime");
+    var toggle = document.getElementById("reelToggle");
+    if(!stage) return;
+
+    // Each scene: strokes drawn in order, then labels. Tap the picture to open the note it belongs to.
+    var SCENES = [
+      { title:"Selling Concept",
+        cap:"Make the goods first, then push them at whoever will buy.",
+        note:"philosophies", hold:6200,
+        ink:[
+          "M22 160h86v-54H22z", "M74 106V80h15v26", "M81 74c7-8-6-13 2-21",
+          "M36 160v-20h16v20", "M66 122h12v12H66z", "M90 122h12v12H90z",
+          ["M118 128h96","accent"], ["M214 128l-13-7","accent"], ["M214 128l-13 7","accent"],
+          "M138 96h26v26h-26z", "M176 100h22v22h-22z",
+          "M252 96a12 12 0 1 1 .1 0", "M252 110v28", "M252 118l-15 11", "M252 118l15 11",
+          "M252 138l-11 22", "M252 138l11 22"
+        ],
+        text:[[26,180,"FACTORY"],[232,182,"BUYER"]] },
+
+      { title:"Marketing Concept",
+        cap:"Find out what the buyer needs, and only then make it.",
+        note:"philosophies", hold:6200,
+        ink:[
+          "M58 96a12 12 0 1 1 .1 0", "M58 110v28", "M58 118l-15 11", "M58 118l15 11",
+          "M58 138l-11 22", "M58 138l11 22",
+          ["M84 62c0-12 16-16 24-10 8-8 26-4 26 8 10 3 9 17-1 17H92c-10 0-12-11-8-15z","gold"],
+          ["M74 88c6 0 8-4 8-8","gold"],
+          ["M196 128h-96","accent"], ["M100 128l13-7","accent"], ["M100 128l13 7","accent"],
+          "M210 160h86v-54h-86z", "M262 106V80h15v26", "M254 122h12v12h-12z", "M278 122h12v12h-12z"
+        ],
+        text:[[100,76,"WHAT DO YOU NEED?"],[214,180,"THEN PRODUCE"]] },
+
+      { title:"Channels of Distribution",
+        cap:"Factory to wholesaler to retailer to you — that is the place mix.",
+        note:"place", hold:6600,
+        ink:[
+          "M18 120h44v-32H18z", "M46 88V72h9v16",
+          ["M68 104h24","accent"], ["M92 104l-9-5","accent"], ["M92 104l-9 5","accent"],
+          "M100 120h46v-30h-46z", "M98 90l23-14 25 14",
+          ["M152 104h24","accent"], ["M176 104l-9-5","accent"], ["M176 104l-9 5","accent"],
+          "M184 120h44v-28h-44z", "M182 92h48l-6-12h-36z",
+          ["M234 104h22","accent"], ["M256 104l-9-5","accent"], ["M256 104l-9 5","accent"],
+          "M278 92a10 10 0 1 1 .1 0", "M278 104v20", "M278 110l-12 8", "M278 110l12 8",
+          "M278 124l-9 18", "M278 124l9 18"
+        ],
+        text:[[20,140,"FACTORY"],[98,140,"WHOLESALER"],[188,140,"RETAILER"],[276,162,"CONSUMER","middle"]] },
+
+      { title:"The Export Journey",
+        cap:"Goods sail out, documents travel back, and the payment comes home.",
+        note:"export-2", hold:6600,
+        ink:[
+          "M26 164V58h8v106", "M30 62h62l-11 15H30", "M80 77v24", "M70 101h22v16H70z",
+          "M106 150h108l-13 14H119z", "M128 150v-22h58v22",
+          "M140 132h12v10h-12z", "M164 132h12v10h-12z", "M186 128l20 8v14",
+          ["M232 70h30l10 10v44h-40z","gold"], ["M262 70v10h10","gold"],
+          ["M242 94h20","gold"], ["M242 104h20","gold"], ["M242 114h13","gold"],
+          ["M12 176c14 8 28 8 42 0s28-8 42 0 28 8 42 0 28-8 42 0 28 8 42 0 28-8 42 0","accent"]
+        ],
+        text:[[20,46,"PORT"],[228,142,"DOCUMENTS"]] }
+    ];
+
+    var svgs = [], bars = [], cur = -1, timer = null, startedAt = 0, leftMs = 0, paused = false;
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var NS = "http://www.w3.org/2000/svg";
+
+    SCENES.forEach(function(sc, i){
+      var svg = document.createElementNS(NS, "svg");
+      svg.setAttribute("viewBox", "0 0 320 200");
+      svg.setAttribute("aria-hidden", "true");
+      var step = reduce ? 0 : 0.26;
+      sc.ink.forEach(function(item, k){
+        var d = Array.isArray(item) ? item[0] : item;
+        var cls = Array.isArray(item) ? " " + item[1] : "";
+        var p = document.createElementNS(NS, "path");
+        p.setAttribute("d", d);
+        p.setAttribute("pathLength", "1");
+        p.setAttribute("class", "ink" + cls);
+        p.style.setProperty("--t", (k * step).toFixed(2) + "s");
+        p.style.setProperty("--d", reduce ? "0s" : ".85s");
+        svg.appendChild(p);
+      });
+      (sc.text || []).forEach(function(t){
+        var el = document.createElementNS(NS, "text");
+        el.setAttribute("x", t[0]); el.setAttribute("y", t[1]);
+        if(t[3]) el.setAttribute("text-anchor", t[3]);
+        el.textContent = t[2];
+        el.style.transitionDelay = reduce ? "0s" : (sc.ink.length * step * 0.75).toFixed(2) + "s";
+        svg.appendChild(el);
+      });
+      stage.appendChild(svg);
+      svgs.push(svg);
+
+      var b = document.createElement("button");
+      b.type = "button";
+      b.setAttribute("aria-label", "Play scene " + (i+1) + ": " + sc.title);
+      b.appendChild(document.createElement("i"));
+      b.addEventListener("click", function(){ play(i); });
+      timeEl.appendChild(b);
+      bars.push(b);
+    });
+
+    stage.style.cursor = "pointer";
+    stage.addEventListener("click", function(){
+      if(cur < 0) return;
+      var id = SCENES[cur].note;
+      var n = NOTES.filter(function(x){ return x.id === id; })[0];
+      if(n) openNote(n);
+    });
+
+    function clearBars(upto){
+      bars.forEach(function(b, i){
+        b.className = i < upto ? "done" : "";
+        b.firstChild.style.transitionDuration = "0s";
+        b.firstChild.style.transform = "scaleX(" + (i < upto ? 1 : 0) + ")";
+      });
+    }
+
+    function play(i){
+      if(timer){ clearTimeout(timer); timer = null; }
+      if(cur >= 0) svgs[cur].classList.remove("on");
+      cur = i;
+      var sc = SCENES[i];
+      capEl.innerHTML = "";
+      var b = document.createElement("b"); b.textContent = sc.title;
+      capEl.appendChild(b);
+      capEl.appendChild(document.createTextNode(sc.cap));
+      clearBars(i);
+      // next frame, so the stroke reset lands before the draw
+      requestAnimationFrame(function(){
+        requestAnimationFrame(function(){
+          svgs[i].classList.add("on");
+          var seg = bars[i].firstChild;
+          seg.style.transitionDuration = sc.hold + "ms";
+          bars[i].className = "live";
+          seg.style.transform = "scaleX(1)";
+        });
+      });
+      if(!paused) run(sc.hold);
+    }
+
+    function run(ms){
+      leftMs = ms; startedAt = Date.now();
+      timer = setTimeout(function(){ play((cur + 1) % SCENES.length); }, ms);
+    }
+
+    toggle.addEventListener("click", function(){
+      paused = !paused;
+      toggle.textContent = paused ? "Play" : "Pause";
+      toggle.setAttribute("aria-label", (paused ? "Play" : "Pause") + " the doodle reel");
+      var seg = bars[cur] && bars[cur].firstChild;
+      if(paused){
+        if(timer){ clearTimeout(timer); timer = null; }
+        leftMs = Math.max(0, leftMs - (Date.now() - startedAt));
+        if(seg){
+          var at = new DOMMatrixReadOnly(getComputedStyle(seg).transform).a;
+          seg.style.transitionDuration = "0s";
+          seg.style.transform = "scaleX(" + at + ")";
+        }
+      } else {
+        if(seg){ seg.style.transitionDuration = leftMs + "ms"; seg.style.transform = "scaleX(1)"; }
+        run(leftMs || SCENES[cur].hold);
+      }
+    });
+
+    // pause while the tab is hidden, so a returning viewer sees a full scene
+    document.addEventListener("visibilitychange", function(){
+      if(document.hidden && timer){ clearTimeout(timer); timer = null; leftMs = Math.max(0, leftMs - (Date.now() - startedAt)); }
+      else if(!document.hidden && !paused && !timer && cur >= 0){ run(leftMs || SCENES[cur].hold); }
+    });
+
+    play(0);
+  })();
+
+  /* ---------- exam countdown ---------- */
+  (function(){
+    var el = document.getElementById("countdown");
+    if(!el || !CONFIG.examDate) return;
+    var exam = new Date(CONFIG.examDate + "T09:00:00");
+    if(isNaN(exam)) return;
+    function tick(){
+      var days = Math.ceil((exam - new Date()) / 86400000);
+      if(days < 0){ el.hidden = true; return; }
+      el.hidden = false;
+      el.innerHTML = days === 0
+        ? "Board exams start <b>today</b>"
+        : "Board exams in <b>" + days + "</b> " + (days === 1 ? "day" : "days");
+    }
+    tick();
+    setInterval(tick, 3600000);
+  })();
+
+  /* ---------- install on the phone, and work offline ---------- */
+  (function(){
+    var waiting = null;
+    var btn = document.getElementById("installBtn");
+    window.addEventListener("beforeinstallprompt", function(ev){
+      ev.preventDefault();
+      waiting = ev;
+      if(btn) btn.style.display = "inline-flex";
+    });
+    if(btn){
+      btn.addEventListener("click", function(){
+        if(!waiting) return;
+        waiting.prompt();
+        waiting.userChoice.then(function(){ waiting = null; btn.style.display = "none"; });
+      });
+    }
+    window.addEventListener("appinstalled", function(){
+      if(btn) btn.style.display = "none";
+      toast("Notesflix 101 added to your home screen");
+    });
+    if("serviceWorker" in navigator && location.protocol === "https:"){
+      window.addEventListener("load", function(){
+        navigator.serviceWorker.register("sw.js").catch(function(){});
+      });
+    }
+  })();
+
+  /* ---------- the story film ---------- */
+  (function(){
+    var stage = document.getElementById("filmStage");
+    var capEl = document.getElementById("filmCap");
+    var timeEl = document.getElementById("filmTime");
+    var shell = document.getElementById("film");
+    if(!stage) return;
+
+    // one figure builder, so every character has the same proportions
+    function figure(cx, top, o){
+      o = o || {};
+      var r = o.r || 11, k = r / 11;
+      var headY = top + r, neck = top + 2 * r, hip = neck + 34 * k, foot = hip + 26 * k;
+      var out = [
+        ["M" + (cx - r) + " " + (top + r) + "a" + r + " " + r + " 0 1 0 " + (2 * r) + " 0a" + r + " " + r + " 0 1 0 " + (-2 * r) + " 0", o.cls],
+        ["M" + cx + " " + neck + "V" + hip, o.cls]
+      ];
+      if(o.armsDown){
+        out.push(["M" + cx + " " + (neck + 7) + "L" + (cx - 15 * k) + " " + (hip - 2), o.cls]);
+        out.push(["M" + cx + " " + (neck + 7) + "L" + (cx + 15 * k) + " " + (hip - 2), o.cls]);
+      } else if(o.armsFwd){
+        out.push(["M" + cx + " " + (neck + 7) + "L" + (cx - 24 * k) + " " + (neck + 26 * k), o.cls]);
+      } else {
+        out.push(["M" + cx + " " + (neck + 8) + "L" + (cx - 17 * k) + " " + (neck + 22 * k), o.cls]);
+        out.push(["M" + cx + " " + (neck + 8) + "L" + (cx + 17 * k) + " " + (neck + 22 * k), o.cls]);
+      }
+      if(o.seated){
+        // sitting at a desk, so the legs are out of sight behind it
+      } else {
+        out.push(["M" + cx + " " + hip + "L" + (cx - 12 * k) + " " + foot, o.cls]);
+        out.push(["M" + cx + " " + hip + "L" + (cx + 12 * k) + " " + foot, o.cls]);
+      }
+      if(o.cape){
+        out.push(["M" + (cx - 9) + " " + (neck + 2) + "c-26 12 -30 44 -18 66 6-18 14-26 22-30", "gold"]);
+        out.push(["M" + (cx + 9) + " " + (neck + 2) + "c26 12 30 44 18 66 -6-18 -14-26 -22-30", "gold"]);
+      }
+      return out;
+    }
+    function flat(list){
+      var out = [];
+      list.forEach(function(x){ Array.isArray(x[0]) ? x.forEach(function(y){ out.push(y); }) : out.push(x); });
+      return out;
+    }
+    function many(){
+      var out = [];
+      for(var i = 0; i < arguments.length; i++){
+        var a = arguments[i];
+        if(typeof a === "string") out.push(a);
+        else if(Array.isArray(a) && typeof a[0] === "string" && a.length <= 2) out.push(a);
+        else a.forEach(function(x){ out.push(x); });
+      }
+      return out;
+    }
+
+    var GROUND = "M16 168h288";
+
+    var FILM = [
+      { title:"Monday night, forty pages to go",
+        cap:"A photocopied chapter, the same four paragraphs read five times, and nothing sticking.",
+        hold:7000,
+        ink: many(
+          GROUND,
+          "M40 128h128v7H40z", "M50 135v33M158 135v33",
+          "M64 120h54v8H64z", "M60 112h60v8H60z", "M66 104h50v8H66z",
+          ["M72 108h36M72 116h28M72 124h32","gold"],
+          figure(216, 76, { armsDown:true }),
+          "M276 46a13 13 0 1 1 .1 0", "M276 35v12l9 6"
+        ),
+        text:[[40,186,"CHAPTER 11 · 40 PAGES"],[232,90,"11:40 PM"]] },
+
+      { title:"Then a page answered back",
+        cap:"One note that did not sit still. It asked a question, and waited for the answer.",
+        hold:7000,
+        ink: many(
+          GROUND,
+          "M34 150l48-12 2 8-48 12z", "M40 138l46-14 3 8-46 13z", "M48 126l42-13 3 8-42 12z",
+          figure(120, 78, {}),
+          ["M176 36h126v92H176z","accent"],
+          ["M192 60h62M192 76h86M192 92h44","accent"],
+          ["M258 92l11 12 22-26","gold"],
+          ["M160 56l-14-10M164 82h-16M160 108l-14 10","gold"]
+        ),
+        text:[[176,146,"TAP TO CHECK YOUR ANSWER"]] },
+
+      { title:"Tap. Drag. Get it wrong. Try again.",
+        cap:"Interactive notes make you do the work, so the chapter ends up practised and not just read.",
+        hold:7400,
+        ink: many(
+          GROUND,
+          figure(160, 70, {}),
+          ["M28 34h68v40H28z","accent"], ["M40 50h40M40 62h24","accent"],
+          ["M224 34h68v40h-68z","gold"], ["M236 50h42M236 62h26","gold"],
+          ["M28 96h68v40H28z","gold"], ["M40 112h40M40 124h22","gold"],
+          ["M224 96h68v40h-68z","accent"], ["M240 116l10 10 22-24","accent"],
+          "M104 56l24-6M216 52l-22-4M104 116l22 4M216 118l-20 2"
+        ),
+        text:[[28,28,"FLIP"],[224,28,"MATCH"],[28,150,"DRAG"],[224,150,"CHECK"]] },
+
+      { title:"Something changes",
+        cap:"The chapter stops being pages to survive and starts being something you can use.",
+        hold:7000,
+        ink: many(
+          GROUND,
+          figure(142, 46, { r:13, cape:true }),
+          ["M196 86l20-8 20 8v18c0 13-10 20-20 24-10-4-20-11-20-24z","accent"],
+          ["M208 104l7 7 12-14","accent"],
+          "M78 40l-9-9M250 40l9-9M64 92H50M262 92h14M84 140l-10 10M244 140l10 10"
+        ),
+        text:[[160,188,"ONE CHAPTER, UNDERSTOOD","middle"]] },
+
+      { title:"Exam day stops being a gamble",
+        cap:"You have already answered these questions, in the notes, at home, in your own time.",
+        hold:7400,
+        ink: many(
+          GROUND,
+          "M22 132h66v8H22zM127 132h66v8h-66zM232 132h66v8h-66z",
+          "M30 140v28M80 140v28M135 140v28M185 140v28M240 140v28M290 140v28",
+          figure(55, 78, { r:9, armsFwd:true, seated:true }),
+          figure(160, 78, { r:9, armsFwd:true, seated:true }),
+          figure(265, 70, { r:10, armsFwd:true, seated:true, cls:"accent" }),
+          ["M236 118l12 10","accent"],
+          ["M20 24h86v22H20z","gold"], ["M32 35h38","gold"]
+        ),
+        text:[[26,18,"PAPER STARTS NOW"],[218,186,"CALM, NOT LUCKY"]] },
+
+      { title:"Notesflix 101",
+        cap:"Free interactive notes for CBSE Class XI and XII. Open any chapter and start.",
+        hold:7600,
+        ink: many(
+          GROUND,
+          "M20 168v-46h28v46M56 168v-66h24v66M88 168v-34h22v34",
+          "M212 168v-38h22v38M242 168v-62h26v62M276 168v-42h24v42",
+          "M26 132h16M26 142h12M62 116h12M62 130h12M248 120h14M248 134h14M282 140h12",
+          figure(160, 52, { r:14, cape:true, cls:"accent" }),
+          ["M130 6h60v20h-60z","gold"]
+        ),
+        text:[[160,20,"101","middle"],[160,190,"COMMERCE YOU CAN BINGE","middle"]] }
+    ];
+
+    var NS = "http://www.w3.org/2000/svg";
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var svgs = [], bars = [], cur = -1, timer = null, startedAt = 0, leftMs = 0, paused = false, built = false;
+
+    function build(){
+      if(built) return; built = true;
+      FILM.forEach(function(sc){
+        var svg = document.createElementNS(NS, "svg");
+        svg.setAttribute("viewBox", "0 0 320 200");
+        svg.setAttribute("aria-hidden", "true");
+        var step = reduce ? 0 : 0.22;
+        sc.ink.forEach(function(item, k){
+          var d = Array.isArray(item) ? item[0] : item;
+          var cls = Array.isArray(item) ? " " + item[1] : "";
+          var pth = document.createElementNS(NS, "path");
+          pth.setAttribute("d", d);
+          pth.setAttribute("pathLength", "1");
+          pth.setAttribute("class", "ink" + cls);
+          pth.style.setProperty("--t", (k * step).toFixed(2) + "s");
+          pth.style.setProperty("--d", reduce ? "0s" : ".8s");
+          svg.appendChild(pth);
+        });
+        (sc.text || []).forEach(function(t){
+          var el = document.createElementNS(NS, "text");
+          el.setAttribute("x", t[0]); el.setAttribute("y", t[1]);
+          if(t[3]) el.setAttribute("text-anchor", t[3]);
+          el.textContent = t[2];
+          el.style.transitionDelay = reduce ? "0s" : (sc.ink.length * step * 0.7).toFixed(2) + "s";
+          svg.appendChild(el);
+        });
+        stage.appendChild(svg);
+        svgs.push(svg);
+
+        var seg = document.createElement("i");
+        seg.appendChild(document.createElement("b"));
+        timeEl.appendChild(seg);
+        bars.push(seg);
+      });
+    }
+
+    function show(i){
+      if(timer){ clearTimeout(timer); timer = null; }
+      if(cur >= 0 && svgs[cur]) svgs[cur].classList.remove("on");
+      cur = i;
+      var sc = FILM[i];
+      capEl.innerHTML = "";
+      var b = document.createElement("b"); b.textContent = sc.title;
+      var sp = document.createElement("span"); sp.textContent = sc.cap;
+      capEl.appendChild(b); capEl.appendChild(sp);
+      bars.forEach(function(seg, k){
+        seg.className = k < i ? "done" : "";
+        seg.firstChild.style.transitionDuration = "0s";
+        seg.firstChild.style.transform = "scaleX(" + (k < i ? 1 : 0) + ")";
+      });
+      requestAnimationFrame(function(){
+        requestAnimationFrame(function(){
+          svgs[i].classList.add("on");
+          var sg = bars[i].firstChild;
+          sg.style.transitionDuration = sc.hold + "ms";
+          bars[i].className = "live";
+          sg.style.transform = "scaleX(1)";
+        });
+      });
+      if(!paused) run(sc.hold);
+    }
+
+    function run(ms){
+      leftMs = ms; startedAt = Date.now();
+      timer = setTimeout(function(){
+        if(cur < FILM.length - 1) show(cur + 1); else finish();
+      }, ms);
+    }
+
+    function finish(){
+      if(timer){ clearTimeout(timer); timer = null; }
+      var end = document.createElement("div");
+      end.className = "film-end";
+      end.id = "filmEnd";
+      var h = document.createElement("h3"); h.textContent = "Start with any chapter";
+      var p2 = document.createElement("p");
+      p2.textContent = "Every chapter on this site opens free. Pick one and read it the way you would watch an episode.";
+      var row = document.createElement("div"); row.className = "row2";
+      var b1 = document.createElement("button");
+      b1.type = "button"; b1.className = "btn btn-light btn-lg"; b1.textContent = "▶ Browse chapters";
+      b1.addEventListener("click", function(){
+        close();
+        var el = document.getElementById("browse");
+        if(el) el.scrollIntoView({ behavior:"smooth", block:"start" });
+      });
+      var b2 = document.createElement("button");
+      b2.type = "button"; b2.className = "btn btn-ghost btn-lg"; b2.textContent = "↻ Watch again";
+      b2.addEventListener("click", function(){ end.remove(); show(0); });
+      row.appendChild(b1); row.appendChild(b2);
+      end.appendChild(h); end.appendChild(p2); end.appendChild(row);
+      stage.appendChild(end);
+    }
+
+    function open(){
+      build();
+      var old = document.getElementById("filmEnd");
+      if(old) old.remove();
+      shell.hidden = false;
+      requestAnimationFrame(function(){ shell.classList.add("in"); });
+      document.body.style.overflow = "hidden";
+      paused = false;
+      document.getElementById("filmPause").textContent = "Pause";
+      show(0);
+      document.getElementById("filmClose").focus();
+    }
+    function close(){
+      if(timer){ clearTimeout(timer); timer = null; }
+      if(cur >= 0 && svgs[cur]) svgs[cur].classList.remove("on");
+      cur = -1;
+      shell.classList.remove("in");
+      setTimeout(function(){ if(!shell.classList.contains("in")) shell.hidden = true; }, 200);
+      document.body.style.overflow = "";
+    }
+
+    document.getElementById("storyPlay").addEventListener("click", open);
+    document.getElementById("storyPoster").addEventListener("click", open);
+    document.getElementById("filmClose").addEventListener("click", close);
+    document.getElementById("filmPause").addEventListener("click", function(){
+      paused = !paused;
+      this.textContent = paused ? "Play" : "Pause";
+      var sg = bars[cur] && bars[cur].firstChild;
+      if(paused){
+        if(timer){ clearTimeout(timer); timer = null; }
+        leftMs = Math.max(0, leftMs - (Date.now() - startedAt));
+        if(sg){
+          var at = new DOMMatrixReadOnly(getComputedStyle(sg).transform).a;
+          sg.style.transitionDuration = "0s";
+          sg.style.transform = "scaleX(" + at + ")";
+        }
+      } else {
+        if(sg){ sg.style.transitionDuration = leftMs + "ms"; sg.style.transform = "scaleX(1)"; }
+        run(leftMs || FILM[cur].hold);
+      }
+    });
+    document.addEventListener("keydown", function(ev){
+      if(ev.key === "Escape" && !shell.hidden) close();
+    });
+
+    // a still frame on the poster so the band is not an empty box
+    var poster = document.getElementById("storyPoster");
+    var ps = document.createElementNS(NS, "svg");
+    ps.setAttribute("viewBox", "0 0 320 200");
+    ps.setAttribute("aria-hidden", "true");
+    ps.innerHTML = '<g fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".7">'
+      + '<path class="ink" d="M160 58a16 16 0 1 1 .1 0"/><path class="ink" d="M160 74v34"/>'
+      + '<path class="ink" d="M160 82l-24 18M160 82l24 18"/><path class="ink" d="M160 108l-13 34M160 108l13 34"/>'
+      + '<path class="ink accent" d="M144 76c-28 10-34 44-22 70 6-20 16-30 22-34"/>'
+      + '<path class="ink accent" d="M176 76c28 10 34 44 22 70-6-20-16-30-22-34"/>'
+      + '<path class="ink" d="M40 150h240"/>'
+      + '<path class="ink" d="M44 60h52v38H44zM224 60h52v38h-52z"/>'
+      + '<path class="ink" d="M54 74h32M54 86h20M234 74h32M234 86h20"/></g>';
+    poster.insertBefore(ps, poster.firstChild);
+  })();
+
+  /* ---------- billboard doodle strip ---------- */
+  (function(){
+    var strip = document.getElementById("bbDoodles");
+    var picks = ["teacher","chart","truck","megaphone","globe","ship","shield","coins","target","package","stamp","brain"];
+    picks.forEach(function(k, i){
+      var holder = document.createElement("div");
+      holder.innerHTML = artSVG(k);
+      var svg = holder.firstChild;
+      svg.querySelector("rect").setAttribute("fill", "none");
+      svg.style.animationDelay = (i * 1.4) + "s";
+      strip.appendChild(svg);
+    });
+  })();
+
+  render();
+})();
+</script>
+</body>
+</html>
