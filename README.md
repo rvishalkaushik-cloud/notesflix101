@@ -24,7 +24,7 @@ README.md         this file
 4. Source: **Deploy from a branch**. Branch: **main**. Folder: **/ (root)**. Save.
 5. Wait a minute or two. Your site is then live at:
 
-   `https://rvishalkaushik-cloud.github.io/notesflix101/`
+   `https://notesflix101.com/`
 
 That is the single link you share with students. Every note opens from it — nothing is private, nothing needs a login.
 
