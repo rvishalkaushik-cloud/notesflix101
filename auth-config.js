@@ -1,8 +1,8 @@
 // Student sign-in settings. Edit only this file.
-// requireLogin stays false until Google sign-in and the Firestore rules are set up.
-// Then change requireLogin to true and push.
+// requireLogin is true: students must sign in with Google first.
+
 window.NF_AUTH = {
-  requireLogin: false,
+  requireLogin: true,
   firebase: {
     apiKey: "AIzaSyAihF2fTM2OchXxi1EuDvLJKD6rlTIAkfI",
     authDomain: "notesflix101.firebaseapp.com",
