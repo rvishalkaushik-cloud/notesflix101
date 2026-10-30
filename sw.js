@@ -1,7 +1,7 @@
 /* Notesflix 101 — keeps the site readable without a connection.
    Bump CACHE when you change index.html so students get the new version. */
-const CACHE = "notesflix-v13";
-const CORE = ["./", "./index.html", "./manifest.json", "./img/icon-192.png"];
+const CACHE = "notesflix-v14";
+const CORE = ["./", "./index.html", "./auth-config.js", "./login.html", "./manifest.json", "./img/icon-192.png"];
 
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(CORE)).then(() => self.skipWaiting()));

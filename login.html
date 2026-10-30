@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Notesflix 101 · Student sign-in</title>
+<style>
+:root{color-scheme:dark}
+html,body{margin:0;min-height:100%;background:#0a0a0a;color:#fff;font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;box-sizing:border-box}
+.box{width:100%;max-width:360px;border:2px solid rgba(255,255,255,.2);border-radius:16px;padding:24px;background:#141414}
+h1{font-size:24px;margin:0 0 6px;font-weight:800}
+p{margin:0 0 16px;color:#bdbdbd;font-size:14px}
+button,.btn{display:block;width:100%;box-sizing:border-box;margin-top:12px;padding:12px;border:0;border-radius:10px;background:#e50914;color:#fff;font:700 16px system-ui,sans-serif;text-align:center;text-decoration:none;cursor:pointer}
+.btn.ghost{background:transparent;border:2px solid rgba(255,255,255,.3)}
+button:disabled{opacity:.6}
+.msg{min-height:20px;margin-top:12px;font-size:14px;color:#ff8a80}
+.ok{color:#8bd3a6}
+.hide{display:none}
+</style></head>
+<body><main><div class="box">
+<h1>NOTE<span style="color:#e50914">FLIX</span> 101</h1>
+<p>Sign in with your Gmail to open your notes.</p>
+
+<div id="off" class="hide"><p>Student sign-in is not switched on yet. Use the class password on the notes.</p>
+<a class="btn ghost" href="index.html">Back to notes</a></div>
+
+<div id="signin" class="hide">
+<button id="go" type="button">Sign in with Google</button>
+</div>
+
+<div id="done" class="hide">
+<p class="ok" id="hello"></p>
+<a class="btn" href="index.html">Go to notes</a>
+</div>
+
+<div class="msg" id="msg" role="alert"></div>
+</div></main>
+
+<script src="https://cdn.jsdelivr.net/npm/firebase@10.12.2/firebase-app-compat.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/firebase@10.12.2/firebase-auth-compat.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/firebase@10.12.2/firebase-firestore-compat.js"></script>
+<script src="auth-config.js"></script>
+<script>
+(function(){
+  const cfg = window.NF_AUTH || {};
+  const $ = id => document.getElementById(id);
+  const show = id => $(id).classList.remove('hide');
+  const fail = t => { $('msg').textContent = t; };
+
+  if (!cfg.requireLogin) { show('off'); return; }
+
+  try { firebase.initializeApp(cfg.firebase); } catch (e) { fail('Sign-in setup has a problem. Ask your teacher.'); return; }
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+
+  async function saveStudent(user){
+    await db.collection('students').doc(user.uid).set({
+      name: user.displayName || '',
+      email: user.email || '',
+      lastSeen: firebase.firestore.FieldValue.serverTimestamp(),
+      joinedAt: firebase.firestore.FieldValue.serverTimestamp()
+    }, { merge: true });
+  }
+
+  auth.onAuthStateChanged(user => {
+    if (user) {
+      $('hello').textContent = 'Signed in as ' + (user.email || user.displayName) + '.';
+      show('done');
+    } else {
+      show('signin');
+    }
+  });
+
+  $('go').addEventListener('click', async () => {
+    fail('');
+    const btn = $('go'); btn.disabled = true;
+    try {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      provider.setCustomParameters({ prompt: 'select_account' });
+      const res = await auth.signInWithPopup(provider);
+      await saveStudent(res.user);
+    } catch (e) {
+      fail('Sign-in did not work. Try again, and allow pop-ups for this site.');
+    } finally {
+      btn.disabled = false;
+    }
+  });
+})();
+</script>
+</body></html>
