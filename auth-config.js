@@ -1,12 +1,15 @@
-// Student sign-in settings. Edit only this file after you set up Firebase.
-// 1. Leave requireLogin false while you set up Firebase. Notes keep working with the class password.
-// 2. After you paste the Firebase settings below and test, change requireLogin to true.
+// Student sign-in settings. Edit only this file.
+// requireLogin stays false until Google sign-in and the Firestore rules are set up.
+// Then change requireLogin to true and push.
 window.NF_AUTH = {
   requireLogin: false,
   firebase: {
-    apiKey: "PASTE_API_KEY",
-    authDomain: "PASTE_PROJECT_ID.firebaseapp.com",
-    projectId: "PASTE_PROJECT_ID",
-    appId: "PASTE_APP_ID"
+    apiKey: "AIzaSyAihF2fTM2OchXxi1EuDvLJKD6rlTIAkfI",
+    authDomain: "notesflix101.firebaseapp.com",
+    projectId: "notesflix101",
+    storageBucket: "notesflix101.firebasestorage.app",
+    messagingSenderId: "140150601708",
+    appId: "1:140150601708:web:d3aed737a9eaf6691af2c9",
+    measurementId: "G-54EPBKJ2JN"
   }
 };
