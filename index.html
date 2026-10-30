@@ -539,6 +539,13 @@ footer{border-top:1px dashed rgba(255,255,255,.14)}
   .card:hover,.rcard:hover{transform:none}
 }
 
+
+/* corner sign-in */
+.acct-wrap{position:relative;order:1}
+.acct-menu{position:absolute;right:0;top:calc(100% + 8px);z-index:60;min-width:210px;background:var(--ink-2);border:1px solid var(--line);border-top:3px solid var(--red);border-radius:4px;padding:12px;box-shadow:0 14px 40px rgba(0,0,0,.6)}
+.acct-mail{font-size:13px;color:var(--paper-dim);margin-bottom:10px;word-break:break-all}
+.acct-menu .btn{width:100%}
+@media (max-width:640px){.logo{order:-1}.acct-wrap{order:-1;margin-left:auto}}
 </style>
 </head>
 <body>
@@ -894,7 +901,13 @@ CHAPTERS.forEach(function(c){
     </nav>
     <div class="spacer"></div>
     <div class="search"><span aria-hidden="true">⌕</span><input id="q" type="search" placeholder="Search a topic" aria-label="Search notes"></div>
-    <a class="btn btn-ghost" id="acct" href="login.html" hidden>Sign in</a>
+    <div class="acct-wrap" id="acctWrap" hidden>
+      <button class="btn btn-ghost" id="acct" type="button">Sign in</button>
+      <div class="acct-menu" id="acctMenu" hidden>
+        <div class="acct-mail" id="acctMail"></div>
+        <button class="btn btn-ghost" id="acctOut" type="button">Sign out</button>
+      </div>
+    </div>
     <button class="btn btn-ghost" id="installBtn" type="button">Install</button>
     <a class="btn btn-red" id="waTop" href="#premium">WhatsApp</a>
   </div>
@@ -2230,28 +2243,59 @@ CHAPTERS.forEach(function(c){
 </script>
 <script src="https://cdn.jsdelivr.net/npm/firebase@10.12.2/firebase-app-compat.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/firebase@10.12.2/firebase-auth-compat.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/firebase@10.12.2/firebase-firestore-compat.js"></script>
 <script src="auth-config.js"></script>
 <script>
-/* Student sign-in on the home screen. Shows "Sign in", or the student's first name once signed in. */
+/* Corner sign-in: Google sign-in right on the home screen. Students stay signed in on this device. */
 (function(){
   const cfg = window.NF_AUTH || {};
   if (!cfg.requireLogin) return;
-  const acct = document.getElementById('acct');
+  const $ = id => document.getElementById(id);
+  const wrap = $('acctWrap'), btn = $('acct'), menu = $('acctMenu'), mail = $('acctMail'), out = $('acctOut');
+  let auth, db, user = null;
   try {
     if (!firebase.apps.length) firebase.initializeApp(cfg.firebase);
-    const auth = firebase.auth();
+    auth = firebase.auth();
+    db = firebase.firestore();
     auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL).catch(() => {});
-    acct.hidden = false;
-    auth.onAuthStateChanged(user => {
-      if (user) {
-        acct.textContent = 'Hi, ' + ((user.displayName || user.email || 'Student').split(' ')[0]);
-        acct.removeAttribute('href');
-      } else {
-        acct.textContent = 'Sign in';
-        acct.href = 'login.html';
-      }
-    });
-  } catch (e) { /* home page still works without sign-in */ }
+    wrap.hidden = false;
+  } catch (e) { return; }   // home page still works without sign-in
+
+  function render(){
+    if (user) {
+      btn.textContent = 'Hi, ' + ((user.displayName || user.email || 'Student').split(' ')[0]);
+      mail.textContent = user.email || '';
+    } else {
+      btn.textContent = 'Sign in';
+      menu.hidden = true;
+    }
+  }
+  async function saveStudent(u){
+    try {
+      await db.collection('students').doc(u.uid).set({
+        name: u.displayName || '', email: u.email || '',
+        lastSeen: firebase.firestore.FieldValue.serverTimestamp(),
+        joinedAt: firebase.firestore.FieldValue.serverTimestamp()
+      }, { merge: true });
+    } catch (e) { /* signing in still worked */ }
+  }
+  auth.onAuthStateChanged(u => { user = u; render(); });
+
+  btn.addEventListener('click', async () => {
+    if (user) { menu.hidden = !menu.hidden; return; }
+    btn.disabled = true; btn.textContent = 'Signing in…';
+    try {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      provider.setCustomParameters({ prompt: 'select_account' });
+      const res = await auth.signInWithPopup(provider);
+      await saveStudent(res.user);
+    } catch (e) {
+      // pop-up blocked (common on phones): use the full sign-in page instead
+      if (e && (e.code === 'auth/popup-blocked' || e.code === 'auth/operation-not-supported-in-this-environment')) { location.href = 'login.html'; return; }
+    } finally { btn.disabled = false; render(); }
+  });
+  out.addEventListener('click', () => { auth.signOut(); menu.hidden = true; });
+  document.addEventListener('click', e => { if (!wrap.contains(e.target)) menu.hidden = true; });
 })();
 </script>
 </body>
