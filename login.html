@@ -1,40 +1,89 @@
-<!doctype html>
-<html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0a0a0a">
 <title>Notesflix 101 · Student sign-in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&display=swap">
 <style>
-:root{color-scheme:dark}
-html,body{margin:0;min-height:100%;background:#0a0a0a;color:#fff;font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
-main{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;box-sizing:border-box}
-.box{width:100%;max-width:360px;border:2px solid rgba(255,255,255,.2);border-radius:16px;padding:24px;background:#141414}
-h1{font-size:24px;margin:0 0 6px;font-weight:800}
-p{margin:0 0 16px;color:#bdbdbd;font-size:14px}
-button,.btn{display:block;width:100%;box-sizing:border-box;margin-top:12px;padding:12px;border:0;border-radius:10px;background:#e50914;color:#fff;font:700 16px system-ui,sans-serif;text-align:center;text-decoration:none;cursor:pointer}
-.btn.ghost{background:transparent;border:2px solid rgba(255,255,255,.3)}
-button:disabled{opacity:.6}
-.msg{min-height:20px;margin-top:12px;font-size:14px;color:#ff8a80}
-.ok{color:#8bd3a6}
-.hide{display:none}
-</style></head>
-<body><main><div class="box">
-<h1>NOTE<span style="color:#e50914">FLIX</span> 101</h1>
-<p>Sign in with your Gmail to open your notes.</p>
+:root{
+  --ink:#0a0a0a; --ink-2:#141414; --ink-3:#1f1f1f;
+  --red:#e50914; --gold:#f5c518; --green:#46d369;
+  --paper:#f5f5f5; --paper-dim:#a8a8a8; --line:#2a2a2a;
+  --display:'Bebas Neue','Oswald','Arial Narrow',sans-serif;
+  --body:'Barlow','Segoe UI',system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--ink)}
+body{
+  color:var(--paper);font-family:var(--body);font-size:16px;line-height:1.55;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%,rgba(229,9,20,.22),transparent 70%),
+    var(--ink);
+}
+main{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 20px;padding-top:max(32px,env(safe-area-inset-top,0px));}
+.logo{font-family:var(--display);font-size:clamp(46px,11vw,72px);letter-spacing:.05em;color:var(--red);text-shadow:0 0 26px rgba(229,9,20,.5);line-height:1;text-decoration:none;margin:0 0 6px;text-align:center}
+.logo span{color:var(--paper)}
+.tag{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--paper-dim);margin:0 0 26px;text-align:center}
+.box{
+  width:100%;max-width:380px;background:var(--ink-2);
+  border:1px solid var(--line);border-top:3px solid var(--red);border-radius:4px;
+  padding:26px 24px 22px;box-shadow:0 18px 50px rgba(0,0,0,.55);
+}
+h1{font-family:var(--display);font-size:34px;letter-spacing:.02em;line-height:1;margin:0 0 8px;font-weight:400}
+p{margin:0 0 16px;color:var(--paper-dim);font-size:15px}
+.btn{
+  display:flex;align-items:center;justify-content:center;gap:10px;width:100%;margin-top:6px;
+  padding:13px 16px;border:0;border-radius:3px;background:var(--red);color:#fff;
+  font-family:var(--body);font-weight:700;font-size:16px;text-align:center;text-decoration:none;
+  cursor:pointer;transition:transform .12s ease,background .18s ease;
+}
+.btn:hover{background:#ff1a25}
+.btn:active{transform:scale(.98)}
+.btn:disabled{opacity:.6;cursor:default}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.3)}
+.btn.ghost:hover{background:var(--ink-3)}
+.g{width:18px;height:18px;flex:0 0 18px;background:#fff;border-radius:50%;display:grid;place-items:center;color:#4285f4;font:800 13px/1 system-ui,sans-serif}
+.msg{min-height:22px;margin-top:12px;font-size:14px;color:#ff8a80}
+.ok{color:var(--green);font-weight:600;margin-bottom:6px}
+.note{margin-top:18px;font-size:12.5px;color:#7a7a7a;text-align:center}
+.hide{display:none !important}
+a{color:var(--gold)}
+</style>
+</head>
+<body>
+<main>
+  <div class="logo">NOTE<span>FLIX</span> 101</div>
+  <p class="tag">Free notes · CBSE Commerce · C&amp;S Classes</p>
 
-<div id="off" class="hide"><p>Student sign-in is not switched on yet. Use the class password on the notes.</p>
-<a class="btn ghost" href="index.html">Back to notes</a></div>
+  <div class="box">
+    <h1>Student sign-in</h1>
+    <p>Sign in with your Gmail to open your notes.</p>
 
-<div id="signin" class="hide">
-<button id="go" type="button">Sign in with Google</button>
-</div>
+    <div id="off" class="hide">
+      <p>Student sign-in is not switched on yet. Use the class password on the notes.</p>
+      <a class="btn ghost" href="index.html">Back to notes</a>
+    </div>
 
-<div id="done" class="hide">
-<p class="ok" id="hello"></p>
-<a class="btn" href="index.html">Go to notes</a>
-</div>
+    <div id="signin" class="hide">
+      <button id="go" class="btn" type="button"><span class="g" aria-hidden="true">G</span>Sign in with Google</button>
+    </div>
 
-<div class="msg" id="msg" role="alert"></div>
-</div></main>
+    <div id="done" class="hide">
+      <p class="ok" id="hello"></p>
+      <a class="btn" href="index.html">Go to notes</a>
+    </div>
+
+    <div class="msg" id="msg" role="alert"></div>
+    <div class="note">Use the Gmail account your teacher knows.</div>
+  </div>
+</main>
 
 <script src="https://cdn.jsdelivr.net/npm/firebase@10.12.2/firebase-app-compat.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/firebase@10.12.2/firebase-auth-compat.js"></script>
@@ -87,4 +136,5 @@ button:disabled{opacity:.6}
   });
 })();
 </script>
-</body></html>
+</body>
+</html>
