@@ -1236,10 +1236,25 @@ CHAPTERS.forEach(function(c){
   }
   function poster(src, art, wide){
     if(src){
-      return '<img class="art" src="' + src + '" alt="" loading="lazy">';
+      return '<img class="art" src="' + src + '?v=27" data-art="' + art + '" data-wide="' + (wide ? 1 : 0) + '" alt="" loading="lazy">';
     }
     return artSVG(art, wide);
   }
+  /* a banner that fails to load: try once more, then show the drawn artwork instead of a broken icon */
+  document.addEventListener("error", function(ev){
+    var im = ev.target;
+    if(!im || im.tagName !== "IMG" || !im.classList.contains("art")) return;
+    if(!im.dataset.retry){
+      im.dataset.retry = "1";
+      setTimeout(function(){ im.src = im.src.split("&r=")[0] + "&r=" + Date.now(); }, 800);
+      return;
+    }
+    try{
+      var tmp = document.createElement("div");
+      tmp.innerHTML = artSVG(im.dataset.art || "coins", im.dataset.wide === "1");
+      im.replaceWith(tmp.firstChild);
+    }catch(e){}
+  }, true);
   function matchesChapter(c){
     if(!filter) return true;
     var hay = c.title + " " + c.tagline + " " + c.subject + " " + c.cls + " " +
