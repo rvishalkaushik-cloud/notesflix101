@@ -5,46 +5,37 @@
       "date": "2026-10-31",
       "tag": "Date sheet",
       "status": "Awaited",
-      "title": "Class 12 date sheet is not out yet",
-      "summary": "We found no CBSE announcement of the 2027 Class 12 date sheet as of 31 Oct 2026. Reports expect it around Oct to Nov, but that is an estimate, not a CBSE notice.",
-      "source": "Careers360 live updates",
-      "url": "https://news.careers360.com/cbse-datesheet-2027-live-updates-class-10-12-board-exam-schedule-timetable-release-date-subject-wise-sample-papers-latest-news"
+      "title": "Class 12 date sheet 2027 not released yet",
+      "summary": "As of 31 Oct 2026, the CBSE circulars page lists no date sheet for the 2027 main exams. The only date sheets listed are for the 2026 West Asia special exams and the 2026 supplementary exams. Watch cbse.gov.in for the notice.",
+      "source": "CBSE (official)",
+      "url": "https://www.cbse.gov.in/cbsenew/examination_circular.html"
     },
     {
-      "date": "2026-10-08",
+      "date": "2026-10-21",
       "tag": "LOC",
-      "status": "Upcoming",
-      "title": "LOC correction window: 2 to 4 Nov 2026",
-      "summary": "Schools submit the List of Candidates (opened 24 Sep; regular deadline 21 Oct; late fee of Rs 2,000 per candidate till 30 Oct). Ask your school to check your name, subjects and details before the correction window closes. No changes after that.",
-      "source": "Careers360 live updates",
-      "url": "https://news.careers360.com/cbse-datesheet-2027-live-updates-class-10-12-board-exam-schedule-timetable-release-date-subject-wise-sample-papers-latest-news"
-    },
-    {
-      "date": "2026-10-09",
-      "tag": "Practicals",
-      "status": "Awaited",
-      "title": "Practical exam dates not announced",
-      "summary": "CBSE has not confirmed practical dates. Past years suggest they begin around 1 January, but that is only a trend. Wait for your school's schedule.",
-      "source": "Careers360 live updates",
-      "url": "https://news.careers360.com/cbse-datesheet-2027-live-updates-class-10-12-board-exam-schedule-timetable-release-date-subject-wise-sample-papers-latest-news"
-    },
-    {
-      "date": "2026-09-21",
-      "tag": "Sample papers",
       "status": "Confirmed",
-      "title": "Class 12 sample papers and marking schemes are out",
-      "summary": "CBSE released the Class 12 sample question papers and marking schemes for 2026-27 on 21 Sep 2026. Practise with them under timed conditions.",
-      "source": "CBSE Academic (official)",
-      "url": "https://cbseacademic.nic.in"
+      "title": "LOC submission for 2026-27 main exams has closed",
+      "summary": "CBSE issued the LOC circular on 21 Sep 2026 and sent reminders until 21 Oct 2026, which it called the last date. Ask your school to confirm that your name, subjects and details were entered correctly.",
+      "source": "CBSE (official)",
+      "url": "https://www.cbse.gov.in/cbsenew/documents/Reminder_6_Submission_LOC_21102026.pdf"
     },
     {
-      "date": "2026-10-07",
+      "date": "2026-09-29",
+      "tag": "Circular",
+      "status": "Confirmed",
+      "title": "CBSE held a live Q&A on registration and LOC for 2027 boards",
+      "summary": "CBSE ran a webinar to answer school questions on registration and LOC for the 2027 board exams. The press release is on the CBSE website.",
+      "source": "CBSE press release (official)",
+      "url": "https://www.cbse.gov.in/cbsenew/documents/Press_Release_LOC_Webinar_29092026.pdf"
+    },
+    {
+      "date": "Apr 2026",
       "tag": "Syllabus",
       "status": "Confirmed",
-      "title": "2026-27 syllabus out; pattern and passing marks unchanged",
-      "summary": "The 2026-27 syllabus is on the CBSE website. The exam pattern is the same as last year, and the pass mark is 33% in each subject, as reported.",
-      "source": "Educart live updates",
-      "url": "https://www.educart.co/news/cbse-board-exams-2027-live-updates"
+      "title": "2026-27 curriculum for Classes 9 to 12 is released",
+      "summary": "CBSE released its curriculum for the 2026-27 session in April 2026 (circular Acad-14/2026). Download your subject syllabus from the Academic website.",
+      "source": "CBSE Academic (official)",
+      "url": "https://cbseacademic.nic.in/circulars.html"
     }
   ]
 }
