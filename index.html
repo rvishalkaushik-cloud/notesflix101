@@ -546,6 +546,25 @@ footer{border-top:1px dashed rgba(255,255,255,.14)}
 .acct-mail{font-size:13px;color:var(--paper-dim);margin-bottom:10px;word-break:break-all}
 .acct-menu .btn{width:100%}
 @media (max-width:640px){.logo{order:-1}.acct-wrap{order:-1;margin-left:auto}}
+
+/* CBSE updates */
+.updates{scroll-margin-top:64px;padding-block:clamp(22px,4vw,34px) 6px;border-bottom:1px dashed rgba(255,255,255,.14)}
+.upd-meta{font-size:13px;color:var(--paper-dim);font-weight:500}
+.upd-rail{grid-auto-columns:minmax(260px,310px);align-items:stretch}
+.upd{scroll-snap-align:start;display:flex;flex-direction:column;gap:9px;padding:15px 16px 14px;background:var(--ink-2);border:2px solid var(--edge);border-radius:16px 9px 17px 8px;box-shadow:4px 5px 0 rgba(0,0,0,.6);min-width:0}
+.upd-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.upd-tag{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--paper);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);padding:3px 8px;border-radius:2px}
+.upd-status{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.upd-status.Confirmed{color:var(--green)}
+.upd-status.Upcoming{color:var(--red)}
+.upd-status.Awaited{color:var(--gold)}
+.upd h3{font-family:var(--display);font-size:clamp(21px,3.2vw,25px);letter-spacing:.03em;line-height:1.05;margin:0;font-weight:400}
+.upd p{margin:0;font-size:14px;line-height:1.5;color:var(--paper-dim)}
+.upd-foot{margin-top:auto;padding-top:6px;display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:12.5px;color:var(--paper-dim)}
+.upd-foot a{color:var(--gold);font-weight:700;text-decoration:none;white-space:nowrap}
+.upd-foot a:hover{text-decoration:underline}
+.upd-note{margin:2px 0 14px;font-size:12.5px;color:#8a8a8a;max-width:70ch}
+.upd-note a{color:var(--gold)}
 </style>
 </head>
 <body>
@@ -912,6 +931,7 @@ CHAPTERS.forEach(function(c){
     <a class="logo" href="#top">NOTESFLIX <span>101</span></a>
     <nav>
       <a href="#browse">Chapters</a>
+      <a id="navUpd" href="#updates" hidden>CBSE Updates</a>
       <a href="#premium">Complete Notes</a>
     </nav>
     <div class="spacer"></div>
@@ -963,6 +983,14 @@ CHAPTERS.forEach(function(c){
       <div class="reel-time" id="reelTime"></div>
     </div>
    </div>
+  </div>
+</section>
+
+<section class="updates" id="updates" hidden aria-label="CBSE updates">
+  <div class="wrap">
+    <div class="row-head"><h2>CBSE Updates</h2><span class="upd-meta" id="updMeta"></span></div>
+    <div class="rail-shell"><div class="rail upd-rail" id="updRail"></div></div>
+    <p class="upd-note">Short summaries in our own words. Always confirm dates and rules on the official CBSE website (<a href="https://www.cbse.gov.in" target="_blank" rel="noopener noreferrer">cbse.gov.in</a>) before you act.</p>
   </div>
 </section>
 
@@ -1033,6 +1061,7 @@ CHAPTERS.forEach(function(c){
       <div class="spacer"></div>
       <div class="foot-links">
         <a href="#browse">Chapters</a>
+        <a id="footUpd" href="#updates" hidden>CBSE Updates</a>
         <a href="#premium">Complete Notes</a>
         <a id="waFoot" href="#">WhatsApp</a>
         <a href="mailto:support@notesflix101.com">support@notesflix101.com</a>
@@ -2255,6 +2284,32 @@ CHAPTERS.forEach(function(c){
   })();
 
   render();
+})();
+</script>
+<script>
+/* CBSE updates: reads updates.json (kept fresh by the service worker) and draws the cards. */
+(function(){
+  var sec=document.getElementById('updates'); if(!sec) return;
+  function fmt(d){var m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(d||''); if(!m) return d||''; var mo=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']; return (+m[3])+' '+mo[+m[2]-1]+' '+m[1];}
+  function el(t,c,x){var e=document.createElement(t); if(c) e.className=c; if(x!=null) e.textContent=x; return e;}
+  fetch('updates.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():Promise.reject();}).then(function(d){
+    var items=(d&&d.items)||[]; if(!items.length) return;
+    var rail=document.getElementById('updRail'); rail.textContent='';
+    items.forEach(function(it){
+      var card=el('article','upd');
+      var top=el('div','upd-top'); top.appendChild(el('span','upd-tag',it.tag||'Update'));
+      if(it.status){var st=el('span','upd-status '+it.status,it.status); top.appendChild(st);}
+      card.appendChild(top);
+      card.appendChild(el('h3',null,it.title||''));
+      card.appendChild(el('p',null,it.summary||''));
+      var foot=el('div','upd-foot'); foot.appendChild(el('span',null,fmt(it.date)));
+      if(it.url&&/^https:\/\//.test(it.url)){var a=el('a',null,(it.source||'Source')+' \u2197'); a.href=it.url; a.target='_blank'; a.rel='noopener noreferrer'; foot.appendChild(a);}
+      card.appendChild(foot); rail.appendChild(card);
+    });
+    document.getElementById('updMeta').textContent=d.checked?('Checked '+fmt(d.checked)):'';
+    sec.hidden=false;
+    ['navUpd','footUpd'].forEach(function(id){var n=document.getElementById(id); if(n) n.hidden=false;});
+  }).catch(function(){});
 })();
 </script>
 <script src="https://cdn.jsdelivr.net/npm/firebase@10.12.2/firebase-app-compat.js"></script>
