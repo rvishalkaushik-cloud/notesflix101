@@ -572,6 +572,24 @@ footer{border-top:1px dashed rgba(255,255,255,.14)}
 .adbox video{width:100%;height:100%;object-fit:cover;display:block}
 .ad-sound{position:absolute;right:10px;bottom:10px;background:rgba(0,0,0,.72);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:6px;padding:7px 13px;font:700 13px var(--body);cursor:pointer}
 .ad-sound[aria-pressed="true"]{background:#e50914;border-color:#e50914}
+
+.classbar .classtab[aria-selected="true"]{color:#111 !important}
+.classbar .hint{font-family:var(--body)}
+.classbar .wrap{flex-direction:column;align-items:stretch;gap:0}
+.tabrow{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:10px 0}
+.tabrow[hidden]{display:none}
+.tabrow .classtab[hidden]{display:none}
+.subj-pick{padding-top:26px}
+.subj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:6px}
+.subj-card{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;background:#141414;border:1px solid var(--line);border-radius:10px;overflow:hidden;transition:transform .2s,border-color .2s,box-shadow .2s}
+.subj-card:hover,.subj-card:focus-visible{transform:translateY(-3px);border-color:var(--red);box-shadow:0 14px 34px rgba(229,9,20,.25)}
+.subj-art{position:relative;aspect-ratio:16/9;background:#000;overflow:hidden}
+.subj-art svg{width:100%;height:100%;display:block}
+.subj-txt{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px}
+.subj-txt b{font-family:var(--display);font-size:26px;letter-spacing:.03em;color:var(--paper);line-height:1}
+.subj-txt span{font-size:14px;color:var(--paper-dim);line-height:1.45}
+.subj-txt em{font-style:normal;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--red);margin-top:4px}
+@media (max-width:760px){.subj-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -1026,9 +1044,16 @@ CHAPTERS.forEach(function(c){
 
 <div class="classbar" id="browse">
   <div class="wrap">
-    <button class="classtab" type="button" data-cls="XII" aria-selected="true">Class XII</button>
-    <button class="classtab" type="button" data-cls="XI" aria-selected="false">Class XI</button>
-    <span class="hint">Pick a chapter to see every note inside it</span>
+    <div class="tabrow" role="tablist" aria-label="Subjects">
+      <button class="classtab subjtab" type="button" data-subj="Business Studies" aria-selected="false">Business Studies</button>
+      <button class="classtab subjtab" type="button" data-subj="Accountancy" aria-selected="false">Accountancy</button>
+      <button class="classtab subjtab" type="button" data-subj="Entrepreneurship" aria-selected="false">Entrepreneurship</button>
+    </div>
+    <div class="tabrow" id="clsRow" hidden aria-label="Classes">
+      <button class="classtab" type="button" data-cls="XII" aria-selected="false">Class XII</button>
+      <button class="classtab" type="button" data-cls="XI" aria-selected="false">Class XI</button>
+      <span class="hint" id="browseHint">Pick a subject to begin</span>
+    </div>
   </div>
 </div>
 
@@ -1256,7 +1281,64 @@ CHAPTERS.forEach(function(c){
   /* ---------- browse: classes, chapters, episodes ---------- */
   var host = document.getElementById("shelves");
   var filter = "";
-  var activeClass = "XII";
+  var activeClass = "";
+  var activeSubject = "";
+  var SUBJECTS = [
+    { name:"Business Studies", art:"gears",  blurb:"Management, marketing, finance and the business environment." },
+    { name:"Accountancy",      art:"coins",  blurb:"Partnership, company accounts, debentures and cash flow." },
+    { name:"Entrepreneurship", art:"target", blurb:"From idea to business plan, funding and growth." }
+  ];
+  function subjectCount(sub, cl){
+    return CHAPTERS.filter(function(c){ return c.subject === sub && (!cl || c.cls === cl); }).length;
+  }
+  function pickSubject(sub){
+    activeSubject = sub;
+    activeClass = subjectCount(sub, "XII") ? "XII" : (subjectCount(sub, "XI") ? "XI" : "XII");
+    paintTabs();
+    render();
+    var first = host.querySelector(".row");
+    if(first) first.scrollIntoView({ behavior:"smooth", block:"start" });
+  }
+  function paintTabs(){
+    document.querySelectorAll(".subjtab").forEach(function(x){
+      x.setAttribute("aria-selected", x.dataset.subj === activeSubject ? "true" : "false");
+    });
+    var row = document.getElementById("clsRow");
+    if(row) row.hidden = !activeSubject;
+    document.querySelectorAll("#clsRow .classtab").forEach(function(x){
+      var has = activeSubject && subjectCount(activeSubject, x.dataset.cls) > 0;
+      x.hidden = !has;
+      x.setAttribute("aria-selected", x.dataset.cls === activeClass ? "true" : "false");
+    });
+    var hint = document.getElementById("browseHint");
+    if(hint) hint.textContent = activeSubject ? "Pick a class to see its chapters" : "Pick a subject to begin";
+  }
+  function inScope(c){
+    return !activeSubject || (c.subject === activeSubject && c.cls === activeClass);
+  }
+  function subjectPicker(){
+    var sec = document.createElement("section");
+    sec.className = "row subj-pick";
+    var inner = document.createElement("div");
+    inner.className = "wrap";
+    inner.innerHTML = '<div class="row-head"><h2>Choose your subject</h2><span class="note">then pick your class</span></div>';
+    var grid = document.createElement("div");
+    grid.className = "subj-grid";
+    SUBJECTS.forEach(function(s){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "subj-card";
+      b.setAttribute("aria-label", s.name + ", " + subjectCount(s.name) + " chapters");
+      b.innerHTML = '<div class="subj-art">' + artSVG(s.art, true) + '</div>' +
+        '<div class="subj-txt"><b>' + s.name + '</b><span>' + s.blurb + '</span>' +
+        '<em>' + subjectCount(s.name) + (subjectCount(s.name) === 1 ? ' chapter' : ' chapters') + ' · Class XI &amp; XII</em></div>';
+      b.addEventListener("click", function(){ pickSubject(s.name); });
+      grid.appendChild(b);
+    });
+    inner.appendChild(grid);
+    sec.appendChild(inner);
+    return sec;
+  }
 
   function freeCount(c){
     return c.episodes.filter(function(e){ return e.tier === "free"; }).length;
@@ -1431,15 +1513,22 @@ CHAPTERS.forEach(function(c){
     host.textContent = "";
     var shown = 0;
 
+    if(!activeSubject && !filter){
+      host.appendChild(subjectPicker());
+      var cm0 = document.getElementById("countMeta");
+      if(cm0) cm0.textContent = NOTES.length + " notes";
+      return;
+    }
+
     if(filter){
       var hits = NOTES.filter(function(e){
-        return (e.title + " " + e.desc + " " + (e.keys || "") + " " + e.chapter.title)
+        return inScope(e.chapter) && (e.title + " " + e.desc + " " + (e.keys || "") + " " + e.chapter.title)
           .toLowerCase().indexOf(filter) > -1;
       });
       if(hits.length) host.appendChild(strip(hits.length + (hits.length === 1 ? " note matches" : " notes match"), hits.slice(0, 12), "hits"));
     } else {
       // carry on where they left off
-      var resume = NOTES.filter(function(e){ return isOpened(e.id) && !isDone(e.id); });
+      var resume = NOTES.filter(function(e){ return inScope(e.chapter) && isOpened(e.id) && !isDone(e.id); });
       resume.sort(function(a, b){ return (P.opened[b.id] || 0) - (P.opened[a.id] || 0); });
       var nextUp = [];
       if(P.last){
@@ -1456,9 +1545,9 @@ CHAPTERS.forEach(function(c){
     }
 
     ["XII","XI"].forEach(function(cl){
-      if(!filter && cl !== activeClass) return;
+      if(activeSubject && cl !== activeClass) return;
 
-      var list = CHAPTERS.filter(function(c){ return c.cls === cl && matchesChapter(c); });
+      var list = CHAPTERS.filter(function(c){ return c.cls === cl && inScope(c) && matchesChapter(c); });
       if(!list.length) return;
 
       var subjects = [];
@@ -1692,17 +1781,19 @@ CHAPTERS.forEach(function(c){
   });
 
   /* ---------- class tabs ---------- */
-  document.querySelectorAll(".classtab").forEach(function(b){
+  document.querySelectorAll(".subjtab").forEach(function(b){
+    b.addEventListener("click", function(){ pickSubject(b.dataset.subj); });
+  });
+  document.querySelectorAll("#clsRow .classtab").forEach(function(b){
     b.addEventListener("click", function(){
       activeClass = b.dataset.cls;
-      document.querySelectorAll(".classtab").forEach(function(x){
-        x.setAttribute("aria-selected", x === b ? "true" : "false");
-      });
+      paintTabs();
       render();
       var first = host.querySelector(".row");
       if(first) first.scrollIntoView({ behavior:"smooth", block:"start" });
     });
   });
+  paintTabs();
 
   /* ---------- opening a note ---------- */
   var pending = null;
