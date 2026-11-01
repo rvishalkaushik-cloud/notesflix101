@@ -585,6 +585,7 @@ footer{border-top:1px dashed rgba(255,255,255,.14)}
 .subj-card:hover,.subj-card:focus-visible{transform:translateY(-3px);border-color:var(--red);box-shadow:0 14px 34px rgba(229,9,20,.25)}
 .subj-art{position:relative;aspect-ratio:16/9;background:#000;overflow:hidden}
 .subj-art svg{width:100%;height:100%;display:block}
+.subj-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .subj-txt{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px}
 .subj-txt b{font-family:var(--display);font-size:26px;letter-spacing:.03em;color:var(--paper);line-height:1}
 .subj-txt span{font-size:14px;color:var(--paper-dim);line-height:1.45}
@@ -1284,9 +1285,9 @@ CHAPTERS.forEach(function(c){
   var activeClass = "";
   var activeSubject = "";
   var SUBJECTS = [
-    { name:"Business Studies", art:"gears",  blurb:"Management, marketing, finance and the business environment." },
-    { name:"Accountancy",      art:"coins",  blurb:"Partnership, company accounts, debentures and cash flow." },
-    { name:"Entrepreneurship", art:"target", blurb:"From idea to business plan, funding and growth." }
+    { name:"Business Studies", img:"img/subj-bst.jpg", art:"gears",  blurb:"Management, marketing, finance and the business environment." },
+    { name:"Accountancy",      img:"img/subj-acc.jpg", art:"coins",  blurb:"Partnership, company accounts, debentures and cash flow." },
+    { name:"Entrepreneurship", img:"img/subj-ent.jpg", art:"target", blurb:"From idea to business plan, funding and growth." }
   ];
   function subjectCount(sub, cl){
     return CHAPTERS.filter(function(c){ return c.subject === sub && (!cl || c.cls === cl); }).length;
@@ -1329,7 +1330,7 @@ CHAPTERS.forEach(function(c){
       b.type = "button";
       b.className = "subj-card";
       b.setAttribute("aria-label", s.name + ", " + subjectCount(s.name) + " chapters");
-      b.innerHTML = '<div class="subj-art">' + artSVG(s.art, true) + '</div>' +
+      b.innerHTML = '<div class="subj-art">' + artSVG(s.art, true) + '<img src="' + s.img + '?v=1" alt="" loading="lazy" onerror="this.remove()"></div>' +
         '<div class="subj-txt"><b>' + s.name + '</b><span>' + s.blurb + '</span>' +
         '<em>' + subjectCount(s.name) + (subjectCount(s.name) === 1 ? ' chapter' : ' chapters') + ' · Class XI &amp; XII</em></div>';
       b.addEventListener("click", function(){ pickSubject(s.name); });
