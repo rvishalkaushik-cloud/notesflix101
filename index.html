@@ -171,6 +171,7 @@ main{padding-block:clamp(26px,5vw,42px) 10px}
 .chapters .thumb::after{content:"";position:absolute;inset:auto 0 0;height:46%;background:linear-gradient(180deg,transparent,rgba(0,0,0,.75));z-index:1;pointer-events:none}
 .thumb .epcount{position:absolute;right:9px;bottom:9px;z-index:2;font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(0,0,0,.66);border:1px solid rgba(255,255,255,.22);padding:3px 8px;border-radius:2px;color:#f0f0f0}
 .thumb img.art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.ep-thumb img.art,.rthumb img.art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 
 /* chapter page */
 .ch-scrim{position:fixed;inset:0;z-index:55;background:rgba(0,0,0,.84);overflow-y:auto;overscroll-behavior:contain;opacity:0;transition:opacity .2s ease;padding:max(22px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(40px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
@@ -925,6 +926,16 @@ const CHAPTERS = [
       { id:"xi-unit7-practice", title:"Unit 7 Practice Arena", mins:25, tier:"free", art:"target", desc:"Timed practice on sources of business finance, with marks shown straight away.", url:"notes/xi-unit7-practice.html", keys:"dividend equity voting append participating mock preference convertible receipts assets cumulative mortgage winding debentures depository charge shares burden deductible deposits permanent earnings american vote repaid liquidation merits traded dilution repayment unpaid secured holders pair security unsecured credit voltride gdrs endswith irredeemable flotation repay retained rights pledge arnav debenture writtencard stats pscore explicit counted varies fluctuat priority banks store sundry investors" }
     ]},
 
+  { id:"xi-u8", cls:"XI", subject:"Business Studies", unit:"Unit", num:"8", title:"Small Business and Enterprises",
+    tagline:"From a spark of an idea to a registered small business, and the schemes behind it.",
+    art:"gears", thumb:"img/xi-u8.jpg", episodes:[
+      { id:"xi-small-biz-1", title:"Entrepreneurship: Concept, Characteristics and Need", mins:25, tier:"free", art:"brain", desc:"What entrepreneurship is, who an entrepreneur is, and why a country needs them.", url:"notes/xi-small-biz-1.html", keys:"entrepreneur innovation meera lawful looms weavers spark systematic enterprise purposeful saris characteristics kalaa entrepreneurs profession balanced regional employment village taking formation living development savings learnt bears trait setting weaver salaried employee traits backward uncertain jobs lata country migration salary flex tape skills season launch training production distinct process incomes journey villages absolute launchsim entv enterprises stake align sinha labour online" },
+      { id:"xi-small-biz-2", title:"Startup India and Ways to Fund Start-ups", mins:25, tier:"free", art:"pricetag", desc:"The Startup India scheme, its action plan, and where a start-up finds money.", url:"notes/xi-small-biz-2.html", keys:"startup angel bootstrapping crowdfunding microfinance funding venture simplification incubation khetse fund kabir handholding incubators early academia pillars pillar incubator phase culture educated accelerators entrepreneurial mentoring certification youth wealthy mentors invests fests nbfcs incentives awareness scaling online women crowd equity professionally bootstrap atal lakh investor innovation ladder savings industry funded technologists scientists inclusive exemption motivate sind minorities compliance flex farmers college" },
+      { id:"xi-small-biz-3", title:"Intellectual Property Rights and Entrepreneurship", mins:25, tier:"free", art:"certificate", desc:"Patents, trademarks, copyright and why protecting an idea matters.", url:"notes/xi-small-biz-3.html", keys:"trademark patent intellectual semiconductor indication variety design meera creations geographical layout protected darjeeling loom solar invention logo inventive sari rights exclusive kalaa inventions mind looms creators ideas creation pattern khetse intangible creator entrepreneurs circuit protects copying licensing brand saris literary creativity vault kabir symbols plants investors innovation royalty article encourages lata period protect copycat breeders artistic royalties district song resistant" },
+      { id:"xi-small-biz-4", title:"MSMEs, Role of Small Business, NSIC and DIC", mins:25, tier:"free", art:"gears", desc:"The MSMED Act classes, what small business does for the economy, and who supports it.", url:"notes/xi-small-biz-4.html", keys:"nsic lata district rural micro turnover medium industries msmed migration village pickles largest crore backward incubators fernandes investment mentoring enterprises hire national employer msme areas machinery balanced subsidies villages entrepreneurs purchase jobs enterprise sealing msmes agriculture classifies revised impact local regional training technology limits marketing level especially corporation skills poverty mangoes subsidy centre women instalments flex classified machines dics cottage" },
+      { id:"xi-unit8-practice", title:"Unit 8 Practice Arena", mins:25, tier:"free", art:"target", desc:"Timed practice on small business and entrepreneurship, with marks shown straight away.", url:"notes/xi-unit8-practice.html", keys:"append district mock indication nsic rural backward angel geographical entrepreneur patent incubators trademark startup migration entrepreneurial training inventive academia employment pattern venture youth invention bootstrapping skills micro innovation subsidies microfinance poverty handholding employ early endswith crowdfunding areas crore fund village exclusive systematic incomes counted wealthy semiconductor sari regional store design looms living industries turnover writtencard stats pscore phase lawful traditional" }
+    ]},
+
 ];
 
 // every episode also knows its chapter and its number in the season
@@ -1374,7 +1385,7 @@ CHAPTERS.forEach(function(c){
     card.setAttribute("aria-label", e.title + " — open");
     var th = document.createElement("span");
     th.className = "rthumb";
-    th.innerHTML = artSVG(e.art);
+    th.innerHTML = poster("img/ep/" + e.id + ".jpg", e.art);
     var bar = document.createElement("span"); bar.className = "rbar";
     var fi = document.createElement("i");
     fi.style.width = isDone(e.id) ? "100%" : (isOpened(e.id) ? "45%" : "0");
@@ -1593,7 +1604,7 @@ CHAPTERS.forEach(function(c){
 
       var th = document.createElement("span");
       th.className = "ep-thumb";
-      th.innerHTML = artSVG(e.art);
+      th.innerHTML = poster("img/ep/" + e.id + ".jpg", e.art);
       if(locked){
         var lk = document.createElement("span");
         lk.className = "ep-lock"; lk.textContent = "🔒"; lk.setAttribute("aria-hidden","true");
