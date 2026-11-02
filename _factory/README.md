@@ -1,8 +1,8 @@
-# Notesflix notes factory — daily playbook
+# Notesflix notes factory — playbook
 
 This folder builds the interactive notes and publishes them on notesflix101.com. GitHub Pages does not serve folders that start with `_`, so nothing here appears on the site.
 
-**One run = one new part, published.** Do it end to end without asking the owner for permission (he has said so). Only stop and report if something genuinely blocks you (password missing, push rejected, tests failing after three fixes).
+**APPROVAL RULE (owner, 2 Nov 2026): never publish a part the owner has not seen.** One run = build + test ONE part and show it to the owner as a private preview (Artifact). Publish with `publish.py` only after he approves that part. Do not create any auto-publishing schedule unless he asks again.
 
 ## 1. Pick the part
 Open `roadmap.json`. Take the first part with `"status":"todo"` (Class XII first, then XI). Its `topics` are the CBSE 2026-27 syllabus lines for that part. Teach exactly those — nothing outside the syllabus.
@@ -18,16 +18,19 @@ Any current figure (GDP, repo rate, GST, budget numbers) must be checked online 
 Write `$TMPDIR/<part_id>.js` following `SCHEMA.md` and the shape of `example/example-note.js`. Never commit content files: the notes are password-locked and plain text in the public repo would leak them.
 
 House rules (from the owner — keep all of them):
-- Easy enough for an average student, picture-led, short sentences. Explanations hidden in flip cards; only the most important definitions open on the key slide. No walls of prose.
-- Order inside every step: think-first question → motion scene for **that one concept only** → key slide (simple words, 3–4 points, analogy, NCERT exam answer) → words to know → flip cards → activity with "What to try" and "What you just learned" → 3 quick MCQs → one-liner.
-- Start the note with a real-life hook question (never with a video).
-- Story mode: a cast of 3–4 Indian characters and businesses. **New cast and company names for every chapter**; keep the same cast across the parts of one chapter. Record the cast in `casts.json` under the chapter id.
+- **Concept first, direct, very easy language.** No long or indirect stories. A student must get the idea in the first two lines of each step.
+- Start the note with **"Main points of this part"** (`points:[[term, one-line meaning]…]`): the whole part in 4–6 lines. No hook question, no cast card on top (`showCast` stays off).
+- Order inside every step (the renderer does this): **concept slide first** (title = the concept's name, e.g. "Stock vs flow"; `simple` = a one-line definition with `=`; 3–4 short points; one-line analogy; NCERT exam answer) → short motion scene "See it" for **that one concept only** → words to know → flip cards → activity ("What to try" / "What you just learned") → 3 quick MCQs → one-liner. No `pred` "think first" questions.
+- Sentences of ~12 words or fewer. Examples are one short line ("Flour at home = final. Flour in a bakery = intermediate."). Use generic names (a bakery, a family, a mill), not character names, in slides, captions, games and the 3D board. A cast may appear only inside a `story` block when it truly helps.
+- Motion-scene captions: 3–6 words each, one idea each.
+- Title words ≤ 10 letters per line in `titleHtml` (use `<br>`, e.g. `MACRO-<br><span>ECONOMICS</span>`), so the hero title never breaks mid-word.
+- Explanations go in flip cards; only definitions and main points are open.
 - A 3D board with 2–3 modes that model the concept (flow / stack / bars).
-- At least one real simulation per part (calc, graph with sliders, scenario, sort, order). Economics loves `graph` (curves with sliders) and `calc` (numericals with working shown).
-- Numericals: show the full working step by step, the CBSE way.
+- At least one real simulation per part (calc, graph with sliders, scenario, sort, order). Economics loves `graph` and `calc`.
+- Numericals: full working step by step, the CBSE way.
 - Exam corner: 1, 3, 4 and 6-mark questions in CBSE style with marking points, plus assertion–reason / case-based MCQs.
 - No teacher name, no coaching name or logo anywhere in the note.
-- Colourful and different every time: use only `$$` colour tokens (palette comes from the roadmap), draw fresh hero and key-slide SVGs for each part.
+- Colourful and different every time: use only `$$` colour tokens (palette comes from the roadmap), draw fresh hero and concept-slide SVGs for each part.
 
 ## 4. Publish (one command)
 ```
@@ -39,7 +42,7 @@ It builds the page, tests it at laptop and phone width (fails on any error, over
 Need a local three.js for the test (the CDN is blocked in the build container)? `npm i three@0.128.0` in a scratch folder and set `THREE_LOCAL=<that>/node_modules/three/build/three.min.js`.
 
 ## 5. Report
-Finish with a short message: part published, what is in it, the next part in line.
+Before approval: publish the built page as a private Artifact preview, say in 3–4 lines what is in it, and wait. After approval: run publish.py and report that it is live, plus the next part in line.
 
 ## Files
 `engine/` page shell, motion engine, 3D board, renderer, lock page · `tools/` build, test, lock, thumbs, site, publish · `palettes.json` 10 colour themes · `roadmap.json` every part with status · `casts.json` casts used per chapter · `example/` sample content.
