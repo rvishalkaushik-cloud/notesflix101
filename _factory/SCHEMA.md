@@ -44,6 +44,10 @@ A note is one JS file exporting one object. `tools/build.py` turns it into a pag
 | `calc` | `inputs:[{id,label,val,type:'number'|'select',opts:[[v,label]],min,max,step}]`, `fn:"JS body: v.<id>, fmt(n); return HTML"` |
 | `graph` | `h, xr:[min,max], yr:[min,max], xl, yl, params:[{id,label,min,max,step,val}], curves:[{f:'expr in x and p.<id>', c, label, dash}], points:[{x:'expr', y:'expr (x available)', label}], note:'JS body using p, fmt → return HTML'` (Math functions available) |
 | `flipgame` | `items:[[clue, answer]…]`, `ask` |
+| `dragsort` | **game** · `bins:[{t,e}]` (2–3), `items:[[text, binIndex, why, emoji]…]` 6–8 cards: drag (or tap) into boxes, streak, stars, confetti |
+| `counttap` | **challenge** · `ask, unit, chain:1, win, items:[{t,e,v,f:1 if it should be counted}]`: tap what to count, live meter, checks double counting |
+| `tank` | **simulation** · `s0, fin, fout`: water tank sliders (stock vs flow) |
+| `speed` | **timed round** · `secs:60, items:[mcq…10]` 3 lives, timer, trophy |
 | `b3jump` | `go:[[modeId, button label, 'teal'|'alt']]` (opens the 3D board in a mode) |
 
 ## blocks (summary.blocks, before, extra)

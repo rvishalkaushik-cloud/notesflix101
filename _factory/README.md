@@ -26,7 +26,7 @@ House rules (from the owner — keep all of them):
 - Title words ≤ 10 letters per line in `titleHtml` (use `<br>`, e.g. `MACRO-<br><span>ECONOMICS</span>`), so the hero title never breaks mid-word.
 - Explanations go in flip cards; only definitions and main points are open.
 - A 3D board with 2–3 modes that model the concept (flow / stack / bars).
-- At least one real simulation per part (calc, graph with sliders, scenario, sort, order). Economics loves `graph` and `calc`.
+- **Engagement is compulsory (owner, 2 Nov 2026).** Every step needs a real game, not a plain button list: use `dragsort` (drag-and-drop with streaks and stars) instead of `sort`, and add a second game in `extra` where it fits. Every part needs at least one hands-on simulation (`graph` with sliders, `calc` that draws bars, `tank`, `counttap`) and a `speed` round (10 MCQs, 60 s) at the top of `summary.blocks`. Do not use the plain `sort` or `scenario` widgets as a step's main activity.
 - Numericals: full working step by step, the CBSE way.
 - Exam corner: 1, 3, 4 and 6-mark questions in CBSE style with marking points, plus assertion–reason / case-based MCQs.
 - No teacher name, no coaching name or logo anywhere in the note.
