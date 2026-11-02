@@ -32,6 +32,8 @@ House rules (from the owner — keep all of them):
 - No teacher name, no coaching name or logo anywhere in the note.
 - Colourful and different every time: use only `$$` colour tokens (palette comes from the roadmap), draw fresh hero and concept-slide SVGs for each part.
 
+Before publishing, set this part's `emojis` in roadmap.json to 3 emojis that fit ITS topic (not the chapter default), so every episode thumbnail looks different.
+
 ## 4. Publish (one command)
 ```
 cd <repo>/_factory/tools
