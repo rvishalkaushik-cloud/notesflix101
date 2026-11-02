@@ -591,6 +591,15 @@ footer{border-top:1px dashed rgba(255,255,255,.14)}
 .subj-txt span{font-size:14px;color:var(--paper-dim);line-height:1.45}
 .subj-txt em{font-style:normal;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--red);margin-top:4px}
 @media (max-width:760px){.subj-grid{grid-template-columns:1fr}}
+.access{padding:26px 0 6px}
+.row-head .note{font-family:var(--body)}
+.access-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.acc-card{background:#141414;border:1px solid var(--line);border-radius:10px;padding:18px 18px 20px;position:relative}
+.acc-card b{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--red);color:#fff;font:700 16px var(--body);margin-bottom:10px}
+.acc-card h3{font-family:var(--display);font-size:24px;letter-spacing:.03em;color:var(--paper);margin-bottom:6px;line-height:1}
+.acc-card p{font-size:14.5px;line-height:1.5;color:var(--paper-dim)}
+.acc-card a{color:var(--paper);text-decoration:underline;text-decoration-color:var(--red)}
+@media (max-width:760px){.access-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -1032,9 +1041,8 @@ CHAPTERS.forEach(function(c){
     <div class="bb-inner">
       <div class="kicker"><b>C&amp;S</b> CLASSES · VISHAL SIR</div>
       <h1>Commerce you can <em>binge</em>.</h1>
-      <p class="bb-sub">Interactive Business Studies and Accountancy notes for CBSE Class XI and XII. Read them, click through them, test yourself. Every note is free — <mark>just sign in with Gmail, no fees.</mark></p>
+      <p class="bb-sub">Interactive Business Studies and Accountancy notes for CBSE Class XI and XII. Read them, click through them, test yourself. Notes open with a password from Vishal Sir. <mark>See how to get access below.</mark></p>
       <div class="bb-meta">
-        <span class="match">Everything free</span>
         <span class="pill">CLASS XI &amp; XII</span>
         <span class="pill">BST · ACCOUNTANCY</span>
         <span id="countMeta">28 notes</span>
@@ -1053,6 +1061,17 @@ CHAPTERS.forEach(function(c){
      </div>
     </div>
    </div>
+  </div>
+</section>
+
+<section class="access" id="access" aria-label="How to get access to notes">
+  <div class="wrap">
+    <div class="row-head"><h2>How to get access</h2><span class="note">Three steps</span></div>
+    <div class="access-grid">
+      <div class="acc-card"><b>1</b><h3>Email us</h3><p>Write to <a href="mailto:support@notesflix101.com">support@notesflix101.com</a> with your name, class, school and the Gmail ID you will sign in with.</p></div>
+      <div class="acc-card"><b>2</b><h3>Get the password</h3><p>Vishal Sir will send you the notes password separately. Keep it to yourself.</p></div>
+      <div class="acc-card"><b>3</b><h3>Sign in and open</h3><p>Sign in with Gmail from the top bar, pick a subject and class, then enter the password when a note asks for it.</p></div>
+    </div>
   </div>
 </section>
 
@@ -1307,7 +1326,7 @@ CHAPTERS.forEach(function(c){
   var activeSubject = "";
   var SUBJECTS = [
     { name:"Business Studies", img:"img/subj-bst.jpg", art:"gears",  blurb:"Management, marketing, finance and the business environment." },
-    { name:"Accountancy",      img:"img/subj-acc.jpg", art:"coins",  blurb:"Partnership, company accounts, debentures and cash flow." },
+    { name:"Accountancy",      img:"img/subj-acc.jpg", art:"coins",  blurb:"Partnership, goodwill and company accounts." },
     { name:"Entrepreneurship", img:"img/subj-ent.jpg", art:"target", blurb:"From idea to business plan, funding and growth." }
   ];
   function subjectCount(sub, cl){
