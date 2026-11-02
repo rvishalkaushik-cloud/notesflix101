@@ -600,6 +600,16 @@ footer{border-top:1px dashed rgba(255,255,255,.14)}
 .acc-card p{font-size:14.5px;line-height:1.5;color:var(--paper-dim)}
 .acc-card a{color:var(--paper);text-decoration:underline;text-decoration-color:var(--red)}
 @media (max-width:760px){.access-grid{grid-template-columns:1fr}}
+
+.tabrow-subj{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:6px}
+.tabrow-subj .classtab{flex:none}
+.clstabs{display:flex;flex-wrap:wrap;gap:8px}
+.soon-tab{opacity:.7}
+.subj-card.is-soon{opacity:.92}
+.soon-tag{display:inline-block;border:1px solid var(--red);color:var(--red);border-radius:999px;padding:2px 10px;font-style:normal;font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700}
+.grp-head{font-family:var(--display);font-size:22px;letter-spacing:.04em;color:var(--paper-dim);margin:22px 0 10px}
+.subj-grid{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.coming .empty{color:var(--paper-dim)}
 </style>
 </head>
 <body>
@@ -1077,14 +1087,9 @@ CHAPTERS.forEach(function(c){
 
 <div class="classbar" id="browse">
   <div class="wrap">
-    <div class="tabrow" role="tablist" aria-label="Subjects">
-      <button class="classtab subjtab" type="button" data-subj="Business Studies" aria-selected="false">Business Studies</button>
-      <button class="classtab subjtab" type="button" data-subj="Accountancy" aria-selected="false">Accountancy</button>
-      <button class="classtab subjtab" type="button" data-subj="Entrepreneurship" aria-selected="false">Entrepreneurship</button>
-    </div>
+    <div class="tabrow tabrow-subj" id="subjRow" role="tablist" aria-label="Subjects"></div>
     <div class="tabrow" id="clsRow" hidden aria-label="Classes">
-      <button class="classtab" type="button" data-cls="XII" aria-selected="false">Class XII</button>
-      <button class="classtab" type="button" data-cls="XI" aria-selected="false">Class XI</button>
+      <span id="clsTabs" class="clstabs"></span>
       <span class="hint" id="browseHint">Pick a subject to begin</span>
     </div>
   </div>
@@ -1324,33 +1329,83 @@ CHAPTERS.forEach(function(c){
   var filter = "";
   var activeClass = "";
   var activeSubject = "";
+  var CLS_XIXII = ["XII","XI"], CLS_VIX = ["X","IX","VIII","VII","VI"];
+  var CLS_ORDER = ["XII","XI","X","IX","VIII","VII","VI"];
+  var CLS_LABEL = { XII:"Class XII", XI:"Class XI", X:"Class X", IX:"Class IX", VIII:"Class VIII", VII:"Class VII", VI:"Class VI" };
+  /* every subject we plan to offer. Subjects with no chapters yet show "Coming soon". */
   var SUBJECTS = [
-    { name:"Business Studies", img:"img/subj-bst.jpg", art:"gears",  blurb:"Management, marketing, finance and the business environment." },
-    { name:"Accountancy",      img:"img/subj-acc.jpg", art:"coins",  blurb:"Partnership, goodwill and company accounts." },
-    { name:"Entrepreneurship", img:"img/subj-ent.jpg", art:"target", blurb:"From idea to business plan, funding and growth." }
+    { name:"Business Studies", img:"img/subj-bst.jpg", art:"gears",  group:"senior", classes:CLS_XIXII, blurb:"Management, marketing, finance and the business environment." },
+    { name:"Accountancy",      img:"img/subj-acc.jpg", art:"coins",  group:"senior", classes:CLS_XIXII, blurb:"Partnership, goodwill and company accounts." },
+    { name:"Entrepreneurship", img:"img/subj-ent.jpg", art:"target", group:"senior", classes:CLS_XIXII, blurb:"From idea to business plan, funding and growth." },
+    { name:"Economics",        img:"img/subj-economics.jpg", art:"coins",  group:"senior", classes:CLS_XIXII, blurb:"Micro and macro economics, and the Indian economy." },
+    { name:"English",          img:"img/subj-english.jpg",   art:"documents", group:"both", classes:["XII","XI"].concat(CLS_VIX), blurb:"Literature, grammar and writing." },
+    { name:"History",          img:"img/subj-history.jpg",   art:"documents", group:"senior", classes:CLS_XIXII, blurb:"India and the world through its history and heritage." },
+    { name:"Political Science", img:"img/subj-polsci.jpg",   art:"documents", group:"senior", classes:CLS_XIXII, blurb:"Indian constitution, government and politics." },
+    { name:"Geography",        img:"img/subj-geography.jpg", art:"globe", group:"senior", classes:CLS_XIXII, blurb:"Physical and human geography, with India in focus." },
+    { name:"Psychology",       img:"img/subj-psychology.jpg", art:"brain", group:"senior", classes:CLS_XIXII, blurb:"Mind, behaviour and learning." },
+    { name:"Sociology",        img:"img/subj-sociology.jpg", art:"documents", group:"senior", classes:CLS_XIXII, blurb:"Society, culture and social change." },
+    { name:"Physics",          img:"img/subj-physics.jpg",   art:"gears", group:"senior", classes:CLS_XIXII, blurb:"Mechanics, electricity and optics." },
+    { name:"Chemistry",        img:"img/subj-chemistry.jpg", art:"brain", group:"senior", classes:CLS_XIXII, blurb:"Organic, inorganic and physical chemistry." },
+    { name:"Biology",          img:"img/subj-biology.jpg",   art:"brain", group:"senior", classes:CLS_XIXII, blurb:"Cells, genetics and ecology." },
+    { name:"Mathematics",      img:"img/subj-maths.jpg",     art:"gears", group:"both", classes:["XII","XI"].concat(CLS_VIX), blurb:"Algebra, calculus and probability." },
+    { name:"Computer Science", img:"img/subj-cs.jpg",        art:"gears", group:"senior", classes:CLS_XIXII, blurb:"Python, data and systems." },
+    { name:"Science",          img:"img/subj-science.jpg",   art:"brain", group:"junior", classes:CLS_VIX, blurb:"Physics, chemistry and biology for Classes VI to X." },
+    { name:"Social Science (SST)", img:"img/subj-sst.jpg",   art:"globe", group:"junior", classes:CLS_VIX, blurb:"History, geography, civics and economics for Classes VI to X." },
+    { name:"Hindi",            img:"img/subj-hindi.jpg",     art:"documents", group:"junior", classes:CLS_VIX, blurb:"Vyakaran, sahitya and lekhan for Classes VI to X." }
   ];
+  function subjectObj(name){
+    for(var i = 0; i < SUBJECTS.length; i++){ if(SUBJECTS[i].name === name) return SUBJECTS[i]; }
+    return null;
+  }
   function subjectCount(sub, cl){
     return CHAPTERS.filter(function(c){ return c.subject === sub && (!cl || c.cls === cl); }).length;
   }
+  function buildSubjTabs(){
+    var row = document.getElementById("subjRow");
+    row.textContent = "";
+    SUBJECTS.forEach(function(s){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "classtab subjtab";
+      b.dataset.subj = s.name;
+      b.setAttribute("aria-selected", "false");
+      b.textContent = s.name;
+      if(!subjectCount(s.name)){ b.classList.add("soon-tab"); }
+      row.appendChild(b);
+    });
+  }
   function pickSubject(sub){
     activeSubject = sub;
-    activeClass = subjectCount(sub, "XII") ? "XII" : (subjectCount(sub, "XI") ? "XI" : "XII");
+    var so = subjectObj(sub);
+    var list = so ? so.classes : CLS_XIXII;
+    activeClass = list[0];
+    for(var i = 0; i < list.length; i++){ if(subjectCount(sub, list[i])){ activeClass = list[i]; break; } }
     paintTabs();
     render();
     var first = host.querySelector(".row");
     if(first) first.scrollIntoView({ behavior:"smooth", block:"start" });
   }
   function paintTabs(){
+    if(!document.getElementById("subjRow").childNodes.length) buildSubjTabs();
     document.querySelectorAll(".subjtab").forEach(function(x){
       x.setAttribute("aria-selected", x.dataset.subj === activeSubject ? "true" : "false");
     });
     var row = document.getElementById("clsRow");
     if(row) row.hidden = !activeSubject;
-    document.querySelectorAll("#clsRow .classtab").forEach(function(x){
-      var has = activeSubject && subjectCount(activeSubject, x.dataset.cls) > 0;
-      x.hidden = !has;
-      x.setAttribute("aria-selected", x.dataset.cls === activeClass ? "true" : "false");
-    });
+    var box = document.getElementById("clsTabs");
+    box.textContent = "";
+    if(activeSubject){
+      var so = subjectObj(activeSubject);
+      (so ? so.classes : CLS_XIXII).slice().sort(function(a, b){ return CLS_ORDER.indexOf(a) - CLS_ORDER.indexOf(b); }).forEach(function(cl){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "classtab" + (subjectCount(activeSubject, cl) ? "" : " soon-tab");
+        b.dataset.cls = cl;
+        b.setAttribute("aria-selected", cl === activeClass ? "true" : "false");
+        b.textContent = CLS_LABEL[cl];
+        box.appendChild(b);
+      });
+    }
     var hint = document.getElementById("browseHint");
     if(hint) hint.textContent = activeSubject ? "Pick a class to see its chapters" : "Pick a subject to begin";
   }
@@ -1363,20 +1418,31 @@ CHAPTERS.forEach(function(c){
     var inner = document.createElement("div");
     inner.className = "wrap";
     inner.innerHTML = '<div class="row-head"><h2>Choose your subject</h2><span class="note">then pick your class</span></div>';
-    var grid = document.createElement("div");
-    grid.className = "subj-grid";
-    SUBJECTS.forEach(function(s){
-      var b = document.createElement("button");
-      b.type = "button";
-      b.className = "subj-card";
-      b.setAttribute("aria-label", s.name + ", " + subjectCount(s.name) + " chapters");
-      b.innerHTML = '<div class="subj-art">' + artSVG(s.art, true) + '<img src="' + s.img + '?v=1" alt="" loading="lazy" onerror="this.remove()"></div>' +
-        '<div class="subj-txt"><b>' + s.name + '</b><span>' + s.blurb + '</span>' +
-        '<em>' + subjectCount(s.name) + (subjectCount(s.name) === 1 ? ' chapter' : ' chapters') + ' · Class XI &amp; XII</em></div>';
-      b.addEventListener("click", function(){ pickSubject(s.name); });
-      grid.appendChild(b);
+    [["senior","Class XI & XII"],["junior","Class VI to X"]].forEach(function(g){
+      var items = SUBJECTS.filter(function(s){ return s.group === g[0] || (s.group === "both" && g[0] === "senior"); });
+      if(!items.length) return;
+      var h = document.createElement("h3");
+      h.className = "grp-head";
+      h.textContent = g[1];
+      inner.appendChild(h);
+      var grid = document.createElement("div");
+      grid.className = "subj-grid";
+      items.forEach(function(s){
+        var n = subjectCount(s.name);
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "subj-card" + (n ? "" : " is-soon");
+        b.setAttribute("aria-label", s.name + (n ? ", " + n + " chapters" : ", coming soon"));
+        var foot = n
+          ? '<em>' + n + (n === 1 ? ' chapter' : ' chapters') + '</em>'
+          : '<em class="soon-tag">Coming soon</em>';
+        b.innerHTML = '<div class="subj-art">' + artSVG(s.art, true) + '<img src="' + s.img + '?v=1" alt="" loading="lazy" onerror="this.remove()"></div>' +
+          '<div class="subj-txt"><b>' + s.name + '</b><span>' + s.blurb + '</span>' + foot + '</div>';
+        b.addEventListener("click", function(){ pickSubject(s.name); });
+        grid.appendChild(b);
+      });
+      inner.appendChild(grid);
     });
-    inner.appendChild(grid);
     sec.appendChild(inner);
     return sec;
   }
@@ -1585,7 +1651,7 @@ CHAPTERS.forEach(function(c){
       if(row.length) host.appendChild(strip("Carry on where you left off", row, "resume"));
     }
 
-    ["XII","XI"].forEach(function(cl){
+    CLS_ORDER.forEach(function(cl){
       if(activeSubject && cl !== activeClass) return;
 
       var list = CHAPTERS.filter(function(c){ return c.cls === cl && inScope(c) && matchesChapter(c); });
@@ -1627,7 +1693,13 @@ CHAPTERS.forEach(function(c){
     if(!shown){
       var p = document.createElement("div");
       p.className = "wrap";
-      p.innerHTML = '<p class="empty">Nothing matches that search.</p>';
+      if(activeSubject && !filter){
+        var so = subjectObj(activeSubject);
+        p.innerHTML = '<section class="row coming"><div class="row-head"><h2>' + activeSubject + ' · ' + CLS_LABEL[activeClass] + '</h2><span class="soon-tag">Coming soon</span></div>' +
+          '<p class="empty">Notes for this subject are being prepared. Check back soon, or email <a href="mailto:support@notflix101.com">support@notflix101.com</a>.</p></section>';
+      } else {
+        p.innerHTML = '<p class="empty">Nothing matches that search.</p>';
+      }
       host.appendChild(p);
     }
     var cm = document.getElementById("countMeta");
@@ -1821,18 +1893,16 @@ CHAPTERS.forEach(function(c){
     if(ev.key === "Escape" && !chScrim.hidden && document.getElementById("scrim").hidden) closeChapter();
   });
 
-  /* ---------- class tabs ---------- */
-  document.querySelectorAll(".subjtab").forEach(function(b){
-    b.addEventListener("click", function(){ pickSubject(b.dataset.subj); });
-  });
-  document.querySelectorAll("#clsRow .classtab").forEach(function(b){
-    b.addEventListener("click", function(){
-      activeClass = b.dataset.cls;
-      paintTabs();
-      render();
-      var first = host.querySelector(".row");
-      if(first) first.scrollIntoView({ behavior:"smooth", block:"start" });
-    });
+  /* ---------- subject and class tabs ---------- */
+  document.addEventListener("click", function(ev){
+    var t = ev.target.closest ? ev.target.closest(".subjtab, #clsTabs .classtab") : null;
+    if(!t) return;
+    if(t.classList.contains("subjtab")){ pickSubject(t.dataset.subj); return; }
+    activeClass = t.dataset.cls;
+    paintTabs();
+    render();
+    var first = host.querySelector(".row");
+    if(first) first.scrollIntoView({ behavior:"smooth", block:"start" });
   });
   paintTabs();
 
