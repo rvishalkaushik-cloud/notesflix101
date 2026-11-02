@@ -1,14 +1,23 @@
 {
-  "checked": "2026-10-31",
+  "checked": "2026-11-02",
   "items": [
     {
-      "date": "2026-10-31",
+      "date": "2026-11-02",
       "tag": "Date sheet",
       "status": "Awaited",
       "title": "Class 12 date sheet 2027 not released yet",
-      "summary": "As of 31 Oct 2026, the CBSE circulars page lists no date sheet for the 2027 main exams. The only date sheets listed are for the 2026 West Asia special exams and the 2026 supplementary exams. Watch cbse.gov.in for the notice.",
+      "summary": "As of 2 Nov 2026, the CBSE circulars page lists no date sheet for the 2027 main exams. The latest date sheets listed are for the 2026 West Asia special exams and the 2026 supplementary exams. Keep watching cbse.gov.in for the notice.",
       "source": "CBSE (official)",
       "url": "https://www.cbse.gov.in/cbsenew/examination_circular.html"
+    },
+    {
+      "date": "2026-11-02",
+      "tag": "Practicals",
+      "status": "Awaited",
+      "title": "2027 practical exam schedule not yet issued",
+      "summary": "As of 2 Nov 2026, no notice on practical exam dates or guidelines for the 2027 boards is listed on the official CBSE circulars page. The only practical guidelines listed are for the 2026 supplementary exams. Your school will share dates once CBSE announces them.",
+      "source": "CBSE (official)",
+      "url": "https://www.cbse.gov.in/cbsenew/examination_Circular.html"
     },
     {
       "date": "2026-10-21",
