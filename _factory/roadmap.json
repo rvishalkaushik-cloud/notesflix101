@@ -156,13 +156,14 @@
     "numericals"
    ],
    "emojis": [
-    "🏭",
     "💰",
-    "📊"
+    "🛒",
+    "👷"
    ],
-   "status": "todo",
+   "status": "done",
    "palette": 4,
-   "order": 5
+   "order": 5,
+   "published": "2026-11-02"
   },
   {
    "id": "eco12-ni-6",
