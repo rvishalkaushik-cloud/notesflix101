@@ -19,9 +19,9 @@ if not os.environ.get('NF_PASS'): sys.exit('NF_PASS not set: cannot lock the not
 run('node', os.path.join(T, 'lock.js'), plain, os.path.join(REPO, 'notes', pid + '.html'))
 # 4 thumbnails
 c = part['chapter']; kick = ('CLASS %s · ECONOMICS' % part['cls'])
-spec = [dict(kind='episode', out=os.path.join(REPO, 'img', 'ep', pid + '.jpg'), palette=part['palette'], kicker='PART %d' % part['part'], title=part['title'], emojis=part['emojis'])]
-if not os.path.exists(os.path.join(REPO, c['thumb'])):
-    spec.append(dict(kind='chapter', out=os.path.join(REPO, c['thumb']), palette=part['palette'], kicker=kick + ' · UNIT ' + c['num'], title=c['title'], sub=c['tagline'], emojis=part['emojis']))
+spec = [dict(kind='episode', out=os.path.join(REPO, 'img', 'ep', pid + '.jpg'), palette=part['palette'], kicker='CLASS %s · ECONOMICS · UNIT %s' % (part['cls'], c['num']), chip='PART %d' % part['part'], isNew=True, title=part['title'], emojis=part['emojis'])]
+if not os.path.exists(os.path.join(REPO, c['thumb'])) or os.environ.get('NF_RETHUMB'):
+    spec.append(dict(kind='chapter', out=os.path.join(REPO, c['thumb']), palette=part['palette'], kicker=kick + ' · UNIT ' + c['num'], title=c.get('short', c['title']), sub=c['tagline'], emojis=part['emojis']))
 if not os.path.exists(os.path.join(REPO, rm['subjImg'])):
     spec.append(dict(kind='subject', out=os.path.join(REPO, rm['subjImg']), palette=1, kicker='CLASS XI · XII', title='Economics', sub=rm['subjBlurb'], emojis=['📊', '🏦', '🌍']))
 sp = os.path.join(work, 'thumbs.json'); json.dump(spec, open(sp, 'w')); run('node', os.path.join(T, 'thumbs.js'), sp)
