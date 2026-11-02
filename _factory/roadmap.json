@@ -124,13 +124,14 @@
     "precautions"
    ],
    "emojis": [
-    "🏭",
-    "💰",
-    "📊"
+    "➕",
+    "🍞",
+    "🌾"
    ],
-   "status": "todo",
+   "status": "done",
    "palette": 3,
-   "order": 4
+   "order": 4,
+   "published": "2026-11-02"
   },
   {
    "id": "eco12-ni-5",
