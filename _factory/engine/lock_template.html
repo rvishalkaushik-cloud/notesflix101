@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Notesflix 101 · Locked note</title>
+<style>
+:root{color-scheme:dark}
+html,body{margin:0;height:100%;background:#0a0a0a;color:#fff;font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{min-height:100%;display:flex;align-items:center;justify-content:center;padding:24px;box-sizing:border-box}
+.box{width:100%;max-width:340px;border:2px solid rgba(255,255,255,.2);border-radius:16px;padding:24px;background:#141414}
+h1{font-size:22px;margin:0 0 6px;font-weight:800}
+p{margin:0 0 16px;color:#bdbdbd;font-size:14px}
+input{width:100%;box-sizing:border-box;font:inherit;font-size:16px;padding:12px;border-radius:10px;border:1px solid #333;background:#0a0a0a;color:#fff}
+button{width:100%;margin-top:12px;padding:12px;border:0;border-radius:10px;background:#e50914;color:#fff;font-weight:700;font-size:16px;cursor:pointer}
+.btn{display:block;margin-top:12px;padding:12px;border-radius:10px;background:#e50914;color:#fff;font-weight:700;text-align:center;text-decoration:none}
+.err{color:#ff8a80;min-height:20px;margin-top:10px;font-size:14px}
+</style></head>
+<body><main>
+<div class="box" id="need" hidden>
+<h1>NOTE<span style="color:#e50914">FLIX</span> 101</h1>
+<p>Please sign in with your Gmail first. Then come back to this note.</p>
+<a class="btn" href="../login.html">Sign in with Gmail</a>
+</div>
+<form class="box" id="gate" autocomplete="off" hidden>
+<h1>NOTE<span style="color:#e50914">FLIX</span> 101</h1>
+<p>This note is for students of C&amp;S Classes. Enter the class password to open it.</p>
+<input id="pw" type="password" placeholder="Class password" aria-label="Class password" required>
+<button type="submit">Open note</button>
+<div class="err" id="err" role="alert"></div>
+</form></main>
+<script src="https://cdn.jsdelivr.net/npm/firebase@10.12.2/firebase-app-compat.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/firebase@10.12.2/firebase-auth-compat.js"></script>
+<script src="../auth-config.js"></script>
+<script>
+const P=__P__;
+const KEY="nf101.pass";
+const b64=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+async function open(pw){
+  const base=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveKey']);
+  const key=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(P.s),iterations:250000,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);
+  const pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(P.i)},key,b64(P.c));
+  return new TextDecoder().decode(pt);
+}
+function show(html){
+  // Open the note as its own page (blob), with a <base> so its links resolve from the notes folder.
+  const base=new URL('.',location.href).href;
+  const withBase=html.replace(/<head([^>]*)>/i,m=>m+'<base href="'+base+'">');
+  const url=URL.createObjectURL(new Blob([withBase],{type:'text/html;charset=utf-8'}));
+  location.replace(url);
+}
+function fail(msg){document.getElementById('err').textContent=msg;}
+(async()=>{
+  const cfg=window.NF_AUTH||{};
+  if(cfg.requireLogin){
+    let user=null;
+    try{
+      firebase.initializeApp(cfg.firebase);
+      user=await new Promise(res=>{const un=firebase.auth().onAuthStateChanged(u=>{un();res(u)})});
+    }catch(e){user=null}
+    if(!user){document.getElementById('need').hidden=false;return}
+  }
+  document.getElementById('gate').hidden=false;
+  let saved=null;try{saved=localStorage.getItem(KEY)}catch(e){}
+  if(saved){try{show(await open(saved));return}catch(e){fail('The saved password no longer works. Please enter the current one.')}}
+  document.getElementById('gate').addEventListener('submit',async ev=>{
+    ev.preventDefault();
+    const pw=document.getElementById('pw').value;
+    fail('');
+    try{
+      const html=await open(pw);
+      try{localStorage.setItem(KEY,pw)}catch(e){}
+      show(html);
+    }catch(e){fail('That password is not right. Check with your teacher.')}
+  });
+})();
+</script></body></html>

@@ -1,0 +1,1412 @@
+{
+ "subject": "Economics",
+ "subjImg": "img/subj-eco.jpg",
+ "subjArt": "chart",
+ "subjBlurb": "Macro, micro, statistics and Indian economic development.",
+ "parts": [
+  {
+   "id": "eco12-ni-1",
+   "cls": "XII",
+   "book": null,
+   "chapter": {
+    "id": "eco12-ni",
+    "num": "1",
+    "unit": "Unit",
+    "title": "National Income and Related Aggregates",
+    "tagline": "How a whole country measures what it earns, makes and spends.",
+    "art": "chart",
+    "thumb": "img/eco12-ni.jpg"
+   },
+   "part": 1,
+   "parts": 6,
+   "title": "Basic Concepts of Macroeconomics",
+   "topics": [
+    "What is macroeconomics",
+    "consumption goods, capital goods",
+    "final goods, intermediate goods",
+    "stocks and flows",
+    "gross investment and depreciation"
+   ],
+   "emojis": [
+    "🏭",
+    "💰",
+    "📊"
+   ],
+   "status": "todo",
+   "palette": 0,
+   "order": 1
+  },
+  {
+   "id": "eco12-ni-2",
+   "cls": "XII",
+   "book": null,
+   "chapter": {
+    "id": "eco12-ni",
+    "num": "1",
+    "unit": "Unit",
+    "title": "National Income and Related Aggregates",
+    "tagline": "How a whole country measures what it earns, makes and spends.",
+    "art": "chart",
+    "thumb": "img/eco12-ni.jpg"
+   },
+   "part": 2,
+   "parts": 6,
+   "title": "Circular Flow of Income",
+   "topics": [
+    "circular flow of income (two-sector model)",
+    "real flow and money flow",
+    "leakages and injections (brief)"
+   ],
+   "emojis": [
+    "🏭",
+    "💰",
+    "📊"
+   ],
+   "status": "todo",
+   "palette": 1,
+   "order": 2
+  },
+  {
+   "id": "eco12-ni-3",
+   "cls": "XII",
+   "book": null,
+   "chapter": {
+    "id": "eco12-ni",
+    "num": "1",
+    "unit": "Unit",
+    "title": "National Income and Related Aggregates",
+    "tagline": "How a whole country measures what it earns, makes and spends.",
+    "art": "chart",
+    "thumb": "img/eco12-ni.jpg"
+   },
+   "part": 3,
+   "parts": 6,
+   "title": "National Income Aggregates",
+   "topics": [
+    "GDP, GNP, NDP, NNP",
+    "at market price and at factor cost",
+    "NFIA, depreciation, net indirect taxes",
+    "conversion chart"
+   ],
+   "emojis": [
+    "🏭",
+    "💰",
+    "📊"
+   ],
+   "status": "todo",
+   "palette": 2,
+   "order": 3
+  },
+  {
+   "id": "eco12-ni-4",
+   "cls": "XII",
+   "book": null,
+   "chapter": {
+    "id": "eco12-ni",
+    "num": "1",
+    "unit": "Unit",
+    "title": "National Income and Related Aggregates",
+    "tagline": "How a whole country measures what it earns, makes and spends.",
+    "art": "chart",
+    "thumb": "img/eco12-ni.jpg"
+   },
+   "part": 4,
+   "parts": 6,
+   "title": "Value Added Method",
+   "topics": [
+    "value added or product method",
+    "value of output, intermediate consumption",
+    "GVA at MP to NNP at FC",
+    "problem of double counting",
+    "precautions"
+   ],
+   "emojis": [
+    "🏭",
+    "💰",
+    "📊"
+   ],
+   "status": "todo",
+   "palette": 3,
+   "order": 4
+  },
+  {
+   "id": "eco12-ni-5",
+   "cls": "XII",
+   "book": null,
+   "chapter": {
+    "id": "eco12-ni",
+    "num": "1",
+    "unit": "Unit",
+    "title": "National Income and Related Aggregates",
+    "tagline": "How a whole country measures what it earns, makes and spends.",
+    "art": "chart",
+    "thumb": "img/eco12-ni.jpg"
+   },
+   "part": 5,
+   "parts": 6,
+   "title": "Income and Expenditure Methods",
+   "topics": [
+    "income method: compensation of employees, operating surplus, mixed income",
+    "expenditure method: PFCE, GFCE, GDCF, net exports",
+    "precautions / items included and excluded",
+    "numericals"
+   ],
+   "emojis": [
+    "🏭",
+    "💰",
+    "📊"
+   ],
+   "status": "todo",
+   "palette": 4,
+   "order": 5
+  },
+  {
+   "id": "eco12-ni-6",
+   "cls": "XII",
+   "book": null,
+   "chapter": {
+    "id": "eco12-ni",
+    "num": "1",
+    "unit": "Unit",
+    "title": "National Income and Related Aggregates",
+    "tagline": "How a whole country measures what it earns, makes and spends.",
+    "art": "chart",
+    "thumb": "img/eco12-ni.jpg"
+   },
+   "part": 6,
+   "parts": 6,
+   "title": "Real vs Nominal GDP and Welfare",
+   "topics": [
+    "real and nominal GDP",
+    "GDP deflator",
+    "GDP and welfare: distribution, non-monetary exchanges, externalities"
+   ],
+   "emojis": [
+    "🏭",
+    "💰",
+    "📊"
+   ],
+   "status": "todo",
+   "palette": 5,
+   "order": 6
+  },
+  {
+   "id": "eco12-money-1",
+   "cls": "XII",
+   "book": null,
+   "chapter": {
+    "id": "eco12-money",
+    "num": "2",
+    "unit": "Unit",
+    "title": "Money and Banking",
+    "tagline": "What money really does, how banks create it, and how the RBI controls it.",
+    "art": "bank",
+    "thumb": "img/eco12-money.jpg"
+   },
+   "part": 1,
+   "parts": 3,
+   "title": "Money: Meaning, Functions and Supply",
+   "topics": [
+    "barter system and its problems",
+    "money: meaning and functions",
+    "supply of money: currency held by public + net demand deposits"
+   ],
+   "emojis": [
+    "💵",
+    "🏦",
+    "🪙"
+   ],
+   "status": "todo",
+   "palette": 6,
+   "order": 7
+  },
+  {
+   "id": "eco12-money-2",
+   "cls": "XII",
+   "book": null,
+   "chapter": {
+    "id": "eco12-money",
+    "num": "2",
+    "unit": "Unit",
+    "title": "Money and Banking",
+    "tagline": "What money really does, how banks create it, and how the RBI controls it.",
+    "art": "bank",
+    "thumb": "img/eco12-money.jpg"
+   },
+   "part": 2,
+   "parts": 3,
+   "title": "Money Creation by Commercial Banks",
+   "topics": [
+    "money creation by the commercial banking system",
+    "legal reserve ratio",
+    "money multiplier",
+    "numerical illustration"
+   ],
+   "emojis": [
+    "💵",
+    "🏦",
+    "🪙"
+   ],
+   "status": "todo",
+   "palette": 7,
+   "order": 8
+  },
+  {
+   "id": "eco12-money-3",
+   "cls": "XII",
+   "book": null,
+   "chapter": {
+    "id": "eco12-money",
+    "num": "2",
+    "unit": "Unit",
+    "title": "Money and Banking",
+    "tagline": "What money really does, how banks create it, and how the RBI controls it.",
+    "art": "bank",
+    "thumb": "img/eco12-money.jpg"
+   },
+   "part": 3,
+   "parts": 3,
+   "title": "Central Bank and Credit Control",
+   "topics": [
+    "RBI functions: bank of issue, government's bank, banker's bank",
+    "control of credit: bank rate, CRR, SLR, repo, reverse repo, open market operations, margin requirement"
+   ],
+   "emojis": [
+    "💵",
+    "🏦",
+    "🪙"
+   ],
+   "status": "todo",
+   "palette": 8,
+   "order": 9
+  },
+  {
+   "id": "eco12-income-1",
+   "cls": "XII",
+   "book": null,
+   "chapter": {
+    "id": "eco12-income",
+    "num": "3",
+    "unit": "Unit",
+    "title": "Determination of Income and Employment",
+    "tagline": "Why an economy sometimes has too much demand, sometimes too little, and what fixes it.",
+    "art": "target",
+    "thumb": "img/eco12-income.jpg"
+   },
+   "part": 1,
+   "parts": 4,
+   "title": "Aggregate Demand and Propensities",
+   "topics": [
+    "aggregate demand and its components",
+    "consumption function",
+    "APC, MPC, APS, MPS and their relations"
+   ],
+   "emojis": [
+    "🛒",
+    "📈",
+    "⚖️"
+   ],
+   "status": "todo",
+   "palette": 9,
+   "order": 10
+  },
+  {
+   "id": "eco12-income-2",
+   "cls": "XII",
+   "book": null,
+   "chapter": {
+    "id": "eco12-income",
+    "num": "3",
+    "unit": "Unit",
+    "title": "Determination of Income and Employment",
+    "tagline": "Why an economy sometimes has too much demand, sometimes too little, and what fixes it.",
+    "art": "target",
+    "thumb": "img/eco12-income.jpg"
+   },
+   "part": 2,
+   "parts": 4,
+   "title": "Short-run Equilibrium Output",
+   "topics": [
+    "aggregate supply",
+    "equilibrium: AD = AS and S = I",
+    "45-degree line approach"
+   ],
+   "emojis": [
+    "🛒",
+    "📈",
+    "⚖️"
+   ],
+   "status": "todo",
+   "palette": 0,
+   "order": 11
+  },
+  {
+   "id": "eco12-income-3",
+   "cls": "XII",
+   "book": null,
+   "chapter": {
+    "id": "eco12-income",
+    "num": "3",
+    "unit": "Unit",
+    "title": "Determination of Income and Employment",
+    "tagline": "Why an economy sometimes has too much demand, sometimes too little, and what fixes it.",
+    "art": "target",
+    "thumb": "img/eco12-income.jpg"
+   },
+   "part": 3,
+   "parts": 4,
+   "title": "Investment Multiplier",
+   "topics": [
+    "investment multiplier and its mechanism",
+    "k = 1/(1-MPC) = 1/MPS",
+    "numericals"
+   ],
+   "emojis": [
+    "🛒",
+    "📈",
+    "⚖️"
+   ],
+   "status": "todo",
+   "palette": 1,
+   "order": 12
+  },
+  {
+   "id": "eco12-income-4",
+   "cls": "XII",
+   "book": null,
+   "chapter": {
+    "id": "eco12-income",
+    "num": "3",
+    "unit": "Unit",
+    "title": "Determination of Income and Employment",
+    "tagline": "Why an economy sometimes has too much demand, sometimes too little, and what fixes it.",
+    "art": "target",
+    "thumb": "img/eco12-income.jpg"
+   },
+   "part": 4,
+   "parts": 4,
+   "title": "Excess and Deficient Demand",
+   "topics": [
+    "full employment and involuntary unemployment",
+    "excess demand (inflationary gap) and deficient demand (deflationary gap)",
+    "measures: government spending, taxes, money supply"
+   ],
+   "emojis": [
+    "🛒",
+    "📈",
+    "⚖️"
+   ],
+   "status": "todo",
+   "palette": 2,
+   "order": 13
+  },
+  {
+   "id": "eco12-budget-1",
+   "cls": "XII",
+   "book": null,
+   "chapter": {
+    "id": "eco12-budget",
+    "num": "4",
+    "unit": "Unit",
+    "title": "Government Budget and the Economy",
+    "tagline": "Where the government's money comes from, where it goes, and what a deficit means.",
+    "art": "documents",
+    "thumb": "img/eco12-budget.jpg"
+   },
+   "part": 1,
+   "parts": 2,
+   "title": "Budget: Meaning, Objectives and Components",
+   "topics": [
+    "government budget: meaning, objectives",
+    "revenue receipts and capital receipts",
+    "revenue expenditure and capital expenditure"
+   ],
+   "emojis": [
+    "🏛️",
+    "📒",
+    "💸"
+   ],
+   "status": "todo",
+   "palette": 3,
+   "order": 14
+  },
+  {
+   "id": "eco12-budget-2",
+   "cls": "XII",
+   "book": null,
+   "chapter": {
+    "id": "eco12-budget",
+    "num": "4",
+    "unit": "Unit",
+    "title": "Government Budget and the Economy",
+    "tagline": "Where the government's money comes from, where it goes, and what a deficit means.",
+    "art": "documents",
+    "thumb": "img/eco12-budget.jpg"
+   },
+   "part": 2,
+   "parts": 2,
+   "title": "Budget Deficits",
+   "topics": [
+    "balanced, surplus and deficit budget",
+    "revenue deficit, fiscal deficit, primary deficit",
+    "implications"
+   ],
+   "emojis": [
+    "🏛️",
+    "📒",
+    "💸"
+   ],
+   "status": "todo",
+   "palette": 4,
+   "order": 15
+  },
+  {
+   "id": "eco12-bop-1",
+   "cls": "XII",
+   "book": null,
+   "chapter": {
+    "id": "eco12-bop",
+    "num": "5",
+    "unit": "Unit",
+    "title": "Balance of Payments",
+    "tagline": "India's account with the rest of the world, and the price of the rupee.",
+    "art": "globe",
+    "thumb": "img/eco12-bop.jpg"
+   },
+   "part": 1,
+   "parts": 2,
+   "title": "Balance of Payments Account",
+   "topics": [
+    "BoP meaning and components: current account, capital account",
+    "surplus and deficit",
+    "autonomous and accommodating transactions"
+   ],
+   "emojis": [
+    "🌍",
+    "💱",
+    "🚢"
+   ],
+   "status": "todo",
+   "palette": 5,
+   "order": 16
+  },
+  {
+   "id": "eco12-bop-2",
+   "cls": "XII",
+   "book": null,
+   "chapter": {
+    "id": "eco12-bop",
+    "num": "5",
+    "unit": "Unit",
+    "title": "Balance of Payments",
+    "tagline": "India's account with the rest of the world, and the price of the rupee.",
+    "art": "globe",
+    "thumb": "img/eco12-bop.jpg"
+   },
+   "part": 2,
+   "parts": 2,
+   "title": "Foreign Exchange Rate",
+   "topics": [
+    "fixed, flexible and managed floating rates",
+    "determination in a free market",
+    "merits and demerits of fixed and flexible rates"
+   ],
+   "emojis": [
+    "🌍",
+    "💱",
+    "🚢"
+   ],
+   "status": "todo",
+   "palette": 6,
+   "order": 17
+  },
+  {
+   "id": "eco12-ied1-1",
+   "cls": "XII",
+   "book": null,
+   "chapter": {
+    "id": "eco12-ied1",
+    "num": "6",
+    "unit": "Unit",
+    "title": "Development Experience 1947-90",
+    "tagline": "India's economy at independence and the first forty years of planning.",
+    "art": "notebook",
+    "thumb": "img/eco12-ied1.jpg"
+   },
+   "part": 1,
+   "parts": 3,
+   "title": "Indian Economy on the Eve of Independence",
+   "topics": [
+    "agriculture, industry, foreign trade under colonial rule",
+    "demographic condition, occupational structure, infrastructure"
+   ],
+   "emojis": [
+    "🇮🇳",
+    "🚜",
+    "🏗️"
+   ],
+   "status": "todo",
+   "palette": 7,
+   "order": 18
+  },
+  {
+   "id": "eco12-ied1-2",
+   "cls": "XII",
+   "book": null,
+   "chapter": {
+    "id": "eco12-ied1",
+    "num": "6",
+    "unit": "Unit",
+    "title": "Development Experience 1947-90",
+    "tagline": "India's economy at independence and the first forty years of planning.",
+    "art": "notebook",
+    "thumb": "img/eco12-ied1.jpg"
+   },
+   "part": 2,
+   "parts": 3,
+   "title": "Five Year Plans and Agriculture",
+   "topics": [
+    "Indian economic system (mixed economy)",
+    "common goals of five year plans",
+    "agriculture: land reforms, green revolution, subsidies"
+   ],
+   "emojis": [
+    "🇮🇳",
+    "🚜",
+    "🏗️"
+   ],
+   "status": "todo",
+   "palette": 8,
+   "order": 19
+  },
+  {
+   "id": "eco12-ied1-3",
+   "cls": "XII",
+   "book": null,
+   "chapter": {
+    "id": "eco12-ied1",
+    "num": "6",
+    "unit": "Unit",
+    "title": "Development Experience 1947-90",
+    "tagline": "India's economy at independence and the first forty years of planning.",
+    "art": "notebook",
+    "thumb": "img/eco12-ied1.jpg"
+   },
+   "part": 3,
+   "parts": 3,
+   "title": "Industry and Foreign Trade 1950-90",
+   "topics": [
+    "IPR 1956",
+    "small scale industries: role and importance",
+    "trade policy: import substitution"
+   ],
+   "emojis": [
+    "🇮🇳",
+    "🚜",
+    "🏗️"
+   ],
+   "status": "todo",
+   "palette": 9,
+   "order": 20
+  },
+  {
+   "id": "eco12-lpg-1",
+   "cls": "XII",
+   "book": null,
+   "chapter": {
+    "id": "eco12-lpg",
+    "num": "7",
+    "unit": "Unit",
+    "title": "Economic Reforms since 1991",
+    "tagline": "The 1991 crisis and the LPG reforms, plus demonetisation and GST.",
+    "art": "globe",
+    "thumb": "img/eco12-lpg.jpg"
+   },
+   "part": 1,
+   "parts": 2,
+   "title": "Liberalisation, Privatisation and Globalisation",
+   "topics": [
+    "the 1991 crisis",
+    "liberalisation, privatisation, globalisation: features",
+    "appraisal of LPG"
+   ],
+   "emojis": [
+    "🔓",
+    "🌐",
+    "🧾"
+   ],
+   "status": "todo",
+   "palette": 0,
+   "order": 21
+  },
+  {
+   "id": "eco12-lpg-2",
+   "cls": "XII",
+   "book": null,
+   "chapter": {
+    "id": "eco12-lpg",
+    "num": "7",
+    "unit": "Unit",
+    "title": "Economic Reforms since 1991",
+    "tagline": "The 1991 crisis and the LPG reforms, plus demonetisation and GST.",
+    "art": "globe",
+    "thumb": "img/eco12-lpg.jpg"
+   },
+   "part": 2,
+   "parts": 2,
+   "title": "Demonetisation and GST",
+   "topics": [
+    "concept of demonetisation (2016)",
+    "concept of GST"
+   ],
+   "emojis": [
+    "🔓",
+    "🌐",
+    "🧾"
+   ],
+   "status": "todo",
+   "palette": 1,
+   "order": 22
+  },
+  {
+   "id": "eco12-ied2-1",
+   "cls": "XII",
+   "book": null,
+   "chapter": {
+    "id": "eco12-ied2",
+    "num": "8",
+    "unit": "Unit",
+    "title": "Current Challenges facing Indian Economy",
+    "tagline": "Human capital, rural development, jobs and sustainability.",
+    "art": "brain",
+    "thumb": "img/eco12-ied2.jpg"
+   },
+   "part": 1,
+   "parts": 4,
+   "title": "Human Capital Formation",
+   "topics": [
+    "how people become resource",
+    "human capital vs physical capital",
+    "role in development; growth of education sector"
+   ],
+   "emojis": [
+    "🎓",
+    "🌾",
+    "🌱"
+   ],
+   "status": "todo",
+   "palette": 2,
+   "order": 23
+  },
+  {
+   "id": "eco12-ied2-2",
+   "cls": "XII",
+   "book": null,
+   "chapter": {
+    "id": "eco12-ied2",
+    "num": "8",
+    "unit": "Unit",
+    "title": "Current Challenges facing Indian Economy",
+    "tagline": "Human capital, rural development, jobs and sustainability.",
+    "art": "brain",
+    "thumb": "img/eco12-ied2.jpg"
+   },
+   "part": 2,
+   "parts": 4,
+   "title": "Rural Development",
+   "topics": [
+    "key issues: credit and marketing",
+    "role of cooperatives",
+    "agricultural diversification; organic farming"
+   ],
+   "emojis": [
+    "🎓",
+    "🌾",
+    "🌱"
+   ],
+   "status": "todo",
+   "palette": 3,
+   "order": 24
+  },
+  {
+   "id": "eco12-ied2-3",
+   "cls": "XII",
+   "book": null,
+   "chapter": {
+    "id": "eco12-ied2",
+    "num": "8",
+    "unit": "Unit",
+    "title": "Current Challenges facing Indian Economy",
+    "tagline": "Human capital, rural development, jobs and sustainability.",
+    "art": "brain",
+    "thumb": "img/eco12-ied2.jpg"
+   },
+   "part": 3,
+   "parts": 4,
+   "title": "Employment",
+   "topics": [
+    "workforce participation rate",
+    "formal and informal sectors",
+    "problems and policies"
+   ],
+   "emojis": [
+    "🎓",
+    "🌾",
+    "🌱"
+   ],
+   "status": "todo",
+   "palette": 4,
+   "order": 25
+  },
+  {
+   "id": "eco12-ied2-4",
+   "cls": "XII",
+   "book": null,
+   "chapter": {
+    "id": "eco12-ied2",
+    "num": "8",
+    "unit": "Unit",
+    "title": "Current Challenges facing Indian Economy",
+    "tagline": "Human capital, rural development, jobs and sustainability.",
+    "art": "brain",
+    "thumb": "img/eco12-ied2.jpg"
+   },
+   "part": 4,
+   "parts": 4,
+   "title": "Sustainable Economic Development",
+   "topics": [
+    "meaning of sustainable development",
+    "effects of development on resources and environment",
+    "global warming"
+   ],
+   "emojis": [
+    "🎓",
+    "🌾",
+    "🌱"
+   ],
+   "status": "todo",
+   "palette": 5,
+   "order": 26
+  },
+  {
+   "id": "eco12-neighbours-1",
+   "cls": "XII",
+   "book": null,
+   "chapter": {
+    "id": "eco12-neighbours",
+    "num": "9",
+    "unit": "Unit",
+    "title": "India and its Neighbours",
+    "tagline": "How India compares with Pakistan and China.",
+    "art": "globe",
+    "thumb": "img/eco12-neighbours.jpg"
+   },
+   "part": 1,
+   "parts": 1,
+   "title": "India, Pakistan and China Compared",
+   "topics": [
+    "development paths",
+    "growth, population, sectoral development",
+    "human development indicators"
+   ],
+   "emojis": [
+    "🇮🇳",
+    "🐉",
+    "📊"
+   ],
+   "status": "todo",
+   "palette": 6,
+   "order": 27
+  },
+  {
+   "id": "eco11-intro-1",
+   "cls": "XI",
+   "book": null,
+   "chapter": {
+    "id": "eco11-intro",
+    "num": "1",
+    "unit": "Unit",
+    "title": "Statistics: Introduction",
+    "tagline": "Why economics needs numbers.",
+    "art": "chart",
+    "thumb": "img/eco11-intro.jpg"
+   },
+   "part": 1,
+   "parts": 1,
+   "title": "Meaning, Scope and Importance of Statistics",
+   "topics": [
+    "meaning, scope, functions and importance of statistics in economics"
+   ],
+   "emojis": [
+    "📊",
+    "🔢",
+    "🧐"
+   ],
+   "status": "todo",
+   "palette": 7,
+   "order": 28
+  },
+  {
+   "id": "eco11-data-1",
+   "cls": "XI",
+   "book": null,
+   "chapter": {
+    "id": "eco11-data",
+    "num": "2",
+    "unit": "Unit",
+    "title": "Collection, Organisation and Presentation of Data",
+    "tagline": "Getting data, sorting it and drawing it.",
+    "art": "documents",
+    "thumb": "img/eco11-data.jpg"
+   },
+   "part": 1,
+   "parts": 4,
+   "title": "Collection of Data",
+   "topics": [
+    "primary and secondary data",
+    "methods of collecting data",
+    "sampling",
+    "Census of India and NSSO"
+   ],
+   "emojis": [
+    "📋",
+    "🗂️",
+    "📈"
+   ],
+   "status": "todo",
+   "palette": 8,
+   "order": 29
+  },
+  {
+   "id": "eco11-data-2",
+   "cls": "XI",
+   "book": null,
+   "chapter": {
+    "id": "eco11-data",
+    "num": "2",
+    "unit": "Unit",
+    "title": "Collection, Organisation and Presentation of Data",
+    "tagline": "Getting data, sorting it and drawing it.",
+    "art": "documents",
+    "thumb": "img/eco11-data.jpg"
+   },
+   "part": 2,
+   "parts": 4,
+   "title": "Organisation of Data",
+   "topics": [
+    "meaning and types of variables",
+    "frequency distribution"
+   ],
+   "emojis": [
+    "📋",
+    "🗂️",
+    "📈"
+   ],
+   "status": "todo",
+   "palette": 9,
+   "order": 30
+  },
+  {
+   "id": "eco11-data-3",
+   "cls": "XI",
+   "book": null,
+   "chapter": {
+    "id": "eco11-data",
+    "num": "2",
+    "unit": "Unit",
+    "title": "Collection, Organisation and Presentation of Data",
+    "tagline": "Getting data, sorting it and drawing it.",
+    "art": "documents",
+    "thumb": "img/eco11-data.jpg"
+   },
+   "part": 3,
+   "parts": 4,
+   "title": "Tables and Diagrams",
+   "topics": [
+    "tabular presentation",
+    "bar diagrams and pie diagrams"
+   ],
+   "emojis": [
+    "📋",
+    "🗂️",
+    "📈"
+   ],
+   "status": "todo",
+   "palette": 0,
+   "order": 31
+  },
+  {
+   "id": "eco11-data-4",
+   "cls": "XI",
+   "book": null,
+   "chapter": {
+    "id": "eco11-data",
+    "num": "2",
+    "unit": "Unit",
+    "title": "Collection, Organisation and Presentation of Data",
+    "tagline": "Getting data, sorting it and drawing it.",
+    "art": "documents",
+    "thumb": "img/eco11-data.jpg"
+   },
+   "part": 4,
+   "parts": 4,
+   "title": "Frequency Diagrams and Graphs",
+   "topics": [
+    "histogram, polygon and ogive",
+    "arithmetic line graphs (time series)"
+   ],
+   "emojis": [
+    "📋",
+    "🗂️",
+    "📈"
+   ],
+   "status": "todo",
+   "palette": 1,
+   "order": 32
+  },
+  {
+   "id": "eco11-tools-1",
+   "cls": "XI",
+   "book": null,
+   "chapter": {
+    "id": "eco11-tools",
+    "num": "3",
+    "unit": "Unit",
+    "title": "Statistical Tools and Interpretation",
+    "tagline": "Averages, correlation and index numbers.",
+    "art": "target",
+    "thumb": "img/eco11-tools.jpg"
+   },
+   "part": 1,
+   "parts": 4,
+   "title": "Arithmetic Mean",
+   "topics": [
+    "arithmetic mean: direct, assumed mean, step deviation",
+    "economic interpretation"
+   ],
+   "emojis": [
+    "🧮",
+    "📉",
+    "🎯"
+   ],
+   "status": "todo",
+   "palette": 2,
+   "order": 33
+  },
+  {
+   "id": "eco11-tools-2",
+   "cls": "XI",
+   "book": null,
+   "chapter": {
+    "id": "eco11-tools",
+    "num": "3",
+    "unit": "Unit",
+    "title": "Statistical Tools and Interpretation",
+    "tagline": "Averages, correlation and index numbers.",
+    "art": "target",
+    "thumb": "img/eco11-tools.jpg"
+   },
+   "part": 2,
+   "parts": 4,
+   "title": "Median and Mode",
+   "topics": [
+    "median",
+    "mode"
+   ],
+   "emojis": [
+    "🧮",
+    "📉",
+    "🎯"
+   ],
+   "status": "todo",
+   "palette": 3,
+   "order": 34
+  },
+  {
+   "id": "eco11-tools-3",
+   "cls": "XI",
+   "book": null,
+   "chapter": {
+    "id": "eco11-tools",
+    "num": "3",
+    "unit": "Unit",
+    "title": "Statistical Tools and Interpretation",
+    "tagline": "Averages, correlation and index numbers.",
+    "art": "target",
+    "thumb": "img/eco11-tools.jpg"
+   },
+   "part": 3,
+   "parts": 4,
+   "title": "Correlation",
+   "topics": [
+    "meaning and properties, scatter diagram",
+    "Karl Pearson's method",
+    "Spearman's rank correlation"
+   ],
+   "emojis": [
+    "🧮",
+    "📉",
+    "🎯"
+   ],
+   "status": "todo",
+   "palette": 4,
+   "order": 35
+  },
+  {
+   "id": "eco11-tools-4",
+   "cls": "XI",
+   "book": null,
+   "chapter": {
+    "id": "eco11-tools",
+    "num": "3",
+    "unit": "Unit",
+    "title": "Statistical Tools and Interpretation",
+    "tagline": "Averages, correlation and index numbers.",
+    "art": "target",
+    "thumb": "img/eco11-tools.jpg"
+   },
+   "part": 4,
+   "parts": 4,
+   "title": "Index Numbers",
+   "topics": [
+    "meaning and types: WPI, CPI, IIP",
+    "uses; inflation and index numbers",
+    "simple aggregative method"
+   ],
+   "emojis": [
+    "🧮",
+    "📉",
+    "🎯"
+   ],
+   "status": "todo",
+   "palette": 5,
+   "order": 36
+  },
+  {
+   "id": "eco11-micro-1",
+   "cls": "XI",
+   "book": null,
+   "chapter": {
+    "id": "eco11-micro",
+    "num": "4",
+    "unit": "Unit",
+    "title": "Introduction to Microeconomics",
+    "tagline": "Scarcity, choice and the central problems of an economy.",
+    "art": "gears",
+    "thumb": "img/eco11-micro.jpg"
+   },
+   "part": 1,
+   "parts": 1,
+   "title": "Central Problems and the PPC",
+   "topics": [
+    "micro vs macro; positive vs normative",
+    "central problems: what, how, for whom",
+    "production possibility frontier and opportunity cost"
+   ],
+   "emojis": [
+    "🤔",
+    "⚙️",
+    "🔀"
+   ],
+   "status": "todo",
+   "palette": 6,
+   "order": 37
+  },
+  {
+   "id": "eco11-consumer-1",
+   "cls": "XI",
+   "book": null,
+   "chapter": {
+    "id": "eco11-consumer",
+    "num": "5",
+    "unit": "Unit",
+    "title": "Consumer's Equilibrium and Demand",
+    "tagline": "How a buyer chooses, and what moves demand.",
+    "art": "pricetag",
+    "thumb": "img/eco11-consumer.jpg"
+   },
+   "part": 1,
+   "parts": 4,
+   "title": "Utility Analysis",
+   "topics": [
+    "utility, marginal utility, law of diminishing MU",
+    "consumer's equilibrium with MU analysis"
+   ],
+   "emojis": [
+    "🛍️",
+    "😋",
+    "📉"
+   ],
+   "status": "todo",
+   "palette": 7,
+   "order": 38
+  },
+  {
+   "id": "eco11-consumer-2",
+   "cls": "XI",
+   "book": null,
+   "chapter": {
+    "id": "eco11-consumer",
+    "num": "5",
+    "unit": "Unit",
+    "title": "Consumer's Equilibrium and Demand",
+    "tagline": "How a buyer chooses, and what moves demand.",
+    "art": "pricetag",
+    "thumb": "img/eco11-consumer.jpg"
+   },
+   "part": 2,
+   "parts": 4,
+   "title": "Indifference Curve Analysis",
+   "topics": [
+    "budget set and budget line",
+    "indifference curve and map",
+    "consumer's equilibrium"
+   ],
+   "emojis": [
+    "🛍️",
+    "😋",
+    "📉"
+   ],
+   "status": "todo",
+   "palette": 8,
+   "order": 39
+  },
+  {
+   "id": "eco11-consumer-3",
+   "cls": "XI",
+   "book": null,
+   "chapter": {
+    "id": "eco11-consumer",
+    "num": "5",
+    "unit": "Unit",
+    "title": "Consumer's Equilibrium and Demand",
+    "tagline": "How a buyer chooses, and what moves demand.",
+    "art": "pricetag",
+    "thumb": "img/eco11-consumer.jpg"
+   },
+   "part": 3,
+   "parts": 4,
+   "title": "Demand",
+   "topics": [
+    "demand, market demand, determinants",
+    "demand schedule and curve",
+    "movement along vs shift"
+   ],
+   "emojis": [
+    "🛍️",
+    "😋",
+    "📉"
+   ],
+   "status": "todo",
+   "palette": 9,
+   "order": 40
+  },
+  {
+   "id": "eco11-consumer-4",
+   "cls": "XI",
+   "book": null,
+   "chapter": {
+    "id": "eco11-consumer",
+    "num": "5",
+    "unit": "Unit",
+    "title": "Consumer's Equilibrium and Demand",
+    "tagline": "How a buyer chooses, and what moves demand.",
+    "art": "pricetag",
+    "thumb": "img/eco11-consumer.jpg"
+   },
+   "part": 4,
+   "parts": 4,
+   "title": "Price Elasticity of Demand",
+   "topics": [
+    "factors affecting elasticity",
+    "percentage-change method",
+    "total expenditure method"
+   ],
+   "emojis": [
+    "🛍️",
+    "😋",
+    "📉"
+   ],
+   "status": "todo",
+   "palette": 0,
+   "order": 41
+  },
+  {
+   "id": "eco11-producer-1",
+   "cls": "XI",
+   "book": null,
+   "chapter": {
+    "id": "eco11-producer",
+    "num": "6",
+    "unit": "Unit",
+    "title": "Producer Behaviour and Supply",
+    "tagline": "Production, costs, revenue and supply.",
+    "art": "crane",
+    "thumb": "img/eco11-producer.jpg"
+   },
+   "part": 1,
+   "parts": 4,
+   "title": "Production Function",
+   "topics": [
+    "short run and long run",
+    "TP, AP, MP",
+    "returns to a factor"
+   ],
+   "emojis": [
+    "🏭",
+    "💹",
+    "📦"
+   ],
+   "status": "todo",
+   "palette": 1,
+   "order": 42
+  },
+  {
+   "id": "eco11-producer-2",
+   "cls": "XI",
+   "book": null,
+   "chapter": {
+    "id": "eco11-producer",
+    "num": "6",
+    "unit": "Unit",
+    "title": "Producer Behaviour and Supply",
+    "tagline": "Production, costs, revenue and supply.",
+    "art": "crane",
+    "thumb": "img/eco11-producer.jpg"
+   },
+   "part": 2,
+   "parts": 4,
+   "title": "Cost",
+   "topics": [
+    "TC, TFC, TVC",
+    "AC, AFC, AVC, MC and relationships"
+   ],
+   "emojis": [
+    "🏭",
+    "💹",
+    "📦"
+   ],
+   "status": "todo",
+   "palette": 2,
+   "order": 43
+  },
+  {
+   "id": "eco11-producer-3",
+   "cls": "XI",
+   "book": null,
+   "chapter": {
+    "id": "eco11-producer",
+    "num": "6",
+    "unit": "Unit",
+    "title": "Producer Behaviour and Supply",
+    "tagline": "Production, costs, revenue and supply.",
+    "art": "crane",
+    "thumb": "img/eco11-producer.jpg"
+   },
+   "part": 3,
+   "parts": 4,
+   "title": "Revenue and Producer's Equilibrium",
+   "topics": [
+    "TR, AR, MR and relationships",
+    "producer's equilibrium MR = MC"
+   ],
+   "emojis": [
+    "🏭",
+    "💹",
+    "📦"
+   ],
+   "status": "todo",
+   "palette": 3,
+   "order": 44
+  },
+  {
+   "id": "eco11-producer-4",
+   "cls": "XI",
+   "book": null,
+   "chapter": {
+    "id": "eco11-producer",
+    "num": "6",
+    "unit": "Unit",
+    "title": "Producer Behaviour and Supply",
+    "tagline": "Production, costs, revenue and supply.",
+    "art": "crane",
+    "thumb": "img/eco11-producer.jpg"
+   },
+   "part": 4,
+   "parts": 4,
+   "title": "Supply and Elasticity of Supply",
+   "topics": [
+    "supply, determinants, schedule, curve",
+    "movement vs shift",
+    "price elasticity of supply"
+   ],
+   "emojis": [
+    "🏭",
+    "💹",
+    "📦"
+   ],
+   "status": "todo",
+   "palette": 4,
+   "order": 45
+  },
+  {
+   "id": "eco11-market-1",
+   "cls": "XI",
+   "book": null,
+   "chapter": {
+    "id": "eco11-market",
+    "num": "7",
+    "unit": "Unit",
+    "title": "Perfect Competition and Price Determination",
+    "tagline": "How markets set prices, and what price controls do.",
+    "art": "coins",
+    "thumb": "img/eco11-market.jpg"
+   },
+   "part": 1,
+   "parts": 2,
+   "title": "Perfect Competition and Market Equilibrium",
+   "topics": [
+    "features of perfect competition",
+    "market equilibrium",
+    "effects of shifts in demand and supply"
+   ],
+   "emojis": [
+    "🏪",
+    "⚖️",
+    "🏷️"
+   ],
+   "status": "todo",
+   "palette": 5,
+   "order": 46
+  },
+  {
+   "id": "eco11-market-2",
+   "cls": "XI",
+   "book": null,
+   "chapter": {
+    "id": "eco11-market",
+    "num": "7",
+    "unit": "Unit",
+    "title": "Perfect Competition and Price Determination",
+    "tagline": "How markets set prices, and what price controls do.",
+    "art": "coins",
+    "thumb": "img/eco11-market.jpg"
+   },
+   "part": 2,
+   "parts": 2,
+   "title": "Price Ceiling and Price Floor",
+   "topics": [
+    "price ceiling",
+    "price floor"
+   ],
+   "emojis": [
+    "🏪",
+    "⚖️",
+    "🏷️"
+   ],
+   "status": "todo",
+   "palette": 6,
+   "order": 47
+  }
+ ]
+}

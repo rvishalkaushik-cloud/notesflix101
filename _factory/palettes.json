@@ -1,0 +1,12 @@
+[
+ {"name":"Sunrise","H":"#2b2a6b","P":"#f26b21","A":"#f9b91a","S":"#3bb5a0","C":"#f2645a","BG":"#fff6e5"},
+ {"name":"Ocean Pop","H":"#12355b","P":"#ff5d73","A":"#ffd166","S":"#06aed5","C":"#ef476f","BG":"#eef7ff"},
+ {"name":"Mint Grape","H":"#1f2d3d","P":"#7b2ff7","A":"#ffbe0b","S":"#00b383","C":"#ff5c8a","BG":"#effbf4"},
+ {"name":"Berry Blast","H":"#3d1450","P":"#e5386d","A":"#ffb703","S":"#4361ee","C":"#fb5607","BG":"#fff0f6"},
+ {"name":"Lemon Teal","H":"#1d3354","P":"#2a9d8f","A":"#f4a261","S":"#e76f51","C":"#d62828","BG":"#fffbe6"},
+ {"name":"Lavender Fire","H":"#2d1e6b","P":"#ff7a00","A":"#ffd60a","S":"#8338ec","C":"#ef476f","BG":"#f4f0ff"},
+ {"name":"Peach Lagoon","H":"#0f3d3e","P":"#ef476f","A":"#ffc43d","S":"#118ab2","C":"#f77f00","BG":"#fff3ec"},
+ {"name":"Lime Spark","H":"#1b2f4b","P":"#fb5607","A":"#ffbe0b","S":"#3a86ff","C":"#e63946","BG":"#f6fde9"},
+ {"name":"Coral Reef","H":"#22304a","P":"#ff6f59","A":"#f7c548","S":"#2ec4b6","C":"#d1495b","BG":"#fff4f0"},
+ {"name":"Sky Candy","H":"#25235e","P":"#ff4fa3","A":"#ffd23f","S":"#3bceac","C":"#ee4266","BG":"#eefaff"}
+]
