@@ -11,7 +11,7 @@ repo, d = sys.argv[1], json.loads(sys.argv[2])
 ip = repo + '/index.html'; s = open(ip).read()
 sub = d['subject']; js = lambda v: json.dumps(v, ensure_ascii=False)
 # 1. subject tab + SUBJECTS card
-if f'data-subj="{sub}"' not in s:
+if f'data-subj="{sub}"' not in s and '<button class="classtab subjtab"' in s:
     anchor = s.find('<button class="classtab subjtab"', s.find('class="tabrow" role="tablist"'))
     end = s.find('</div>', anchor)
     s = s[:end] + f'  <button class="classtab subjtab" type="button" data-subj="{sub}" aria-selected="false">{sub}</button>\n    ' + s[end:]
