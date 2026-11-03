@@ -187,13 +187,14 @@
     "GDP and welfare: distribution, non-monetary exchanges, externalities"
    ],
    "emojis": [
-    "🏭",
-    "💰",
-    "📊"
+    "📈",
+    "⚖️",
+    "🏭"
    ],
-   "status": "todo",
+   "status": "done",
    "palette": 5,
-   "order": 6
+   "order": 6,
+   "published": "2026-11-03"
   },
   {
    "id": "eco12-money-1",
