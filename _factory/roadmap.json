@@ -18,7 +18,7 @@
     "thumb": "img/eco12-ni.jpg"
    },
    "part": 1,
-   "parts": 6,
+   "parts": 7,
    "title": "Basic Concepts of Macroeconomics",
    "topics": [
     "What is macroeconomics",
@@ -51,7 +51,7 @@
     "thumb": "img/eco12-ni.jpg"
    },
    "part": 2,
-   "parts": 6,
+   "parts": 7,
    "title": "Circular Flow of Income",
    "topics": [
     "circular flow of income (two-sector model)",
@@ -82,7 +82,7 @@
     "thumb": "img/eco12-ni.jpg"
    },
    "part": 3,
-   "parts": 6,
+   "parts": 7,
    "title": "National Income Aggregates",
    "topics": [
     "GDP, GNP, NDP, NNP",
@@ -114,7 +114,7 @@
     "thumb": "img/eco12-ni.jpg"
    },
    "part": 4,
-   "parts": 6,
+   "parts": 7,
    "title": "Value Added Method",
    "topics": [
     "value added or product method",
@@ -147,7 +147,7 @@
     "thumb": "img/eco12-ni.jpg"
    },
    "part": 5,
-   "parts": 6,
+   "parts": 7,
    "title": "Income and Expenditure Methods",
    "topics": [
     "income method: compensation of employees, operating surplus, mixed income",
@@ -179,7 +179,7 @@
     "thumb": "img/eco12-ni.jpg"
    },
    "part": 6,
-   "parts": 6,
+   "parts": 7,
    "title": "Real vs Nominal GDP and Welfare",
    "topics": [
     "real and nominal GDP",
@@ -195,6 +195,36 @@
    "palette": 5,
    "order": 6,
    "published": "2026-11-03"
+  },
+  {
+   "id": "eco12-ni-7",
+   "cls": "XII",
+   "book": null,
+   "chapter": {
+    "id": "eco12-ni",
+    "num": "1",
+    "unit": "Unit",
+    "title": "National Income and Related Aggregates",
+    "tagline": "How a whole country measures what it earns, makes and spends.",
+    "art": "chart",
+    "thumb": "img/eco12-ni.jpg"
+   },
+   "part": 7,
+   "parts": 7,
+   "title": "Revision: Tricky Items and PYQs",
+   "topics": [
+    "items included / excluded with reasons",
+    "components of NFIA",
+    "choosing the method; board PYQs"
+   ],
+   "emojis": [
+    "🎯",
+    "🧩",
+    "📝"
+   ],
+   "status": "todo",
+   "palette": 6,
+   "order": 6.5
   },
   {
    "id": "eco12-money-1",
