@@ -222,9 +222,10 @@
     "🧩",
     "📝"
    ],
-   "status": "todo",
+   "status": "done",
    "palette": 6,
-   "order": 6.5
+   "order": 6.5,
+   "published": "2026-11-04"
   },
   {
    "id": "eco12-money-1",
