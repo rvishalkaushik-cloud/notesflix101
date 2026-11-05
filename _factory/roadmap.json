@@ -1481,9 +1481,10 @@
     "🔺",
     "🏬"
    ],
-   "status": "todo",
+   "status": "done",
    "palette": 6,
-   "order": 47
+   "order": 47,
+   "published": "2026-11-05"
   }
  ]
 }
