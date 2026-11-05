@@ -315,9 +315,10 @@
     "🎛️",
     "📜"
    ],
-   "status": "todo",
+   "status": "done",
    "palette": 8,
-   "order": 9
+   "order": 9,
+   "published": "2026-11-05"
   },
   {
    "id": "eco12-income-1",
