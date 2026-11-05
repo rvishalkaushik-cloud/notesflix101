@@ -1175,9 +1175,10 @@
     "❓",
     "📉"
    ],
-   "status": "todo",
+   "status": "done",
    "palette": 6,
-   "order": 37
+   "order": 37,
+   "published": "2026-11-05"
   },
   {
    "id": "eco11-consumer-1",
