@@ -1420,9 +1420,10 @@
     "🧪",
     "🧮"
    ],
-   "status": "todo",
+   "status": "done",
    "palette": 4,
-   "order": 45
+   "order": 45,
+   "published": "2026-11-05"
   },
   {
    "id": "eco11-market-1",
