@@ -1976,6 +1976,11 @@ CHAPTERS.forEach(function(c){
       return;
     }
 
+    if(activeSubject && !filter){
+      var subTop = topRow(topBySubject(activeSubject), "Top 10 · " + activeSubject, "Most reopened · both classes");
+      if(subTop) host.appendChild(subTop);
+    }
+
     if(filter){
       var hits = NOTES.filter(function(e){
         return inScope(e.chapter) && (e.title + " " + e.desc + " " + (e.keys || "") + " " + e.chapter.title)
@@ -2302,24 +2307,23 @@ CHAPTERS.forEach(function(c){
     card.addEventListener("click", function(){ openNote(e); });
     return card;
   }
-  function topTen(){
-    var all = [];
-    TRENDING_ROWS.forEach(function(r){
-      trendingNotes(r.cls, r.subject).forEach(function(e){
-        if(all.indexOf(e) < 0) all.push(e);
-      });
+  /* top 10 of one subject (both classes), most reopened first */
+  function topBySubject(sub){
+    var list = NOTES.filter(function(e){ return e.chapter.subject === sub; });
+    var order = {};
+    list.forEach(function(e, i){ order[e.id] = i; });
+    list.sort(function(a, b){
+      return (P.opens[b.id] || 0) - (P.opens[a.id] || 0) || order[a.id] - order[b.id];
     });
-    all.sort(function(a, b){ return (P.opens[b.id] || 0) - (P.opens[a.id] || 0); });
-    return all.slice(0, 10);
+    return list.slice(0, 10);
   }
-  function topRow(){
-    var list = topTen();
+  function topRow(list, title, sub){
     if(!list.length) return null;
     var sec = document.createElement("section");
     sec.className = "nz-row";
     var head = document.createElement("div");
     head.className = "nz-head";
-    head.innerHTML = '<h3>Top 10 notes</h3><span>Most reopened · all subjects</span>';
+    head.innerHTML = '<h3>' + esc(title) + '</h3><span>' + esc(sub) + '</span>';
     sec.appendChild(head);
     var track = document.createElement("div");
     track.className = "nz-top";
@@ -2441,24 +2445,6 @@ CHAPTERS.forEach(function(c){
     wrap.appendChild(chips);
     wrap.appendChild(xpBoardView());
 
-    var topSec = topRow();
-    if(topSec) wrap.appendChild(topSec);
-
-    TRENDING_ROWS.forEach(function(r){
-      var list = trendingNotes(r.cls, r.subject);
-      if(!list.length) return;
-      var sec = document.createElement("section");
-      sec.className = "nz-row";
-      var head = document.createElement("div");
-      head.className = "nz-head";
-      head.innerHTML = '<h3>Trending notes</h3><span>Class ' + r.cls + ' · ' + esc(r.subject) + '</span>';
-      sec.appendChild(head);
-      var track = document.createElement("div");
-      track.className = "nz-track";
-      list.forEach(function(e, i){ track.appendChild(noteCard(e, i + 1)); });
-      sec.appendChild(track);
-      wrap.appendChild(sec);
-    });
     return wrap;
   }
 
