@@ -932,9 +932,10 @@
     "🎯",
     "🏛️"
    ],
-   "status": "todo",
+   "status": "done",
    "palette": 8,
-   "order": 29
+   "order": 29,
+   "published": "2026-11-05"
   },
   {
    "id": "eco11-data-2",
