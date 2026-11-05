@@ -1144,9 +1144,10 @@
     "🏷️",
     "📈"
    ],
-   "status": "todo",
+   "status": "done",
    "palette": 5,
-   "order": 36
+   "order": 36,
+   "published": "2026-11-05"
   },
   {
    "id": "eco11-micro-1",
