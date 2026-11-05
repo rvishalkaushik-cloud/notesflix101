@@ -1205,9 +1205,10 @@
     "📉",
     "⚖️"
    ],
-   "status": "todo",
+   "status": "done",
    "palette": 7,
-   "order": 38
+   "order": 38,
+   "published": "2026-11-05"
   },
   {
    "id": "eco11-consumer-2",
