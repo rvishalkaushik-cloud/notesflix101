@@ -652,6 +652,21 @@ footer{border-top:1px dashed rgba(255,255,255,.14)}
 .nz-foot{display:flex;gap:10px;flex-wrap:wrap;font:700 12px var(--body);color:#555;text-transform:uppercase;letter-spacing:.06em}
 .nz-free{color:#0f7a3a}
 .nz-lock{color:#b00710}
+.nz-top{display:flex;gap:6px;overflow-x:auto;padding:8px 4px 22px;scroll-snap-type:x proximity}
+.nz-top-item{position:relative;flex:0 0 auto;display:flex;align-items:flex-end;background:none;border:0;padding:0;cursor:pointer;scroll-snap-align:start}
+.nz-top-num{position:relative;z-index:1;font:400 230px/.78 var(--display);letter-spacing:-8px;margin-right:-44px;pointer-events:none;user-select:none}
+.nz-top-item.is-black .nz-top-num{color:#0b0b0b;-webkit-text-stroke:2px #f5efdf}
+.nz-top-item.is-red .nz-top-num{color:#e50914;-webkit-text-stroke:2px #0b0b0b}
+.nz-top-tile{position:relative;z-index:2;width:190px;border-radius:6px;overflow:hidden;margin-bottom:6px;transition:transform .18s ease;box-shadow:0 14px 30px rgba(0,0,0,.5)}
+.nz-top-item:hover .nz-top-tile{transform:translateY(-6px)}
+.nz-top-item.is-black .nz-top-tile{background:#0b0b0b;border:2px solid #f5efdf}
+.nz-top-item.is-red .nz-top-tile{background:#e50914;border:2px solid #e50914}
+.nz-top-img{aspect-ratio:16/9;background:#0b0b0b;overflow:hidden}
+.nz-top-img img,.nz-top-img .art{width:100%;height:100%;object-fit:cover;display:block}
+.nz-top-cap{display:block;padding:7px 9px 8px;font:700 12px/1.25 var(--body);color:#fff;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.nz-top-item.is-black .nz-top-cap{background:#141414;color:var(--paper)}
+.nz-top-item.is-red .nz-top-cap{background:#e50914;color:#fff}
+@media (max-width:760px){.nz-top-num{font-size:132px;margin-right:-22px}.nz-top-tile{width:150px}.nz-top-cap{font-size:11px}}
 @media (max-width:760px){.nz-card{flex-basis:220px}.nz-bill{padding:22px 18px}}
 </style>
 </head>
@@ -2242,6 +2257,41 @@ CHAPTERS.forEach(function(c){
     card.addEventListener("click", function(){ openNote(e); });
     return card;
   }
+  function topTen(){
+    var all = [];
+    TRENDING_ROWS.forEach(function(r){
+      trendingNotes(r.cls, r.subject).forEach(function(e){
+        if(all.indexOf(e) < 0) all.push(e);
+      });
+    });
+    all.sort(function(a, b){ return (P.opens[b.id] || 0) - (P.opens[a.id] || 0); });
+    return all.slice(0, 10);
+  }
+  function topRow(){
+    var list = topTen();
+    if(!list.length) return null;
+    var sec = document.createElement("section");
+    sec.className = "nz-row";
+    var head = document.createElement("div");
+    head.className = "nz-head";
+    head.innerHTML = '<h3>Top 10 notes</h3><span>Most reopened · all subjects</span>';
+    sec.appendChild(head);
+    var track = document.createElement("div");
+    track.className = "nz-top";
+    list.forEach(function(e, i){
+      var n = i + 1;
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "nz-top-item " + (n % 2 === 1 ? "is-black" : "is-red");
+      btn.innerHTML = '<span class="nz-top-num">' + n + '</span>'
+        + '<span class="nz-top-tile"><span class="nz-top-img">' + poster("img/ep/" + e.id + ".jpg", e.art, true) + '</span>'
+        + '<span class="nz-top-cap">' + esc(e.title) + '</span></span>';
+      btn.addEventListener("click", function(){ openNote(e); });
+      track.appendChild(btn);
+    });
+    sec.appendChild(track);
+    return sec;
+  }
   function homeView(){
     var wrap = document.createElement("div");
     wrap.className = "nz-home";
@@ -2280,6 +2330,9 @@ CHAPTERS.forEach(function(c){
       chips.appendChild(c);
     });
     wrap.appendChild(chips);
+
+    var topSec = topRow();
+    if(topSec) wrap.appendChild(topSec);
 
     TRENDING_ROWS.forEach(function(r){
       var list = trendingNotes(r.cls, r.subject);
