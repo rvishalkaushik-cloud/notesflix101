@@ -1082,9 +1082,10 @@
     "👟",
     "🤑"
    ],
-   "status": "todo",
+   "status": "done",
    "palette": 3,
-   "order": 34
+   "order": 34,
+   "published": "2026-11-05"
   },
   {
    "id": "eco11-tools-3",
