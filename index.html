@@ -667,6 +667,29 @@ footer{border-top:1px dashed rgba(255,255,255,.14)}
 .nz-top-item.is-black .nz-top-cap{background:#141414;color:var(--paper)}
 .nz-top-item.is-red .nz-top-cap{background:#e50914;color:#fff}
 @media (max-width:760px){.nz-top-num{font-size:132px;margin-right:-22px}.nz-top-tile{width:150px}.nz-top-cap{font-size:11px}}
+.xp-board{margin-top:34px}
+.xp-tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:0 0 14px}
+.xp-tools .nz-chip.is-on{border-color:var(--red);background:var(--red)}
+.xp-sep{width:1px;height:26px;background:var(--line);margin:0 4px}
+.xp-list{display:grid;gap:10px;max-width:560px}
+.xp-row{display:flex;align-items:center;gap:14px;padding:14px 18px;border-radius:8px;background:#141414;border:1px solid var(--line)}
+.xp-row.r1{border-color:var(--red);background:#1d0505}
+.xp-rank{font:400 44px/1 var(--display);width:44px;text-align:center;color:transparent;-webkit-text-stroke:2px var(--paper)}
+.xp-row.r1 .xp-rank{color:var(--red);-webkit-text-stroke:0}
+.xp-name{flex:1;font:700 17px var(--body);color:var(--paper);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.xp-name em{font-style:normal;font:600 12px var(--body);color:var(--paper-dim);letter-spacing:.06em;text-transform:uppercase;margin-left:8px}
+.xp-pts{font:400 26px/1 var(--display);color:var(--paper);white-space:nowrap}
+.xp-empty{color:var(--paper-dim);font:500 15px/1.5 var(--body);padding:16px 0}
+.xp-note{font:500 13px/1.5 var(--body);color:var(--paper-dim);margin:12px 0 0}
+.xp-you{font:700 13px var(--body);color:var(--paper-dim);margin:0 0 12px;text-transform:uppercase;letter-spacing:.06em}
+.xp-you b{color:var(--red)}
+.xp-modal{position:fixed;inset:0;background:rgba(0,0,0,.75);display:flex;align-items:center;justify-content:center;z-index:9999;padding:16px}
+.xp-card{background:#111;border:1px solid var(--line);border-radius:12px;padding:26px;max-width:380px;width:100%;color:var(--paper)}
+.xp-card h3{font:400 30px/1 var(--display);margin:0 0 8px}
+.xp-card p{color:var(--paper-dim);font:500 14px/1.5 var(--body);margin:0 0 16px}
+.xp-card label{display:block;font:700 12px var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--paper-dim);margin:12px 0 6px}
+.xp-card input,.xp-card select{width:100%;box-sizing:border-box;background:#0b0b0b;border:1px solid var(--line);border-radius:8px;color:var(--paper);font:600 16px var(--body);padding:11px 12px}
+.xp-card .btn{margin-top:18px;width:100%}
 @media (max-width:760px){.nz-card{flex-basis:220px}.nz-bill{padding:22px 18px}}
 </style>
 </head>
@@ -1462,17 +1485,17 @@ CHAPTERS.forEach(function(c){
   function unlocked(){ return !!student || !!cloudUid; }
 
   /* ---------- what the student has read (this browser only) ---------- */
-  var PKEY = "notesflix101.progress", P = { done:{}, opened:{}, opens:{}, last:null };
+  var PKEY = "notesflix101.progress", P = { done:{}, opened:{}, opens:{}, last:null, xp:{} };
   try{
     var pr = localStorage.getItem(PKEY);
-    if(pr){ var o = JSON.parse(pr); P.done = o.done || {}; P.opened = o.opened || {}; P.opens = o.opens || {}; P.last = o.last || null; }
+    if(pr){ var o = JSON.parse(pr); P.done = o.done || {}; P.opened = o.opened || {}; P.opens = o.opens || {}; P.xp = o.xp || {}; P.last = o.last || null; }
   }catch(e){}
   var pushT = null;
   function saveP(){
     try{ localStorage.setItem(PKEY, JSON.stringify(P)); }catch(e){}
     if(cloudUid && window.nfSaveProgress){
       clearTimeout(pushT);
-      pushT = setTimeout(function(){ window.nfSaveProgress({ done:P.done, opened:P.opened, opens:P.opens, last:P.last }); }, 700);
+      pushT = setTimeout(function(){ window.nfSaveProgress({ done:P.done, opened:P.opened, opens:P.opens, last:P.last, xp:P.xp }); }, 700);
     }
   }
   function mergeProgress(cp){
@@ -1483,7 +1506,29 @@ CHAPTERS.forEach(function(c){
       });
     });
     if(!P.last && cp.last) P.last = cp.last;
+    var cx = cp.xp || {};
+    Object.keys(cx).forEach(function(day){
+      P.xp[day] = P.xp[day] || {};
+      Object.keys(cx[day]).forEach(function(k){ if(!P.xp[day][k]) P.xp[day][k] = cx[day][k]; });
+    });
     saveP();
+  }
+  /* XP: a student earns 10 XP the first time they open a note each day, and 20 XP for marking a note read.
+     Each award is recorded once per day, so reopening or re-ticking adds nothing. Ranking uses today's XP (IST). */
+  var XP_OPEN = 10, XP_READ = 20;
+  function todayKey(){ return new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Kolkata" }); }
+  function subjOf(id){ var f = NOTES.filter(function(x){ return x.id === id; })[0]; return f ? f.chapter.subject : ""; }
+  function awardXP(id, kind, pts){
+    var day = todayKey(), key = kind + ":" + id;
+    P.xp[day] = P.xp[day] || {};
+    if(P.xp[day][key]) return;
+    P.xp[day][key] = { s: subjOf(id), x: pts };
+    Object.keys(P.xp).sort().slice(0, -14).forEach(function(d){ delete P.xp[d]; });
+  }
+  function xpToday(){
+    var out = {}, day = P.xp[todayKey()] || {};
+    Object.keys(day).forEach(function(k){ var v = day[k]; out[v.s] = (out[v.s] || 0) + v.x; });
+    return out;
   }
   function isDone(id){ return !!P.done[id]; }
   function isOpened(id){ return !!P.opened[id]; }
@@ -2148,7 +2193,7 @@ CHAPTERS.forEach(function(c){
       tick.setAttribute("aria-label", tick.title);
       tick.addEventListener("click", function(ev){
         ev.stopPropagation();
-        if(isDone(e.id)) delete P.done[e.id]; else P.done[e.id] = Date.now();
+        if(isDone(e.id)) delete P.done[e.id]; else { P.done[e.id] = Date.now(); awardXP(e.id, "read", XP_READ); }
         saveP();
         openChapter(c);
         render();
@@ -2292,6 +2337,70 @@ CHAPTERS.forEach(function(c){
     sec.appendChild(track);
     return sec;
   }
+  /* ---------- Today's XP board: top 3 per subject, resets every day ---------- */
+  var xpRows = null, xpTries = 0, xpSubj = LIVE_SUBJECTS[0], xpCls = "ALL";
+  function loadXP(){
+    if(xpRows) { renderXPBody(); return; }
+    if(!window.nfLeaderboard){
+      if(++xpTries < 20) setTimeout(loadXP, 500);
+      else { xpRows = []; renderXPBody(); }
+      return;
+    }
+    window.nfLeaderboard().then(function(r){ xpRows = r || []; renderXPBody(); })
+      .catch(function(){ xpRows = []; renderXPBody(); });
+  }
+  function renderXPBody(){
+    var body = document.getElementById("xpBody");
+    if(!body) return;
+    var today = todayKey();
+    var rows = (xpRows || []).filter(function(r){ return r.first && r.cls && r.days && r.days[today]; })
+      .map(function(r){ return { first: r.first, cls: r.cls, xp: r.days[today][xpSubj] || 0 }; })
+      .filter(function(r){ return r.xp > 0 && (xpCls === "ALL" || r.cls === xpCls); })
+      .sort(function(a, b){ return b.xp - a.xp; })
+      .slice(0, 3);
+    body.innerHTML = rows.length
+      ? '<div class="xp-list">' + rows.map(function(r, i){
+          return '<div class="xp-row r' + (i + 1) + '"><span class="xp-rank">' + (i + 1) + '</span>'
+            + '<span class="xp-name">' + esc(r.first) + '<em>Class ' + esc(r.cls) + '</em></span>'
+            + '<span class="xp-pts">' + r.xp + ' XP</span></div>';
+        }).join("") + '</div>'
+      : '<p class="xp-empty">Nobody has earned XP in ' + esc(xpSubj) + ' today yet. Read a note to take the top spot.</p>';
+    var mine = xpToday(), total = mine[xpSubj] || 0;
+    var you = document.getElementById("xpYou");
+    if(you) you.innerHTML = total ? 'You: <b>' + total + ' XP</b> in ' + esc(xpSubj) + ' today' : '';
+    document.querySelectorAll(".xp-subj").forEach(function(b){ b.classList.toggle("is-on", b.dataset.subj === xpSubj); });
+    document.querySelectorAll(".xp-cls").forEach(function(b){ b.classList.toggle("is-on", b.dataset.cls === xpCls); });
+  }
+  function xpBoardView(){
+    var sec = document.createElement("section");
+    sec.className = "nz-row xp-board";
+    sec.innerHTML = '<div class="nz-head"><h3>Today’s XP leaders</h3><span>Top 3 · resets daily at midnight IST</span></div>';
+    var tools = document.createElement("div");
+    tools.className = "xp-tools";
+    LIVE_SUBJECTS.forEach(function(name){
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "nz-chip xp-subj"; b.dataset.subj = name; b.textContent = name;
+      b.addEventListener("click", function(){ xpSubj = name; renderXPBody(); });
+      tools.appendChild(b);
+    });
+    var sep = document.createElement("span"); sep.className = "xp-sep"; tools.appendChild(sep);
+    [["ALL","All classes"],["XI","Class XI"],["XII","Class XII"]].forEach(function(c){
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "nz-chip xp-cls"; b.dataset.cls = c[0]; b.textContent = c[1];
+      b.addEventListener("click", function(){ xpCls = c[0]; renderXPBody(); });
+      tools.appendChild(b);
+    });
+    sec.appendChild(tools);
+    var you = document.createElement("p"); you.id = "xpYou"; you.className = "xp-you"; sec.appendChild(you);
+    var body = document.createElement("div"); body.id = "xpBody";
+    body.innerHTML = '<p class="xp-empty">Loading today’s board…</p>';
+    sec.appendChild(body);
+    var note = document.createElement("p"); note.className = "xp-note";
+    note.textContent = "How XP works: 10 XP for opening a note (once a day), 20 XP for marking a note read. Names show first name and class only.";
+    sec.appendChild(note);
+    setTimeout(loadXP, 0);
+    return sec;
+  }
   function homeView(){
     var wrap = document.createElement("div");
     wrap.className = "nz-home";
@@ -2330,6 +2439,7 @@ CHAPTERS.forEach(function(c){
       chips.appendChild(c);
     });
     wrap.appendChild(chips);
+    wrap.appendChild(xpBoardView());
 
     var topSec = topRow();
     if(topSec) wrap.appendChild(topSec);
@@ -2356,6 +2466,7 @@ CHAPTERS.forEach(function(c){
     P.opened[n.id] = Date.now();
     P.opens[n.id] = (P.opens[n.id] || 0) + 1;
     P.last = n.id;
+    awardXP(n.id, "open", XP_OPEN);
     saveP();
     render();
     if(n.tier === "free" || unlocked()){ go(n.url); return; }
@@ -3046,6 +3157,20 @@ CHAPTERS.forEach(function(c){
     } catch (e) {
       document.dispatchEvent(new CustomEvent('nf:progress', { detail: { uid: u.uid, progress: null, error: true } }));
     }
+    try {
+      const x = await db.collection('xp').doc(u.uid).get();
+      if (!x.exists || !x.data().first || !x.data().cls) askProfile(u);
+    } catch (e) { /* board stays hidden for this student only */ }
+  }
+  // the last two days of XP, summed per subject: this is what the public XP board reads
+  function xpDays(x){
+    const out = {};
+    Object.keys(x || {}).sort().slice(-2).forEach(day => {
+      const sums = {};
+      Object.keys(x[day]).forEach(k => { const v = x[day][k]; sums[v.s] = (sums[v.s] || 0) + v.x; });
+      out[day] = sums;
+    });
+    return out;
   }
   window.nfSaveProgress = function(p){
     if (!user) return;
@@ -3053,7 +3178,38 @@ CHAPTERS.forEach(function(c){
       progress: p,
       progressAt: firebase.firestore.FieldValue.serverTimestamp()
     }, { merge: true }).catch(() => {});
+    db.collection('xp').doc(user.uid).set({
+      days: xpDays(p.xp),
+      updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+    }, { merge: true }).catch(() => {});
   };
+  // public read of the XP board: only first name, class and daily XP sums; no email, no full progress
+  window.nfLeaderboard = async function(){
+    const snap = await db.collection('xp').get();
+    return snap.docs.map(d => Object.assign({ uid: d.id }, d.data()));
+  };
+  function askProfile(u){
+    if (document.getElementById('xpProfile')) return;
+    const first = ((u.displayName || '').trim().split(' ')[0]) || '';
+    const m = document.createElement('div');
+    m.className = 'xp-modal'; m.id = 'xpProfile';
+    m.innerHTML = '<div class="xp-card"><h3>One quick step</h3>'
+      + '<p>Your first name and class appear on the Today\u2019s XP board. Only these two are shown.</p>'
+      + '<label for="xpFirst">First name</label><input id="xpFirst" maxlength="20" value="' + first.replace(/"/g, '') + '">'
+      + '<label for="xpCls">Class</label><select id="xpCls"><option value="">Choose</option><option value="XI">Class XI</option><option value="XII">Class XII</option></select>'
+      + '<button class="btn btn-light btn-lg" id="xpSave" type="button">Save</button></div>';
+    document.body.appendChild(m);
+    document.getElementById('xpSave').addEventListener('click', async () => {
+      const f = document.getElementById('xpFirst').value.trim().slice(0, 20);
+      const c = document.getElementById('xpCls').value;
+      if (!f || !c) return;
+      try {
+        await db.collection('xp').doc(u.uid).set({ first: f, cls: c }, { merge: true });
+        m.remove();
+        document.dispatchEvent(new CustomEvent('nf:profile'));
+      } catch (e) { /* keep the box open so they can try again */ }
+    });
+  }
   auth.onAuthStateChanged(u => {
     user = u; render();
     document.dispatchEvent(new CustomEvent('nf:user', { detail: { uid: u ? u.uid : null } }));
