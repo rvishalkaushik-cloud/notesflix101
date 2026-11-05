@@ -1326,12 +1326,13 @@
    ],
    "emojis": [
     "🏭",
-    "💹",
-    "📦"
+    "👨‍🍳",
+    "📈"
    ],
-   "status": "todo",
+   "status": "done",
    "palette": 1,
-   "order": 42
+   "order": 42,
+   "published": "2026-11-05"
   },
   {
    "id": "eco11-producer-2",
@@ -1354,9 +1355,9 @@
     "AC, AFC, AVC, MC and relationships"
    ],
    "emojis": [
-    "🏭",
-    "💹",
-    "📦"
+    "🏠",
+    "➕",
+    "🥣"
    ],
    "status": "todo",
    "palette": 2,
@@ -1383,9 +1384,9 @@
     "producer's equilibrium MR = MC"
    ],
    "emojis": [
-    "🏭",
-    "💹",
-    "📦"
+    "💰",
+    "🏷️",
+    "🎯"
    ],
    "status": "todo",
    "palette": 3,
@@ -1413,9 +1414,9 @@
     "price elasticity of supply"
    ],
    "emojis": [
-    "🏭",
-    "💹",
-    "📦"
+    "🌼",
+    "🧪",
+    "🧮"
    ],
    "status": "todo",
    "palette": 4,
@@ -1445,7 +1446,7 @@
    "emojis": [
     "🏪",
     "⚖️",
-    "🏷️"
+    "🔀"
    ],
    "status": "todo",
    "palette": 5,
@@ -1472,9 +1473,9 @@
     "price floor"
    ],
    "emojis": [
-    "🏪",
-    "⚖️",
-    "🏷️"
+    "🔻",
+    "🔺",
+    "🏬"
    ],
    "status": "todo",
    "palette": 6,
