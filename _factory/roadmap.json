@@ -408,9 +408,10 @@
     "🌊",
     "🏗️"
    ],
-   "status": "todo",
+   "status": "done",
    "palette": 1,
-   "order": 12
+   "order": 12,
+   "published": "2026-11-05"
   },
   {
    "id": "eco12-income-4",
