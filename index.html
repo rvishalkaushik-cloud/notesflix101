@@ -624,6 +624,31 @@ footer{border-top:1px dashed rgba(255,255,255,.14)}
 .prog-bar i{display:block;height:100%;background:var(--red)}
 .prog-row em{font-style:normal;color:var(--paper-dim);font-size:13px}
 @media (max-width:760px){.prog-stats{grid-template-columns:repeat(2,1fr)}}
+.nz-home{padding-top:30px}
+#streamRow{display:none !important}
+.nz-bill{background:linear-gradient(90deg,#0b0b0b 40%,rgba(11,11,11,.2)),#1d0505;border:1px solid var(--line);border-radius:10px;padding:28px 28px 26px;margin:0 0 26px}
+.nz-kicker{display:inline-block;font:700 12px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+.nz-bill h2{font:400 clamp(34px,5vw,56px)/1 var(--display);letter-spacing:.02em;margin:0 0 8px;color:var(--paper)}
+.nz-bill p{margin:0 0 18px;color:var(--paper-dim)}
+.nz-chips{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 8px}
+.nz-chip{background:#141414;border:1px solid var(--line);color:var(--paper);font:700 14px var(--body);padding:10px 16px;border-radius:999px;cursor:pointer}
+.nz-chip:hover{border-color:var(--red)}
+.nz-row{margin-top:34px}
+.nz-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:12px}
+.nz-head h3{font:400 26px/1 var(--display);letter-spacing:.03em;margin:0;color:var(--paper)}
+.nz-head span{font:600 13px var(--body);color:var(--paper-dim);text-transform:uppercase;letter-spacing:.08em}
+.nz-track{display:flex;gap:16px;overflow-x:auto;padding:6px 2px 16px;scroll-snap-type:x proximity}
+.nz-card{position:relative;flex:0 0 250px;min-height:170px;text-align:left;cursor:pointer;border:0;border-radius:4px;padding:18px 16px 14px 40px;color:#1b1b1b;background-color:#f5efdf;background-image:repeating-linear-gradient(to bottom,transparent 0 27px,#bcd6ee 27px 28px);box-shadow:0 14px 30px rgba(0,0,0,.45);scroll-snap-align:start;transition:transform .18s ease}
+.nz-card::before{content:"";position:absolute;left:28px;top:0;bottom:0;width:2px;background:#e8868b}
+.nz-card::after{content:"";position:absolute;left:9px;top:22px;width:10px;height:10px;border-radius:50%;background:#0b0b0b;box-shadow:0 60px 0 #0b0b0b,0 120px 0 #0b0b0b}
+.nz-card:hover{transform:translateY(-6px) rotate(-.4deg)}
+.nz-rank{position:absolute;right:10px;bottom:-6px;font:400 92px/1 var(--display);color:transparent;-webkit-text-stroke:2px rgba(229,9,20,.85);pointer-events:none}
+.nz-tab{display:inline-block;background:#e50914;color:#fff;font:700 11px var(--body);letter-spacing:.08em;text-transform:uppercase;padding:4px 9px;border-radius:3px;margin-bottom:10px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nz-title{font:400 24px/1.1 var(--display);letter-spacing:.02em;margin:0 0 14px;color:#141414;padding-right:40px}
+.nz-foot{display:flex;gap:10px;flex-wrap:wrap;font:700 12px var(--body);color:#555;text-transform:uppercase;letter-spacing:.06em}
+.nz-free{color:#0f7a3a}
+.nz-lock{color:#b00710}
+@media (max-width:760px){.nz-card{flex-basis:220px}.nz-bill{padding:22px 18px}}
 </style>
 </head>
 <body>
@@ -1178,11 +1203,11 @@ CHAPTERS.forEach(function(c){
    <div class="bb-grid">
     <div class="bb-inner">
       <div class="kicker"><b>C&amp;S</b> CLASSES · VISHAL SIR</div>
-      <h1>Every subject, <em>binge</em>-ready.</h1>
-      <p class="bb-sub">Interactive notes for CBSE Classes VI to XII: Commerce, Science, Humanities, English, Social Science and Hindi. Read them, click through them, test yourself. Part 1 of every chapter is free. The other parts open with a password from Vishal Sir. <mark>How to get access is at the bottom of this page.</mark></p>
+      <h1>Notes you can <em>binge</em>.</h1>
+      <p class="bb-sub">Interactive CBSE Class XI and XII notes for Business Studies, Economics and Entrepreneurship. Part 1 of every chapter is free. The other parts open with a password from Vishal Sir. <mark>How to get access is at the bottom of this page.</mark></p>
       <div class="bb-meta">
-        <span class="pill">CLASS VI – XII</span>
-        <span class="pill">ALL SUBJECTS</span>
+        <span class="pill">CLASS XI – XII</span>
+        <span class="pill">3 SUBJECTS</span>
         <span id="countMeta">28 notes</span>
         <span class="countdown" id="countdown" hidden></span>
       </div>
@@ -1418,21 +1443,21 @@ CHAPTERS.forEach(function(c){
   function unlocked(){ return !!student || !!cloudUid; }
 
   /* ---------- what the student has read (this browser only) ---------- */
-  var PKEY = "notesflix101.progress", P = { done:{}, opened:{}, last:null };
+  var PKEY = "notesflix101.progress", P = { done:{}, opened:{}, opens:{}, last:null };
   try{
     var pr = localStorage.getItem(PKEY);
-    if(pr){ var o = JSON.parse(pr); P.done = o.done || {}; P.opened = o.opened || {}; P.last = o.last || null; }
+    if(pr){ var o = JSON.parse(pr); P.done = o.done || {}; P.opened = o.opened || {}; P.opens = o.opens || {}; P.last = o.last || null; }
   }catch(e){}
   var pushT = null;
   function saveP(){
     try{ localStorage.setItem(PKEY, JSON.stringify(P)); }catch(e){}
     if(cloudUid && window.nfSaveProgress){
       clearTimeout(pushT);
-      pushT = setTimeout(function(){ window.nfSaveProgress({ done:P.done, opened:P.opened, last:P.last }); }, 700);
+      pushT = setTimeout(function(){ window.nfSaveProgress({ done:P.done, opened:P.opened, opens:P.opens, last:P.last }); }, 700);
     }
   }
   function mergeProgress(cp){
-    ["done","opened"].forEach(function(k){
+    ["done","opened","opens"].forEach(function(k){
       var src = cp[k] || {};
       Object.keys(src).forEach(function(id){
         if(!P[k][id] || src[id] > P[k][id]) P[k][id] = src[id];
@@ -1506,6 +1531,7 @@ CHAPTERS.forEach(function(c){
   function subjectCount(sub, cl){
     return CHAPTERS.filter(function(c){ return c.subject === sub && (!cl || c.cls === cl); }).length;
   }
+  var LIVE_SUBJECTS = ["Business Studies", "Economics", "Entrepreneurship"];
   /* streams: the student picks one first; subjects and classes follow from it */
   var STREAMS = [
     { key:"Commerce", sub:"Class XI & XII", subjects:["Business Studies","Accountancy","Entrepreneurship","Economics"] },
@@ -1539,7 +1565,7 @@ CHAPTERS.forEach(function(c){
     var row = document.getElementById("subjRow");
     row.textContent = "";
     var st = streamObj(activeStream);
-    var list = st ? streamSubjects(st) : SUBJECTS;
+    var list = SUBJECTS.filter(function(s){ return LIVE_SUBJECTS.indexOf(s.name) > -1; });
     list.forEach(function(s){
       if(!subjectCount(s.name)) return;          // coming-soon subjects live in the picker, not the bar
       var b = document.createElement("button");
@@ -1572,7 +1598,7 @@ CHAPTERS.forEach(function(c){
     if(first) first.scrollIntoView({ behavior:"smooth", block:"start" });
   }
   function paintTabs(){
-    buildStreamTabs();
+    document.getElementById("streamRow").hidden = true;
     buildSubjTabs();
     document.querySelectorAll(".subjtab").forEach(function(x){
       x.setAttribute("aria-selected", x.dataset.subj === activeSubject ? "true" : "false");
@@ -1584,6 +1610,7 @@ CHAPTERS.forEach(function(c){
     if(activeSubject){
       var so = subjectObj(activeSubject);
       (so ? so.classes : CLS_XIXII).slice().sort(function(a, b){ return CLS_ORDER.indexOf(a) - CLS_ORDER.indexOf(b); }).forEach(function(cl){
+        if(!subjectCount(activeSubject, cl)) return;
         var b = document.createElement("button");
         b.type = "button";
         b.className = "classtab" + (subjectCount(activeSubject, cl) ? "" : " soon-tab");
@@ -1878,8 +1905,8 @@ CHAPTERS.forEach(function(c){
     var shown = 0;
 
     if(!activeSubject && !filter){
-      host.appendChild(subjectPicker());
-      host.appendChild(progressPanel());
+      host.appendChild(homeView());
+      if(cloudUid) host.appendChild(progressPanel());
       var cm0 = document.getElementById("countMeta");
       if(cm0) cm0.textContent = NOTES.length + " notes";
       return;
@@ -2178,8 +2205,98 @@ CHAPTERS.forEach(function(c){
     a.href = url; a.target = "_blank"; a.rel = "noopener";
     document.body.appendChild(a); a.click(); a.remove();
   }
+  /* ---------- home: three live subjects, trending notes by reopen count ---------- */
+  var TRENDING_ROWS = [
+    { cls:"XII", subject:"Business Studies" },
+    { cls:"XII", subject:"Economics" },
+    { cls:"XII", subject:"Entrepreneurship" },
+    { cls:"XI", subject:"Business Studies" },
+    { cls:"XI", subject:"Economics" }
+  ];
+  function trendingNotes(cls, subject){
+    var list = NOTES.filter(function(e){ return e.chapter.cls === cls && e.chapter.subject === subject; });
+    var order = {};
+    list.forEach(function(e, i){ order[e.id] = i; });
+    list.sort(function(a, b){
+      return (P.opens[b.id] || 0) - (P.opens[a.id] || 0) || order[a.id] - order[b.id];
+    });
+    return list.slice(0, 10);
+  }
+  function noteCard(e, rank){
+    var card = document.createElement("button");
+    card.type = "button";
+    card.className = "nz-card";
+    var opens = P.opens[e.id] || 0;
+    var free = e.tier === "free";
+    card.innerHTML = (rank ? '<span class="nz-rank">' + rank + '</span>' : '')
+      + '<span class="nz-tab">' + esc(e.chapter.title) + '</span>'
+      + '<h4 class="nz-title">' + esc(e.title) + '</h4>'
+      + '<span class="nz-foot"><span>Note ' + esc(e.no) + '</span>'
+      + '<span>' + (opens ? 'Reopened ' + opens + '×' : 'New') + '</span>'
+      + '<span class="' + (free ? 'nz-free' : 'nz-lock') + '">' + (free ? 'Free' : 'Password') + '</span></span>';
+    card.addEventListener("click", function(){ openNote(e); });
+    return card;
+  }
+  function homeView(){
+    var wrap = document.createElement("div");
+    wrap.className = "nz-home";
+
+    // billboard: the most reopened note across the rows
+    var best = null, bestOpens = -1;
+    TRENDING_ROWS.forEach(function(r){
+      var t = trendingNotes(r.cls, r.subject)[0];
+      if(t && (P.opens[t.id] || 0) > bestOpens){ best = t; bestOpens = P.opens[t.id] || 0; }
+    });
+    if(!best){ best = trendingNotes("XII", "Business Studies")[0]; }
+    if(best){
+      var bill = document.createElement("div");
+      bill.className = "nz-bill";
+      bill.innerHTML = '<span class="nz-kicker">' + (bestOpens > 0 ? 'Most reopened' : 'Start here') + ' · Class ' + esc(best.chapter.cls) + ' ' + esc(best.chapter.subject) + '</span>'
+        + '<h2>' + esc(best.title) + '</h2>'
+        + '<p>' + esc(best.chapter.title) + ' · Note ' + esc(best.no) + '</p>';
+      var go1 = document.createElement("button");
+      go1.type = "button";
+      go1.className = "btn btn-light btn-lg";
+      go1.textContent = "▶ Read now";
+      go1.addEventListener("click", function(){ openNote(best); });
+      bill.appendChild(go1);
+      wrap.appendChild(bill);
+    }
+
+    // the three subjects
+    var chips = document.createElement("div");
+    chips.className = "nz-chips";
+    LIVE_SUBJECTS.forEach(function(name){
+      var c = document.createElement("button");
+      c.type = "button";
+      c.className = "nz-chip";
+      c.textContent = name;
+      c.addEventListener("click", function(){ pickSubject(name); });
+      chips.appendChild(c);
+    });
+    wrap.appendChild(chips);
+
+    TRENDING_ROWS.forEach(function(r){
+      var list = trendingNotes(r.cls, r.subject);
+      if(!list.length) return;
+      var sec = document.createElement("section");
+      sec.className = "nz-row";
+      var head = document.createElement("div");
+      head.className = "nz-head";
+      head.innerHTML = '<h3>Trending notes</h3><span>Class ' + r.cls + ' · ' + esc(r.subject) + '</span>';
+      sec.appendChild(head);
+      var track = document.createElement("div");
+      track.className = "nz-track";
+      list.forEach(function(e, i){ track.appendChild(noteCard(e, i + 1)); });
+      sec.appendChild(track);
+      wrap.appendChild(sec);
+    });
+    return wrap;
+  }
+
   function openNote(n){
     P.opened[n.id] = Date.now();
+    P.opens[n.id] = (P.opens[n.id] || 0) + 1;
     P.last = n.id;
     saveP();
     render();
