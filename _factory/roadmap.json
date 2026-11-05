@@ -1022,9 +1022,10 @@
     "〰️",
     "📈"
    ],
-   "status": "todo",
+   "status": "done",
    "palette": 1,
-   "order": 32
+   "order": 32,
+   "published": "2026-11-05"
   },
   {
    "id": "eco11-tools-1",
