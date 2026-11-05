@@ -1359,9 +1359,10 @@
     "➕",
     "🥣"
    ],
-   "status": "todo",
+   "status": "done",
    "palette": 2,
-   "order": 43
+   "order": 43,
+   "published": "2026-11-05"
   },
   {
    "id": "eco11-producer-3",
