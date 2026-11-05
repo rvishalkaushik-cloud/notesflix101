@@ -285,9 +285,10 @@
     "🔁",
     "✖️"
    ],
-   "status": "todo",
+   "status": "done",
    "palette": 7,
-   "order": 8
+   "order": 8,
+   "published": "2026-11-05"
   },
   {
    "id": "eco12-money-3",
