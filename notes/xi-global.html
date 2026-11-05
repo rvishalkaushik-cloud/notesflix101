@@ -44,7 +44,7 @@ async function open(pw){
 function show(html){
   // Open the note as its own page (blob), with a <base> so its links resolve from the notes folder.
   const base=new URL('.',location.href).href;
-  const withBase=html.replace(/<head([^>]*)>/i,m=>m+'<base href="'+base+'">');
+  const withBase=html.replace(/<head([^>]*)>/i,m=>m+'<base href="'+base+'">').replace(/<\/body>/i,'<script>document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a[href^=\\"#\\"]");if(!a)return;var id=a.getAttribute("href").slice(1);var el=id&&document.getElementById(id);if(el){e.preventDefault();el.scrollIntoView({behavior:"smooth"});}});<\/script></body>');
   const url=URL.createObjectURL(new Blob([withBase],{type:'text/html;charset=utf-8'}));
   location.replace(url);
 }
