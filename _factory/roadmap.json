@@ -249,13 +249,14 @@
     "supply of money: currency held by public + net demand deposits"
    ],
    "emojis": [
-    "💵",
-    "🏦",
-    "🪙"
+    "🔄",
+    "🪙",
+    "🧮"
    ],
-   "status": "todo",
-   "palette": 6,
-   "order": 7
+   "status": "done",
+   "palette": 0,
+   "order": 7,
+   "published": "2026-11-05"
   },
   {
    "id": "eco12-money-2",
@@ -280,9 +281,9 @@
     "numerical illustration"
    ],
    "emojis": [
-    "💵",
     "🏦",
-    "🪙"
+    "🔁",
+    "✖️"
    ],
    "status": "todo",
    "palette": 7,
@@ -309,9 +310,9 @@
     "control of credit: bank rate, CRR, SLR, repo, reverse repo, open market operations, margin requirement"
    ],
    "emojis": [
-    "💵",
-    "🏦",
-    "🪙"
+    "🏛️",
+    "🎛️",
+    "📜"
    ],
    "status": "todo",
    "palette": 8,
@@ -340,8 +341,8 @@
    ],
    "emojis": [
     "🛒",
-    "📈",
-    "⚖️"
+    "🐷",
+    "🎚️"
    ],
    "status": "todo",
    "palette": 9,
@@ -369,9 +370,9 @@
     "45-degree line approach"
    ],
    "emojis": [
-    "🛒",
-    "📈",
-    "⚖️"
+    "⚖️",
+    "🏭",
+    "📦"
    ],
    "status": "todo",
    "palette": 0,
@@ -399,9 +400,9 @@
     "numericals"
    ],
    "emojis": [
-    "🛒",
-    "📈",
-    "⚖️"
+    "✖️",
+    "🌊",
+    "🏗️"
    ],
    "status": "todo",
    "palette": 1,
@@ -429,9 +430,9 @@
     "measures: government spending, taxes, money supply"
    ],
    "emojis": [
-    "🛒",
-    "📈",
-    "⚖️"
+    "🔥",
+    "🧊",
+    "🛠️"
    ],
    "status": "todo",
    "palette": 2,
@@ -459,9 +460,9 @@
     "revenue expenditure and capital expenditure"
    ],
    "emojis": [
-    "🏛️",
     "📒",
-    "💸"
+    "🧾",
+    "🛣️"
    ],
    "status": "todo",
    "palette": 3,
@@ -489,9 +490,9 @@
     "implications"
    ],
    "emojis": [
-    "🏛️",
-    "📒",
-    "💸"
+    "➖",
+    "🏦",
+    "🌀"
    ],
    "status": "todo",
    "palette": 4,
@@ -520,8 +521,8 @@
    ],
    "emojis": [
     "🌍",
-    "💱",
-    "🚢"
+    "💻",
+    "📒"
    ],
    "status": "todo",
    "palette": 5,
@@ -549,9 +550,9 @@
     "merits and demerits of fixed and flexible rates"
    ],
    "emojis": [
-    "🌍",
     "💱",
-    "🚢"
+    "📈",
+    "🎛️"
    ],
    "status": "todo",
    "palette": 6,
@@ -579,8 +580,8 @@
    ],
    "emojis": [
     "🇮🇳",
-    "🚜",
-    "🏗️"
+    "🧵",
+    "🚂"
    ],
    "status": "todo",
    "palette": 7,
@@ -608,9 +609,9 @@
     "agriculture: land reforms, green revolution, subsidies"
    ],
    "emojis": [
-    "🇮🇳",
-    "🚜",
-    "🏗️"
+    "📋",
+    "🌾",
+    "📏"
    ],
    "status": "todo",
    "palette": 8,
@@ -638,9 +639,9 @@
     "trade policy: import substitution"
    ],
    "emojis": [
-    "🇮🇳",
-    "🚜",
-    "🏗️"
+    "🏭",
+    "🚧",
+    "🛠️"
    ],
    "status": "todo",
    "palette": 9,
@@ -669,8 +670,8 @@
    ],
    "emojis": [
     "🔓",
-    "🌐",
-    "🧾"
+    "💼",
+    "🌐"
    ],
    "status": "todo",
    "palette": 0,
@@ -697,9 +698,9 @@
     "concept of GST"
    ],
    "emojis": [
-    "🔓",
-    "🌐",
-    "🧾"
+    "💵",
+    "🧾",
+    "🏷️"
    ],
    "status": "todo",
    "palette": 1,
@@ -727,9 +728,9 @@
     "role in development; growth of education sector"
    ],
    "emojis": [
-    "🎓",
-    "🌾",
-    "🌱"
+    "🧠",
+    "🏫",
+    "📚"
    ],
    "status": "todo",
    "palette": 2,
@@ -757,8 +758,8 @@
     "agricultural diversification; organic farming"
    ],
    "emojis": [
-    "🎓",
-    "🌾",
+    "💳",
+    "🛒",
     "🌱"
    ],
    "status": "todo",
@@ -787,9 +788,9 @@
     "problems and policies"
    ],
    "emojis": [
-    "🎓",
-    "🌾",
-    "🌱"
+    "👷",
+    "📊",
+    "🏢"
    ],
    "status": "todo",
    "palette": 4,
@@ -817,9 +818,9 @@
     "global warming"
    ],
    "emojis": [
-    "🎓",
-    "🌾",
-    "🌱"
+    "🌍",
+    "🌡️",
+    "☀️"
    ],
    "status": "todo",
    "palette": 5,
@@ -907,8 +908,8 @@
    ],
    "emojis": [
     "📋",
-    "🗂️",
-    "📈"
+    "🎯",
+    "🏛️"
    ],
    "status": "todo",
    "palette": 8,
@@ -935,9 +936,9 @@
     "frequency distribution"
    ],
    "emojis": [
-    "📋",
     "🗂️",
-    "📈"
+    "📏",
+    "✏️"
    ],
    "status": "todo",
    "palette": 9,
@@ -965,8 +966,8 @@
    ],
    "emojis": [
     "📋",
-    "🗂️",
-    "📈"
+    "📊",
+    "🥧"
    ],
    "status": "todo",
    "palette": 0,
@@ -993,8 +994,8 @@
     "arithmetic line graphs (time series)"
    ],
    "emojis": [
-    "📋",
-    "🗂️",
+    "📶",
+    "〰️",
     "📈"
    ],
    "status": "todo",
@@ -1022,9 +1023,9 @@
     "economic interpretation"
    ],
    "emojis": [
+    "⚖️",
     "🧮",
-    "📉",
-    "🎯"
+    "📈"
    ],
    "status": "todo",
    "palette": 2,
@@ -1051,9 +1052,9 @@
     "mode"
    ],
    "emojis": [
-    "🧮",
-    "📉",
-    "🎯"
+    "🎯",
+    "👟",
+    "🤑"
    ],
    "status": "todo",
    "palette": 3,
@@ -1081,9 +1082,9 @@
     "Spearman's rank correlation"
    ],
    "emojis": [
-    "🧮",
-    "📉",
-    "🎯"
+    "🔗",
+    "⚫",
+    "🏅"
    ],
    "status": "todo",
    "palette": 4,
@@ -1111,9 +1112,9 @@
     "simple aggregative method"
    ],
    "emojis": [
-    "🧮",
-    "📉",
-    "🎯"
+    "🧺",
+    "🏷️",
+    "📈"
    ],
    "status": "todo",
    "palette": 5,
@@ -1142,8 +1143,8 @@
    ],
    "emojis": [
     "🤔",
-    "⚙️",
-    "🔀"
+    "❓",
+    "📉"
    ],
    "status": "todo",
    "palette": 6,
@@ -1170,9 +1171,9 @@
     "consumer's equilibrium with MU analysis"
    ],
    "emojis": [
-    "🛍️",
     "😋",
-    "📉"
+    "📉",
+    "⚖️"
    ],
    "status": "todo",
    "palette": 7,
@@ -1200,9 +1201,9 @@
     "consumer's equilibrium"
    ],
    "emojis": [
-    "🛍️",
-    "😋",
-    "📉"
+    "💳",
+    "🌙",
+    "🎯"
    ],
    "status": "todo",
    "palette": 8,
