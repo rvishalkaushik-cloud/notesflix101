@@ -470,9 +470,10 @@
     "🧾",
     "🛣️"
    ],
-   "status": "todo",
+   "status": "done",
    "palette": 3,
-   "order": 14
+   "order": 14,
+   "published": "2026-11-05"
   },
   {
    "id": "eco12-budget-2",
