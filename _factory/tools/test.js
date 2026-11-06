@@ -8,7 +8,7 @@ const THREE_LOCAL=process.env.THREE_LOCAL||'';
   if(THREE_LOCAL)await p.route(/cdnjs.*three/,r=>r.fulfill({path:THREE_LOCAL,contentType:'text/javascript'}));
   await p.route(/fonts\.g/,r=>r.fulfill({body:'',contentType:'text/css'}));
   await p.goto('file://'+f);await p.waitForTimeout(1200);
-  const ov=await p.evaluate(()=>{const W=document.documentElement.clientWidth;return [...document.querySelectorAll('body *')].filter(e=>{const r=e.getBoundingClientRect();return r.width&&r.right>W+1&&getComputedStyle(e).position!=='fixed'&&!e.closest('.nav,.cv,[style*="overflow-x"]')}).slice(0,6).map(e=>e.tagName+'.'+e.className+' '+e.textContent.slice(0,40))});
+  const ov=await p.evaluate(()=>{const W=document.documentElement.clientWidth;return [...document.querySelectorAll('body *')].filter(e=>{const r=e.getBoundingClientRect();return r.width&&r.right>W+1&&getComputedStyle(e).position!=='fixed'&&!e.ownerSVGElement&&!e.closest('.nav,.cv,.ak-strip,[style*="overflow-x"]')}).slice(0,6).map(e=>e.tagName+'.'+e.className+' '+e.textContent.slice(0,40))});
   const sw=await p.evaluate(()=>document.documentElement.scrollWidth);
   const ids=await p.evaluate(()=>[...document.querySelectorAll('section.step')].map(s=>s.id));
   for(const id of ids){await p.evaluate(i=>document.getElementById(i).scrollIntoView(),id);await p.waitForTimeout(w===1366?2600:600);if(w===1366||id==='top')await p.screenshot({path:path.join(dir,id+'_'+w+'.png')})}

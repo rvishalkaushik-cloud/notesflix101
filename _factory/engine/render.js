@@ -135,19 +135,23 @@ W.speed=(host,a)=>{const secs=a.secs||60;
 /* ---------- render ---------- */
 const app=$('#app');let html='',M=N.meta||{};
 html+='<section class="hero" id="top"><div><span class="kick">'+esc(M.kicker||'')+'</span><h1>'+M.titleHtml+'</h1><p class="lead">'+M.lead+'</p><div class="row"><a class="btn" href="#'+(STEPS[0]?STEPS[0].id:'top')+'" style="text-decoration:none">Start the journey →</a>'+(N.board?'<a class="btn teal" href="#b3" style="text-decoration:none">🧊 Open the 3D board</a>':'')+'</div></div><div class="heroart">'+(N.hero||'')+'</div></section>';
+(N.opener||[]).forEach(x=>html+='<div class="blk">'+extraBlock(x)+'</div>');
 if(N.points&&N.points.length)html+='<div class="blk card mp"><div class="ttl"><span class="ic">🎯</span>Main points of this part</div><ol class="mpl">'+N.points.map(p=>'<li><b>'+p[0]+'</b><span>'+p[1]+'</span></li>').join('')+'</ol></div>';
 else if(N.hook)html+='<div class="blk">'+predict(N.hook)+'</div>';
+(N.intro||[]).forEach(x=>html+='<div class="blk">'+extraBlock(x)+'</div>');
 html+='<div class="blk"><div class="ttl"><span class="ic">🗺️</span>Today’s journey</div>'+journey(-1)+'</div>';
 if(N.showCast&&N.cast&&N.cast.length)html+='<div class="blk card"><div class="ttl"><span class="ic">🎭</span>The cast</div><div class="row" style="gap:14px">'+N.cast.map(c=>'<div class="row" style="gap:8px">'+face(c.key)+'<div><b>'+esc(c.name)+'</b><br><small style="color:var(--mut)">'+esc(c.role)+'</small></div></div>').join('')+'</div></div>';
 const boardAfter=N.board?(N.board.after==null?0:N.board.after):-9;
 function boardHtml(){const b=N.board;return '<section class="step" id="b3"><div class="sh"><span class="no">3D</span><div><small>INTERACTIVE BOARD</small><h2>'+b.title+'</h2></div></div><div class="card" data-mission="b3"><div class="try">'+b.try+'</div><div class="modes">'+b.modes.map((m,i)=>'<button class="'+(i?'':'on')+'" data-m="'+m.id+'" type="button">'+m.label+'</button>').join('')+'</div><div class="b3"><div class="cv" id="cv"><div class="lbls" id="lbls"></div><div class="help">Drag to rotate · scroll or pinch to zoom · tap an object</div></div><div class="panel card" id="pan"></div></div></div></section>'}
-function extraBlock(x){if(x.type==='cmp')return cmp(x);if(x.type==='formula')return formula(x);if(x.type==='timeline')return timeline(x);if(x.type==='story')return story(x);if(x.type==='flips')return flips(x);if(x.type==='html')return x.html;
+function extraBlock(x){if(window.NFX&&NFX[x.type]){const id='x-'+uid();setTimeout(()=>{const h=document.getElementById(id);h.innerHTML='<div class="card" data-mission="'+(x.id||id)+'"><div class="ttl"><span class="ic">'+(NFX_IC[x.type]||'✨')+'</span>'+(x.h||'')+'</div>'+(x.try?'<div class="try">'+x.try+'</div>':'')+'<div class="s"></div></div>';NFX[x.type](h.querySelector('.s'),x)},0);return '<div id="'+id+'"></div>'}
+ if(x.type==='cmp')return cmp(x);if(x.type==='formula')return formula(x);if(x.type==='timeline')return timeline(x);if(x.type==='story')return story(x);if(x.type==='flips')return flips(x);if(x.type==='html')return x.html;
  if(W[x.type]){const id='x-'+uid();setTimeout(()=>{const h=document.getElementById(id);h.innerHTML=actWrap(x,'<div class="s"></div>');W[x.type](h.querySelector('.s'),x)},0);return '<div id="'+id+'"></div>'}return ''}
 STEPS.forEach((s,i)=>{
  html+='<section class="step" id="'+s.id+'"><div class="sh"><span class="no">'+(i+1)+'</span><div><small>STEP '+(i+1)+' OF '+STEPS.length+'</small><h2>'+esc(s.t)+'</h2></div></div>';
  if(s.ks)html+='<div class="blk">'+keyslide(s.ks,i)+'</div>';
+ (s.pics||[]).forEach(x=>html+='<div class="blk">'+extraBlock(x)+'</div>');
  if(s.motion)html+='<div class="blk"><div class="ttl"><span class="ic">🎬</span>See it: '+esc(s.motion[0])+'</div><div class="mo" data-spec="'+s.motion[1]+'"></div></div>';
- if(s.pred)html+='<div class="blk">'+predict(s.pred)+'</div>';if(s.words&&s.words.length)html+='<div class="blk">'+words(s.words)+'</div>';if(s.flips)html+='<div class="blk">'+flips(s.flips)+'</div>';
+ if(s.pred)html+='<div class="blk">'+predict(s.pred)+'</div>';if(s.words&&s.words.length)html+='<div class="blk">'+words(s.words)+'</div>';if(s.flips)html+='<div class="blk">'+flips(s.flips)+'</div>';(s.codes||[]).forEach(x=>html+='<div class="blk">'+extraBlock(x)+'</div>');
  (s.before||[]).forEach(x=>html+='<div class="blk">'+extraBlock(x)+'</div>');
  if(s.act)html+='<div class="blk">'+extraBlock(s.act)+'</div>';
  (s.extra||[]).forEach(x=>html+='<div class="blk">'+extraBlock(x)+'</div>');

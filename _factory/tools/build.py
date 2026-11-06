@@ -39,7 +39,7 @@ title = re.sub('<[^>]+>', ' ', m.get('title') or m.get('titleHtml', 'Notes')).st
 safe = json.dumps(note, ensure_ascii=False).replace('</', '<\\/')
 for k, v in [('__TITLE__', title + ' · Notesflix 101'), ('__PALETTE__', css),
              ('__FOOT__', m.get('foot', 'Notesflix 101 · ' + m.get('kicker', '') + ' · Pictures, animations and 3D models are drawn in code. Simulator numbers are made up for practice.')),
-             ('__NOTE__', safe), ('__MOTION__', eng('motion.js')), ('__BOARD__', eng('board3d.js')), ('__RENDER__', eng('render.js'))]:
+             ('__NOTE__', safe), ('__MOTION__', eng('motion.js')), ('__BOARD__', eng('board3d.js')), ('__ANIME__', eng('anime.js')), ('__RENDER__', eng('render.js'))]:
     h = h.replace(k, v, 1)
 # palette goes inside the existing <style>: shell has __PALETTE__ as a line within <style>
 os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True)
