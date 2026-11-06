@@ -4,6 +4,13 @@ This folder builds the interactive notes and publishes them on notesflix101.com.
 
 **APPROVAL RULE (owner, 2 Nov 2026): never publish a part the owner has not seen.** One run = build + test ONE part and show it to the owner as a private preview (Artifact). Publish with `publish.py` only after he approves that part. Do not create any auto-publishing schedule unless he asks again.
 
+
+**NEW STANDARD FOR EVERY THEORY NOTE (owner, 6 Nov 2026; first used in sst10-his1-1).** Students must love these notes: anime-creator + subject-expert + Gen Z student mindset. Every theory note must have, built with the anime kit in `engine/anime.js` (see SCHEMA.md "Anime kit"):
+- `opener` (top of the note, before Main points): a textbook-style "Start here" in 4–5 pages. Each page: picture, easy detailed explanation, "say it simply", key words, "pause and think". Start from something students know (India, daily life), explain the background, the textbook's opening picture/story, the whole chapter journey, and why it matters.
+- `intro`: a code-made `episode` (anime video: chibi characters, bubbles, SFX text, Gen Z subtitles, narrator button) where EVERY scene has `exp` (full easy explanation shown under the video), plus a `memcode` for the chapter's dates/key list.
+- Every step: `pics` = a `manga` panel strip (picture presentation, one key line per panel) and `codes` = a `memcode` (catchy mnemonic for that concept's key points, with Test me).
+- Gen Z tone in subtitles/captions/bubbles (light, school-appropriate); exam answers stay formal NCERT style.
+
 ## 1. Pick the part
 Open `roadmap.json`. Take the first part with `"status":"todo"` (Class XII first, then XI). Its `topics` are the CBSE 2026-27 syllabus lines for that part. Teach exactly those — nothing outside the syllabus.
 

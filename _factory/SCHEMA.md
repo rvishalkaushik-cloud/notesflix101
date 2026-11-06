@@ -64,3 +64,11 @@ Canvas is 800 × `h` (default 400); ground band at the bottom 70px.
 - `kit:'bars'` — `series:[{name,color}]`, `cats:[{label, values:[…], info}]`, `unit`. Use real figures only with a source in `info`; otherwise label "made-up numbers".
 - `kit:'stack'` — `layers:[{label,h,color,info}]` bottom→top, `steps:[{label, show:[layerIdx…], note}]`. Great for GDP→NNP conversions, capital stock, deficits.
 Every mode: `id, label (with emoji), tag, title, intro`.
+
+
+## Anime kit (engine/anime.js)
+Top-level: `opener:[{type:'opener', id, h, lead, sections:[{k, t, art(svg), body(html), simple, words:[[term,meaning]], think:[q,a]}]}]` (rendered after the hero) · `intro:[blocks]` (after Main points).
+Per step: `pics:[block]` (after the concept slide) · `codes:[block]` (after flip cards).
+- `{type:'episode', id, h, try, poster, cast:{key:{name,hair,outfit,hat:'crown|bicorne|cap|tophat|beret',sash,skin:'l|m|d',eye}}, scenes:[{dur, bg:[c1,c2], lines, lineC, flash, shake, zoom, kicker, title, chars:[{ch,x,y,s,mood:'happy|shock|angry|sad|cool|smug',enter:'pop|left|right|drop',d,name:false}], props:[{e|svg,x,y,fs,s,c,label,lfs,enter,d,float}], bubbles:[{x,y,w,t,tail:'l|r',fs,d}], sfx:[{t,x,y,fs,c,r,d}], sub, say, exp}]}`
+- `{type:'manga', id, h, cast, panels:[scene-like objects + cap]}`
+- `{type:'memcode', id, h, phrase, tip, letters:[[letter, word, hint]]}`
