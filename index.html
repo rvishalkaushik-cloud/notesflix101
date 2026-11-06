@@ -949,18 +949,18 @@ const CHAPTERS = [
   { id:"acc-fs-company", cls:"XII", subject:"Accountancy", unit:"Chapter", num:"8", title:"Financial Statements of a Company and Their Analysis",
     tagline:"Schedule III Balance Sheet and P&L, comparative and common-size statements, practised the board way.",
     art:"chart", thumb:"img/acc-fs-company.jpg", episodes:[
-      { id:"fs-company-p1", title:"Company Balance Sheet — Part 1", mins:35, tier:"free", art:"chart", desc:"Schedule III Balance Sheet, practice-first: classify items, build the Share Capital and Reserves notes, and prepare a full board-style Balance Sheet.", url:"notes/fs-company-p1.html", keys:"financial statements company balance sheet schedule iii share capital reserves surplus calls in arrears forfeited shares current liabilities non-current assets classification major head sub-head notes to accounts" },
-      { id:"fs-company-p2", title:"Statement of Profit and Loss — Part 2", mins:30, tier:"pass", art:"chart", desc:"Schedule III Statement of P&L: revenue vs other income, the seven expense heads, cost of materials consumed, changes in inventories and a full board question.", url:"notes/fs-company-p2.html", keys:"statement of profit and loss revenue from operations other income cost of materials consumed changes in inventories employee benefits finance costs depreciation amortisation other expenses schedule iii" },
-      { id:"fs-company-p3", title:"Comparative Statements — Part 3", mins:30, tier:"pass", art:"chart", desc:"Analysis of financial statements: objectives, tools, limitations, and building comparative statements of P&L and Balance Sheet.", url:"notes/fs-company-p3.html", keys:"analysis of financial statements objectives limitations tools comparative statement horizontal analysis absolute change percentage change" },
-      { id:"fs-company-p4", title:"Common-size Statements — Part 4", mins:30, tier:"pass", art:"chart", desc:"Common-size Statement of P&L and Balance Sheet, reading the results, and comparative vs common-size.", url:"notes/fs-company-p4.html", keys:"common size statement vertical analysis percentage of revenue from operations balance sheet total comparative vs common size" },
+      { id:"fs-company-p1", title:"Company Balance Sheet — Part 1", mins:35, tier:"free", art:"chart", desc:"Schedule III Balance Sheet, practice-first: classify items, build the Share Capital and Reserves notes, and prepare a full board-style Balance Sheet.", url:"notes/fs-company-p1.html", keys:"financial statements company balance sheet schedule iii share capital reserves surplus calls in arrears forfeited shares current liabilities non-current assets classification major head sub-head notes to accounts", added:"2026-11-06" },
+      { id:"fs-company-p2", title:"Statement of Profit and Loss — Part 2", mins:30, tier:"pass", art:"chart", desc:"Schedule III Statement of P&L: revenue vs other income, the seven expense heads, cost of materials consumed, changes in inventories and a full board question.", url:"notes/fs-company-p2.html", keys:"statement of profit and loss revenue from operations other income cost of materials consumed changes in inventories employee benefits finance costs depreciation amortisation other expenses schedule iii", added:"2026-11-06" },
+      { id:"fs-company-p3", title:"Comparative Statements — Part 3", mins:30, tier:"pass", art:"chart", desc:"Analysis of financial statements: objectives, tools, limitations, and building comparative statements of P&L and Balance Sheet.", url:"notes/fs-company-p3.html", keys:"analysis of financial statements objectives limitations tools comparative statement horizontal analysis absolute change percentage change", added:"2026-11-06" },
+      { id:"fs-company-p4", title:"Common-size Statements — Part 4", mins:30, tier:"pass", art:"chart", desc:"Common-size Statement of P&L and Balance Sheet, reading the results, and comparative vs common-size.", url:"notes/fs-company-p4.html", keys:"common size statement vertical analysis percentage of revenue from operations balance sheet total comparative vs common size", added:"2026-11-06" },
     ]},
   { id:"acc-ratios", cls:"XII", subject:"Accountancy", unit:"Chapter", num:"9", title:"Accounting Ratios",
     tagline:"All 18 ratios from one company, with formula codes, ratio labs and board drills.",
     art:"chart", thumb:"img/acc-ratios.jpg", episodes:[
-      { id:"ratios-p1", title:"Liquidity Ratios — Part 1", mins:30, tier:"free", art:"chart", desc:"Meaning and types of ratios, current and quick ratio, ratio lab and effect of transactions.", url:"notes/ratios-p1.html", keys:"accounting ratios meaning types liquidity current ratio quick ratio acid test effect of transactions working capital" },
-      { id:"ratios-p2", title:"Solvency Ratios — Part 2", mins:30, tier:"pass", art:"chart", desc:"Debt-equity, debt to capital employed, total assets to debt, proprietary and interest coverage, with a debt-equity lab.", url:"notes/ratios-p2.html", keys:"solvency debt equity ratio proprietary ratio total assets to debt interest coverage capital employed" },
-      { id:"ratios-p3", title:"Activity Ratios — Part 3", mins:30, tier:"pass", art:"chart", desc:"Inventory, trade receivables and payables turnover, collection and payment periods, working capital, fixed and net asset turnover.", url:"notes/ratios-p3.html", keys:"activity turnover ratio inventory turnover trade receivables payables collection period working capital turnover cost of revenue" },
-      { id:"ratios-p4", title:"Profitability Ratios — Part 4", mins:30, tier:"pass", art:"chart", desc:"Gross profit, operating, operating profit, net profit and return on investment, plus the full ratio report card.", url:"notes/ratios-p4.html", keys:"profitability gross profit ratio operating ratio net profit ratio return on investment roi markup" },
+      { id:"ratios-p1", title:"Liquidity Ratios — Part 1", mins:30, tier:"free", art:"chart", desc:"Meaning and types of ratios, current and quick ratio, ratio lab and effect of transactions.", url:"notes/ratios-p1.html", keys:"accounting ratios meaning types liquidity current ratio quick ratio acid test effect of transactions working capital", added:"2026-11-06" },
+      { id:"ratios-p2", title:"Solvency Ratios — Part 2", mins:30, tier:"pass", art:"chart", desc:"Debt-equity, debt to capital employed, total assets to debt, proprietary and interest coverage, with a debt-equity lab.", url:"notes/ratios-p2.html", keys:"solvency debt equity ratio proprietary ratio total assets to debt interest coverage capital employed", added:"2026-11-06" },
+      { id:"ratios-p3", title:"Activity Ratios — Part 3", mins:30, tier:"pass", art:"chart", desc:"Inventory, trade receivables and payables turnover, collection and payment periods, working capital, fixed and net asset turnover.", url:"notes/ratios-p3.html", keys:"activity turnover ratio inventory turnover trade receivables payables collection period working capital turnover cost of revenue", added:"2026-11-06" },
+      { id:"ratios-p4", title:"Profitability Ratios — Part 4", mins:30, tier:"pass", art:"chart", desc:"Gross profit, operating, operating profit, net profit and return on investment, plus the full ratio report card.", url:"notes/ratios-p4.html", keys:"profitability gross profit ratio operating ratio net profit ratio return on investment roi markup", added:"2026-11-06" },
     ]},
 
   // ===================== CLASS XII · ENTREPRENEURSHIP =====================
@@ -2561,11 +2561,28 @@ CHAPTERS.forEach(function(c){
     bar.appendChild(b);
     return bar;
   }
+  /* ---------- New notes: episodes with an added date, newest first, shown on home ---------- */
+  function newSection(){
+    var list = NOTES.filter(function(e){ return e.added; })
+      .sort(function(a, b){ return b.added < a.added ? -1 : b.added > a.added ? 1 : 0; })
+      .slice(0, 12);
+    if(!list.length) return null;
+    var sec = document.createElement("section");
+    sec.className = "nz-row";
+    sec.innerHTML = '<div class="nz-head"><h3>New notes</h3><span>Added recently</span></div>';
+    var track = document.createElement("div");
+    track.className = "nz-track";
+    list.forEach(function(e){ track.appendChild(noteCard(e)); });
+    sec.appendChild(track);
+    return sec;
+  }
   function homeView(){
     var wrap = document.createElement("div");
     wrap.className = "nz-home";
     // step 1-3 first: class, stream, subject
     wrap.appendChild(pickerView());
+    var newSec = newSection();
+    if(newSec) wrap.appendChild(newSec);
 
     // billboard: the most reopened note across the rows
     var best = null, bestOpens = -1;
