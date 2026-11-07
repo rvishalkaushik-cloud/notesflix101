@@ -132,6 +132,34 @@ W.speed=(host,a)=>{const secs=a.secs||60;
   function fin(){if(end)return;end=true;clearInterval(tick);host.innerHTML='<div class="sp"><div class="big">'+(sc>=Q.length*.8?'🏆':sc>=Q.length*.5?'🥈':'💪')+'</div><b>Score: '+sc+' / '+Q.length+'</b><p>'+(sc>=Q.length*.8?'Champion! You know this part.':'Good try. Revise the one-liners and play again.')+'</p><button class="btn" type="button">↺ Play again</button></div>';host.querySelector('.btn').onclick=go;if(sc>=Q.length*.6)xp(a.id,15)}
   hd();q()}
  intro()};
+/* memory match: pairs:[[term, meaning]...] 4-6 */
+W.memmatch=(host,a)=>{const n=a.pairs.length;let first=null,lock=false,moves=0,done=0;
+ const cards=[];a.pairs.forEach((p,k)=>{cards.push({k,t:p[0],side:'a'});cards.push({k,t:p[1],side:'b'})});cards.sort(()=>Math.random()-.5);
+ host.innerHTML='<div class="mm"><div class="mmhd"><span class="mmm">Moves 0</span><span class="mmp">Pairs 0 / '+n+'</span></div><div class="mmg">'+cards.map((c,i)=>'<button type="button" class="mmc" data-i="'+i+'"><span class="mmf">❓</span><span class="mmb">'+c.t+'</span></button>').join('')+'</div><div class="fbx"></div></div>';
+ const els=[...host.querySelectorAll('.mmc')];
+ els.forEach((el,i)=>el.onclick=()=>{if(lock||el.classList.contains('up')||el.classList.contains('ok'))return;el.classList.add('up');
+  if(first===null){first=i;return}
+  moves++;host.querySelector('.mmm').textContent='Moves '+moves;const A=cards[first],B=cards[i];
+  if(A.k===B.k&&A.side!==B.side){els[first].classList.add('ok');el.classList.add('ok');confetti(el);done++;first=null;host.querySelector('.mmp').textContent='Pairs '+done+' / '+n;
+   if(done===n){const st=moves<=n+2?'⭐⭐⭐':moves<=n*2?'⭐⭐':'⭐';host.querySelector('.fbx').innerHTML='<div class="fb ok">🎉 All pairs found in <b>'+moves+'</b> moves! '+st+'</div>'}}
+  else{lock=true;const f=first;first=null;setTimeout(()=>{els[f].classList.remove('up');el.classList.remove('up');lock=false},900)}})};
+/* true/false rush: items:[[statement, true|false, why]] */
+W.tfrush=(host,a)=>{function go(){const Q=a.items.map(x=>x).sort(()=>Math.random()-.5);let i=0,sc=0,lives=3,streak=0,best=0;
+  function show(){if(i>=Q.length||lives<=0){const w=sc>=Q.length*.8;host.innerHTML='<div class="tf"><div class="big">'+(w?'🏆':sc>=Q.length*.5?'🥈':'💪')+'</div><b>'+sc+' / '+Q.length+' right · best streak '+best+'</b><p>'+(w?'Sharp eyes! Nothing fools you.':'Read the reasons and try again.')+'</p><button class="btn sm" type="button">↺ Play again</button></div>';host.querySelector('.btn').onclick=go;return}
+   const x=Q[i];host.innerHTML='<div class="tf"><div class="tfhd"><span>'+'❤️'.repeat(lives)+'🤍'.repeat(3-lives)+'</span><span>'+(streak>=2?'🔥 '+streak:'')+'</span><span>'+(i+1)+' / '+Q.length+'</span></div><div class="tfq">'+x[0]+'</div><div class="tfb"><button type="button" class="tfy">✅ True</button><button type="button" class="tfn">❌ False</button></div><div class="fbx"></div></div>';
+   let busy=false;const ans=v=>{if(busy)return;busy=true;const ok=v===!!x[1];if(ok){sc++;streak++;best=Math.max(best,streak);confetti(host.querySelector(v?'.tfy':'.tfn'))}else{lives--;streak=0}
+    host.querySelector('.fbx').innerHTML='<div class="fb '+(ok?'ok':'no')+'">'+(ok?'✅ Correct! ':'❌ It is <b>'+(x[1]?'True':'False')+'</b>. ')+(x[2]||'')+'</div>';setTimeout(()=>{i++;show()},ok?900:1900)};
+   host.querySelector('.tfy').onclick=()=>ans(true);host.querySelector('.tfn').onclick=()=>ans(false)}
+  show()}go()};
+/* boss battle: name, emoji, items mcq [q,[correct,...],why] */
+W.boss=(host,a)=>{function go(){const Q=a.items.map(x=>x).sort(()=>Math.random()-.5);const hp0=Q.length;let i=0,hp=hp0,lives=3;
+  function show(){if(hp<=0||lives<=0||i>=Q.length){const win=hp<=0||(lives>0&&hp<=Math.ceil(hp0*.2));host.innerHTML='<div class="bs"><div class="big">'+(win?'🏆':'💥')+'</div><b>'+(win?(a.name||'Boss')+' defeated!':(a.name||'Boss')+' wins this round')+'</b><p>'+(win?'You beat the boss. Revise one more time to stay sharp.':'Review the tips and fight again.')+'</p><button class="btn sm" type="button">↺ Fight again</button></div>';host.querySelector('.btn').onclick=go;return}
+   const x=Q[i],ord=x[1].map((_,k)=>k).sort(()=>Math.random()-.5);
+   host.innerHTML='<div class="bs"><div class="bshd"><span class="bsl">'+'❤️'.repeat(lives)+'🤍'.repeat(3-lives)+'</span><span class="bsn">'+(a.emoji||'👾')+' '+(a.name||'Boss')+'</span></div><div class="bshp"><i style="width:'+(hp/hp0*100)+'%"></i></div><div class="bsq"><div class="qq">'+x[0]+'</div><div class="spo">'+ord.map(k=>'<button type="button" class="opt" data-k="'+k+'">'+x[1][k]+'</button>').join('')+'</div></div><div class="fbx"></div></div>';
+   host.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{const k=+b.dataset.k;host.querySelectorAll('.opt').forEach(o=>{o.disabled=true;if(+o.dataset.k===0)o.classList.add('ok')});
+    if(k===0){hp--;confetti(b);host.querySelector('.bsn').classList.add('hit')}else{b.classList.add('no');lives--}
+    host.querySelector('.fbx').innerHTML='<div class="fb '+(k===0?'ok':'no')+'">'+(k===0?'💥 Direct hit! ':'❌ Ouch! ')+(x[2]||'')+'</div>';setTimeout(()=>{i++;show()},k===0?900:1900)})}
+  show()}go()};
 /* ---------- render ---------- */
 const app=$('#app');let html='',M=N.meta||{};
 html+='<section class="hero" id="top"><div><span class="kick">'+esc(M.kicker||'')+'</span><h1>'+M.titleHtml+'</h1><p class="lead">'+M.lead+'</p><div class="row"><a class="btn" href="#'+(STEPS[0]?STEPS[0].id:'top')+'" style="text-decoration:none">Start the journey →</a>'+(N.board?'<a class="btn teal" href="#b3" style="text-decoration:none">🧊 Open the 3D board</a>':'')+'</div></div><div class="heroart">'+(N.hero||'')+'</div></section>';
