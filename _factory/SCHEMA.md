@@ -47,6 +47,9 @@ A note is one JS file exporting one object. `tools/build.py` turns it into a pag
 | `dragsort` | **game** · `bins:[{t,e}]` (2–3), `items:[[text, binIndex, why, emoji]…]` 6–8 cards: drag (or tap) into boxes, streak, stars, confetti |
 | `counttap` | **challenge** · `ask, unit, chain:1, win, items:[{t,e,v,f:1 if it should be counted}]`, optional `okMsg, overMsg, missMsg` (feedback text; default wording is about final goods / double counting): tap what to count, live meter, checks double counting |
 | `tank` | **simulation** · `s0, fin, fout`: water tank sliders (stock vs flow) |
+| `memmatch` | **game** · `pairs:[[term, meaning]…]` (4–6): flip two cards to match, moves counter, stars |
+| `tfrush` | **game** · `items:[[statement, true|false, why]…]` (6–8): true/false rush, 3 lives, streak |
+| `boss` | **game** · `name, emoji, items:[mcq…]` (8): boss battle with HP bar, right answers hit, 3 lives |
 | `speed` | **timed round** · `secs:60, items:[mcq…10]` 3 lives, timer, trophy |
 | `b3jump` | `go:[[modeId, button label, 'teal'|'alt']]` (opens the 3D board in a mode) |
 
