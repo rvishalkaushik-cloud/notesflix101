@@ -707,6 +707,8 @@ footer{border-top:1px dashed rgba(255,255,255,.14)}
 .xp-card input,.xp-card select{width:100%;box-sizing:border-box;background:#0b0b0b;border:1px solid var(--line);border-radius:8px;color:var(--paper);font:600 16px var(--body);padding:11px 12px}
 .xp-card .btn{margin-top:18px;width:100%}
 .nz-home{padding-left:16px;padding-right:16px;box-sizing:border-box}
+.nz-head{padding-left:16px;padding-right:16px;box-sizing:border-box}
+.nz-top{padding-left:16px}
 .nz-steps{margin-top:2px}
 .nz-step-h{font:400 30px/1 var(--display);margin:26px 0 14px;color:var(--paper);display:flex;align-items:center;gap:12px}
 .nz-step-h span{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--red);color:#fff;font:700 16px var(--body);flex:0 0 34px}
@@ -1774,7 +1776,7 @@ CHAPTERS.forEach(function(c){
   /* the student picks class first, then stream, then subject; remembered on this device */
   var pickedClass = "", pickedStream = "";
   try { pickedClass = localStorage.getItem("notesflix101.cls") || ""; pickedStream = localStorage.getItem("notesflix101.stream") || ""; } catch(e){}
-  if(["XI","XII"].indexOf(pickedClass) < 0) pickedClass = "";
+  if(["X", "XI", "XII"].indexOf(pickedClass) < 0) pickedClass = "";
   function savePick(){ try { localStorage.setItem("notesflix101.cls", pickedClass); localStorage.setItem("notesflix101.stream", pickedStream); } catch(e){} }
   function streamObj(key){
     for(var i = 0; i < STREAMS.length; i++){ if(STREAMS[i].key === key) return STREAMS[i]; }
@@ -2606,11 +2608,31 @@ CHAPTERS.forEach(function(c){
     row.className = "nz-pick";
 
     step(1, "Choose your class");
-    ["XI", "XII"].forEach(function(cl){
+    ["X", "XI", "XII"].forEach(function(cl){
       row.appendChild(pickBtn("Class " + cl, { on: pickedClass === cl, onClick: function(){ pickedClass = cl; savePick(); render(); } }));
     });
     box.appendChild(row);
     if(!pickedClass) return box;
+
+    /* Class X has no streams: its subjects come straight after the class */
+    if(pickedClass === "X"){
+      step(2, "Choose a subject");
+      var rowX = document.createElement("div");
+      rowX.className = "nz-pick";
+      var seen = [];
+      NOTES.forEach(function(e){
+        if(e.chapter.cls !== "X" || seen.indexOf(e.chapter.subject) > -1) return;
+        seen.push(e.chapter.subject);
+        var nx = subjectCount(e.chapter.subject, "X");
+        rowX.appendChild(pickBtn(e.chapter.subject, {
+          small: nx ? nx + (nx === 1 ? " chapter" : " chapters") : "Coming soon",
+          disabled: !nx,
+          onClick: (function(name){ return function(){ pickSubject(name); }; })(e.chapter.subject)
+        }));
+      });
+      box.appendChild(rowX);
+      return box;
+    }
 
     step(2, "Choose your stream");
     var row2 = document.createElement("div");
