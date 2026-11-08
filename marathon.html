@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Practice Marathon | Notesflix 101</title>
+<meta name="description" content="Practice marathons for every subject on Notesflix 101: weekly marathon, sprints, mega marathon and chapter practice for CBSE Classes 9 to 12.">
+<meta name="theme-color" content="#0b0b0f">
+<link rel="canonical" href="https://notesflix101.com/marathon.html">
+<link rel="icon" href="img/icon-192.png">
+<style>
+:root{--bg:#0b0b0f;--panel:#14141b;--panel2:#1b1b24;--line:rgba(255,255,255,.1);--ink:#f5f5f7;--dim:#a7a7b5;--red:#e50914;--green:#22c55e;--amber:#f5b301;--violet:#b847ff;--teal:#14d6c3;
+  --display:"Bebas Neue",Impact,"Arial Narrow",sans-serif;--body:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Devanagari",sans-serif}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:500 16px/1.5 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+.top{position:sticky;top:0;z-index:20;background:rgba(11,11,15,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .in{max-width:1000px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;gap:12px}
+.logo{font:800 22px/1 var(--body);letter-spacing:.02em;text-decoration:none;color:var(--red)}
+.logo span{color:#fff}
+.sp{flex:1}
+.back{color:var(--dim);text-decoration:none;font:700 13px var(--body);border:1px solid var(--line);border-radius:999px;padding:7px 12px}
+.back:hover{color:#fff;border-color:rgba(255,255,255,.3)}
+main{max-width:1000px;margin:0 auto;padding:22px 16px 60px}
+.kick{font:800 12px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+h1{font:800 34px/1.05 var(--body);margin:6px 0 8px;letter-spacing:-.02em}
+h2{font:800 22px/1.2 var(--body);margin:0 0 12px}
+.lead{color:var(--dim);margin:0 0 18px;max-width:640px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}
+.chip{border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:6px 12px;font:700 13px var(--body);color:var(--dim)}
+.chip b{color:#fff}
+.chip.ok{border-color:rgba(34,197,94,.5);color:#bff3cf}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px}
+.unlock{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:0 0 22px;background:linear-gradient(120deg,rgba(229,9,20,.14),rgba(184,71,255,.12));border-color:rgba(229,9,20,.35)}
+.unlock p{margin:0;flex:1 1 260px;color:#e9e9ee;font-size:14px}
+.unlock input{flex:1 1 180px;min-width:0;background:#0b0b0f;border:1px solid var(--line);border-radius:10px;color:#fff;font:600 16px var(--body);padding:11px 12px}
+.btn{border:0;border-radius:10px;padding:12px 18px;font:800 15px var(--body);background:var(--red);color:#fff;box-shadow:0 8px 22px -8px rgba(229,9,20,.7);transition:transform .15s ease,filter .15s ease}
+.btn:hover{filter:brightness(1.1)}
+.btn:active{transform:scale(.97)}
+.btn.ghost{background:transparent;border:1px solid var(--line);box-shadow:none}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.msg{width:100%;font:600 13px var(--body);color:#ffb4b4;min-height:0}
+.modes{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin:0 0 18px}
+.mode{position:relative;text-align:left;background:var(--panel);border:2px solid var(--line);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:6px;transition:border-color .2s ease,transform .2s ease,box-shadow .2s ease}
+.mode:hover{transform:translateY(-2px)}
+.mode.on{border-color:var(--g,var(--red));box-shadow:0 0 28px -10px var(--g,var(--red))}
+.mode .ic{font-size:28px;line-height:1}
+.mode b{font:800 18px var(--body)}
+.mode small{color:var(--dim);font:600 13px/1.4 var(--body)}
+.mode .best{margin-top:4px;font:700 12px var(--body);color:var(--amber)}
+.m-week{--g:#e50914}.m-sprint{--g:#f5b301}.m-mega{--g:#b847ff}.m-chap{--g:#14d6c3}
+.tagnew{position:absolute;right:12px;top:12px;background:var(--red);color:#fff;font:800 10px var(--body);letter-spacing:.1em;padding:3px 7px;border-radius:5px}
+.chaps{display:none;margin:0 0 18px}
+.chaps.on{display:block}
+.chaps .row{display:flex;gap:8px;flex-wrap:wrap}
+.cbox{display:flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--panel);border-radius:10px;padding:8px 12px;font:600 14px var(--body);cursor:pointer;user-select:none}
+.cbox input{accent-color:var(--teal);width:18px;height:18px}
+.cbox small{color:var(--dim)}
+.cnt{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 0}
+.seg{border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:7px 14px;font:700 13px var(--body)}
+.seg.on{background:var(--teal);color:#05211e;border-color:var(--teal)}
+.startbar{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.startbar .btn{font-size:17px;padding:14px 26px}
+.note{color:var(--dim);font-size:13px}
+.hist{margin-top:28px}
+.hist table{width:100%;border-collapse:collapse;font-size:14px}
+.hist td,.hist th{padding:8px 6px;border-bottom:1px solid var(--line);text-align:left}
+.hist th{color:var(--dim);font:700 12px var(--body);text-transform:uppercase;letter-spacing:.06em}
+/* picker */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:0 0 26px}
+.sub{display:flex;gap:12px;align-items:center;text-decoration:none;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;transition:border-color .2s ease,transform .2s ease}
+.sub:hover{border-color:var(--red);transform:translateY(-2px)}
+.sub .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:22px;background:rgba(255,255,255,.06);flex:0 0 44px}
+.sub b{display:block;font:800 16px var(--body)}
+.sub small{color:var(--dim);font:600 12px var(--body)}
+.clsh{font:800 13px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin:8px 0 10px}
+/* quiz */
+.qbar{position:sticky;top:59px;z-index:15;background:rgba(11,11,15,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);margin:-22px -16px 18px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.qbar .r{display:flex;align-items:center;gap:10px;flex-wrap:wrap;max-width:1000px;margin:0 auto}
+.pill{background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:5px 11px;font:800 13px var(--body);white-space:nowrap}
+.pill.t.low{color:#fff;background:var(--red);border-color:var(--red);animation:pulse 1s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.6}}
+.prog{height:6px;background:var(--panel2);border-radius:999px;overflow:hidden;margin:10px auto 0;max-width:1000px}
+.prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--red),var(--violet));transition:width .3s ease}
+.qcard{max-width:760px;margin:0 auto}
+.qmeta{color:var(--dim);font:700 12px var(--body);letter-spacing:.06em;text-transform:uppercase;margin:0 0 8px}
+.qtext{font:700 22px/1.35 var(--body);margin:0 0 18px}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{display:flex;gap:12px;align-items:flex-start;text-align:left;width:100%;background:var(--panel);border:2px solid var(--line);border-radius:14px;padding:14px;font:600 16px/1.4 var(--body);transition:border-color .15s ease,background .15s ease,transform .15s ease}
+.opt:hover:not(:disabled){border-color:rgba(255,255,255,.35);transform:translateX(3px)}
+.opt .k{flex:0 0 28px;height:28px;border-radius:8px;display:grid;place-items:center;background:rgba(255,255,255,.08);font:800 13px var(--body)}
+.opt.ok{border-color:var(--green);background:rgba(34,197,94,.12)}
+.opt.ok .k{background:var(--green);color:#04210f}
+.opt.no{border-color:var(--red);background:rgba(229,9,20,.12)}
+.opt.no .k{background:var(--red)}
+.opt:disabled{cursor:default}
+.fb{margin:16px 0 0;border-radius:14px;padding:14px;font:600 15px/1.5 var(--body);display:none}
+.fb.on{display:block}
+.fb.ok{background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.4)}
+.fb.no{background:rgba(229,9,20,.1);border:1px solid rgba(229,9,20,.4)}
+.qnav{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:18px 0 0}
+.streak{font:800 14px var(--body);color:var(--amber)}
+/* result */
+.res{max-width:760px;margin:0 auto}
+.score{display:flex;gap:20px;align-items:center;flex-wrap:wrap;margin:0 0 18px}
+.ring{--p:0;width:130px;height:130px;border-radius:50%;background:conic-gradient(var(--c,var(--green)) calc(var(--p)*1%),var(--panel2) 0);display:grid;place-items:center;flex:0 0 130px}
+.ring div{width:104px;height:104px;border-radius:50%;background:var(--bg);display:grid;place-items:center;font:800 30px var(--body)}
+.score h2{margin:0 0 4px;font-size:26px}
+.score p{margin:0;color:var(--dim)}
+.xp{display:inline-block;margin-top:8px;background:rgba(245,179,1,.15);border:1px solid rgba(245,179,1,.4);color:#ffd866;border-radius:999px;padding:4px 10px;font:800 13px var(--body)}
+.bars{display:flex;flex-direction:column;gap:10px}
+.bar{display:grid;grid-template-columns:1fr auto;gap:4px 10px;font:600 14px var(--body)}
+.bar .tr{grid-column:1/-1;height:8px;background:var(--panel2);border-radius:999px;overflow:hidden}
+.bar .tr i{display:block;height:100%}
+.bar small{color:var(--dim)}
+.wrong{display:flex;flex-direction:column;gap:12px}
+.wq{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:14px}
+.wq b{display:block;margin:0 0 6px;font-size:15px}
+.wq .y{color:#ff9b9b}.wq .c{color:#9ff0bb}
+.wq .x{color:var(--dim);margin-top:4px}
+.acts{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0}
+.sec{margin:26px 0 0}
+.empty{color:var(--dim)}
+.hide{display:none !important}
+@media (max-width:560px){h1{font-size:28px}.qtext{font-size:19px}.qbar{top:57px}}
+@media (prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important}}
+</style>
+</head>
+<body>
+<header class="top"><div class="in">
+  <a class="logo" href="index.html">NOTESFLIX <span>101</span></a>
+  <div class="sp"></div>
+  <a class="back" id="backLink" href="index.html">← Back to notes</a>
+</div></header>
+<main id="app" aria-live="polite"></main>
+
+<script>
+(function(){
+  var app = document.getElementById("app");
+  var params = new URLSearchParams(location.search);
+  var slug = (params.get("s") || "").toLowerCase().replace(/[^a-z0-9-]/g, "");
+  var ICON = { science:"🔬", sst:"🌍", english:"📖", hindi:"✍️", bst:"📊", acc:"🧮", eco:"📈", ent:"💡" };
+  var CLS = { IX:"Class 9", X:"Class 10", XI:"Class 11", XII:"Class 12" };
+  var MODES = {
+    week:   { name:"Weekly Marathon", ic:"🏁", n:30,  mins:20, cls:"m-week",  desc:"30 questions · 20 min · the same set for everyone this week" },
+    sprint: { name:"Sprint",          ic:"⚡", n:10,  mins:5,  cls:"m-sprint", desc:"10 quick questions · 5 min" },
+    mega:   { name:"Mega Marathon",   ic:"🧠", n:100, mins:60, cls:"m-mega",  desc:"100 questions across every chapter · 60 min" },
+    chap:   { name:"Chapter Practice",ic:"🎯", n:25,  mins:0,  cls:"m-chap",  desc:"Pick chapters · no time limit" }
+  };
+  var STORE = "notesflix101.marathon", PKEY = "notesflix101.progress";
+  function esc(t){ return String(t == null ? "" : t).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+  function load(k, d){ try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch(e){ return d; } }
+  function save(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} }
+  function getRaw(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }
+  function setRaw(k, v){ try { if(v == null) localStorage.removeItem(k); else localStorage.setItem(k, v); } catch(e){} }
+  function today(){ return new Date().toLocaleDateString("en-CA", { timeZone:"Asia/Kolkata" }); }
+  function isoWeek(d){ d = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate())); var day = d.getUTCDay() || 7; d.setUTCDate(d.getUTCDate() + 4 - day);
+    var y = new Date(Date.UTC(d.getUTCFullYear(), 0, 1)); return { y:d.getUTCFullYear(), w:Math.ceil(((d - y) / 86400000 + 1) / 7) }; }
+  function seeded(str){ var h = 1779033703 ^ str.length; for(var i = 0; i < str.length; i++){ h = Math.imul(h ^ str.charCodeAt(i), 3432918353); h = h << 13 | h >>> 19; }
+    return function(){ h = Math.imul(h ^ h >>> 16, 2246822507); h = Math.imul(h ^ h >>> 13, 3266489909); h ^= h >>> 16; return (h >>> 0) / 4294967296; }; }
+  function shuffle(a, rnd){ a = a.slice(); rnd = rnd || Math.random; for(var i = a.length - 1; i > 0; i--){ var j = Math.floor(rnd() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  function fmt(s){ s = Math.max(0, Math.round(s)); return Math.floor(s / 60) + ":" + ("0" + s % 60).slice(-2); }
+
+  /* ---------- picker: all subjects ---------- */
+  function picker(){
+    document.title = "Practice Marathons | Notesflix 101";
+    app.innerHTML = '<div class="kick">Practice</div><h1>Practice Marathons</h1><p class="lead">Every subject has a weekly marathon, quick sprints, a 100-question mega marathon and chapter practice. Questions come straight from the notes.</p><div id="pk"><p class="empty">Loading subjects…</p></div>';
+    fetch("marathon/index.json", { cache:"no-cache" }).then(function(r){ return r.json(); }).then(function(d){
+      var by = {}; d.subjects.forEach(function(s){ (by[s.cls] = by[s.cls] || []).push(s); });
+      var html = "";
+      ["IX","X","XI","XII"].forEach(function(c){
+        if(!by[c]) return;
+        html += '<div class="clsh">' + CLS[c] + '</div><div class="grid">';
+        by[c].forEach(function(s){
+          var key = s.slug.split("-").pop();
+          html += '<a class="sub" href="marathon.html?s=' + esc(s.slug) + '"><span class="ic">' + (ICON[key] || "📘") + '</span><span><b>' + esc(s.subject) + '</b><small>' + s.total + ' questions · ' + s.chapters + ' chapters</small></span></a>';
+        });
+        html += '</div>';
+      });
+      document.getElementById("pk").innerHTML = html;
+    }).catch(function(){ document.getElementById("pk").innerHTML = '<p class="empty">Could not load the marathons. Check your connection and try again.</p>'; });
+  }
+
+  /* ---------- subject ---------- */
+  var BANK = null, META = null, FULL = false, chosen = "week", chapPick = {}, chapCount = 25;
+  function passKey(){ return "notesflix101.mpass." + slug; }
+  function unlockWith(pw){
+    return fetch("marathon/" + slug + ".full.json", { cache:"no-cache" }).then(function(r){ return r.json(); }).then(function(P){
+      if(P.open) return P.open;
+      var b = function(s){ return Uint8Array.from(atob(s), function(c){ return c.charCodeAt(0); }); };
+      var te = new TextEncoder();
+      return crypto.subtle.importKey("raw", te.encode(pw), "PBKDF2", false, ["deriveKey"]).then(function(base){
+        return crypto.subtle.deriveKey({ name:"PBKDF2", salt:b(P.s), iterations:P.it || 250000, hash:"SHA-256" }, base, { name:"AES-GCM", length:256 }, false, ["decrypt"]);
+      }).then(function(key){ return crypto.subtle.decrypt({ name:"AES-GCM", iv:b(P.i) }, key, b(P.c)); })
+        .then(function(buf){ return JSON.parse(new TextDecoder().decode(buf)); });
+    });
+  }
+  function subject(){
+    app.innerHTML = '<p class="empty">Loading marathon…</p>';
+    fetch("marathon/" + slug + ".free.json", { cache:"no-cache" }).then(function(r){ if(!r.ok) throw 0; return r.json(); }).then(function(d){
+      META = d; BANK = d.questions; FULL = false;
+      META.chapters.forEach(function(c){ chapPick[c.id] = true; });
+      document.title = "Practice Marathon · " + CLS[d.cls] + " " + d.subject + " | Notesflix 101";
+      var pw = getRaw(passKey());
+      if(pw){ return unlockWith(pw).then(function(q){ BANK = q; FULL = true; }).catch(function(){ setRaw(passKey(), null); }); }
+    }).then(function(){ if(META) setup(); }).catch(function(){
+      app.innerHTML = '<p class="empty">This marathon was not found. <a href="marathon.html">See all marathons</a>.</p>';
+    });
+  }
+  function bestOf(mode){ var s = load(STORE, {}); var b = s[slug] && s[slug].best && s[slug].best[mode]; return b || null; }
+  function setup(){
+    var wk = isoWeek(new Date());
+    var avail = BANK.length;
+    var h = '<div class="kick">' + esc(CLS[META.cls]) + ' · ' + esc(META.subject) + '</div><h1>Practice Marathon</h1>'
+      + '<p class="lead">Questions come from the notes of every chapter. Pick a mode and go. Your score, weak chapters and XP are saved on this device.</p>'
+      + '<div class="chips"><span class="chip"><b>' + META.total + '</b> questions</span><span class="chip"><b>' + META.chapters.length + '</b> chapters</span>'
+      + (FULL ? '<span class="chip ok">✓ Full question bank unlocked</span>' : '<span class="chip">Free edition: <b>' + avail + '</b> questions</span>') + '</div>';
+    if(!FULL){
+      h += '<form class="card unlock" id="unlockF"><p>🔒 Unlock all <b>' + META.total + '</b> questions with the same password you use for ' + esc(META.subject) + ' notes.</p>'
+        + '<input id="pw" type="password" autocomplete="current-password" placeholder="Subject password" aria-label="Subject password">'
+        + '<button class="btn" type="submit">Unlock</button><div class="msg" id="pwMsg"></div></form>';
+    }
+    h += '<h2>Choose a mode</h2><div class="modes">';
+    Object.keys(MODES).forEach(function(k){
+      var m = MODES[k], b = bestOf(k), n = k === "chap" ? "" : Math.min(m.n, avail);
+      var desc = k === "week" ? 'Week ' + wk.w + ' · ' + Math.min(m.n, avail) + ' questions · 20 min · same set for everyone' : k === "mega" ? Math.min(m.n, avail) + ' questions across every chapter · 60 min' : m.desc;
+      h += '<button type="button" class="mode ' + m.cls + (chosen === k ? ' on' : '') + '" data-m="' + k + '">' + (k === "week" ? '<span class="tagnew">THIS WEEK</span>' : '')
+        + '<span class="ic">' + m.ic + '</span><b>' + m.name + '</b><small>' + esc(desc) + '</small>'
+        + (b ? '<span class="best">Best: ' + b.score + '/' + b.total + ' (' + b.pct + '%)</span>' : '') + '</button>';
+    });
+    h += '</div><div class="chaps' + (chosen === "chap" ? ' on' : '') + '" id="chaps"><h2>Chapters</h2><div class="row">';
+    META.chapters.forEach(function(c){
+      var n = BANK.filter(function(q){ return q.c === c.id; }).length;
+      if(!n) return;
+      h += '<label class="cbox"><input type="checkbox" data-c="' + esc(c.id) + '"' + (chapPick[c.id] ? ' checked' : '') + '>' + esc((c.num ? c.num + '. ' : '') + c.title) + ' <small>' + n + '</small></label>';
+    });
+    h += '</div><div class="cnt">';
+    [10, 25, 50].forEach(function(n){ h += '<button type="button" class="seg' + (chapCount === n ? ' on' : '') + '" data-n="' + n + '">' + n + ' questions</button>'; });
+    h += '</div></div><div class="startbar"><button class="btn" type="button" id="go">Start ' + MODES[chosen].name + ' →</button><span class="note" id="goNote"></span></div>';
+    h += histHTML();
+    app.innerHTML = h;
+    app.querySelectorAll(".mode").forEach(function(el){ el.addEventListener("click", function(){ chosen = el.dataset.m; setup(); }); });
+    app.querySelectorAll(".cbox input").forEach(function(el){ el.addEventListener("change", function(){ chapPick[el.dataset.c] = el.checked; }); });
+    app.querySelectorAll(".seg").forEach(function(el){ el.addEventListener("click", function(){ chapCount = +el.dataset.n; setup(); }); });
+    document.getElementById("go").addEventListener("click", start);
+    var f = document.getElementById("unlockF");
+    if(f) f.addEventListener("submit", function(e){
+      e.preventDefault();
+      var pw = document.getElementById("pw").value, msg = document.getElementById("pwMsg"), btn = f.querySelector("button");
+      if(!pw){ msg.textContent = "Type the password first."; return; }
+      btn.disabled = true; msg.textContent = "Checking…";
+      unlockWith(pw).then(function(q){ BANK = q; FULL = true; setRaw(passKey(), pw); setup(); })
+        .catch(function(){ btn.disabled = false; msg.textContent = "That password did not work. Ask Vishal Sir for the " + META.subject + " password."; });
+    });
+  }
+  function histHTML(){
+    var s = load(STORE, {}), h = s[slug] && s[slug].hist || [];
+    if(!h.length) return "";
+    var out = '<div class="hist sec"><h2>Your recent marathons</h2><table><thead><tr><th>Date</th><th>Mode</th><th>Score</th><th>Time</th></tr></thead><tbody>';
+    h.slice(-8).reverse().forEach(function(r){ out += '<tr><td>' + esc(r.d) + '</td><td>' + esc(MODES[r.m] ? MODES[r.m].name : r.m) + '</td><td>' + r.s + '/' + r.t + ' (' + r.p + '%)</td><td>' + fmt(r.secs) + '</td></tr>'; });
+    return out + '</tbody></table></div>';
+  }
+
+  /* ---------- run ---------- */
+  var RUN = null, timer = null;
+  function pickQuestions(){
+    var m = MODES[chosen], pool = BANK;
+    if(chosen === "week"){
+      var wk = isoWeek(new Date());
+      return shuffle(pool, seeded(slug + ":" + wk.y + ":" + wk.w + (FULL ? ":full" : ":free"))).slice(0, m.n);
+    }
+    if(chosen === "chap"){
+      pool = pool.filter(function(q){ return chapPick[q.c]; });
+      return shuffle(pool).slice(0, chapCount);
+    }
+    // spread across chapters: round-robin by chapter after shuffling
+    var by = {}; shuffle(pool).forEach(function(q){ (by[q.c] = by[q.c] || []).push(q); });
+    var keys = shuffle(Object.keys(by)), out = [];
+    while(out.length < m.n && keys.some(function(k){ return by[k].length; })){
+      keys.forEach(function(k){ if(by[k].length && out.length < m.n) out.push(by[k].pop()); });
+    }
+    return out;
+  }
+  function start(list){
+    var qs = Array.isArray(list) ? list : pickQuestions();
+    var note = document.getElementById("goNote");
+    if(!qs.length){ if(note) note.textContent = "Pick at least one chapter."; return; }
+    var m = MODES[chosen];
+    RUN = { qs:qs.map(function(q){ var o = q.o.map(function(t, i){ return { t:t, ok:i === 0 }; }); return { q:q.q, x:q.x, c:q.c, o:shuffle(o) }; }),
+            i:0, score:0, streak:0, bestStreak:0, ans:[], t0:Date.now(), limit:(Array.isArray(list) ? 0 : m.mins * 60), retry:Array.isArray(list) };
+    clearInterval(timer);
+    if(RUN.limit) timer = setInterval(tick, 500);
+    show();
+    window.scrollTo(0, 0);
+  }
+  function left(){ return RUN.limit - (Date.now() - RUN.t0) / 1000; }
+  function tick(){
+    var el = document.getElementById("tm"); if(!RUN || !RUN.limit) return;
+    var l = left();
+    if(el){ el.textContent = "⏱ " + fmt(l); el.classList.toggle("low", l < 60); }
+    if(l <= 0){ clearInterval(timer); finish(true); }
+  }
+  function chapName(id){ var c = META.chapters.filter(function(x){ return x.id === id; })[0]; return c ? (c.num ? "Ch " + c.num + " · " : "") + c.title : ""; }
+  function show(){
+    var r = RUN, q = r.qs[r.i], n = r.qs.length;
+    var h = '<div class="qbar"><div class="r"><button class="btn ghost" type="button" id="quit" style="padding:7px 12px">✕ End</button>'
+      + '<span class="pill">Q ' + (r.i + 1) + '/' + n + '</span><span class="pill">✅ ' + r.score + '</span>'
+      + (r.limit ? '<span class="pill t" id="tm">⏱ ' + fmt(left()) + '</span>' : '') + '<span class="sp"></span>'
+      + '<span class="streak">' + (r.streak >= 2 ? '🔥 ' + r.streak + ' in a row' : '') + '</span></div>'
+      + '<div class="prog"><i style="width:' + (r.i / n * 100) + '%"></i></div></div>'
+      + '<div class="qcard"><div class="qmeta">' + esc(chapName(q.c)) + '</div><p class="qtext">' + esc(q.q) + '</p><div class="opts">';
+    q.o.forEach(function(o, k){ h += '<button type="button" class="opt" data-k="' + k + '"><span class="k">' + "ABCDE"[k] + '</span><span>' + esc(o.t) + '</span></button>'; });
+    h += '</div><div class="fb" id="fb" role="status"></div><div class="qnav"><span class="note">Keys 1 to 4 to answer, Enter for next</span><button class="btn hide" type="button" id="next">' + (r.i + 1 < n ? 'Next →' : 'See result →') + '</button></div></div>';
+    app.innerHTML = h;
+    app.querySelectorAll(".opt").forEach(function(b){ b.addEventListener("click", function(){ answer(+b.dataset.k); }); });
+    document.getElementById("next").addEventListener("click", next);
+    document.getElementById("quit").addEventListener("click", function(){ if(confirmEnd()) finish(false); });
+    tick();
+  }
+  function confirmEnd(){
+    var b = document.getElementById("quit");
+    if(b.dataset.sure){ return true; }
+    b.dataset.sure = "1"; b.textContent = "Tap again to end"; setTimeout(function(){ if(b){ b.textContent = "✕ End"; delete b.dataset.sure; } }, 2500);
+    return false;
+  }
+  function answer(k){
+    var r = RUN, q = r.qs[r.i]; if(r.ans[r.i]) return;
+    var ok = q.o[k].ok;
+    r.ans[r.i] = { k:k, ok:ok };
+    if(ok){ r.score++; r.streak++; r.bestStreak = Math.max(r.bestStreak, r.streak); } else r.streak = 0;
+    app.querySelectorAll(".opt").forEach(function(b, i){ b.disabled = true; if(q.o[i].ok) b.classList.add("ok"); else if(i === k) b.classList.add("no"); });
+    var fb = document.getElementById("fb");
+    var right = q.o.filter(function(o){ return o.ok; })[0].t;
+    fb.className = "fb on " + (ok ? "ok" : "no");
+    fb.innerHTML = (ok ? "✅ <b>Correct!</b> " : "❌ <b>Answer:</b> " + esc(right) + ". ") + esc(q.x || "");
+    var nx = document.getElementById("next"); nx.classList.remove("hide"); nx.focus({ preventScroll:true });
+    var st = app.querySelector(".streak"); if(st) st.textContent = r.streak >= 2 ? "🔥 " + r.streak + " in a row" : "";
+    var pl = app.querySelectorAll(".pill")[1]; if(pl) pl.textContent = "✅ " + r.score;
+  }
+  function next(){ if(!RUN) return; if(RUN.i + 1 < RUN.qs.length){ RUN.i++; show(); window.scrollTo(0, 0); } else finish(false); }
+  document.addEventListener("keydown", function(e){
+    if(!RUN || e.target.tagName === "INPUT") return;
+    if(/^[1-5]$/.test(e.key) && !RUN.ans[RUN.i]){ var k = +e.key - 1; if(RUN.qs[RUN.i].o[k]) answer(k); }
+    else if(e.key === "Enter" && RUN.ans[RUN.i]) next();
+  });
+  function awardXP(pts){
+    var P = load(PKEY, null) || { done:{}, opened:{}, opens:{}, last:null, xp:{} };
+    P.xp = P.xp || {}; var d = today(), key = "marathon:" + slug + ":" + chosen;
+    P.xp[d] = P.xp[d] || {};
+    var had = P.xp[d][key] ? P.xp[d][key].x : 0;
+    var gain = Math.max(0, pts - had);
+    if(gain) P.xp[d][key] = { s:META.subject, x:pts };
+    save(PKEY, P);
+    return gain;
+  }
+  function finish(timeUp){
+    clearInterval(timer);
+    var r = RUN; if(!r) return; RUN = null;
+    var answered = r.ans.filter(Boolean).length, total = r.qs.length, secs = (Date.now() - r.t0) / 1000;
+    var pct = Math.round(r.score / total * 100);
+    var xp = r.retry ? 0 : awardXP(Math.min(100, r.score * 2 + (pct >= 80 ? 10 : 0)));
+    if(!r.retry){
+      var s = load(STORE, {}); s[slug] = s[slug] || { best:{}, hist:[] };
+      var b = s[slug].best[chosen];
+      if(!b || pct > b.pct || (pct === b.pct && r.score > b.score)) s[slug].best[chosen] = { score:r.score, total:total, pct:pct, d:today() };
+      s[slug].hist.push({ d:today(), m:chosen, s:r.score, t:total, p:pct, secs:Math.round(secs) }); s[slug].hist = s[slug].hist.slice(-30);
+      save(STORE, s);
+    }
+    var col = pct >= 80 ? "var(--green)" : pct >= 50 ? "var(--amber)" : "var(--red)";
+    var line = pct >= 90 ? "Outstanding! You are exam-ready." : pct >= 75 ? "Great work. A little polish and you are there." : pct >= 50 ? "Good start. Revise the weak chapters below." : "Keep going. Read the notes for the chapters below, then try again.";
+    var byC = {}; r.qs.forEach(function(q, i){ var c = byC[q.c] = byC[q.c] || { ok:0, n:0 }; c.n++; if(r.ans[i] && r.ans[i].ok) c.ok++; });
+    var rows = Object.keys(byC).map(function(k){ return { id:k, ok:byC[k].ok, n:byC[k].n, p:Math.round(byC[k].ok / byC[k].n * 100) }; }).sort(function(a, b){ return a.p - b.p; });
+    var wrong = r.qs.map(function(q, i){ return { q:q, a:r.ans[i] }; }).filter(function(x){ return !x.a || !x.a.ok; });
+    var h = '<div class="res"><div class="kick">' + esc(CLS[META.cls]) + ' · ' + esc(META.subject) + ' · ' + esc(r.retry ? "Retry" : MODES[chosen].name) + '</div>'
+      + '<div class="score"><div class="ring" style="--p:' + pct + ';--c:' + col + '"><div>' + pct + '%</div></div><div><h2>' + r.score + ' / ' + total + ' correct</h2>'
+      + '<p>' + (timeUp ? "Time up! " : "") + 'Answered ' + answered + ' · Time ' + fmt(secs) + ' · Best streak ' + r.bestStreak + '</p><p>' + line + '</p>'
+      + (xp ? '<span class="xp">+' + xp + ' XP</span>' : '') + '</div></div>'
+      + '<div class="acts">' + (wrong.length ? '<button class="btn" type="button" id="retry">Retry the ' + wrong.length + ' I missed</button>' : '')
+      + '<button class="btn ghost" type="button" id="again">New marathon</button><a class="btn ghost" id="share" target="_blank" rel="noopener" style="text-decoration:none">Share on WhatsApp</a></div>'
+      + '<div class="sec"><h2>Chapter by chapter</h2><div class="bars">';
+    rows.forEach(function(x){ var c = x.p >= 80 ? "var(--green)" : x.p >= 50 ? "var(--amber)" : "var(--red)";
+      h += '<div class="bar"><span>' + esc(chapName(x.id)) + '</span><small>' + x.ok + '/' + x.n + '</small><div class="tr"><i style="width:' + x.p + '%;background:' + c + '"></i></div></div>'; });
+    h += '</div></div>';
+    if(wrong.length){
+      h += '<div class="sec"><h2>Review what you missed</h2><div class="wrong">';
+      wrong.forEach(function(w){ var right = w.q.o.filter(function(o){ return o.ok; })[0].t;
+        h += '<div class="wq"><b>' + esc(w.q.q) + '</b>' + (w.a ? '<div class="y">Your answer: ' + esc(w.q.o[w.a.k].t) + '</div>' : '<div class="y">Not answered</div>')
+          + '<div class="c">Correct: ' + esc(right) + '</div>' + (w.q.x ? '<div class="x">' + esc(w.q.x) + '</div>' : '') + '</div>'; });
+      h += '</div></div>';
+    }
+    app.innerHTML = h + '</div>';
+    var txt = "I scored " + r.score + "/" + total + " (" + pct + "%) in the " + CLS[META.cls] + " " + META.subject + " " + (r.retry ? "practice" : MODES[chosen].name) + " on Notesflix 101. Can you beat me? " + location.origin + location.pathname + "?s=" + slug;
+    document.getElementById("share").href = "https://wa.me/?text=" + encodeURIComponent(txt);
+    document.getElementById("again").addEventListener("click", function(){ setup(); window.scrollTo(0, 0); });
+    var rt = document.getElementById("retry");
+    if(rt) rt.addEventListener("click", function(){ start(wrong.map(function(w){ return { q:w.q.q, x:w.q.x, c:w.q.c, o:w.q.o.slice().sort(function(a, b){ return b.ok - a.ok; }).map(function(o){ return o.t; }) }; })); });
+    window.scrollTo(0, 0);
+  }
+  if(slug) subject(); else picker();
+})();
+</script>
+</body>
+</html>

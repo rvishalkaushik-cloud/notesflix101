@@ -1,0 +1,101 @@
+{
+ "built": "2026-11-08",
+ "subjects": [
+  {
+   "slug": "ix-english",
+   "cls": "IX",
+   "subject": "English (Kaveri)",
+   "total": 433,
+   "freeCount": 222,
+   "chapters": 8
+  },
+  {
+   "slug": "ix-hindi",
+   "cls": "IX",
+   "subject": "Hindi (Ganga)",
+   "total": 254,
+   "freeCount": 127,
+   "chapters": 5
+  },
+  {
+   "slug": "ix-science",
+   "cls": "IX",
+   "subject": "Science",
+   "total": 756,
+   "freeCount": 391,
+   "chapters": 13
+  },
+  {
+   "slug": "ix-sst",
+   "cls": "IX",
+   "subject": "Social Science (SST)",
+   "total": 899,
+   "freeCount": 468,
+   "chapters": 15
+  },
+  {
+   "slug": "x-science",
+   "cls": "X",
+   "subject": "Science",
+   "total": 642,
+   "freeCount": 24,
+   "chapters": 13
+  },
+  {
+   "slug": "x-sst",
+   "cls": "X",
+   "subject": "Social Science (SST)",
+   "total": 829,
+   "freeCount": 20,
+   "chapters": 21
+  },
+  {
+   "slug": "xi-bst",
+   "cls": "XI",
+   "subject": "Business Studies",
+   "total": 362,
+   "freeCount": 20,
+   "chapters": 9
+  },
+  {
+   "slug": "xi-eco",
+   "cls": "XI",
+   "subject": "Economics",
+   "total": 492,
+   "freeCount": 20,
+   "chapters": 7
+  },
+  {
+   "slug": "xii-acc",
+   "cls": "XII",
+   "subject": "Accountancy",
+   "total": 130,
+   "freeCount": 20,
+   "chapters": 4
+  },
+  {
+   "slug": "xii-bst",
+   "cls": "XII",
+   "subject": "Business Studies",
+   "total": 283,
+   "freeCount": 20,
+   "chapters": 10
+  },
+  {
+   "slug": "xii-eco",
+   "cls": "XII",
+   "subject": "Economics",
+   "total": 694,
+   "freeCount": 27,
+   "chapters": 9
+  },
+  {
+   "slug": "xii-ent",
+   "cls": "XII",
+   "subject": "Entrepreneurship",
+   "total": 94,
+   "freeCount": 20,
+   "chapters": 4
+  }
+ ]
+}

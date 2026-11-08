@@ -832,6 +832,15 @@ body.nx-lock{overflow:hidden}
 .sv-box video{width:100%;height:100%;display:block;object-fit:cover}
 .sv-pp{position:absolute;right:10px;bottom:10px;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.4);background:rgba(0,0,0,.55);color:#fff;font:700 14px/1 var(--body);cursor:pointer;display:grid;place-items:center;padding:0}
 .sv-pp:active{transform:scale(.92)}
+.nx-mara{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:14px 0 6px;padding:16px 18px;border-radius:16px;text-decoration:none;color:#fff;
+  background:linear-gradient(120deg,rgba(229,9,20,.22),rgba(184,71,255,.18));border:1px solid rgba(229,9,20,.45);box-shadow:0 0 30px -14px rgba(229,9,20,.9);transition:transform .2s ease,box-shadow .2s ease}
+.nx-mara:hover{transform:translateY(-2px);box-shadow:0 0 40px -10px rgba(229,9,20,1)}
+.nx-mi{font-size:30px;line-height:1}
+.nx-mt{flex:1 1 220px;display:flex;flex-direction:column;gap:2px}
+.nx-mt b{font:800 18px var(--body)}
+.nx-mt span{color:var(--paper-dim);font:500 13px/1.4 var(--body)}
+.nx-mg{background:var(--red);color:#fff;font:800 14px var(--body);padding:9px 16px;border-radius:10px}
+#shelves > .nx-mara{margin-left:16px;margin-right:16px}
 </style>
 </head>
 <body>
@@ -2602,6 +2611,8 @@ CHAPTERS.forEach(function(c){
 
     if(activeSubject && !filter){
       host.appendChild(backBar());
+      var mb = marathonBanner(activeSubject, activeClass || pickedClass);
+      if(mb) host.appendChild(mb);
       var svHero = subjectHero(activeSubject, activeClass);
       if(svHero) host.appendChild(svHero);
       var subTop = topRow(topBySubject(activeSubject, pickedClass), "Top 10 · " + activeSubject,
@@ -3298,6 +3309,26 @@ CHAPTERS.forEach(function(c){
     b.addEventListener("mouseleave", function(){ b.style.removeProperty("--ry"); b.style.removeProperty("--rx"); b.style.removeProperty("--mx"); });
     return b;
   }
+  /* ---------- Practice marathons: one per class + subject, built into marathon/ ---------- */
+  var MARATHONS = [];
+  fetch("marathon/index.json", { cache:"no-cache" }).then(function(r){ return r.ok ? r.json() : null; }).then(function(d){
+    if(d && d.subjects){ MARATHONS = d.subjects; if(activeSubject && !filter) render(); }
+  }).catch(function(){});
+  function marathonFor(sub, cl){
+    for(var i = 0; i < MARATHONS.length; i++){ if(MARATHONS[i].subject === sub && (!cl || MARATHONS[i].cls === cl)) return MARATHONS[i]; }
+    return null;
+  }
+  function marathonBanner(sub, cl){
+    var m = marathonFor(sub, cl) || marathonFor(sub, "");
+    if(!m) return null;
+    var a = document.createElement("a");
+    a.className = "nx-mara";
+    a.href = "marathon.html?s=" + encodeURIComponent(m.slug);
+    a.innerHTML = '<span class="nx-mi">🏁</span><span class="nx-mt"><b>Practice Marathon · ' + esc(sub) + '</b>'
+      + '<span>' + m.total + ' questions · weekly marathon, sprints and chapter practice</span></span><span class="nx-mg">Start →</span>';
+    return a;
+  }
+
   function homeView(){
     var wrap = document.createElement("div");
     wrap.className = "nx-home";
@@ -3310,6 +3341,11 @@ CHAPTERS.forEach(function(c){
     row.className = "nx-row";
     CLASS_CARDS.forEach(function(c){ row.appendChild(classCard(c)); });
     wrap.appendChild(row);
+    var mr = document.createElement("a");
+    mr.className = "nx-mara";
+    mr.href = "marathon.html";
+    mr.innerHTML = '<span class="nx-mi">🏁</span><span class="nx-mt"><b>Practice Marathons</b><span>A weekly marathon for every subject, plus sprints, mega marathons and chapter practice</span></span><span class="nx-mg">Start →</span>';
+    wrap.appendChild(mr);
     var up = document.createElement("a");
     up.className = "nx-upd";
     up.href = "#updates";
