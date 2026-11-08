@@ -1729,6 +1729,13 @@ const CHAPTERS = [
       { id:"sx2-1", title:"Earth Core Expedition", mins:35, tier:"free", art:"globe", desc:"Layers of the Earth, plate tectonics and boundaries, earthquakes and volcanoes, with a plate-distance calculator, a magnitude simulator, sorting games and a boss battle.", url:"notes/sx2-1.html", keys:"CMOI · DCT · DCH" },
       { id:"sx2-2", title:"Rocks and Landforms", mins:35, tier:"pass", art:"globe", desc:"Igneous, sedimentary and metamorphic rocks and the rock cycle, weathering, erosion and deposition, and mountains, plateaus and plains, with an age-of-layers calculator, a cliff-retreat simulator, sorting games and a boss battle.", url:"notes/sx2-2.html", keys:"ISM · WED · MPP" },
     ]},
+
+  // ===================== ENGLISH (KAVERI) =====================
+  { id:"ix-eng1", cls:"IX", subject:"English (Kaveri)", unit:"Unit", num:"1", title:"How I Taught My Grandmother to Read",
+    tagline:"A grandmother learns to read at sixty-two, and a young narrator becomes her first teacher.",
+    art:"globe", thumb:"img/ix-eng1.jpg", episodes:[
+      { id:"ie1-1", title:"Rooftop Library Loft", mins:35, tier:"free", art:"globe", desc:"A village story by Sudha Murty: the narrator, Krishtakka, the serial Kashi Yatre, the lessons, character sketch and theme.", url:"notes/ie1-1.html", keys:"STORY · PEOPLE · THEME" },
+    ]},
 ];
 
 // every episode also knows its chapter and its number in the season
@@ -2113,7 +2120,8 @@ CHAPTERS.forEach(function(c){
     { name:"Computer Science", img:"img/subj-cs.jpg",        art:"gears", group:"senior", classes:CLS_XIXII, blurb:"Python, data and systems." },
     { name:"Science",          img:"img/subj-science.jpg",   art:"brain", group:"junior", classes:CLS_VIX, blurb:"Physics, chemistry and biology for Classes VI to X." },
     { name:"Social Science (SST)", img:"img/subj-sst.jpg",   art:"globe", group:"junior", classes:CLS_VIX, blurb:"History, geography, civics and economics for Classes VI to X." },
-    { name:"Hindi",            img:"img/subj-hindi.jpg",     art:"documents", group:"junior", classes:CLS_VIX, blurb:"Vyakaran, sahitya and lekhan for Classes VI to X." }
+    { name:"Hindi",            img:"img/subj-hindi.jpg",     art:"documents", group:"junior", classes:CLS_VIX, blurb:"Vyakaran, sahitya and lekhan for Classes VI to X." },
+    { name:"English (Kaveri)", img:"", art:"chart", blurb:"" }
   ];
   function subjectObj(name){
     for(var i = 0; i < SUBJECTS.length; i++){ if(SUBJECTS[i].name === name) return SUBJECTS[i]; }
