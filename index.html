@@ -2152,8 +2152,14 @@ CHAPTERS.forEach(function(c){
     { name:"Science",          img:"img/subj-science.jpg",   art:"brain", group:"junior", classes:CLS_VIX, blurb:"Physics, chemistry and biology for Classes VI to X." },
     { name:"Social Science (SST)", img:"img/subj-sst.jpg",   art:"globe", group:"junior", classes:CLS_VIX, blurb:"History, geography, civics and economics for Classes VI to X." },
     { name:"Hindi",            img:"img/subj-hindi.jpg",     art:"documents", group:"junior", classes:CLS_VIX, blurb:"Vyakaran, sahitya and lekhan for Classes VI to X." },
-    { name:"English (Kaveri)", img:"", art:"chart", blurb:"" }
+    { name:"English (Kaveri)", img:"img/subj-english.jpg", art:"documents", group:"junior", classes:CLS_VIX, blurb:"Kaveri textbook units: prose, poetry and writing for Class IX." }
   ];
+  function subjectClasses(so, sub){
+    if(so && so.classes && so.classes.length) return so.classes;
+    var out = [];
+    CHAPTERS.forEach(function(c){ if(c.subject === sub && out.indexOf(c.cls) < 0) out.push(c.cls); });
+    return out.length ? out : CLS_XIXII;
+  }
   function subjectObj(name){
     for(var i = 0; i < SUBJECTS.length; i++){ if(SUBJECTS[i].name === name) return SUBJECTS[i]; }
     return null;
@@ -2224,7 +2230,7 @@ CHAPTERS.forEach(function(c){
   function pickSubject(sub){
     activeSubject = sub;
     var so = subjectObj(sub);
-    var list = so ? so.classes : CLS_XIXII;
+    var list = subjectClasses(so, sub);
     activeClass = list[0];
     for(var i = 0; i < list.length; i++){ if(subjectCount(sub, list[i])){ activeClass = list[i]; break; } }
     if(pickedClass && subjectCount(sub, pickedClass)) activeClass = pickedClass;
@@ -2246,7 +2252,7 @@ CHAPTERS.forEach(function(c){
     box.textContent = "";
     if(activeSubject){
       var so = subjectObj(activeSubject);
-      (so ? so.classes : CLS_XIXII).slice().sort(function(a, b){ return CLS_ORDER.indexOf(a) - CLS_ORDER.indexOf(b); }).forEach(function(cl){
+      subjectClasses(so, activeSubject).slice().sort(function(a, b){ return CLS_ORDER.indexOf(a) - CLS_ORDER.indexOf(b); }).forEach(function(cl){
         if(!subjectCount(activeSubject, cl)) return;
         var b = document.createElement("button");
         b.type = "button";
