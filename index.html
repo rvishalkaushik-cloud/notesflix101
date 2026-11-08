@@ -1930,7 +1930,7 @@ CHAPTERS.forEach(function(c){
   /* the student picks class first, then stream, then subject; remembered on this device */
   var pickedClass = "", pickedStream = "";
   try { pickedClass = localStorage.getItem("notesflix101.cls") || ""; pickedStream = localStorage.getItem("notesflix101.stream") || ""; } catch(e){}
-  if(["X", "XI", "XII"].indexOf(pickedClass) < 0) pickedClass = "";
+  if(["IX", "X", "XI", "XII"].indexOf(pickedClass) < 0) pickedClass = "";
   function savePick(){ try { localStorage.setItem("notesflix101.cls", pickedClass); localStorage.setItem("notesflix101.stream", pickedStream); } catch(e){} }
   function streamObj(key){
     for(var i = 0; i < STREAMS.length; i++){ if(STREAMS[i].key === key) return STREAMS[i]; }
@@ -2762,22 +2762,22 @@ CHAPTERS.forEach(function(c){
     row.className = "nz-pick";
 
     step(1, "Choose your class");
-    ["X", "XI", "XII"].forEach(function(cl){
+    ["IX", "X", "XI", "XII"].forEach(function(cl){
       row.appendChild(pickBtn("Class " + cl, { on: pickedClass === cl, onClick: function(){ pickedClass = cl; savePick(); render(); } }));
     });
     box.appendChild(row);
     if(!pickedClass) return box;
 
-    /* Class X has no streams: its subjects come straight after the class */
-    if(pickedClass === "X"){
+    /* Classes IX and X have no streams: its subjects come straight after the class */
+    if(pickedClass === "X" || pickedClass === "IX"){
       step(2, "Choose a subject");
       var rowX = document.createElement("div");
       rowX.className = "nz-pick";
       var seen = [];
       NOTES.forEach(function(e){
-        if(e.chapter.cls !== "X" || seen.indexOf(e.chapter.subject) > -1) return;
+        if(e.chapter.cls !== pickedClass || seen.indexOf(e.chapter.subject) > -1) return;
         seen.push(e.chapter.subject);
-        var nx = subjectCount(e.chapter.subject, "X");
+        var nx = subjectCount(e.chapter.subject, pickedClass);
         rowX.appendChild(pickBtn(e.chapter.subject, {
           small: nx ? nx + (nx === 1 ? " chapter" : " chapters") : "Coming soon",
           disabled: !nx,
