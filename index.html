@@ -826,6 +826,12 @@ body.nx-lock{overflow:hidden}
 @media (prefers-reduced-motion:reduce){
   .nx-card,.nx-big,.nx-panel,.nx-rows.nx-swap,.nx-r,.nx-dim,.nx-shine{animation:none !important;transition:none !important}
 }
+/* ---------- Subject front video (looping, silent) ---------- */
+.sv-hero{padding-top:4px;padding-bottom:10px;scroll-margin-top:84px}
+.sv-box{position:relative;width:min(100%,calc(46vh * 16 / 9));margin:0 auto;aspect-ratio:16/9;border-radius:14px;overflow:hidden;border:2px solid rgba(255,255,255,.18);box-shadow:4px 6px 0 #000;background:#000}
+.sv-box video{width:100%;height:100%;display:block;object-fit:cover}
+.sv-pp{position:absolute;right:10px;bottom:10px;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.4);background:rgba(0,0,0,.55);color:#fff;font:700 14px/1 var(--body);cursor:pointer;display:grid;place-items:center;padding:0}
+.sv-pp:active{transform:scale(.92)}
 </style>
 </head>
 <body>
@@ -984,6 +990,9 @@ const CHAPTERS = [
     tagline:"One running case — the NOVA smart bottle — carried through all four Ps.",
     art:"megaphone", thumb:"img/ch11.jpg",
     episodes:[
+      { id:"mm-video", title:"Chapter Video Guide", mins:8, tier:"free", art:"megaphone", added:"2026-11-08",
+        desc:"Scroll through the whole chapter and watch the video move with you.",
+        url:"notes/marketing-video-guide.html", keys:"marketing management video guide overview product price place promotion philosophies four ps scroll trailer watch" },
       { id:"philosophies", title:"Marketing Management Philosophies", mins:25, tier:"free", art:"teacher",
         desc:"Production, product, selling, marketing and societal concepts.",
         url:"notes/marketing-philosophies.html", keys:"marketing selling getelementbyid societal promotion satisfaction society explore products features sell aggressive philosophy satisfy students affordability approach availability factory food long-term modal objective packaging philosophies solved distribution dots myopia smartphone social thinks volume welfare affordable brand centre cheap competitors consumers customer-centric detective discounts eco-friendly efforts improving journey persuasion pointers product-centric profitability research scroller secs shop society-centric thinking actually around balances became calls caring choices column considering convince data-no easily efficiency enough environmental firms hard healthy high higher insurance interactive interests keeps launches launching lower mass nobody onscroll prefer premium produce represents responsibility sale satisfied society's" },
@@ -2140,7 +2149,7 @@ CHAPTERS.forEach(function(c){
     if(pickedClass && subjectCount(sub, pickedClass)) activeClass = pickedClass;
     paintTabs();
     render();
-    var first = host.querySelector(".row");
+    var first = host.querySelector(".sv-hero") || host.querySelector(".row");
     if(first) first.scrollIntoView({ behavior:"smooth", block:"start" });
   }
   function paintTabs(){
@@ -2461,6 +2470,8 @@ CHAPTERS.forEach(function(c){
 
     if(activeSubject && !filter){
       host.appendChild(backBar());
+      var svHero = subjectHero(activeSubject, activeClass);
+      if(svHero) host.appendChild(svHero);
       var subTop = topRow(topBySubject(activeSubject, pickedClass), "Top 10 · " + activeSubject,
         (pickedClass ? "Class " + pickedClass : "Both classes") + " · most reopened");
       if(subTop) host.appendChild(subTop);
@@ -2967,6 +2978,36 @@ CHAPTERS.forEach(function(c){
     });
     box.appendChild(row3);
     return box;
+  }
+  /* subject front videos: 8-second silent loops, one per subject (Science has one per class) */
+  var SUBJ_VIDEO = { "Business Studies":"business-studies", "Accountancy":"accountancy", "Entrepreneurship":"entrepreneurship", "Economics":"economics", "Social Science (SST)":"social-science" };
+  function subjVideoKey(sub, cl){
+    if(sub === "Science") return cl === "IX" ? "science-9" : (cl === "X" ? "science-10" : "");
+    return SUBJ_VIDEO[sub] || "";
+  }
+  function subjectHero(sub, cl){
+    var key = subjVideoKey(sub, cl);
+    if(!key) return null;
+    var wrap = document.createElement("div");
+    wrap.className = "sv-hero wrap";
+    var box = document.createElement("div");
+    box.className = "sv-box";
+    var v = document.createElement("video");
+    v.muted = true; v.defaultMuted = true; v.loop = true; v.autoplay = true; v.playsInline = true; v.preload = "auto";
+    v.setAttribute("muted", ""); v.setAttribute("playsinline", "");
+    v.setAttribute("aria-label", sub + " video");
+    v.poster = "media/subjects/" + key + ".jpg?v=1";
+    v.src = "media/subjects/" + key + ".mp4?v=1";
+    var btn = document.createElement("button");
+    btn.type = "button"; btn.className = "sv-pp";
+    function paint(){ var on = !v.paused; btn.textContent = on ? "❚❚" : "▶"; btn.setAttribute("aria-label", on ? "Pause video" : "Play video"); }
+    btn.addEventListener("click", function(){ if(v.paused){ var p = v.play(); if(p && p.catch) p.catch(function(){}); } else { v.pause(); } });
+    v.addEventListener("play", paint); v.addEventListener("pause", paint);
+    var calm = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if(calm){ v.autoplay = false; } else { var pr = v.play(); if(pr && pr.catch) pr.catch(function(){}); }
+    paint();
+    box.appendChild(v); box.appendChild(btn); wrap.appendChild(box);
+    return wrap;
   }
   function backBar(){
     var bar = document.createElement("div");

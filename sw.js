@@ -1,6 +1,6 @@
 /* Notesflix 101 — keeps the site readable without a connection.
    Bump CACHE when you change index.html so students get the new version. */
-const CACHE = "notesflix-v253";
+const CACHE = "notesflix-v254";
 const CORE = ["./", "./index.html", "./auth-config.js", "./login.html", "./updates.json", "./manifest.json", "./img/icon-192.png"];
 
 self.addEventListener("install", (e) => {
@@ -18,6 +18,9 @@ self.addEventListener("activate", (e) => {
 self.addEventListener("fetch", (e) => {
   const req = e.request;
   if (req.method !== "GET" || new URL(req.url).origin !== location.origin) return;
+
+  // videos stream straight from the network (the browser asks for byte ranges, which cannot be cached as a whole file)
+  if (/\.mp4$/i.test(new URL(req.url).pathname) || req.headers.has("range")) return;
 
   // CBSE updates: always try the network first so students see the latest, cached when offline
   if (new URL(req.url).pathname.endsWith("/updates.json")) {
