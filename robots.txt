@@ -1,5 +1,30 @@
+# Notesflix 101: interactive CBSE notes for Classes 9 to 12.
+# Search engines and AI assistants are welcome to read and cite the public pages.
+# A short guide for AI assistants: https://notesflix101.com/llms.txt
+
 User-agent: *
 Allow: /
 Disallow: /login.html
+Disallow: /_factory/
+
+# AI assistants and AI search
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-User
+User-agent: Claude-SearchBot
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: Applebot
+User-agent: Bingbot
+User-agent: DuckAssistBot
+User-agent: Meta-ExternalAgent
+User-agent: CCBot
+Allow: /
+Disallow: /login.html
+Disallow: /_factory/
 
 Sitemap: https://notesflix101.com/sitemap.xml
