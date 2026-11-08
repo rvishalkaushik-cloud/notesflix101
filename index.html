@@ -721,58 +721,111 @@ footer{border-top:1px dashed rgba(255,255,255,.14)}
 .nz-back{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:8px 0 6px;color:var(--paper-dim);font:700 13px var(--body);text-transform:uppercase;letter-spacing:.06em}
 @media (max-width:760px){.nz-card{flex-basis:220px}.nz-bill{padding:22px 18px}}
 
-/* ---------- Home landing (notebook cards) ---------- */
+/* ---------- Home landing (neon class cards + 3D stage) ---------- */
 body.nz-landing .classbar, body.nz-landing .story{display:none !important}
-.nzh-home{padding:18px 16px 8px;max-width:1100px;margin:0 auto;box-sizing:border-box}
-.nzh-login{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;background:#111;border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:0 0 26px;color:var(--paper)}
-.nzh-login h2{font:400 26px/1 var(--display);margin:0 0 6px}
-.nzh-login p{margin:0;color:var(--paper-dim);font:500 14px/1.45 var(--body);max-width:520px}
-.nzh-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:26px;padding:6px 0 10px}
-.nzh-card{perspective:1200px;height:340px;cursor:pointer}
-.nzh-in{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
-.nzh-card.is-flip .nzh-in{transform:rotateY(180deg)}
-.nzh-card.nzh-out{transition:transform .45s ease,opacity .45s ease;transform:translate3d(0,-24px,-260px) rotateX(38deg) scale(.82);opacity:0}
-.nzh-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:6px 16px 16px 6px;overflow:hidden;box-shadow:0 22px 44px rgba(0,0,0,.55),0 0 0 1px rgba(0,0,0,.25);display:flex;flex-direction:column}
-.nzh-front{background:#fffdf5;color:#1b1b1b}
-.nzh-front::before{content:"";position:absolute;left:0;top:0;bottom:0;width:26px;background:repeating-linear-gradient(to bottom,#2a2a2a 0 14px,#fffdf5 14px 26px);border-right:2px solid rgba(0,0,0,.25);z-index:2}
-.nzh-front::after{content:"";position:absolute;inset:0 0 0 26px;background:repeating-linear-gradient(to bottom,transparent 0 31px,#cdd9ea 31px 32px);pointer-events:none;opacity:.8}
-.nzh-cover{position:relative;z-index:1;margin-left:26px;padding:20px 20px 18px;border-bottom:4px solid #141414}
-.t-red .nzh-cover{background:linear-gradient(135deg,#e0262b,#9e1217);color:#fff}
-.t-ink .nzh-cover{background:linear-gradient(135deg,#202020,#050505);color:#fff;border-bottom-color:#e0262b}
-.t-gold .nzh-cover{background:linear-gradient(135deg,#ffd76a,#e8a92b);color:#141414}
-.nzh-kick{display:inline-block;font:700 11px var(--body);letter-spacing:.14em;text-transform:uppercase;opacity:.85}
-.nzh-cover h2{font:400 46px/1 var(--display);margin:10px 0 0;letter-spacing:.01em}
-.nzh-body{position:relative;z-index:1;margin-left:26px;padding:22px 20px;display:flex;flex-direction:column;gap:14px;flex:1}
-.nzh-body p{margin:0;font:600 15px/1.5 var(--body);color:#2b2b2b}
-.nzh-tap{align-self:flex-start;margin-top:auto;background:#141414;color:#fff;font:700 12px var(--body);letter-spacing:.06em;padding:8px 12px;border-radius:999px;text-transform:uppercase;transform:rotate(-2deg)}
-.nzh-front{transition:visibility 0s linear .4s}
-.nzh-card.is-flip .nzh-front{visibility:hidden;pointer-events:none}
-.nzh-back{visibility:hidden;transition:visibility 0s linear .4s}
-.nzh-card.is-flip .nzh-back{visibility:visible;transition-delay:0s}
-.nzh-back{transform:rotateY(180deg);background:#fffdf5;color:#1b1b1b;padding:0 0 0 26px}
-.nzh-back::before{content:"";position:absolute;left:0;top:0;bottom:0;width:26px;background:repeating-linear-gradient(to bottom,#2a2a2a 0 14px,#fffdf5 14px 26px);z-index:2}
-.nzh-back::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(to bottom,transparent 0 31px,#cdd9ea 31px 32px);pointer-events:none}
-.nzh-backhead{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:18px 18px 12px 34px;border-bottom:2px solid #e0262b;font:400 26px/1 var(--display)}
-.nzh-back .nzh-x{background:#141414;color:#fff;border:0;border-radius:999px;width:34px;height:34px;font:700 20px/1 var(--body);cursor:pointer}
-.nzh-list{position:relative;z-index:1;display:flex;flex-direction:column;gap:9px;padding:14px 16px 16px 34px;overflow:auto}
-.nzh-tile{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;background:#fff;border:1px solid #d7d0c0;border-left:5px solid #e0262b;border-radius:8px;padding:10px 12px;cursor:pointer;color:#141414;box-shadow:0 3px 8px rgba(0,0,0,.12);transition:transform .15s ease,box-shadow .15s ease}
-.nzh-tile:hover{transform:translateX(4px) rotate(-.4deg);box-shadow:0 8px 16px rgba(0,0,0,.18)}
-.nzh-tile strong{font:700 15px var(--body)}
-.nzh-tile small{font:600 12px var(--body);color:#666}
-.nzh-tile.is-off{opacity:.45;cursor:not-allowed;border-left-color:#999}
-.nzh-tile.is-off:hover{transform:none;box-shadow:0 3px 8px rgba(0,0,0,.12)}
-.nzh-hint{margin:6px 2px 0;color:var(--paper-dim);font:600 13px var(--body)}
-.nzh-panel{perspective:1200px;max-width:900px;margin:0 auto;background:#0d0d0d;border:1px solid var(--line);border-radius:16px;padding:20px 20px 22px}
-.nzh-panel.nzh-enter{animation:nzhIn .75s cubic-bezier(.2,.7,.2,1) both;transform-origin:50% 0}
-@keyframes nzhIn{from{opacity:0;transform:perspective(1200px) rotateX(-55deg) translate3d(0,40px,-120px) scale(.92)}to{opacity:1;transform:none}}
-.nzh-panelhead{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:16px}
-.nzh-panelhead h3{margin:0;font:400 30px/1 var(--display);color:var(--paper)}
-.nzh-chip{background:transparent;border:1px solid var(--line);color:var(--paper-dim);border-radius:999px;padding:8px 14px;font:700 12px var(--body);text-transform:uppercase;letter-spacing:.06em;cursor:pointer}
-.nzh-subj{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
-.nzh-subj .nzh-tile{padding:16px 16px 14px}
-.nzh-subj .nzh-tile strong{font:400 22px/1.1 var(--display)}
-@media (prefers-reduced-motion:reduce){.nzh-in,.nzh-card.nzh-out,.nzh-tile,.nzh-panel.nzh-enter{transition:none !important;animation:none !important}}
-@media (max-width:560px){.nzh-card{height:320px}.nzh-cover h2{font-size:40px}.nzh-grid{gap:18px}}
+body.nx-lock{overflow:hidden}
+.nx-home{padding:26px 16px 10px;max-width:1180px;margin:0 auto;box-sizing:border-box}
+.nx-login{display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:linear-gradient(120deg,rgba(184,71,255,.14),rgba(229,9,20,.12));border:1px solid rgba(200,107,255,.35);border-radius:16px;padding:14px 16px;margin:0 0 26px;color:#fff}
+.nx-li{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.08);color:#d9a6ff;flex:0 0 42px}
+.nx-li svg{width:22px;height:22px}
+.nx-lt{flex:1 1 240px;display:flex;flex-direction:column;gap:2px}
+.nx-lt b{font:700 17px var(--body)}
+.nx-lt span{font:500 13px/1.4 var(--body);color:var(--paper-dim)}
+.nx-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin:0 0 16px}
+.nx-head h2{margin:0;font:800 30px/1.1 var(--body);color:#fff;letter-spacing:-.01em}
+.nx-head span{color:var(--paper-dim);font:600 13px var(--body)}
+.nx-row{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;padding:8px 4px 18px;perspective:1100px}
+.nx-c9{--a:#2f74ff;--b:#0a1a66;--g:#4d95ff}
+.nx-c10{--a:#14d6c3;--b:#04495a;--g:#2df0dc}
+.nx-c11{--a:#ffa526;--b:#9c3207;--g:#ffb347}
+.nx-c12{--a:#bd4dff;--b:#3f0f86;--g:#cf7bff}
+.nx-card{position:relative;display:block;height:176px;border-radius:20px;border:2px solid var(--g);background:radial-gradient(130% 110% at 0% 0%,var(--a) 0%,var(--b) 78%);color:#fff;text-align:left;padding:20px 20px;overflow:hidden;cursor:pointer;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.12),0 0 24px -6px var(--g),0 18px 38px rgba(0,0,0,.55);
+  transform:rotateY(var(--ry,-7deg)) rotateX(var(--rx,0deg)) skewY(-2deg);transform-style:preserve-3d;transition:transform .25s ease,box-shadow .3s ease;font:inherit}
+.nx-card:hover,.nx-card:focus-visible{box-shadow:inset 0 0 0 1px rgba(255,255,255,.2),0 0 46px -2px var(--g),0 26px 50px rgba(0,0,0,.6);outline:none}
+.nx-card:active{transform:rotateY(var(--ry,-7deg)) rotateX(var(--rx,0deg)) skewY(-2deg) scale(.97)}
+.nx-shine{position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.28) 48%,transparent 62%);background-size:250% 100%;background-position:var(--mx,120%) 0;mix-blend-mode:screen;transition:background-position .4s ease}
+.nx-card:hover .nx-shine{transition:none}
+.nx-t{position:relative;display:block;font:800 italic 34px/1 var(--body);letter-spacing:-.02em;text-shadow:0 3px 14px rgba(0,0,0,.4);transform:translateZ(30px)}
+.nx-s{position:relative;display:block;margin-top:8px;font:700 italic 17px var(--body);opacity:.92;transform:translateZ(20px)}
+.nx-ic{position:absolute;right:12px;bottom:8px;width:96px;height:96px;color:#fff;opacity:.95;filter:drop-shadow(0 0 12px var(--g)) drop-shadow(0 8px 14px rgba(0,0,0,.45));transform:translateZ(40px) rotate(-8deg)}
+.nx-ic svg{width:100%;height:100%;stroke-width:1.4}
+.nx-upd{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:14px 0 6px;padding:14px 18px;border-radius:14px;background:#121218;border:1px solid rgba(255,255,255,.08);color:#fff;text-decoration:none;transition:border-color .2s ease,background .2s ease}
+.nx-upd:hover{border-color:rgba(229,9,20,.6);background:#17121a}
+.nx-ui{width:34px;height:34px;color:#ff3b3b;flex:0 0 34px}
+.nx-ui svg{width:100%;height:100%}
+.nx-upd b{font:800 18px var(--body)}
+.nx-ut{flex:1 1 220px;color:var(--paper-dim);font:500 13px var(--body)}
+.nx-uv{color:#ff3b3b;font:700 14px var(--body)}
+/* stage */
+.nx-stage{position:fixed;inset:0;z-index:9000;display:grid;place-items:center;padding:16px;overflow:auto}
+.nx-dim{position:fixed;inset:0;background:rgba(6,4,14,.62);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);animation:nxFade .35s ease both}
+.nx-scene{position:relative;display:flex;align-items:center;gap:34px;perspective:1500px;max-width:100%}
+.nx-big{position:relative;width:250px;height:340px;flex:0 0 250px;border-radius:26px;border:2px solid var(--g);overflow:hidden;color:#fff;padding:30px 24px;box-sizing:border-box;
+  background:radial-gradient(130% 110% at 0% 0%,var(--a) 0%,var(--b) 80%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.15),0 0 60px -6px var(--g),0 30px 60px rgba(0,0,0,.6);
+  transform:rotateY(20deg);animation:nxBig .75s cubic-bezier(.2,.8,.2,1) both}
+.nx-big.nx-spin{animation:nxSpin .6s cubic-bezier(.2,.8,.2,1) both}
+.nx-bt{position:relative;display:block;font:800 italic 46px/1 var(--body);letter-spacing:-.02em}
+.nx-bs{position:relative;display:block;margin-top:10px;font:700 italic 24px/1.1 var(--body);opacity:.92}
+.nx-bigic{position:absolute;left:50%;bottom:30px;width:110px;height:110px;margin-left:-55px;filter:drop-shadow(0 0 16px var(--g))}
+.nx-bigic svg{width:100%;height:100%;stroke-width:1.3}
+.nx-big .nx-shine{background-position:30% 0;animation:nxShine 2.8s ease-in-out .6s infinite}
+.nx-panel{position:relative;width:min(430px,92vw);border-radius:24px;padding:20px 18px 18px;box-sizing:border-box;color:#fff;
+  background:linear-gradient(160deg,rgba(40,20,70,.92),rgba(14,10,26,.95));border:2px solid var(--g);box-shadow:0 0 50px -10px var(--g),0 30px 60px rgba(0,0,0,.6);
+  transform-origin:left center;transform:rotateY(-12deg);animation:nxPanel .75s .12s cubic-bezier(.2,.8,.2,1) both}
+.nx-ph{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin:2px 4px 14px}
+.nx-ph h3{margin:0;font:800 30px/1 var(--body)}
+.nx-pp{margin:6px 0 0;color:#d8c8ff;font:600 15px var(--body)}
+.nx-x{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff;font:600 22px/1 var(--body);cursor:pointer;flex:0 0 38px}
+.nx-x:hover{background:rgba(255,255,255,.15)}
+.nx-rows{display:flex;flex-direction:column;gap:10px;max-height:min(56vh,440px);overflow:auto;padding:2px 4px 4px}
+.nx-rows.nx-swap{animation:nxSwap .55s cubic-bezier(.2,.8,.2,1) both;transform-origin:50% 0}
+.nx-r{display:flex;align-items:center;gap:14px;width:100%;text-align:left;padding:12px 14px;border-radius:14px;cursor:pointer;color:#fff;font:inherit;
+  background:linear-gradient(90deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.14);box-shadow:inset 0 0 0 1px rgba(255,255,255,.02);
+  animation:nxRow .45s cubic-bezier(.2,.8,.2,1) both;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+.nx-r:hover,.nx-r:focus-visible{transform:translateX(6px);border-color:var(--g);box-shadow:0 0 22px -6px var(--g);outline:none}
+.nx-ri{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:rgba(255,255,255,.08);color:var(--g);flex:0 0 38px}
+.nx-ri svg{width:22px;height:22px}
+.nx-rl{flex:1;display:flex;flex-direction:column;gap:2px;min-width:0}
+.nx-rl b{font:700 17px var(--body)}
+.nx-rl small{font:600 12px var(--body);color:rgba(255,255,255,.6)}
+.nx-ra{font:700 20px var(--body);color:rgba(255,255,255,.75)}
+.nx-r.is-off{opacity:.42;cursor:not-allowed}
+.nx-r.is-off:hover{transform:none;border-color:rgba(255,255,255,.14);box-shadow:none}
+.nx-r.nx-backrow{background:transparent;border-style:dashed}
+.nx-stage.is-out .nx-dim{animation:nxFadeOut .3s ease both}
+.nx-stage.is-out .nx-big{animation:nxBigOut .3s ease both}
+.nx-stage.is-out .nx-panel{animation:nxPanelOut .3s ease both}
+@keyframes nxFade{from{opacity:0}to{opacity:1}}
+@keyframes nxFadeOut{to{opacity:0}}
+@keyframes nxBig{from{opacity:0;transform:translate3d(-40px,40px,-300px) rotateY(-200deg) scale(.6)}to{opacity:1;transform:rotateY(20deg)}}
+@keyframes nxBigOut{to{opacity:0;transform:translate3d(-30px,30px,-200px) rotateY(-90deg) scale(.7)}}
+@keyframes nxSpin{from{transform:rotateY(200deg)}to{transform:rotateY(20deg)}}
+@keyframes nxPanel{from{opacity:0;transform:translateX(-80px) rotateY(80deg)}to{opacity:1;transform:rotateY(-12deg)}}
+@keyframes nxPanelOut{to{opacity:0;transform:translateX(-60px) rotateY(70deg)}}
+@keyframes nxSwap{from{opacity:0;transform:rotateX(-75deg) translateY(20px)}to{opacity:1;transform:none}}
+@keyframes nxRow{from{opacity:0;transform:translateX(26px)}to{opacity:1;transform:none}}
+@keyframes nxShine{0%,100%{background-position:130% 0}50%{background-position:-30% 0}}
+@media (max-width:900px){
+  .nx-row{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;padding:10px 4px 20px;margin:0 -16px;padding-left:16px;padding-right:16px;scrollbar-width:none}
+  .nx-row::-webkit-scrollbar{display:none}
+  .nx-card{flex:0 0 66%;scroll-snap-align:start}
+}
+@media (max-width:720px){
+  .nx-stage{place-items:start center;padding:20px 12px}
+  .nx-scene{flex-direction:column;gap:18px;width:100%}
+  .nx-big{width:100%;max-width:420px;flex:none;height:150px;padding:20px 22px;transform:rotateX(10deg)}
+  .nx-bt{font-size:36px}.nx-bs{font-size:19px}
+  .nx-bigic{left:auto;right:18px;bottom:22px;width:80px;height:80px;margin:0}
+  .nx-panel{width:100%;max-width:420px;transform:none;transform-origin:50% 0}
+  @keyframes nxBig{from{opacity:0;transform:rotateX(-120deg) scale(.7)}to{opacity:1;transform:rotateX(10deg)}}
+  @keyframes nxSpin{from{transform:rotateX(180deg)}to{transform:rotateX(10deg)}}
+  @keyframes nxPanel{from{opacity:0;transform:translateY(40px) rotateX(-60deg)}to{opacity:1;transform:none}}
+  .nx-head h2{font-size:24px}
+}
+@media (prefers-reduced-motion:reduce){
+  .nx-card,.nx-big,.nx-panel,.nx-rows.nx-swap,.nx-r,.nx-dim,.nx-shine{animation:none !important;transition:none !important}
+}
 </style>
 </head>
 <body>
@@ -2948,13 +3001,32 @@ CHAPTERS.forEach(function(c){
     sec.appendChild(track);
     return sec;
   }
-  /* ---------- Home landing: login card, notebook class cards that flip, stream -> subjects in 3D ---------- */
-  var homeFlip = "", homeStreamCl = "", homeStream = "", homeMoved = false;
+  /* ---------- Home landing: neon class cards; a click opens a 3D stage with the subjects ---------- */
+  var NX_ICONS = {
+    calc:'<rect x="5" y="2.5" width="14" height="19" rx="2.5"/><rect x="8" y="5.5" width="8" height="4" rx="1"/><path d="M8.5 13h.01M12 13h.01M15.5 13h.01M8.5 16.5h.01M12 16.5h.01M15.5 16.5h.01"/>',
+    bars:'<path d="M5 20v-7M10 20V8M15 20v-9M20 20V4M3 20h19"/>',
+    trend:'<path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/>',
+    bulb:'<path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/>',
+    flask:'<path d="M9 3h6M10 3v6L4.5 18.5a2 2 0 0 0 1.7 3h11.6a2 2 0 0 0 1.7-3L14 9V3"/><path d="M7.5 15h9"/>',
+    globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/>',
+    pi:'<path d="M4 7h16M9 7v13M15 7v10c0 1.7 1 3 3 3"/>',
+    book:'<path d="M2 5.5C4.5 4.5 8 4.5 12 6.5c4-2 7.5-2 10-1v14c-2.5-1-6-1-10 1-4-2-7.5-2-10-1z"/><path d="M12 6.5v14"/>',
+    cap:'<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/><path d="M22 9v6"/>',
+    mega:'<path d="M3 10v4h4l6 4V6l-6 4z"/><path d="M16 8.5a4.5 4.5 0 0 1 0 7M19 6a8 8 0 0 1 0 12"/>',
+    people:'<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/><circle cx="17" cy="9" r="2.5"/><path d="M16.5 14.5c2.5 0 4.3 1.6 5 4.5"/>',
+    stack:'<path d="M3 17l9 4 9-4M3 12l9 4 9-4M12 3l9 4-9 4-9-4z"/>',
+    user:'<circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4.2-6 8-6s7 2 8 6"/>'
+  };
+  var NX_SUBJ = { "Accountancy":"calc", "Business Studies":"bars", "Economics":"trend", "Entrepreneurship":"bulb",
+    "Science":"flask", "Physics":"flask", "Chemistry":"flask", "Biology":"flask", "Social Science (SST)":"globe",
+    "Geography":"globe", "Mathematics":"pi", "Computer Science":"stack", "Political Science":"people",
+    "Psychology":"people", "Sociology":"people", "Commerce":"trend", "Humanities":"people" };
+  function nxIco(k){ return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (NX_ICONS[k] || NX_ICONS.book) + '</svg>'; }
   var CLASS_CARDS = [
-    { cl:"IX",  name:"Class 9",  sub:"Science · Maths · English · SST · Hindi", tone:"t-red" },
-    { cl:"X",   name:"Class 10", sub:"Science · Maths · English · SST · Hindi", tone:"t-ink" },
-    { cl:"XI",  name:"Class 11", sub:"Commerce · Science · Humanities",         tone:"t-gold" },
-    { cl:"XII", name:"Class 12", sub:"Commerce · Science · Humanities",         tone:"t-red" }
+    { cl:"IX",  name:"Class 9",  sub:"CBSE",     tone:"nx-c9",  icon:"book" },
+    { cl:"X",   name:"Class 10", sub:"CBSE",     tone:"nx-c10", icon:"flask" },
+    { cl:"XI",  name:"Class 11", sub:"Commerce", tone:"nx-c11", icon:"trend" },
+    { cl:"XII", name:"Class 12", sub:"Commerce", tone:"nx-c12", icon:"stack" }
   ];
   function homeSubjectsFor(cl){
     var out = [];
@@ -2964,8 +3036,9 @@ CHAPTERS.forEach(function(c){
   function countLabel(n){ return n ? n + (n === 1 ? " chapter" : " chapters") : "Coming soon"; }
   function loginCard(){
     var d = document.createElement("div");
-    d.className = "nzh-login";
-    d.innerHTML = '<div><h2>Save your reading</h2><p>Sign in once and your progress, XP and last note follow you to every device.</p></div>'
+    d.className = "nx-login";
+    d.innerHTML = '<span class="nx-li">' + nxIco("user") + '</span>'
+      + '<div class="nx-lt"><b>Save your reading</b><span>Sign in once. Your progress, XP and last note follow you to every device.</span></div>'
       + '<button type="button" class="btn btn-red">Sign in with Google</button>';
     d.querySelector("button").addEventListener("click", function(){
       var a = document.getElementById("acct"), w = document.getElementById("acctWrap");
@@ -2973,102 +3046,102 @@ CHAPTERS.forEach(function(c){
     });
     return d;
   }
-  function flipOpen(cl, card){
-    document.querySelectorAll(".nzh-card.is-flip").forEach(function(x){ if(x !== card) x.classList.remove("is-flip"); });
-    card.classList.add("is-flip");
-    homeFlip = cl;
+  function nxRow(icon, label, small, disabled, onClick, i){
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "nx-r" + (disabled ? " is-off" : "");
+    b.disabled = !!disabled;
+    b.style.animationDelay = (i * 55) + "ms";
+    b.innerHTML = '<span class="nx-ri">' + nxIco(icon) + '</span><span class="nx-rl"><b>' + esc(label) + '</b><small>' + esc(small) + '</small></span><span class="nx-ra" aria-hidden="true">→</span>';
+    if(!disabled) b.addEventListener("click", onClick);
+    return b;
   }
-  function flipClose(card){
-    card.classList.remove("is-flip");
-    homeFlip = "";
-  }
-  function homeCard(c){
-    var card = document.createElement("div");
-    card.className = "nzh-card " + c.tone + (homeFlip === c.cl ? " is-flip" : "");
-    card.innerHTML = '<div class="nzh-in">'
-      + '<div class="nzh-face nzh-front">'
-      +   '<div class="nzh-cover"><span class="nzh-kick">C&amp;S Notes</span><h2>' + esc(c.name) + '</h2></div>'
-      +   '<div class="nzh-body"><p>' + esc(c.sub) + '</p><span class="nzh-tap">Tap to open ↗</span></div>'
-      + '</div>'
-      + '<div class="nzh-face nzh-back">'
-      +   '<div class="nzh-backhead"><b>' + esc(c.name) + '</b><button type="button" class="nzh-x" aria-label="Close">×</button></div>'
-      +   '<div class="nzh-list"></div>'
-      + '</div>'
+  function openStage(c, fromEl){
+    var st = document.createElement("div");
+    st.className = "nx-stage " + c.tone;
+    st.setAttribute("role", "dialog");
+    st.setAttribute("aria-modal", "true");
+    st.setAttribute("aria-label", c.name);
+    st.innerHTML = '<div class="nx-dim"></div><div class="nx-scene">'
+      + '<div class="nx-big"><span class="nx-shine"></span><span class="nx-bt">' + esc(c.name) + '</span><span class="nx-bs">' + esc(c.sub) + '</span><span class="nx-bigic">' + nxIco("cap") + '</span></div>'
+      + '<div class="nx-panel"><div class="nx-ph"><div><h3>' + esc(c.name) + '</h3><p class="nx-pp"></p></div><button type="button" class="nx-x" aria-label="Close">×</button></div><div class="nx-rows"></div></div>'
       + '</div>';
-    var list = card.querySelector(".nzh-list");
-    if(c.cl === "IX" || c.cl === "X"){
-      homeSubjectsFor(c.cl).forEach(function(name){
+    document.body.appendChild(st);
+    document.body.classList.add("nx-lock");
+    var rows = st.querySelector(".nx-rows"), pp = st.querySelector(".nx-pp"), bs = st.querySelector(".nx-bs"), big = st.querySelector(".nx-big");
+    var gone = false;
+    function onKey(e){ if(e.key === "Escape") close(); }
+    function finish(){ if(gone) return; gone = true; document.removeEventListener("keydown", onKey); st.remove(); document.body.classList.remove("nx-lock"); }
+    function close(){ st.classList.add("is-out"); setTimeout(function(){ finish(); if(fromEl) fromEl.focus(); }, 320); }
+    function goSubject(name){ finish(); pickedClass = c.cl; savePick(); pickSubject(name); }
+    function swap(fill){
+      rows.classList.remove("nx-swap"); void rows.offsetWidth;
+      rows.textContent = ""; fill(); rows.classList.add("nx-swap");
+      big.classList.remove("nx-spin"); void big.offsetWidth; big.classList.add("nx-spin");
+    }
+    function showSubjects(list, stream){
+      pp.textContent = "Select a subject";
+      bs.textContent = stream || c.sub;
+      var i = 0;
+      if(stream){
+        rows.appendChild(nxRow("stack", "All streams", "Go back", false, function(){ swap(showStreams); }, i++)).classList.add("nx-backrow");
+      }
+      list.forEach(function(name){
         var n = subjectCount(name, c.cl);
-        var b = document.createElement("button");
-        b.type = "button";
-        b.className = "nzh-tile" + (n ? "" : " is-off");
-        b.disabled = !n;
-        b.innerHTML = '<strong>' + esc(name) + '</strong><small>' + esc(countLabel(n)) + '</small>';
-        b.addEventListener("click", function(){ pickedClass = c.cl; savePick(); pickSubject(name); });
-        list.appendChild(b);
-      });
-    } else {
-      STREAMS.filter(function(st){ return st.key !== "Classes VI to X"; }).forEach(function(st){
-        var has = streamSubjects(st).some(function(s){ return subjectCount(s.name, c.cl) > 0; });
-        var b = document.createElement("button");
-        b.type = "button";
-        b.className = "nzh-tile" + (has ? "" : " is-off");
-        b.disabled = !has;
-        b.innerHTML = '<strong>' + esc(st.key) + '</strong><small>' + esc(has ? st.sub : "Coming soon") + '</small>';
-        b.addEventListener("click", function(){
-          pickedClass = c.cl; pickedStream = st.key; savePick();
-          homeStreamCl = c.cl; homeStream = st.key;
-          card.classList.add("nzh-out");
-          setTimeout(function(){ homeMoved = true; render(); }, 460);
-        });
-        list.appendChild(b);
+        rows.appendChild(nxRow(NX_SUBJ[name] || "book", name, countLabel(n), !n, function(){ goSubject(name); }, i++));
       });
     }
-    card.querySelector(".nzh-front").addEventListener("click", function(){ flipOpen(c.cl, card); });
-    card.querySelector(".nzh-x").addEventListener("click", function(e){ e.stopPropagation(); flipClose(card); });
-    return card;
+    function showStreams(){
+      pp.textContent = "Select a stream";
+      bs.textContent = "Choose stream";
+      STREAMS.filter(function(s){ return s.key !== "Classes VI to X"; }).forEach(function(s, i){
+        var has = streamSubjects(s).some(function(x){ return subjectCount(x.name, c.cl) > 0; });
+        rows.appendChild(nxRow(NX_SUBJ[s.key] || "flask", s.key, has ? s.subjects.length + " subjects" : "Coming soon", !has, function(){
+          pickedStream = s.key; savePick();
+          swap(function(){ showSubjects(streamSubjects(s).map(function(x){ return x.name; }), s.key); });
+        }, i));
+      });
+    }
+    if(c.cl === "IX" || c.cl === "X") showSubjects(homeSubjectsFor(c.cl), "");
+    else showStreams();
+    st.querySelector(".nx-x").addEventListener("click", close);
+    st.querySelector(".nx-dim").addEventListener("click", close);
+    document.addEventListener("keydown", onKey);
+    setTimeout(function(){ var f = rows.querySelector(".nx-r:not(.is-off)"); if(f) f.focus({ preventScroll:true }); }, 650);
   }
-  function subjectPanel(cl, st, enter){
-    var p = document.createElement("div");
-    p.className = "nzh-panel" + (enter ? " nzh-enter" : "");
-    p.innerHTML = '<div class="nzh-panelhead"><h3>Class ' + esc(cl) + ' · ' + esc(st.key) + '</h3>'
-      + '<button type="button" class="nzh-chip">← Change stream</button></div><div class="nzh-subj"></div>';
-    p.querySelector(".nzh-chip").addEventListener("click", function(){
-      homeStreamCl = ""; homeStream = ""; homeFlip = ""; render();
+  function classCard(c){
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "nx-card " + c.tone;
+    b.innerHTML = '<span class="nx-shine"></span><span class="nx-t">' + esc(c.name) + '</span><span class="nx-s">' + esc(c.sub) + '</span><span class="nx-ic">' + nxIco(c.icon) + '</span>';
+    b.addEventListener("click", function(){ openStage(c, b); });
+    b.addEventListener("mousemove", function(e){
+      var r = b.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+      b.style.setProperty("--ry", (x * 16) + "deg");
+      b.style.setProperty("--rx", (-y * 12) + "deg");
+      b.style.setProperty("--mx", ((x + .5) * 100) + "%");
     });
-    var grid = p.querySelector(".nzh-subj");
-    streamSubjects(st).forEach(function(s){
-      var n = subjectCount(s.name, cl);
-      var b = document.createElement("button");
-      b.type = "button";
-      b.className = "nzh-tile" + (n ? "" : " is-off");
-      b.disabled = !n;
-      b.innerHTML = '<strong>' + esc(s.name) + '</strong><small>' + esc(countLabel(n)) + '</small>';
-      b.addEventListener("click", function(){ pickedClass = cl; savePick(); pickSubject(s.name); });
-      grid.appendChild(b);
-    });
-    return p;
+    b.addEventListener("mouseleave", function(){ b.style.removeProperty("--ry"); b.style.removeProperty("--rx"); b.style.removeProperty("--mx"); });
+    return b;
   }
   function homeView(){
     var wrap = document.createElement("div");
-    wrap.className = "nzh-home";
+    wrap.className = "nx-home";
     if(!cloudUid) wrap.appendChild(loginCard());
-
-    var st = homeStreamCl && homeStream ? streamObj(homeStream) : null;
-    if(st){
-      var enter = homeMoved;
-      homeMoved = false;
-      wrap.appendChild(subjectPanel(homeStreamCl, st, enter));
-      return wrap;
-    }
-    var grid = document.createElement("div");
-    grid.className = "nzh-grid";
-    CLASS_CARDS.forEach(function(c){ grid.appendChild(homeCard(c)); });
-    wrap.appendChild(grid);
-    var hint = document.createElement("p");
-    hint.className = "nzh-hint";
-    hint.textContent = "Tap a class to open its notebook. Classes XI and XII open with a stream first.";
-    wrap.appendChild(hint);
+    var h = document.createElement("div");
+    h.className = "nx-head";
+    h.innerHTML = '<h2>Explore by Class</h2><span>Tap a class to see its subjects</span>';
+    wrap.appendChild(h);
+    var row = document.createElement("div");
+    row.className = "nx-row";
+    CLASS_CARDS.forEach(function(c){ row.appendChild(classCard(c)); });
+    wrap.appendChild(row);
+    var up = document.createElement("a");
+    up.className = "nx-upd";
+    up.href = "#updates";
+    up.innerHTML = '<span class="nx-ui">' + nxIco("mega") + '</span><b>CBSE Updates</b><span class="nx-ut">Latest circulars, date sheets, sample papers and more</span><span class="nx-uv">View all →</span>';
+    wrap.appendChild(up);
     return wrap;
   }
 
