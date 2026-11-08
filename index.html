@@ -720,6 +720,59 @@ footer{border-top:1px dashed rgba(255,255,255,.14)}
 .nz-big:disabled{opacity:.4;cursor:not-allowed}
 .nz-back{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:8px 0 6px;color:var(--paper-dim);font:700 13px var(--body);text-transform:uppercase;letter-spacing:.06em}
 @media (max-width:760px){.nz-card{flex-basis:220px}.nz-bill{padding:22px 18px}}
+
+/* ---------- Home landing (notebook cards) ---------- */
+body.nz-landing .billboard, body.nz-landing .classbar, body.nz-landing .story{display:none !important}
+.nzh-home{padding:18px 16px 8px;max-width:1100px;margin:0 auto;box-sizing:border-box}
+.nzh-login{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;background:#111;border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:0 0 26px;color:var(--paper)}
+.nzh-login h2{font:400 26px/1 var(--display);margin:0 0 6px}
+.nzh-login p{margin:0;color:var(--paper-dim);font:500 14px/1.45 var(--body);max-width:520px}
+.nzh-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:26px;padding:6px 0 10px}
+.nzh-card{perspective:1200px;height:340px;cursor:pointer}
+.nzh-in{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.nzh-card.is-flip .nzh-in{transform:rotateY(180deg)}
+.nzh-card.nzh-out{transition:transform .45s ease,opacity .45s ease;transform:translate3d(0,-24px,-260px) rotateX(38deg) scale(.82);opacity:0}
+.nzh-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:6px 16px 16px 6px;overflow:hidden;box-shadow:0 22px 44px rgba(0,0,0,.55),0 0 0 1px rgba(0,0,0,.25);display:flex;flex-direction:column}
+.nzh-front{background:#fffdf5;color:#1b1b1b}
+.nzh-front::before{content:"";position:absolute;left:0;top:0;bottom:0;width:26px;background:repeating-linear-gradient(to bottom,#2a2a2a 0 14px,#fffdf5 14px 26px);border-right:2px solid rgba(0,0,0,.25);z-index:2}
+.nzh-front::after{content:"";position:absolute;inset:0 0 0 26px;background:repeating-linear-gradient(to bottom,transparent 0 31px,#cdd9ea 31px 32px);pointer-events:none;opacity:.8}
+.nzh-cover{position:relative;z-index:1;margin-left:26px;padding:20px 20px 18px;border-bottom:4px solid #141414}
+.t-red .nzh-cover{background:linear-gradient(135deg,#e0262b,#9e1217);color:#fff}
+.t-ink .nzh-cover{background:linear-gradient(135deg,#202020,#050505);color:#fff;border-bottom-color:#e0262b}
+.t-gold .nzh-cover{background:linear-gradient(135deg,#ffd76a,#e8a92b);color:#141414}
+.nzh-kick{display:inline-block;font:700 11px var(--body);letter-spacing:.14em;text-transform:uppercase;opacity:.85}
+.nzh-cover h2{font:400 46px/1 var(--display);margin:10px 0 0;letter-spacing:.01em}
+.nzh-body{position:relative;z-index:1;margin-left:26px;padding:22px 20px;display:flex;flex-direction:column;gap:14px;flex:1}
+.nzh-body p{margin:0;font:600 15px/1.5 var(--body);color:#2b2b2b}
+.nzh-tap{align-self:flex-start;margin-top:auto;background:#141414;color:#fff;font:700 12px var(--body);letter-spacing:.06em;padding:8px 12px;border-radius:999px;text-transform:uppercase;transform:rotate(-2deg)}
+.nzh-front{transition:visibility 0s linear .4s}
+.nzh-card.is-flip .nzh-front{visibility:hidden;pointer-events:none}
+.nzh-back{visibility:hidden;transition:visibility 0s linear .4s}
+.nzh-card.is-flip .nzh-back{visibility:visible;transition-delay:0s}
+.nzh-back{transform:rotateY(180deg);background:#fffdf5;color:#1b1b1b;padding:0 0 0 26px}
+.nzh-back::before{content:"";position:absolute;left:0;top:0;bottom:0;width:26px;background:repeating-linear-gradient(to bottom,#2a2a2a 0 14px,#fffdf5 14px 26px);z-index:2}
+.nzh-back::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(to bottom,transparent 0 31px,#cdd9ea 31px 32px);pointer-events:none}
+.nzh-backhead{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:18px 18px 12px 34px;border-bottom:2px solid #e0262b;font:400 26px/1 var(--display)}
+.nzh-back .nzh-x{background:#141414;color:#fff;border:0;border-radius:999px;width:34px;height:34px;font:700 20px/1 var(--body);cursor:pointer}
+.nzh-list{position:relative;z-index:1;display:flex;flex-direction:column;gap:9px;padding:14px 16px 16px 34px;overflow:auto}
+.nzh-tile{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;background:#fff;border:1px solid #d7d0c0;border-left:5px solid #e0262b;border-radius:8px;padding:10px 12px;cursor:pointer;color:#141414;box-shadow:0 3px 8px rgba(0,0,0,.12);transition:transform .15s ease,box-shadow .15s ease}
+.nzh-tile:hover{transform:translateX(4px) rotate(-.4deg);box-shadow:0 8px 16px rgba(0,0,0,.18)}
+.nzh-tile strong{font:700 15px var(--body)}
+.nzh-tile small{font:600 12px var(--body);color:#666}
+.nzh-tile.is-off{opacity:.45;cursor:not-allowed;border-left-color:#999}
+.nzh-tile.is-off:hover{transform:none;box-shadow:0 3px 8px rgba(0,0,0,.12)}
+.nzh-hint{margin:6px 2px 0;color:var(--paper-dim);font:600 13px var(--body)}
+.nzh-panel{perspective:1200px;max-width:900px;margin:0 auto;background:#0d0d0d;border:1px solid var(--line);border-radius:16px;padding:20px 20px 22px}
+.nzh-panel.nzh-enter{animation:nzhIn .75s cubic-bezier(.2,.7,.2,1) both;transform-origin:50% 0}
+@keyframes nzhIn{from{opacity:0;transform:perspective(1200px) rotateX(-55deg) translate3d(0,40px,-120px) scale(.92)}to{opacity:1;transform:none}}
+.nzh-panelhead{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.nzh-panelhead h3{margin:0;font:400 30px/1 var(--display);color:var(--paper)}
+.nzh-chip{background:transparent;border:1px solid var(--line);color:var(--paper-dim);border-radius:999px;padding:8px 14px;font:700 12px var(--body);text-transform:uppercase;letter-spacing:.06em;cursor:pointer}
+.nzh-subj{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.nzh-subj .nzh-tile{padding:16px 16px 14px}
+.nzh-subj .nzh-tile strong{font:400 22px/1.1 var(--display)}
+@media (prefers-reduced-motion:reduce){.nzh-in,.nzh-card.nzh-out,.nzh-tile,.nzh-panel.nzh-enter{transition:none !important;animation:none !important}}
+@media (max-width:560px){.nzh-card{height:320px}.nzh-cover h2{font-size:40px}.nzh-grid{gap:18px}}
 </style>
 </head>
 <body>
@@ -2344,9 +2397,9 @@ CHAPTERS.forEach(function(c){
     host.textContent = "";
     var shown = 0;
 
+    document.body.classList.toggle("nz-landing", !activeSubject && !filter);
     if(!activeSubject && !filter){
       host.appendChild(homeView());
-      if(cloudUid) host.appendChild(progressPanel());
       var cm0 = document.getElementById("countMeta");
       if(cm0) cm0.textContent = NOTES.length + " notes";
       return;
@@ -2894,38 +2947,127 @@ CHAPTERS.forEach(function(c){
     sec.appendChild(track);
     return sec;
   }
+  /* ---------- Home landing: login card, notebook class cards that flip, stream -> subjects in 3D ---------- */
+  var homeFlip = "", homeStreamCl = "", homeStream = "", homeMoved = false;
+  var CLASS_CARDS = [
+    { cl:"IX",  name:"Class 9",  sub:"Science · Maths · English · SST · Hindi", tone:"t-red" },
+    { cl:"X",   name:"Class 10", sub:"Science · Maths · English · SST · Hindi", tone:"t-ink" },
+    { cl:"XI",  name:"Class 11", sub:"Commerce · Science · Humanities",         tone:"t-gold" },
+    { cl:"XII", name:"Class 12", sub:"Commerce · Science · Humanities",         tone:"t-red" }
+  ];
+  function homeSubjectsFor(cl){
+    var out = [];
+    NOTES.forEach(function(e){ if(e.chapter.cls === cl && out.indexOf(e.chapter.subject) < 0) out.push(e.chapter.subject); });
+    return out;
+  }
+  function countLabel(n){ return n ? n + (n === 1 ? " chapter" : " chapters") : "Coming soon"; }
+  function loginCard(){
+    var d = document.createElement("div");
+    d.className = "nzh-login";
+    d.innerHTML = '<div><h2>Save your reading</h2><p>Sign in once and your progress, XP and last note follow you to every device.</p></div>'
+      + '<button type="button" class="btn btn-red">Sign in with Google</button>';
+    d.querySelector("button").addEventListener("click", function(){
+      var a = document.getElementById("acct"), w = document.getElementById("acctWrap");
+      if(a && w && !w.hidden){ a.click(); } else { location.href = "login.html"; }
+    });
+    return d;
+  }
+  function flipOpen(cl, card){
+    document.querySelectorAll(".nzh-card.is-flip").forEach(function(x){ if(x !== card) x.classList.remove("is-flip"); });
+    card.classList.add("is-flip");
+    homeFlip = cl;
+  }
+  function flipClose(card){
+    card.classList.remove("is-flip");
+    homeFlip = "";
+  }
+  function homeCard(c){
+    var card = document.createElement("div");
+    card.className = "nzh-card " + c.tone + (homeFlip === c.cl ? " is-flip" : "");
+    card.innerHTML = '<div class="nzh-in">'
+      + '<div class="nzh-face nzh-front">'
+      +   '<div class="nzh-cover"><span class="nzh-kick">C&amp;S Notes</span><h2>' + esc(c.name) + '</h2></div>'
+      +   '<div class="nzh-body"><p>' + esc(c.sub) + '</p><span class="nzh-tap">Tap to open ↗</span></div>'
+      + '</div>'
+      + '<div class="nzh-face nzh-back">'
+      +   '<div class="nzh-backhead"><b>' + esc(c.name) + '</b><button type="button" class="nzh-x" aria-label="Close">×</button></div>'
+      +   '<div class="nzh-list"></div>'
+      + '</div>'
+      + '</div>';
+    var list = card.querySelector(".nzh-list");
+    if(c.cl === "IX" || c.cl === "X"){
+      homeSubjectsFor(c.cl).forEach(function(name){
+        var n = subjectCount(name, c.cl);
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "nzh-tile" + (n ? "" : " is-off");
+        b.disabled = !n;
+        b.innerHTML = '<strong>' + esc(name) + '</strong><small>' + esc(countLabel(n)) + '</small>';
+        b.addEventListener("click", function(){ pickedClass = c.cl; savePick(); pickSubject(name); });
+        list.appendChild(b);
+      });
+    } else {
+      STREAMS.filter(function(st){ return st.key !== "Classes VI to X"; }).forEach(function(st){
+        var has = streamSubjects(st).some(function(s){ return subjectCount(s.name, c.cl) > 0; });
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "nzh-tile" + (has ? "" : " is-off");
+        b.disabled = !has;
+        b.innerHTML = '<strong>' + esc(st.key) + '</strong><small>' + esc(has ? st.sub : "Coming soon") + '</small>';
+        b.addEventListener("click", function(){
+          pickedClass = c.cl; pickedStream = st.key; savePick();
+          homeStreamCl = c.cl; homeStream = st.key;
+          card.classList.add("nzh-out");
+          setTimeout(function(){ homeMoved = true; render(); }, 460);
+        });
+        list.appendChild(b);
+      });
+    }
+    card.querySelector(".nzh-front").addEventListener("click", function(){ flipOpen(c.cl, card); });
+    card.querySelector(".nzh-x").addEventListener("click", function(e){ e.stopPropagation(); flipClose(card); });
+    return card;
+  }
+  function subjectPanel(cl, st, enter){
+    var p = document.createElement("div");
+    p.className = "nzh-panel" + (enter ? " nzh-enter" : "");
+    p.innerHTML = '<div class="nzh-panelhead"><h3>Class ' + esc(cl) + ' · ' + esc(st.key) + '</h3>'
+      + '<button type="button" class="nzh-chip">← Change stream</button></div><div class="nzh-subj"></div>';
+    p.querySelector(".nzh-chip").addEventListener("click", function(){
+      homeStreamCl = ""; homeStream = ""; homeFlip = ""; render();
+    });
+    var grid = p.querySelector(".nzh-subj");
+    streamSubjects(st).forEach(function(s){
+      var n = subjectCount(s.name, cl);
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "nzh-tile" + (n ? "" : " is-off");
+      b.disabled = !n;
+      b.innerHTML = '<strong>' + esc(s.name) + '</strong><small>' + esc(countLabel(n)) + '</small>';
+      b.addEventListener("click", function(){ pickedClass = cl; savePick(); pickSubject(s.name); });
+      grid.appendChild(b);
+    });
+    return p;
+  }
   function homeView(){
     var wrap = document.createElement("div");
-    wrap.className = "nz-home";
-    // step 1-3 first: class, stream, subject
-    wrap.appendChild(pickerView());
-    var newSec = newSection();
-    if(newSec) wrap.appendChild(newSec);
+    wrap.className = "nzh-home";
+    if(!cloudUid) wrap.appendChild(loginCard());
 
-    // billboard: the most reopened note across the rows
-    var best = null, bestOpens = -1;
-    TRENDING_ROWS.forEach(function(r){
-      var t = trendingNotes(r.cls, r.subject)[0];
-      if(t && (P.opens[t.id] || 0) > bestOpens){ best = t; bestOpens = P.opens[t.id] || 0; }
-    });
-    if(!best){ best = trendingNotes("XII", "Business Studies")[0]; }
-    if(best){
-      var bill = document.createElement("div");
-      bill.className = "nz-bill";
-      bill.innerHTML = '<span class="nz-kicker">' + (bestOpens > 0 ? 'Most reopened' : 'Start here') + ' · Class ' + esc(best.chapter.cls) + ' ' + esc(best.chapter.subject) + '</span>'
-        + '<h2>' + esc(best.title) + '</h2>'
-        + '<p>' + esc(best.chapter.title) + ' · Note ' + esc(best.no) + '</p>';
-      var go1 = document.createElement("button");
-      go1.type = "button";
-      go1.className = "btn btn-light btn-lg";
-      go1.textContent = "▶ Read now";
-      go1.addEventListener("click", function(){ openNote(best); });
-      bill.appendChild(go1);
-      wrap.appendChild(bill);
+    var st = homeStreamCl && homeStream ? streamObj(homeStream) : null;
+    if(st){
+      var enter = homeMoved;
+      homeMoved = false;
+      wrap.appendChild(subjectPanel(homeStreamCl, st, enter));
+      return wrap;
     }
-
-    wrap.appendChild(xpBoardView());
-
+    var grid = document.createElement("div");
+    grid.className = "nzh-grid";
+    CLASS_CARDS.forEach(function(c){ grid.appendChild(homeCard(c)); });
+    wrap.appendChild(grid);
+    var hint = document.createElement("p");
+    hint.className = "nzh-hint";
+    hint.textContent = "Tap a class to open its notebook. Classes XI and XII open with a stream first.";
+    wrap.appendChild(hint);
     return wrap;
   }
 
