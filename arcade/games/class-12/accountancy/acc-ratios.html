@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Ratio Factory</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"></head>
+<body><div id="nfa"></div>
+<script src="../../../shared/arcade.js"></script>
+<script>
+/* RATIO FACTORY: Class 12 Accountancy, Chapter 9 Accounting Ratios.
+   Four shifts (liquidity, solvency, activity, profitability). Each customer order wants a ratio in a target
+   band. You get a few transactions to push Pearl Textiles' figures into the band. Every order restarts from the
+   same balance sheet, so each order is a puzzle with a real answer. */
+var PRE = 20000;
+var BASE = {CA:800000, CL:400000, INV:300000, DEBT:600000, EQ:1400000, REV:3000000, NP:240000, COGS:2100000};
+var SECTIONS = [
+ {key:'liq', part:'ratios-p1', name:'Liquidity shift', moves:4,
+  moves_:[
+  {n:'Buy goods on credit ₹1,00,000', d:function(s){s.CA+=1e5;s.CL+=1e5;s.INV+=1e5},
+   w:'Inventory (a current asset) and trade payables (a current liability) rise equally, so the ratio moves towards 1. Quick assets do not rise because the new stock is inventory.'},
+  {n:'Pay trade payables ₹1,00,000', d:function(s){s.CA-=1e5;s.CL-=1e5},
+   w:'Cash and current liabilities fall by the same amount. When the ratio is above 1, equal cuts push it up.'},
+  {n:'Sell goods for cash at cost ₹80,000', d:function(s){s.INV-=8e4},
+   w:'Cash replaces inventory, so current assets stay the same, but quick assets rise because less is deducted as inventory.'},
+  {n:'Sell old machinery for cash ₹60,000', d:function(s){s.CA+=6e4},
+   w:'Only the cash enters current assets. Machinery is non-current and no current liability changes.'},
+  {n:'Buy machinery for cash ₹60,000', d:function(s){s.CA-=6e4},
+   w:'Cash leaves current assets while current liabilities stay the same.'},
+  {n:'Take a short-term loan ₹1,00,000', d:function(s){s.CA+=1e5;s.CL+=1e5},
+   w:'Cash and short-term borrowings rise equally, so the ratio moves towards 1.'},
+  {n:'Collect ₹50,000 from debtors', d:function(s){},
+   w:'One current (and quick) asset replaces another, so no ratio changes.'}],
+  orders:[{m:'cr',lo:2.2,hi:2.5},{m:'cr',lo:1.6,hi:1.9},{m:'qr',lo:1.35,hi:1.5},{m:'qr',lo:0.9,hi:1.0}]},
+ {key:'sol', part:'ratios-p2', name:'Solvency shift', moves:4,
+  moves_:[
+  {n:'Issue debentures for cash ₹2,00,000', d:function(s){s.DEBT+=2e5;s.CA+=2e5},
+   w:'Long-term debt rises, shareholders\' funds do not, so debt-equity rises.'},
+  {n:'Redeem debentures ₹1,00,000', d:function(s){s.DEBT-=1e5;s.CA-=1e5},
+   w:'Long-term debt falls, shareholders\' funds do not, so debt-equity falls.'},
+  {n:'Issue equity shares for cash ₹2,00,000', d:function(s){s.EQ+=2e5;s.CA+=2e5},
+   w:'Shareholders\' funds rise, debt does not, so debt-equity falls.'},
+  {n:'Retain profit in reserves ₹1,00,000', d:function(s){s.EQ+=1e5},
+   w:'Reserves are part of shareholders\' funds, so equity rises and debt-equity falls.'},
+  {n:'Pay a dividend ₹1,00,000', d:function(s){s.EQ-=1e5;s.CA-=1e5},
+   w:'Reserves fall, so shareholders\' funds fall and debt-equity rises.'},
+  {n:'Transfer to general reserve ₹50,000', d:function(s){},
+   w:'Moving profit from one reserve to another leaves shareholders\' funds unchanged.'}],
+  orders:[{m:'de',lo:0.30,hi:0.36},{m:'de',lo:0.50,hi:0.60},{m:'de',lo:0.28,hi:0.32}]},
+ {key:'act', part:'ratios-p3', name:'Activity shift', moves:3,
+  moves_:[
+  {n:'Clearance sale for cash at cost ₹60,000', d:function(s){s.INV-=6e4;s.CA+=0},
+   w:'Closing inventory falls while cost of revenue stays the same, so inventory turnover rises.'},
+  {n:'Buy stock for cash ₹60,000', d:function(s){s.INV+=6e4},
+   w:'Closing inventory rises, so the same cost of revenue is spread over more stock and turnover falls.'},
+  {n:'Clearance sale for cash at cost ₹90,000', d:function(s){s.INV-=9e4},
+   w:'A larger clearance cuts inventory more, so turnover rises more.'},
+  {n:'Buy stock on credit ₹30,000', d:function(s){s.INV+=3e4},
+   w:'Extra stock lowers turnover a little.'},
+  {n:'Pay a creditor ₹50,000', d:function(s){},
+   w:'Inventory and cost of revenue do not change, so inventory turnover does not change.'}],
+  orders:[{m:'itr',lo:8.5,hi:9.5},{m:'itr',lo:5.5,hi:6.0},{m:'itr',lo:10,hi:11}]},
+ {key:'pro', part:'ratios-p4', name:'Profitability shift', moves:3,
+  moves_:[
+  {n:'Cut office expenses ₹40,000', d:function(s){s.NP+=4e4},
+   w:'Lower expenses raise net profit while revenue is unchanged, so the net profit ratio rises.'},
+  {n:'Extra advertising ₹30,000', d:function(s){s.NP-=3e4},
+   w:'Higher expenses lower net profit while revenue is unchanged, so the net profit ratio falls.'},
+  {n:'Pay extra salaries ₹60,000', d:function(s){s.NP-=6e4},
+   w:'Net profit falls by a larger amount, so the ratio falls more.'},
+  {n:'Raise selling price (revenue +₹1,00,000)', d:function(s){s.REV+=1e5;s.NP+=1e5},
+   w:'Revenue and profit both rise by the same amount. A ratio below 100% rises when the same amount is added to numerator and denominator.'},
+  {n:'Sell more at a thin margin (revenue +₹2,00,000, profit +₹10,000)', d:function(s){s.REV+=2e5;s.NP+=1e4},
+   w:'Revenue rises a lot but profit rises very little, so the net profit ratio falls.'}],
+  orders:[{m:'npr',lo:9,hi:10},{m:'npr',lo:6.5,hi:7.5},{m:'npr',lo:10,hi:11}]}
+];
+var METRIC = {
+ cr:{label:'Current ratio',f:function(s){return s.CA/s.CL},u:' : 1'},
+ qr:{label:'Quick ratio',f:function(s){return (s.CA-s.INV-PRE)/s.CL},u:' : 1'},
+ de:{label:'Debt-equity ratio',f:function(s){return s.DEBT/s.EQ},u:' : 1'},
+ itr:{label:'Inventory turnover',f:function(s){return s.COGS/s.INV},u:' times'},
+ npr:{label:'Net profit ratio',f:function(s){return s.NP/s.REV*100},u:' %'}
+};
+var INR = function(n){return Math.round(n).toLocaleString('en-IN')};
+var r2 = function(x){return Math.round(x*100)/100};
+var dist = function(v,o){v=r2(v);return v<o.lo?o.lo-v:v>o.hi?v-o.hi:0};
+
+NFA.boot({
+ chapterId:'acc-ratios', genre:'Build Your Machine', title:'Ratio Factory',
+ tagline:'Pearl Textiles Ltd is your factory. Customers order a ratio. Use transactions to deliver it.',
+ howto:['Each order asks for a ratio between two values, for example "Current ratio between 2.2 and 2.5".',
+        'Pick a transaction. The ratio dial moves and you see why. You have a few moves per order.',
+        'Every order starts from the same Pearl Textiles balance sheet, so think before you tap.',
+        'Deliver 13 orders across four shifts. Three missed orders shut the factory.'],
+ concepts:{liq:{label:'Liquidity ratios: effect of transactions',part:'ratios-p1'},
+           sol:{label:'Solvency ratios: debt-equity',part:'ratios-p2'},
+           act:{label:'Activity ratios: inventory turnover',part:'ratios-p3'},
+           pro:{label:'Profitability ratios: net profit ratio',part:'ratios-p4'}},
+ start:function(ctx){
+  var sec=0, oi=0, S, left, strikes=0, shipped=0, combo=1, stage=ctx.root, lock=false;
+  var box=NFA.el('div','nfa-screen'); stage.appendChild(box);
+  function order(){return SECTIONS[sec].orders[oi]}
+  function val(){return METRIC[order().m].f(S)}
+  function startOrder(){S=JSON.parse(JSON.stringify(BASE)); left=SECTIONS[sec].moves; lock=false; draw(null)}
+  function hud(){ctx.setHud({Shift:(sec+1)+'/4',Strikes:strikes+'/3',Combo:'×'+combo,Shipped:shipped+'/13'})}
+  function draw(msg){
+    hud(); var o=order(), M=METRIC[o.m], v=val(), sc=SECTIONS[sec];
+    var maxv={cr:3,qr:2.5,de:1,itr:14,npr:14}[o.m], pos=function(x){return Math.max(0,Math.min(100,x/maxv*100))};
+    box.innerHTML='<span class="nfa-eyebrow">'+sc.name+' · order '+(oi+1)+' of '+sc.orders.length+'</span>'+
+     '<div class="nfa-card"><div style="font:900 22px system-ui;color:var(--y)">Deliver: '+M.label+' between '+o.lo+' and '+o.hi+M.u+'</div>'+
+     '<div style="position:relative;height:20px;border-radius:99px;background:#0007;margin:26px 0 8px"><div style="position:absolute;top:0;bottom:0;left:'+pos(o.lo)+'%;width:'+(pos(o.hi)-pos(o.lo))+'%;background:#3df0a688;border-radius:99px"></div><div style="position:absolute;top:-7px;width:6px;height:34px;background:var(--c);border-radius:3px;left:calc('+pos(v)+'% - 3px);transition:left .5s"></div></div>'+
+     '<div style="font:900 30px system-ui">'+r2(v).toFixed(2)+M.u+'</div>'+
+     '<p class="nfa-mute" style="margin:6px 0 0">Current assets ₹'+INR(S.CA)+' · Current liabilities ₹'+INR(S.CL)+' · Inventories ₹'+INR(S.INV)+' · Debt ₹'+INR(S.DEBT)+' · Shareholders\' funds ₹'+INR(S.EQ)+' · Revenue ₹'+INR(S.REV)+' · Net profit ₹'+INR(S.NP)+' · Cost of revenue ₹'+INR(S.COGS)+'</p></div>'+
+     '<div class="nfa-card"><b>Pick a transaction</b> · moves left: '+left+'<div id="mv" style="display:grid;gap:8px;margin-top:8px"></div></div>'+
+     '<div class="nfa-card" id="fb">'+(msg||'Choose a transaction.')+'</div>';
+    var mv=box.querySelector('#mv');
+    sc.moves_.forEach(function(m,i){var b=NFA.el('button','nfa-btn alt',NFA.esc(m.n));b.style.textAlign='left';b.disabled=lock||left<=0;b.onclick=function(){go(i)};mv.appendChild(b)});
+  }
+  function go(i){
+    if(lock||ctx.isPaused())return; var sc=SECTIONS[sec], m=sc.moves_[i], o=order(), d0=dist(val(),o);
+    m.d(S); left--; var v=val(), d1=dist(v,o), ok=(d1<d0)||(d0===0&&d1===0), inband=d1===0;
+    var tip=ok?'✅ Right direction. ':'❌ That did not help. ';
+    ctx.record(sc.key, ok);
+    if(inband){
+      var pts=100*combo; ctx.addScore(pts); combo++; shipped++; lock=true;
+      draw(tip+'<b>Delivered! +'+pts+'.</b> '+m.w); next(); return;
+    }
+    if(!ok) combo=1;
+    if(left===0){strikes++; combo=1; lock=true; draw(tip+'Out of moves: order missed. '+m.w); next(); return;}
+    draw(tip+m.w);
+  }
+  function next(){
+    hud(); var fb=box.querySelector('#fb'); var b=NFA.el('button','nfa-btn',strikes>=3?'Factory shut down':'Next order ▶'); b.style.marginTop='10px'; fb.appendChild(b);
+    b.onclick=function(){
+      if(strikes>=3){ctx.finish(false);return}
+      oi++; if(oi>=SECTIONS[sec].orders.length){sec++;oi=0; if(sec>=SECTIONS.length){ctx.finish(true);return}}
+      startOrder();
+    };
+  }
+  startOrder();
+ }
+});
+</script></body></html>

@@ -1,0 +1,1273 @@
+{
+ "version": 1,
+ "games": [
+  {
+   "chapterId": "ent-u6",
+   "class": "XII",
+   "subject": "Entrepreneurship",
+   "num": "6",
+   "chapter": "Resource Mobilization",
+   "gameId": "19",
+   "genre": "Escape Room",
+   "mechanic": "Unlock funding sources",
+   "status": "planned",
+   "file": "arcade/games/class-12/entrepreneurship/ent-u6.html",
+   "episodes": [
+    {
+     "id": "ent-resource-mob",
+     "title": "Resource Mobilization: Revision Walkthrough"
+    }
+   ]
+  },
+  {
+   "chapterId": "ch02",
+   "class": "XII",
+   "subject": "Business Studies",
+   "num": "2",
+   "chapter": "Principles of Management",
+   "gameId": "19",
+   "genre": "Escape Room",
+   "mechanic": "Principles as locked doors",
+   "status": "planned",
+   "file": "arcade/games/class-12/business-studies/ch02.html",
+   "episodes": [
+    {
+     "id": "fayol-1",
+     "title": "Fayol's Principles \u2014 Part 1"
+    },
+    {
+     "id": "fayol-2",
+     "title": "Fayol's Principles \u2014 Part 2"
+    },
+    {
+     "id": "taylor",
+     "title": "Taylor's Scientific Management"
+    },
+    {
+     "id": "mgmt-cases",
+     "title": "Case Study Practice"
+    }
+   ]
+  },
+  {
+   "chapterId": "ch03",
+   "class": "XII",
+   "subject": "Business Studies",
+   "num": "3",
+   "chapter": "Business Environment",
+   "gameId": "09",
+   "genre": "City Builder",
+   "mechanic": "Survive PESTLE shocks",
+   "status": "planned",
+   "file": "arcade/games/class-12/business-studies/ch03.html",
+   "episodes": [
+    {
+     "id": "biz-env",
+     "title": "Business Environment in 3D"
+    }
+   ]
+  },
+  {
+   "chapterId": "ch04",
+   "class": "XII",
+   "subject": "Business Studies",
+   "num": "4",
+   "chapter": "Planning",
+   "gameId": "05",
+   "genre": "Space Mission",
+   "mechanic": "Plan a mission step by step",
+   "status": "planned",
+   "file": "arcade/games/class-12/business-studies/ch04.html",
+   "episodes": [
+    {
+     "id": "planning",
+     "title": "Planning in 3D"
+    },
+    {
+     "id": "types-of-plans",
+     "title": "Types of Plans"
+    }
+   ]
+  },
+  {
+   "chapterId": "ch05",
+   "class": "XII",
+   "subject": "Business Studies",
+   "num": "5",
+   "chapter": "Organising",
+   "gameId": "20",
+   "genre": "Build Your Machine",
+   "mechanic": "Assemble an org chart",
+   "status": "planned",
+   "file": "arcade/games/class-12/business-studies/ch05.html",
+   "episodes": [
+    {
+     "id": "organising-1",
+     "title": "Part 1 \u2014 The Organising Arc"
+    },
+    {
+     "id": "organising-2",
+     "title": "Part 2 \u2014 The Structure Arc"
+    },
+    {
+     "id": "organising-3",
+     "title": "Part 3 \u2014 The Power Arc"
+    }
+   ]
+  },
+  {
+   "chapterId": "ch06",
+   "class": "XII",
+   "subject": "Business Studies",
+   "num": "6",
+   "chapter": "Staffing",
+   "gameId": "18",
+   "genre": "Tower Defence Academy",
+   "mechanic": "Selection funnel",
+   "status": "planned",
+   "file": "arcade/games/class-12/business-studies/ch06.html",
+   "episodes": [
+    {
+     "id": "staffing-1",
+     "title": "Part 1 \u2014 Find the Right Crew"
+    },
+    {
+     "id": "staffing-2",
+     "title": "Part 2 \u2014 The Great Filter"
+    },
+    {
+     "id": "staffing-3",
+     "title": "Part 3 \u2014 Grow, Assess, Reward"
+    }
+   ]
+  },
+  {
+   "chapterId": "ch07",
+   "class": "XII",
+   "subject": "Business Studies",
+   "num": "7",
+   "chapter": "Directing",
+   "gameId": "15",
+   "genre": "Sports Champion",
+   "mechanic": "Captain: motivate and lead",
+   "status": "planned",
+   "file": "arcade/games/class-12/business-studies/ch07.html",
+   "episodes": [
+    {
+     "id": "directing-1",
+     "title": "Part 1 \u2014 The Captain's Call"
+    },
+    {
+     "id": "directing-2",
+     "title": "Part 2 \u2014 The Spark"
+    },
+    {
+     "id": "directing-3",
+     "title": "Part 3 \u2014 The Compass"
+    },
+    {
+     "id": "directing-4",
+     "title": "Part 4 \u2014 The Signal"
+    }
+   ]
+  },
+  {
+   "chapterId": "ch08",
+   "class": "XII",
+   "subject": "Business Studies",
+   "num": "8",
+   "chapter": "Controlling",
+   "gameId": "06",
+   "genre": "Formula Racing",
+   "mechanic": "Standards vs lap data, corrective pit stops",
+   "status": "planned",
+   "file": "arcade/games/class-12/business-studies/ch08.html",
+   "episodes": [
+    {
+     "id": "controlling-1",
+     "title": "Part 1 \u2014 The Reality Check"
+    },
+    {
+     "id": "controlling-2",
+     "title": "Part 2 \u2014 The Final Arc"
+    }
+   ]
+  },
+  {
+   "chapterId": "ch09",
+   "class": "XII",
+   "subject": "Business Studies",
+   "num": "9",
+   "chapter": "Financial Management",
+   "gameId": "07",
+   "genre": "Business Tycoon",
+   "mechanic": "Financing, investment and dividend decisions",
+   "status": "planned",
+   "file": "arcade/games/class-12/business-studies/ch09.html",
+   "episodes": [
+    {
+     "id": "fm-money-matters",
+     "title": "Money Matters"
+    },
+    {
+     "id": "fm-raise-share",
+     "title": "Raise It, Share It"
+    },
+    {
+     "id": "fm-plan-balance",
+     "title": "Plan and Balance"
+    },
+    {
+     "id": "fm-fixed-working",
+     "title": "Long and Short Money"
+    }
+   ]
+  },
+  {
+   "chapterId": "ch10",
+   "class": "XII",
+   "subject": "Business Studies",
+   "num": "10",
+   "chapter": "Financial Markets",
+   "gameId": "01",
+   "genre": "Knowledge Runner",
+   "mechanic": "Money and capital market lanes",
+   "status": "planned",
+   "file": "arcade/games/class-12/business-studies/ch10.html",
+   "episodes": [
+    {
+     "id": "fm-money-market",
+     "title": "Where Money Meets"
+    },
+    {
+     "id": "fm-capital-market",
+     "title": "The Capital Market"
+    },
+    {
+     "id": "fm-trading-demat",
+     "title": "Click, Trade, Settle"
+    },
+    {
+     "id": "fm-sebi",
+     "title": "The Market Watchdog"
+    },
+    {
+     "id": "fm-revision",
+     "title": "Financial Markets: Revision Walkthrough"
+    }
+   ]
+  },
+  {
+   "chapterId": "ch11",
+   "class": "XII",
+   "subject": "Business Studies",
+   "num": "11",
+   "chapter": "Marketing Management",
+   "gameId": "08",
+   "genre": "Supermarket Simulator",
+   "mechanic": "Marketing mix decisions",
+   "status": "planned",
+   "file": "arcade/games/class-12/business-studies/ch11.html",
+   "episodes": [
+    {
+     "id": "mm-video",
+     "title": "Chapter Video Guide"
+    },
+    {
+     "id": "philosophies",
+     "title": "Marketing Management Philosophies"
+    },
+    {
+     "id": "product",
+     "title": "Product, Branding, Packaging & Labelling"
+    },
+    {
+     "id": "price",
+     "title": "Price Mix"
+    },
+    {
+     "id": "place",
+     "title": "Place Mix"
+    },
+    {
+     "id": "promotion",
+     "title": "Promotion Mix"
+    },
+    {
+     "id": "mm-revision",
+     "title": "Quick Revision"
+    },
+    {
+     "id": "case-lab",
+     "title": "Case Lab \u2014 Marketing Masters"
+    }
+   ]
+  },
+  {
+   "chapterId": "ch12",
+   "class": "XII",
+   "subject": "Business Studies",
+   "num": "12",
+   "chapter": "Consumer Protection",
+   "gameId": "04",
+   "genre": "Detective Academy",
+   "mechanic": "Consumer complaints and forums",
+   "status": "planned",
+   "file": "arcade/games/class-12/business-studies/ch12.html",
+   "episodes": [
+    {
+     "id": "consumer-1",
+     "title": "Consumer Protection \u2014 Part 1"
+    },
+    {
+     "id": "consumer-2",
+     "title": "Consumer Protection \u2014 Part 2"
+    },
+    {
+     "id": "cp-practice",
+     "title": "Practice Lab"
+    }
+   ]
+  },
+  {
+   "chapterId": "acc-partnership",
+   "class": "XII",
+   "subject": "Accountancy",
+   "num": "1",
+   "chapter": "Partnership Fundamentals",
+   "gameId": "07",
+   "genre": "Business Tycoon",
+   "mechanic": "Three partners and a deed",
+   "status": "planned",
+   "file": "arcade/games/class-12/accountancy/acc-partnership.html",
+   "episodes": [
+    {
+     "id": "partnership-p1",
+     "title": "Partnership Fundamentals \u2014 Part 1"
+    },
+    {
+     "id": "partnership-p2",
+     "title": "Partnership Fundamentals \u2014 Part 2"
+    },
+    {
+     "id": "partnership-p3",
+     "title": "Partnership Fundamentals \u2014 Part 3"
+    },
+    {
+     "id": "partnership-p4",
+     "title": "Partnership Fundamentals \u2014 Part 4"
+    }
+   ]
+  },
+  {
+   "chapterId": "acc-goodwill",
+   "class": "XII",
+   "subject": "Accountancy",
+   "num": "2",
+   "chapter": "Goodwill",
+   "gameId": "04",
+   "genre": "Detective Academy",
+   "mechanic": "Value a firm from clues",
+   "status": "planned",
+   "file": "arcade/games/class-12/accountancy/acc-goodwill.html",
+   "episodes": [
+    {
+     "id": "goodwill-p1",
+     "title": "Goodwill \u2014 Part 1"
+    },
+    {
+     "id": "goodwill-p2",
+     "title": "Goodwill \u2014 Part 2"
+    }
+   ]
+  },
+  {
+   "chapterId": "acc-fs-company",
+   "class": "XII",
+   "subject": "Accountancy",
+   "num": "8",
+   "chapter": "Financial Statements of a Company and Their Analysis",
+   "gameId": "19",
+   "genre": "Escape Room",
+   "mechanic": "File items under Schedule III heads to open rooms",
+   "status": "planned",
+   "file": "arcade/games/class-12/accountancy/acc-fs-company.html",
+   "episodes": [
+    {
+     "id": "fs-company-p1",
+     "title": "Company Balance Sheet \u2014 Part 1"
+    },
+    {
+     "id": "fs-company-p2",
+     "title": "Statement of Profit and Loss \u2014 Part 2"
+    },
+    {
+     "id": "fs-company-p3",
+     "title": "Comparative Statements \u2014 Part 3"
+    },
+    {
+     "id": "fs-company-p4",
+     "title": "Common-size Statements \u2014 Part 4"
+    }
+   ]
+  },
+  {
+   "chapterId": "acc-ratios",
+   "class": "XII",
+   "subject": "Accountancy",
+   "num": "9",
+   "chapter": "Accounting Ratios",
+   "gameId": "20",
+   "genre": "Build Your Machine",
+   "mechanic": "Ratio Factory: tune transactions into target ratio bands",
+   "status": "ready",
+   "file": "arcade/games/class-12/accountancy/acc-ratios.html",
+   "episodes": [
+    {
+     "id": "ratios-p1",
+     "title": "Liquidity Ratios \u2014 Part 1"
+    },
+    {
+     "id": "ratios-p2",
+     "title": "Solvency Ratios \u2014 Part 2"
+    },
+    {
+     "id": "ratios-p3",
+     "title": "Activity Ratios \u2014 Part 3"
+    },
+    {
+     "id": "ratios-p4",
+     "title": "Profitability Ratios \u2014 Part 4"
+    }
+   ]
+  },
+  {
+   "chapterId": "ent-u1",
+   "class": "XII",
+   "subject": "Entrepreneurship",
+   "num": "1",
+   "chapter": "Entrepreneurial Opportunity",
+   "gameId": "04",
+   "genre": "Detective Academy",
+   "mechanic": "Spot market gaps from clues",
+   "status": "planned",
+   "file": "arcade/games/class-12/entrepreneurship/ent-u1.html",
+   "episodes": [
+    {
+     "id": "ent-opportunity",
+     "title": "The Opportunity Hunters"
+    }
+   ]
+  },
+  {
+   "chapterId": "ent-u2",
+   "class": "XII",
+   "subject": "Entrepreneurship",
+   "num": "2",
+   "chapter": "Enterprise Planning",
+   "gameId": "07",
+   "genre": "Business Tycoon",
+   "mechanic": "Business plan then year one",
+   "status": "planned",
+   "file": "arcade/games/class-12/entrepreneurship/ent-u2.html",
+   "episodes": [
+    {
+     "id": "ent-blueprint",
+     "title": "The Blueprint Begins"
+    },
+    {
+     "id": "ent-partners",
+     "title": "Partners and Companies"
+    },
+    {
+     "id": "ent-plan",
+     "title": "The Business Plan"
+    }
+   ]
+  },
+  {
+   "chapterId": "ent-u3",
+   "class": "XII",
+   "subject": "Entrepreneurship",
+   "num": "3",
+   "chapter": "Enterprise Marketing",
+   "gameId": "08",
+   "genre": "Supermarket Simulator",
+   "mechanic": "Brand, price, promote",
+   "status": "planned",
+   "file": "arcade/games/class-12/entrepreneurship/ent-u3.html",
+   "episodes": [
+    {
+     "id": "ent-compass",
+     "title": "The Marketing Compass"
+    },
+    {
+     "id": "ent-brand",
+     "title": "The Brand Studio"
+    },
+    {
+     "id": "ent-price",
+     "title": "Price, Place and the Sales Plan"
+    },
+    {
+     "id": "ent-promo",
+     "title": "Spread the Word"
+    }
+   ]
+  },
+  {
+   "chapterId": "ent-u4",
+   "class": "XII",
+   "subject": "Entrepreneurship",
+   "num": "4",
+   "chapter": "Enterprise Growth Strategies",
+   "gameId": "05",
+   "genre": "Space Mission",
+   "mechanic": "Expand to new markets",
+   "status": "planned",
+   "file": "arcade/games/class-12/entrepreneurship/ent-u4.html",
+   "episodes": [
+    {
+     "id": "ent-grow",
+     "title": "Grow or Die"
+    },
+    {
+     "id": "ent-value",
+     "title": "Add Value"
+    },
+    {
+     "id": "ent-join",
+     "title": "Join Forces"
+    }
+   ]
+  },
+  {
+   "chapterId": "ch14",
+   "class": "XI",
+   "subject": "Business Studies",
+   "num": "14",
+   "chapter": "International Business",
+   "gameId": "02",
+   "genre": "Concept Jumper",
+   "mechanic": "Platform through export/import procedure order",
+   "status": "planned",
+   "file": "arcade/games/class-11/business-studies/ch14.html",
+   "episodes": [
+    {
+     "id": "ib-1",
+     "title": "International Business \u2014 Part 1"
+    },
+    {
+     "id": "export-2",
+     "title": "Export Procedure \u2014 Part 2"
+    },
+    {
+     "id": "export-3",
+     "title": "Export Procedure \u2014 Part 3"
+    },
+    {
+     "id": "customs",
+     "title": "Customs Clearance \u2014 Step 13"
+    },
+    {
+     "id": "shipment-pay",
+     "title": "From Shipment to Payment \u2014 Steps 14\u201317"
+    },
+    {
+     "id": "import",
+     "title": "Import Trade Mission"
+    },
+    {
+     "id": "arena-ib",
+     "title": "Practice Arena"
+    },
+    {
+     "id": "trade-quest",
+     "title": "Trade Quest Practice"
+    }
+   ]
+  },
+  {
+   "chapterId": "xi-u1",
+   "class": "XI",
+   "subject": "Business Studies",
+   "num": "1",
+   "chapter": "Business, Trade and Commerce",
+   "gameId": "03",
+   "genre": "Chapter Quest",
+   "mechanic": "Trade route journey through eras",
+   "status": "planned",
+   "file": "arcade/games/class-11/business-studies/xi-u1.html",
+   "episodes": [
+    {
+     "id": "xi-what-is-business",
+     "title": "What Is Business?"
+    },
+    {
+     "id": "xi-objectives",
+     "title": "Objectives and Industry"
+    },
+    {
+     "id": "xi-commerce-risk",
+     "title": "Commerce and Business Risk"
+    },
+    {
+     "id": "xi-history-trade",
+     "title": "History of Trade in India"
+    }
+   ]
+  },
+  {
+   "chapterId": "xi-u2",
+   "class": "XI",
+   "subject": "Business Studies",
+   "num": "2",
+   "chapter": "Forms of Business Organisation",
+   "gameId": "07",
+   "genre": "Business Tycoon",
+   "mechanic": "Pick a business form, survive liability and capital events",
+   "status": "planned",
+   "file": "arcade/games/class-11/business-studies/xi-u2.html",
+   "episodes": [
+    {
+     "id": "xi-sole-huf",
+     "title": "Sole Proprietorship and HUF"
+    },
+    {
+     "id": "xi-partnership",
+     "title": "Partnership"
+    },
+    {
+     "id": "xi-cooperative",
+     "title": "Cooperative Societies"
+    },
+    {
+     "id": "xi-the-company",
+     "title": "The Company"
+    },
+    {
+     "id": "xi-formation",
+     "title": "Formation of a Company"
+    }
+   ]
+  },
+  {
+   "chapterId": "xi-u3",
+   "class": "XI",
+   "subject": "Business Studies",
+   "num": "3",
+   "chapter": "Public, Private and Global Enterprises",
+   "gameId": "09",
+   "genre": "City Builder",
+   "mechanic": "Allocate city budget across enterprise types",
+   "status": "planned",
+   "file": "arcade/games/class-11/business-studies/xi-u3.html",
+   "episodes": [
+    {
+     "id": "xi-public-sector",
+     "title": "Public Sector and Departmental Undertakings"
+    },
+    {
+     "id": "xi-statutory",
+     "title": "Statutory Corporations and Government Companies"
+    },
+    {
+     "id": "xi-global",
+     "title": "Global Enterprises"
+    },
+    {
+     "id": "xi-joint-ventures",
+     "title": "Joint Ventures and PPP"
+    },
+    {
+     "id": "xi-unit3-practice",
+     "title": "Unit 3 Practice Arena"
+    }
+   ]
+  },
+  {
+   "chapterId": "xi-u4",
+   "class": "XI",
+   "subject": "Business Studies",
+   "num": "4",
+   "chapter": "Business Services",
+   "gameId": "04",
+   "genre": "Detective Academy",
+   "mechanic": "Insurance claims investigator",
+   "status": "planned",
+   "file": "arcade/games/class-11/business-studies/xi-u4.html",
+   "episodes": [
+    {
+     "id": "xi-bank-accounts",
+     "title": "Business Services and Bank Accounts"
+    },
+    {
+     "id": "xi-digital-payments",
+     "title": "Banking Services and Digital Payments"
+    },
+    {
+     "id": "xi-insurance-principles",
+     "title": "Insurance Principles"
+    },
+    {
+     "id": "xi-insurance-types",
+     "title": "Types of Insurance and Postal Services"
+    },
+    {
+     "id": "xi-unit4-practice",
+     "title": "Unit 4 Practice Arena"
+    }
+   ]
+  },
+  {
+   "chapterId": "xi-u5",
+   "class": "XI",
+   "subject": "Business Studies",
+   "num": "5",
+   "chapter": "Emerging Modes of Business",
+   "gameId": "18",
+   "genre": "Tower Defence Academy",
+   "mechanic": "Defend an e-shop from cyber threats",
+   "status": "planned",
+   "file": "arcade/games/class-11/business-studies/xi-u5.html",
+   "episodes": [
+    {
+     "id": "xi-ebusiness-1",
+     "title": "E-Business: Concept and Benefits"
+    },
+    {
+     "id": "xi-ebusiness-2",
+     "title": "Scope of E-Business"
+    }
+   ]
+  },
+  {
+   "chapterId": "xi-u6",
+   "class": "XI",
+   "subject": "Business Studies",
+   "num": "6",
+   "chapter": "Social Responsibility and Business Ethics",
+   "gameId": "12",
+   "genre": "Story Designer",
+   "mechanic": "Branching ethics stories with stakeholder trust",
+   "status": "planned",
+   "file": "arcade/games/class-11/business-studies/xi-u6.html",
+   "episodes": [
+    {
+     "id": "xi-social-resp-1",
+     "title": "Concept and Case for Social Responsibility"
+    },
+    {
+     "id": "xi-social-resp-2",
+     "title": "Responsibility Towards Different Groups"
+    },
+    {
+     "id": "xi-social-resp-3",
+     "title": "Environment Protection and Business Ethics"
+    }
+   ]
+  },
+  {
+   "chapterId": "xi-u7",
+   "class": "XI",
+   "subject": "Business Studies",
+   "num": "7",
+   "chapter": "Sources of Business Finance",
+   "gameId": "06",
+   "genre": "Formula Racing",
+   "mechanic": "Fuel as funds: owners vs borrowed",
+   "status": "planned",
+   "file": "arcade/games/class-11/business-studies/xi-u7.html",
+   "episodes": [
+    {
+     "id": "xi-finance-1",
+     "title": "Business Finance: Owners\u2019 and Borrowed Funds"
+    },
+    {
+     "id": "xi-finance-2",
+     "title": "Equity, Retained Earnings and Preference Shares"
+    },
+    {
+     "id": "xi-finance-3",
+     "title": "GDR, ADR, IDR and Debentures"
+    },
+    {
+     "id": "xi-finance-4",
+     "title": "Loans, Deposits, Trade Credit and ICDs"
+    },
+    {
+     "id": "xi-unit7-practice",
+     "title": "Unit 7 Practice Arena"
+    }
+   ]
+  },
+  {
+   "chapterId": "xi-u8",
+   "class": "XI",
+   "subject": "Business Studies",
+   "num": "8",
+   "chapter": "Small Business and Enterprises",
+   "gameId": "08",
+   "genre": "Supermarket Simulator",
+   "mechanic": "Run a start-up kirana, unlock MSME benefits",
+   "status": "planned",
+   "file": "arcade/games/class-11/business-studies/xi-u8.html",
+   "episodes": [
+    {
+     "id": "xi-small-biz-1",
+     "title": "Entrepreneurship: Concept, Characteristics and Need"
+    },
+    {
+     "id": "xi-small-biz-2",
+     "title": "Startup India and Ways to Fund Start-ups"
+    },
+    {
+     "id": "xi-small-biz-3",
+     "title": "Intellectual Property Rights and Entrepreneurship"
+    },
+    {
+     "id": "xi-small-biz-4",
+     "title": "MSMEs, Role of Small Business, NSIC and DIC"
+    },
+    {
+     "id": "xi-unit8-practice",
+     "title": "Unit 8 Practice Arena"
+    }
+   ]
+  },
+  {
+   "chapterId": "xi-u9",
+   "class": "XI",
+   "subject": "Business Studies",
+   "num": "9",
+   "chapter": "Internal Trade",
+   "gameId": "20",
+   "genre": "Build Your Machine",
+   "mechanic": "Assemble a supply chain with GST credit flow",
+   "status": "planned",
+   "file": "arcade/games/class-11/business-studies/xi-u9.html",
+   "episodes": [
+    {
+     "id": "xi-internal-trade",
+     "title": "Internal Trade: Wholesale, Retail and GST"
+    }
+   ]
+  },
+  {
+   "chapterId": "eco12-ni",
+   "class": "XII",
+   "subject": "Economics",
+   "num": "1",
+   "chapter": "National Income and Related Aggregates",
+   "gameId": "09",
+   "genre": "City Builder",
+   "mechanic": "GDP by three methods",
+   "status": "planned",
+   "file": "arcade/games/class-12/economics/eco12-ni.html",
+   "episodes": [
+    {
+     "id": "eco12-ni-1",
+     "title": "Basic Concepts of Macroeconomics (Part 1)"
+    },
+    {
+     "id": "eco12-ni-2",
+     "title": "Circular Flow of Income (Part 2)"
+    },
+    {
+     "id": "eco12-ni-3",
+     "title": "National Income Aggregates (Part 3)"
+    },
+    {
+     "id": "eco12-ni-4",
+     "title": "Value Added Method (Part 4)"
+    },
+    {
+     "id": "eco12-ni-5",
+     "title": "Income and Expenditure Methods (Part 5)"
+    },
+    {
+     "id": "eco12-ni-6",
+     "title": "Real vs Nominal GDP and Welfare (Part 6)"
+    },
+    {
+     "id": "eco12-ni-7",
+     "title": "Revision: Tricky Items and PYQs (Part 7)"
+    }
+   ]
+  },
+  {
+   "chapterId": "eco12-budget",
+   "class": "XII",
+   "subject": "Economics",
+   "num": "4",
+   "chapter": "Government Budget and the Economy",
+   "gameId": "18",
+   "genre": "Tower Defence Academy",
+   "mechanic": "Defend the budget from deficits",
+   "status": "planned",
+   "file": "arcade/games/class-12/economics/eco12-budget.html",
+   "episodes": [
+    {
+     "id": "eco12-budget-1",
+     "title": "Budget: Meaning, Objectives and Components (Part 1)"
+    },
+    {
+     "id": "eco12-budget-2",
+     "title": "Budget Deficits (Part 2)"
+    }
+   ]
+  },
+  {
+   "chapterId": "eco12-income",
+   "class": "XII",
+   "subject": "Economics",
+   "num": "3",
+   "chapter": "Determination of Income and Employment",
+   "gameId": "06",
+   "genre": "Formula Racing",
+   "mechanic": "Throttle is aggregate demand, close the gaps",
+   "status": "planned",
+   "file": "arcade/games/class-12/economics/eco12-income.html",
+   "episodes": [
+    {
+     "id": "eco12-income-1",
+     "title": "Aggregate Demand and Propensities (Part 1)"
+    },
+    {
+     "id": "eco12-income-2",
+     "title": "Short-run Equilibrium Output (Part 2)"
+    },
+    {
+     "id": "eco12-income-3",
+     "title": "Investment Multiplier (Part 3)"
+    },
+    {
+     "id": "eco12-income-4",
+     "title": "Excess and Deficient Demand (Part 4)"
+    }
+   ]
+  },
+  {
+   "chapterId": "eco12-ied1",
+   "class": "XII",
+   "subject": "Economics",
+   "num": "6",
+   "chapter": "Development Experience 1947-90",
+   "gameId": "03",
+   "genre": "Chapter Quest",
+   "mechanic": "Plan eras and development choices",
+   "status": "planned",
+   "file": "arcade/games/class-12/economics/eco12-ied1.html",
+   "episodes": [
+    {
+     "id": "eco12-ied1-1",
+     "title": "Indian Economy on the Eve of Independence (Part 1)"
+    },
+    {
+     "id": "eco12-ied1-2",
+     "title": "Five Year Plans and Agriculture (Part 2)"
+    },
+    {
+     "id": "eco12-ied1-3",
+     "title": "Industry and Foreign Trade 1950-90 (Part 3)"
+    }
+   ]
+  },
+  {
+   "chapterId": "eco12-bop",
+   "class": "XII",
+   "subject": "Economics",
+   "num": "5",
+   "chapter": "Balance of Payments",
+   "gameId": "01",
+   "genre": "Knowledge Runner",
+   "mechanic": "BoP credit and debit lanes",
+   "status": "planned",
+   "file": "arcade/games/class-12/economics/eco12-bop.html",
+   "episodes": [
+    {
+     "id": "eco12-bop-1",
+     "title": "Balance of Payments Account (Part 1)"
+    },
+    {
+     "id": "eco12-bop-2",
+     "title": "Foreign Exchange Rate (Part 2)"
+    }
+   ]
+  },
+  {
+   "chapterId": "eco12-ied2",
+   "class": "XII",
+   "subject": "Economics",
+   "num": "8",
+   "chapter": "Current Challenges facing Indian Economy",
+   "gameId": "10",
+   "genre": "Farm Master",
+   "mechanic": "Rural development and sustainability",
+   "status": "planned",
+   "file": "arcade/games/class-12/economics/eco12-ied2.html",
+   "episodes": [
+    {
+     "id": "eco12-ied2-1",
+     "title": "Human Capital Formation (Part 1)"
+    },
+    {
+     "id": "eco12-ied2-2",
+     "title": "Rural Development (Part 2)"
+    },
+    {
+     "id": "eco12-ied2-3",
+     "title": "Employment (Part 3)"
+    },
+    {
+     "id": "eco12-ied2-4",
+     "title": "Sustainable Economic Development (Part 4)"
+    }
+   ]
+  },
+  {
+   "chapterId": "eco12-lpg",
+   "class": "XII",
+   "subject": "Economics",
+   "num": "7",
+   "chapter": "Economic Reforms since 1991",
+   "gameId": "04",
+   "genre": "Detective Academy",
+   "mechanic": "Investigate the 1991 crisis",
+   "status": "planned",
+   "file": "arcade/games/class-12/economics/eco12-lpg.html",
+   "episodes": [
+    {
+     "id": "eco12-lpg-1",
+     "title": "Liberalisation, Privatisation and Globalisation (Part 1)"
+    },
+    {
+     "id": "eco12-lpg-2",
+     "title": "Demonetisation and GST (Part 2)"
+    }
+   ]
+  },
+  {
+   "chapterId": "eco12-neighbours",
+   "class": "XII",
+   "subject": "Economics",
+   "num": "9",
+   "chapter": "India and its Neighbours",
+   "gameId": "19",
+   "genre": "Escape Room",
+   "mechanic": "Compare indicators to unlock rooms",
+   "status": "planned",
+   "file": "arcade/games/class-12/economics/eco12-neighbours.html",
+   "episodes": [
+    {
+     "id": "eco12-neighbours-1",
+     "title": "India, Pakistan and China Compared"
+    }
+   ]
+  },
+  {
+   "chapterId": "eco12-money",
+   "class": "XII",
+   "subject": "Economics",
+   "num": "2",
+   "chapter": "Money and Banking",
+   "gameId": "07",
+   "genre": "Business Tycoon",
+   "mechanic": "Run a bank: multiplier, CRR, repo",
+   "status": "planned",
+   "file": "arcade/games/class-12/economics/eco12-money.html",
+   "episodes": [
+    {
+     "id": "eco12-money-1",
+     "title": "Money: Meaning, Functions and Supply (Part 1)"
+    },
+    {
+     "id": "eco12-money-2",
+     "title": "Money Creation by Commercial Banks (Part 2)"
+    },
+    {
+     "id": "eco12-money-3",
+     "title": "Central Bank and Credit Control (Part 3)"
+    }
+   ]
+  },
+  {
+   "chapterId": "eco11-intro",
+   "class": "XI",
+   "subject": "Economics",
+   "num": "1",
+   "chapter": "Statistics: Introduction",
+   "gameId": "04",
+   "genre": "Detective Academy",
+   "mechanic": "Use data as evidence",
+   "status": "planned",
+   "file": "arcade/games/class-11/economics/eco11-intro.html",
+   "episodes": [
+    {
+     "id": "eco11-intro-1",
+     "title": "Meaning, Scope and Importance of Statistics"
+    }
+   ]
+  },
+  {
+   "chapterId": "eco11-micro",
+   "class": "XI",
+   "subject": "Economics",
+   "num": "4",
+   "chapter": "Introduction to Microeconomics",
+   "gameId": "10",
+   "genre": "Farm Master",
+   "mechanic": "Allocate land, plot your PPC",
+   "status": "planned",
+   "file": "arcade/games/class-11/economics/eco11-micro.html",
+   "episodes": [
+    {
+     "id": "eco11-micro-1",
+     "title": "Central Problems and the PPC"
+    }
+   ]
+  },
+  {
+   "chapterId": "eco11-tools",
+   "class": "XI",
+   "subject": "Economics",
+   "num": "3",
+   "chapter": "Statistical Tools and Interpretation",
+   "gameId": "15",
+   "genre": "Sports Champion",
+   "mechanic": "Cricket season with averages and correlation",
+   "status": "planned",
+   "file": "arcade/games/class-11/economics/eco11-tools.html",
+   "episodes": [
+    {
+     "id": "eco11-tools-1",
+     "title": "Arithmetic Mean (Part 1)"
+    },
+    {
+     "id": "eco11-tools-2",
+     "title": "Median and Mode (Part 2)"
+    },
+    {
+     "id": "eco11-tools-3",
+     "title": "Correlation (Part 3)"
+    },
+    {
+     "id": "eco11-tools-4",
+     "title": "Index Numbers (Part 4)"
+    }
+   ]
+  },
+  {
+   "chapterId": "eco11-producer",
+   "class": "XI",
+   "subject": "Economics",
+   "num": "6",
+   "chapter": "Producer Behaviour and Supply",
+   "gameId": "07",
+   "genre": "Business Tycoon",
+   "mechanic": "Factory cost and revenue curves",
+   "status": "planned",
+   "file": "arcade/games/class-11/economics/eco11-producer.html",
+   "episodes": [
+    {
+     "id": "eco11-producer-1",
+     "title": "Production Function (Part 1)"
+    },
+    {
+     "id": "eco11-producer-2",
+     "title": "Cost (Part 2)"
+    },
+    {
+     "id": "eco11-producer-3",
+     "title": "Revenue and Producer's Equilibrium (Part 3)"
+    },
+    {
+     "id": "eco11-producer-4",
+     "title": "Supply and Elasticity of Supply (Part 4)"
+    }
+   ]
+  },
+  {
+   "chapterId": "eco11-consumer",
+   "class": "XI",
+   "subject": "Economics",
+   "num": "5",
+   "chapter": "Consumer's Equilibrium and Demand",
+   "gameId": "08",
+   "genre": "Supermarket Simulator",
+   "mechanic": "Budget, utility and elasticity",
+   "status": "planned",
+   "file": "arcade/games/class-11/economics/eco11-consumer.html",
+   "episodes": [
+    {
+     "id": "eco11-consumer-1",
+     "title": "Utility Analysis (Part 1)"
+    },
+    {
+     "id": "eco11-consumer-2",
+     "title": "Indifference Curve Analysis (Part 2)"
+    },
+    {
+     "id": "eco11-consumer-3",
+     "title": "Demand (Part 3)"
+    },
+    {
+     "id": "eco11-consumer-4",
+     "title": "Price Elasticity of Demand (Part 4)"
+    }
+   ]
+  },
+  {
+   "chapterId": "eco11-market",
+   "class": "XI",
+   "subject": "Economics",
+   "num": "7",
+   "chapter": "Perfect Competition and Price Determination",
+   "gameId": "09",
+   "genre": "City Builder",
+   "mechanic": "Price ceilings and floors",
+   "status": "planned",
+   "file": "arcade/games/class-11/economics/eco11-market.html",
+   "episodes": [
+    {
+     "id": "eco11-market-1",
+     "title": "Perfect Competition and Market Equilibrium (Part 1)"
+    },
+    {
+     "id": "eco11-market-2",
+     "title": "Price Ceiling and Price Floor (Part 2)"
+    }
+   ]
+  },
+  {
+   "chapterId": "eco11-data",
+   "class": "XI",
+   "subject": "Economics",
+   "num": "2",
+   "chapter": "Collection, Organisation and Presentation of Data",
+   "gameId": "14",
+   "genre": "Art Studio",
+   "mechanic": "Build charts from raw data",
+   "status": "planned",
+   "file": "arcade/games/class-11/economics/eco11-data.html",
+   "episodes": [
+    {
+     "id": "eco11-data-1",
+     "title": "Collection of Data (Part 1)"
+    },
+    {
+     "id": "eco11-data-2",
+     "title": "Organisation of Data (Part 2)"
+    },
+    {
+     "id": "eco11-data-3",
+     "title": "Tables and Diagrams (Part 3)"
+    },
+    {
+     "id": "eco11-data-4",
+     "title": "Frequency Diagrams and Graphs (Part 4)"
+    }
+   ]
+  }
+ ]
+}

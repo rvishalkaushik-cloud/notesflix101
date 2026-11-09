@@ -2828,6 +2828,26 @@ CHAPTERS.forEach(function(c){
     }
     chBody.appendChild(playRow);
 
+    /* NOTESFLIX ARCADE: one game per chapter. Opens when every note has the read tick. */
+    if(c.episodes.length){
+      var gameRow = document.createElement("div");
+      gameRow.className = "ch-actions";
+      chBody.appendChild(gameRow);
+      arcadeEntry(c.id, function(g){
+        if(!g || g.status !== "ready") return;
+        var all = doneCount(c) >= c.episodes.length;
+        var gb = document.createElement(all ? "a" : "button");
+        gb.className = "btn btn-red btn-lg";
+        if(all){ gb.href = g.file; gb.textContent = "🎮 Play Game · " + g.genre; }
+        else {
+          gb.type = "button";
+          gb.textContent = "🔒 Play Game · tick all " + c.episodes.length + " notes as read (" + doneCount(c) + " done)";
+          gb.addEventListener("click", function(){ toast("Tick every note as read to unlock the game."); });
+        }
+        gameRow.appendChild(gb);
+      });
+    }
+
     var hd = document.createElement("h3");
     hd.className = "ch-list-head";
     hd.textContent = c.episodes.length ? "Notes in this chapter" : "Not written yet";
@@ -3402,6 +3422,14 @@ CHAPTERS.forEach(function(c){
     up.innerHTML = '<span class="nx-ui">' + nxIco("mega") + '</span><b>CBSE Updates</b><span class="nx-ut">Latest circulars, date sheets, sample papers and more</span><span class="nx-uv">View all →</span>';
     wrap.appendChild(up);
     return wrap;
+  }
+
+  var arcadeReg = null;
+  function arcadeEntry(id, cb){
+    function pick(){ cb((arcadeReg.games || []).filter(function(g){ return g.chapterId === id; })[0]); }
+    if(arcadeReg){ pick(); return; }
+    fetch("arcade/game-registry.json").then(function(r){ return r.json(); })
+      .then(function(j){ arcadeReg = j; pick(); }).catch(function(){});
   }
 
   function openNote(n){
