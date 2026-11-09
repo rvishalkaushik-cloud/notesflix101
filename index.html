@@ -2828,26 +2828,6 @@ CHAPTERS.forEach(function(c){
     }
     chBody.appendChild(playRow);
 
-    /* NOTESFLIX ARCADE: one game per chapter. Opens when every note has the read tick. */
-    if(c.episodes.length){
-      var gameRow = document.createElement("div");
-      gameRow.className = "ch-actions";
-      chBody.appendChild(gameRow);
-      arcadeEntry(c.id, function(g){
-        if(!g || g.status !== "ready") return;
-        var all = doneCount(c) >= c.episodes.length;
-        var gb = document.createElement(all ? "a" : "button");
-        gb.className = "btn btn-red btn-lg";
-        if(all){ gb.href = g.file; gb.textContent = "🎮 Play Game · " + g.genre; }
-        else {
-          gb.type = "button";
-          gb.textContent = "🔒 Play Game · tick all " + c.episodes.length + " notes as read (" + doneCount(c) + " done)";
-          gb.addEventListener("click", function(){ toast("Tick every note as read to unlock the game."); });
-        }
-        gameRow.appendChild(gb);
-      });
-    }
-
     var hd = document.createElement("h3");
     hd.className = "ch-list-head";
     hd.textContent = c.episodes.length ? "Notes in this chapter" : "Not written yet";
@@ -2935,6 +2915,37 @@ CHAPTERS.forEach(function(c){
       list.appendChild(row);
     });
     chBody.appendChild(list);
+
+    /* NOTESFLIX ARCADE: one game for the whole chapter, the last row of the list.
+       It opens when every note in the chapter has the read tick. */
+    if(c.episodes.length){
+      arcadeEntry(c.id, function(g){
+        if(!g || g.status !== "ready") return;
+        var total = c.episodes.length, got = doneCount(c), open = got >= total;
+        var row = document.createElement("button");
+        row.type = "button"; row.className = "ep" + (open ? " done" : "");
+        row.setAttribute("aria-label", "Chapter game: " + g.genre + (open ? "" : " (locked until all notes are read)"));
+        var no = document.createElement("span"); no.className = "ep-no"; no.textContent = "🎮"; row.appendChild(no);
+        var th = document.createElement("span"); th.className = "ep-thumb";
+        th.style.cssText = "display:grid;place-items:center;font-size:30px;background:linear-gradient(135deg,#4b2bbd,#e0245e)";
+        th.textContent = open ? "🎮" : "🔒"; row.appendChild(th);
+        var txt = document.createElement("span"); txt.className = "ep-txt";
+        var t1 = document.createElement("span"); t1.className = "ep-title"; t1.textContent = "Chapter Game · " + g.genre;
+        var t2 = document.createElement("span"); t2.className = "ep-desc";
+        t2.textContent = "One game for the whole chapter: " + g.mechanic + ".";
+        var t3 = document.createElement("span"); t3.className = "ep-foot";
+        t3.innerHTML = open ? '<span class="free">Unlocked</span><span class="dot"></span><span>Play, score and earn XP</span>'
+          : '<span class="locked">Locked</span><span class="dot"></span><span>Tick all ' + total + ' notes as read (' + got + ' done)</span>';
+        txt.appendChild(t1); txt.appendChild(t2); txt.appendChild(t3); row.appendChild(txt);
+        var acts = document.createElement("span"); acts.className = "ep-acts";
+        var pl = document.createElement("span"); pl.className = "ep-play"; pl.textContent = "▶"; pl.setAttribute("aria-hidden","true");
+        acts.appendChild(pl); row.appendChild(acts);
+        row.addEventListener("click", function(){
+          if(open){ location.href = g.file; } else { toast("Tick every note as read to unlock the chapter game."); }
+        });
+        list.appendChild(row);
+      });
+    }
 
     chBack = document.activeElement;
     chScrim.hidden = false;
