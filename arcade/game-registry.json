@@ -7,15 +7,17 @@
    "subject": "Entrepreneurship",
    "num": "6",
    "chapter": "Resource Mobilization",
-   "gameId": "19",
-   "genre": "Escape Room",
-   "mechanic": "Unlock funding sources",
-   "status": "planned",
+   "gameId": "-",
+   "genre": "Business Tycoon",
+   "mechanic": "Mobilise money, men and machines for your enterprise.",
+   "status": "ready",
+   "kit": "tycoon",
    "file": "arcade/games/class-12/entrepreneurship/ent-u6.html",
    "episodes": [
     {
      "id": "ent-resource-mob",
-     "title": "Resource Mobilization: Revision Walkthrough"
+     "title": "Resource Mobilization: Revision Walkthrough",
+     "url": "notes/ent-resource-mobilization.html"
     }
    ]
   },
@@ -25,27 +27,32 @@
    "subject": "Business Studies",
    "num": "2",
    "chapter": "Principles of Management",
-   "gameId": "19",
+   "gameId": "-",
    "genre": "Escape Room",
-   "mechanic": "Principles as locked doors",
-   "status": "planned",
+   "mechanic": "Open every locked door of the management vault by applying the right principle.",
+   "status": "ready",
+   "kit": "escape",
    "file": "arcade/games/class-12/business-studies/ch02.html",
    "episodes": [
     {
      "id": "fayol-1",
-     "title": "Fayol's Principles \u2014 Part 1"
+     "title": "Fayol's Principles — Part 1",
+     "url": "notes/fayol-principles-1.html"
     },
     {
      "id": "fayol-2",
-     "title": "Fayol's Principles \u2014 Part 2"
+     "title": "Fayol's Principles — Part 2",
+     "url": "notes/fayol-principles-2.html"
     },
     {
      "id": "taylor",
-     "title": "Taylor's Scientific Management"
+     "title": "Taylor's Scientific Management",
+     "url": "notes/taylor-scientific-management.html"
     },
     {
      "id": "mgmt-cases",
-     "title": "Case Study Practice"
+     "title": "Case Study Practice",
+     "url": "notes/principles-case-studies.html"
     }
    ]
   },
@@ -55,15 +62,17 @@
    "subject": "Business Studies",
    "num": "3",
    "chapter": "Business Environment",
-   "gameId": "09",
+   "gameId": "-",
    "genre": "City Builder",
-   "mechanic": "Survive PESTLE shocks",
-   "status": "planned",
+   "mechanic": "Build a business city that survives every shock of its environment.",
+   "status": "ready",
+   "kit": "city",
    "file": "arcade/games/class-12/business-studies/ch03.html",
    "episodes": [
     {
      "id": "biz-env",
-     "title": "Business Environment in 3D"
+     "title": "Business Environment in 3D",
+     "url": "notes/business-environment.html"
     }
    ]
   },
@@ -73,19 +82,22 @@
    "subject": "Business Studies",
    "num": "4",
    "chapter": "Planning",
-   "gameId": "05",
+   "gameId": "-",
    "genre": "Space Mission",
-   "mechanic": "Plan a mission step by step",
-   "status": "planned",
+   "mechanic": "Plan the mission: sort every plan type before launch.",
+   "status": "ready",
+   "kit": "space",
    "file": "arcade/games/class-12/business-studies/ch04.html",
    "episodes": [
     {
      "id": "planning",
-     "title": "Planning in 3D"
+     "title": "Planning in 3D",
+     "url": "notes/planning.html"
     },
     {
      "id": "types-of-plans",
-     "title": "Types of Plans"
+     "title": "Types of Plans",
+     "url": "notes/types-of-plans.html"
     }
    ]
   },
@@ -95,23 +107,27 @@
    "subject": "Business Studies",
    "num": "5",
    "chapter": "Organising",
-   "gameId": "20",
+   "gameId": "-",
    "genre": "Build Your Machine",
-   "mechanic": "Assemble an org chart",
-   "status": "planned",
+   "mechanic": "Assemble a working organisation: structure, delegation and decentralisation.",
+   "status": "ready",
+   "kit": "machine",
    "file": "arcade/games/class-12/business-studies/ch05.html",
    "episodes": [
     {
      "id": "organising-1",
-     "title": "Part 1 \u2014 The Organising Arc"
+     "title": "Part 1 — The Organising Arc",
+     "url": "notes/organising-1.html"
     },
     {
      "id": "organising-2",
-     "title": "Part 2 \u2014 The Structure Arc"
+     "title": "Part 2 — The Structure Arc",
+     "url": "notes/organising-2.html"
     },
     {
      "id": "organising-3",
-     "title": "Part 3 \u2014 The Power Arc"
+     "title": "Part 3 — The Power Arc",
+     "url": "notes/organising-3.html"
     }
    ]
   },
@@ -121,23 +137,27 @@
    "subject": "Business Studies",
    "num": "6",
    "chapter": "Staffing",
-   "gameId": "18",
+   "gameId": "-",
    "genre": "Tower Defence Academy",
-   "mechanic": "Selection funnel",
-   "status": "planned",
+   "mechanic": "Defend the company: every candidate must pass the selection funnel in order.",
+   "status": "ready",
+   "kit": "tower",
    "file": "arcade/games/class-12/business-studies/ch06.html",
    "episodes": [
     {
      "id": "staffing-1",
-     "title": "Part 1 \u2014 Find the Right Crew"
+     "title": "Part 1 — Find the Right Crew",
+     "url": "notes/staffing-1.html"
     },
     {
      "id": "staffing-2",
-     "title": "Part 2 \u2014 The Great Filter"
+     "title": "Part 2 — The Great Filter",
+     "url": "notes/staffing-2.html"
     },
     {
      "id": "staffing-3",
-     "title": "Part 3 \u2014 Grow, Assess, Reward"
+     "title": "Part 3 — Grow, Assess, Reward",
+     "url": "notes/staffing-3.html"
     }
    ]
   },
@@ -147,27 +167,32 @@
    "subject": "Business Studies",
    "num": "7",
    "chapter": "Directing",
-   "gameId": "15",
+   "gameId": "-",
    "genre": "Sports Champion",
-   "mechanic": "Captain: motivate and lead",
-   "status": "planned",
+   "mechanic": "Captain the team: motivate, lead and communicate to win the match.",
+   "status": "ready",
+   "kit": "sports",
    "file": "arcade/games/class-12/business-studies/ch07.html",
    "episodes": [
     {
      "id": "directing-1",
-     "title": "Part 1 \u2014 The Captain's Call"
+     "title": "Part 1 — The Captain's Call",
+     "url": "notes/directing-1.html"
     },
     {
      "id": "directing-2",
-     "title": "Part 2 \u2014 The Spark"
+     "title": "Part 2 — The Spark",
+     "url": "notes/directing-2.html"
     },
     {
      "id": "directing-3",
-     "title": "Part 3 \u2014 The Compass"
+     "title": "Part 3 — The Compass",
+     "url": "notes/directing-3.html"
     },
     {
      "id": "directing-4",
-     "title": "Part 4 \u2014 The Signal"
+     "title": "Part 4 — The Signal",
+     "url": "notes/directing-4.html"
     }
    ]
   },
@@ -177,19 +202,22 @@
    "subject": "Business Studies",
    "num": "8",
    "chapter": "Controlling",
-   "gameId": "06",
+   "gameId": "-",
    "genre": "Formula Racing",
-   "mechanic": "Standards vs lap data, corrective pit stops",
-   "status": "planned",
+   "mechanic": "Compare lap data with standards and take corrective pit stops before the flag.",
+   "status": "ready",
+   "kit": "racing",
    "file": "arcade/games/class-12/business-studies/ch08.html",
    "episodes": [
     {
      "id": "controlling-1",
-     "title": "Part 1 \u2014 The Reality Check"
+     "title": "Part 1 — The Reality Check",
+     "url": "notes/controlling-1.html"
     },
     {
      "id": "controlling-2",
-     "title": "Part 2 \u2014 The Final Arc"
+     "title": "Part 2 — The Final Arc",
+     "url": "notes/controlling-2.html"
     }
    ]
   },
@@ -199,27 +227,32 @@
    "subject": "Business Studies",
    "num": "9",
    "chapter": "Financial Management",
-   "gameId": "07",
+   "gameId": "-",
    "genre": "Business Tycoon",
-   "mechanic": "Financing, investment and dividend decisions",
-   "status": "planned",
+   "mechanic": "Run the finance office: raise, invest and distribute funds wisely.",
+   "status": "ready",
+   "kit": "tycoon",
    "file": "arcade/games/class-12/business-studies/ch09.html",
    "episodes": [
     {
      "id": "fm-money-matters",
-     "title": "Money Matters"
+     "title": "Money Matters",
+     "url": "notes/fm-money-matters.html"
     },
     {
      "id": "fm-raise-share",
-     "title": "Raise It, Share It"
+     "title": "Raise It, Share It",
+     "url": "notes/fm-raise-share.html"
     },
     {
      "id": "fm-plan-balance",
-     "title": "Plan and Balance"
+     "title": "Plan and Balance",
+     "url": "notes/fm-plan-balance.html"
     },
     {
      "id": "fm-fixed-working",
-     "title": "Long and Short Money"
+     "title": "Long and Short Money",
+     "url": "notes/fm-fixed-working.html"
     }
    ]
   },
@@ -229,31 +262,37 @@
    "subject": "Business Studies",
    "num": "10",
    "chapter": "Financial Markets",
-   "gameId": "01",
+   "gameId": "-",
    "genre": "Knowledge Runner",
-   "mechanic": "Money and capital market lanes",
-   "status": "planned",
+   "mechanic": "Run through the financial market and collect only items from the target segment.",
+   "status": "ready",
+   "kit": "runner",
    "file": "arcade/games/class-12/business-studies/ch10.html",
    "episodes": [
     {
      "id": "fm-money-market",
-     "title": "Where Money Meets"
+     "title": "Where Money Meets",
+     "url": "notes/fm-money-market.html"
     },
     {
      "id": "fm-capital-market",
-     "title": "The Capital Market"
+     "title": "The Capital Market",
+     "url": "notes/fm-capital-market.html"
     },
     {
      "id": "fm-trading-demat",
-     "title": "Click, Trade, Settle"
+     "title": "Click, Trade, Settle",
+     "url": "notes/fm-trading-demat.html"
     },
     {
      "id": "fm-sebi",
-     "title": "The Market Watchdog"
+     "title": "The Market Watchdog",
+     "url": "notes/fm-sebi.html"
     },
     {
      "id": "fm-revision",
-     "title": "Financial Markets: Revision Walkthrough"
+     "title": "Financial Markets: Revision Walkthrough",
+     "url": "notes/fm-revision.html"
     }
    ]
   },
@@ -263,43 +302,52 @@
    "subject": "Business Studies",
    "num": "11",
    "chapter": "Marketing Management",
-   "gameId": "08",
+   "gameId": "-",
    "genre": "Supermarket Simulator",
-   "mechanic": "Marketing mix decisions",
-   "status": "planned",
+   "mechanic": "Serve every customer by getting the marketing mix right.",
+   "status": "ready",
+   "kit": "supermarket",
    "file": "arcade/games/class-12/business-studies/ch11.html",
    "episodes": [
     {
      "id": "mm-video",
-     "title": "Chapter Video Guide"
+     "title": "Chapter Video Guide",
+     "url": "notes/marketing-video-guide.html"
     },
     {
      "id": "philosophies",
-     "title": "Marketing Management Philosophies"
+     "title": "Marketing Management Philosophies",
+     "url": "notes/marketing-philosophies.html"
     },
     {
      "id": "product",
-     "title": "Product, Branding, Packaging & Labelling"
+     "title": "Product, Branding, Packaging & Labelling",
+     "url": "notes/marketing-mix-product.html"
     },
     {
      "id": "price",
-     "title": "Price Mix"
+     "title": "Price Mix",
+     "url": "notes/price-mix.html"
     },
     {
      "id": "place",
-     "title": "Place Mix"
+     "title": "Place Mix",
+     "url": "notes/place-mix.html"
     },
     {
      "id": "promotion",
-     "title": "Promotion Mix"
+     "title": "Promotion Mix",
+     "url": "notes/promotion-mix.html"
     },
     {
      "id": "mm-revision",
-     "title": "Quick Revision"
+     "title": "Quick Revision",
+     "url": "notes/marketing-revision.html"
     },
     {
      "id": "case-lab",
-     "title": "Case Lab \u2014 Marketing Masters"
+     "title": "Case Lab — Marketing Masters",
+     "url": "notes/marketing-case-lab.html"
     }
    ]
   },
@@ -309,23 +357,27 @@
    "subject": "Business Studies",
    "num": "12",
    "chapter": "Consumer Protection",
-   "gameId": "04",
+   "gameId": "-",
    "genre": "Detective Academy",
-   "mechanic": "Consumer complaints and forums",
-   "status": "planned",
+   "mechanic": "Investigate consumer complaints and take each to the right forum.",
+   "status": "ready",
+   "kit": "detective",
    "file": "arcade/games/class-12/business-studies/ch12.html",
    "episodes": [
     {
      "id": "consumer-1",
-     "title": "Consumer Protection \u2014 Part 1"
+     "title": "Consumer Protection — Part 1",
+     "url": "notes/consumer-protection-1.html"
     },
     {
      "id": "consumer-2",
-     "title": "Consumer Protection \u2014 Part 2"
+     "title": "Consumer Protection — Part 2",
+     "url": "notes/consumer-protection-2.html"
     },
     {
      "id": "cp-practice",
-     "title": "Practice Lab"
+     "title": "Practice Lab",
+     "url": "notes/consumer-protection-practice-lab.html"
     }
    ]
   },
@@ -335,27 +387,32 @@
    "subject": "Accountancy",
    "num": "1",
    "chapter": "Partnership Fundamentals",
-   "gameId": "07",
+   "gameId": "-",
    "genre": "Business Tycoon",
-   "mechanic": "Three partners and a deed",
-   "status": "planned",
+   "mechanic": "Run a three-partner firm: deed, interest, drawings and profit sharing.",
+   "status": "ready",
+   "kit": "tycoon",
    "file": "arcade/games/class-12/accountancy/acc-partnership.html",
    "episodes": [
     {
      "id": "partnership-p1",
-     "title": "Partnership Fundamentals \u2014 Part 1"
+     "title": "Partnership Fundamentals — Part 1",
+     "url": "notes/partnership-fundamentals-p1.html"
     },
     {
      "id": "partnership-p2",
-     "title": "Partnership Fundamentals \u2014 Part 2"
+     "title": "Partnership Fundamentals — Part 2",
+     "url": "notes/partnership-fundamentals-p2.html"
     },
     {
      "id": "partnership-p3",
-     "title": "Partnership Fundamentals \u2014 Part 3"
+     "title": "Partnership Fundamentals — Part 3",
+     "url": "notes/partnership-fundamentals-p3.html"
     },
     {
      "id": "partnership-p4",
-     "title": "Partnership Fundamentals \u2014 Part 4"
+     "title": "Partnership Fundamentals — Part 4",
+     "url": "notes/partnership-fundamentals-p4.html"
     }
    ]
   },
@@ -365,19 +422,22 @@
    "subject": "Accountancy",
    "num": "2",
    "chapter": "Goodwill",
-   "gameId": "04",
+   "gameId": "-",
    "genre": "Detective Academy",
-   "mechanic": "Value a firm from clues",
-   "status": "planned",
+   "mechanic": "Value a firm from the clues: profits, years and the average.",
+   "status": "ready",
+   "kit": "detective",
    "file": "arcade/games/class-12/accountancy/acc-goodwill.html",
    "episodes": [
     {
      "id": "goodwill-p1",
-     "title": "Goodwill \u2014 Part 1"
+     "title": "Goodwill — Part 1",
+     "url": "notes/goodwill-p1.html"
     },
     {
      "id": "goodwill-p2",
-     "title": "Goodwill \u2014 Part 2"
+     "title": "Goodwill — Part 2",
+     "url": "notes/goodwill-p2.html"
     }
    ]
   },
@@ -387,27 +447,32 @@
    "subject": "Accountancy",
    "num": "8",
    "chapter": "Financial Statements of a Company and Their Analysis",
-   "gameId": "19",
+   "gameId": "-",
    "genre": "Escape Room",
-   "mechanic": "File items under Schedule III heads to open rooms",
-   "status": "planned",
+   "mechanic": "File each item under its Schedule III head to unlock the next room.",
+   "status": "ready",
+   "kit": "escape",
    "file": "arcade/games/class-12/accountancy/acc-fs-company.html",
    "episodes": [
     {
      "id": "fs-company-p1",
-     "title": "Company Balance Sheet \u2014 Part 1"
+     "title": "Company Balance Sheet — Part 1",
+     "url": "notes/fs-company-p1.html"
     },
     {
      "id": "fs-company-p2",
-     "title": "Statement of Profit and Loss \u2014 Part 2"
+     "title": "Statement of Profit and Loss — Part 2",
+     "url": "notes/fs-company-p2.html"
     },
     {
      "id": "fs-company-p3",
-     "title": "Comparative Statements \u2014 Part 3"
+     "title": "Comparative Statements — Part 3",
+     "url": "notes/fs-company-p3.html"
     },
     {
      "id": "fs-company-p4",
-     "title": "Common-size Statements \u2014 Part 4"
+     "title": "Common-size Statements — Part 4",
+     "url": "notes/fs-company-p4.html"
     }
    ]
   },
@@ -421,23 +486,28 @@
    "genre": "Build Your Machine",
    "mechanic": "Ratio Factory: tune transactions into target ratio bands",
    "status": "ready",
+   "kit": "custom",
    "file": "arcade/games/class-12/accountancy/acc-ratios.html",
    "episodes": [
     {
      "id": "ratios-p1",
-     "title": "Liquidity Ratios \u2014 Part 1"
+     "title": "Liquidity Ratios — Part 1",
+     "url": "notes/ratios-p1.html"
     },
     {
      "id": "ratios-p2",
-     "title": "Solvency Ratios \u2014 Part 2"
+     "title": "Solvency Ratios — Part 2",
+     "url": "notes/ratios-p2.html"
     },
     {
      "id": "ratios-p3",
-     "title": "Activity Ratios \u2014 Part 3"
+     "title": "Activity Ratios — Part 3",
+     "url": "notes/ratios-p3.html"
     },
     {
      "id": "ratios-p4",
-     "title": "Profitability Ratios \u2014 Part 4"
+     "title": "Profitability Ratios — Part 4",
+     "url": "notes/ratios-p4.html"
     }
    ]
   },
@@ -447,15 +517,17 @@
    "subject": "Entrepreneurship",
    "num": "1",
    "chapter": "Entrepreneurial Opportunity",
-   "gameId": "04",
-   "genre": "Detective Academy",
-   "mechanic": "Spot market gaps from clues",
-   "status": "planned",
+   "gameId": "-",
+   "genre": "Chapter Quest",
+   "mechanic": "Hunt the best business opportunity and take it from idea to reality.",
+   "status": "ready",
+   "kit": "quest",
    "file": "arcade/games/class-12/entrepreneurship/ent-u1.html",
    "episodes": [
     {
      "id": "ent-opportunity",
-     "title": "The Opportunity Hunters"
+     "title": "The Opportunity Hunters",
+     "url": "notes/ent-opportunity-hunters.html"
     }
    ]
   },
@@ -465,23 +537,27 @@
    "subject": "Entrepreneurship",
    "num": "2",
    "chapter": "Enterprise Planning",
-   "gameId": "07",
+   "gameId": "-",
    "genre": "Business Tycoon",
-   "mechanic": "Business plan then year one",
-   "status": "planned",
+   "mechanic": "Draft the blueprint of your enterprise and pick the right form.",
+   "status": "ready",
+   "kit": "tycoon",
    "file": "arcade/games/class-12/entrepreneurship/ent-u2.html",
    "episodes": [
     {
      "id": "ent-blueprint",
-     "title": "The Blueprint Begins"
+     "title": "The Blueprint Begins",
+     "url": "notes/ent-blueprint-begins.html"
     },
     {
      "id": "ent-partners",
-     "title": "Partners and Companies"
+     "title": "Partners and Companies",
+     "url": "notes/ent-partners-companies.html"
     },
     {
      "id": "ent-plan",
-     "title": "The Business Plan"
+     "title": "The Business Plan",
+     "url": "notes/ent-business-plan.html"
     }
    ]
   },
@@ -491,27 +567,32 @@
    "subject": "Entrepreneurship",
    "num": "3",
    "chapter": "Enterprise Marketing",
-   "gameId": "08",
+   "gameId": "-",
    "genre": "Supermarket Simulator",
-   "mechanic": "Brand, price, promote",
-   "status": "planned",
+   "mechanic": "Market your enterprise: brand, price, place and promotion.",
+   "status": "ready",
+   "kit": "supermarket",
    "file": "arcade/games/class-12/entrepreneurship/ent-u3.html",
    "episodes": [
     {
      "id": "ent-compass",
-     "title": "The Marketing Compass"
+     "title": "The Marketing Compass",
+     "url": "notes/ent-marketing-compass.html"
     },
     {
      "id": "ent-brand",
-     "title": "The Brand Studio"
+     "title": "The Brand Studio",
+     "url": "notes/ent-brand-studio.html"
     },
     {
      "id": "ent-price",
-     "title": "Price, Place and the Sales Plan"
+     "title": "Price, Place and the Sales Plan",
+     "url": "notes/ent-price-place-sales.html"
     },
     {
      "id": "ent-promo",
-     "title": "Spread the Word"
+     "title": "Spread the Word",
+     "url": "notes/ent-spread-the-word.html"
     }
    ]
   },
@@ -521,23 +602,27 @@
    "subject": "Entrepreneurship",
    "num": "4",
    "chapter": "Enterprise Growth Strategies",
-   "gameId": "05",
-   "genre": "Space Mission",
-   "mechanic": "Expand to new markets",
-   "status": "planned",
+   "gameId": "-",
+   "genre": "City Builder",
+   "mechanic": "Grow the enterprise through the right growth strategy.",
+   "status": "ready",
+   "kit": "city",
    "file": "arcade/games/class-12/entrepreneurship/ent-u4.html",
    "episodes": [
     {
      "id": "ent-grow",
-     "title": "Grow or Die"
+     "title": "Grow or Die",
+     "url": "notes/ent-grow-or-die.html"
     },
     {
      "id": "ent-value",
-     "title": "Add Value"
+     "title": "Add Value",
+     "url": "notes/ent-add-value.html"
     },
     {
      "id": "ent-join",
-     "title": "Join Forces"
+     "title": "Join Forces",
+     "url": "notes/ent-join-forces.html"
     }
    ]
   },
@@ -547,43 +632,52 @@
    "subject": "Business Studies",
    "num": "14",
    "chapter": "International Business",
-   "gameId": "02",
+   "gameId": "-",
    "genre": "Concept Jumper",
-   "mechanic": "Platform through export/import procedure order",
-   "status": "planned",
+   "mechanic": "Platform your way through export and import procedures in the right order.",
+   "status": "ready",
+   "kit": "jumper",
    "file": "arcade/games/class-11/business-studies/ch14.html",
    "episodes": [
     {
      "id": "ib-1",
-     "title": "International Business \u2014 Part 1"
+     "title": "International Business — Part 1",
+     "url": "notes/international-business-1.html"
     },
     {
      "id": "export-2",
-     "title": "Export Procedure \u2014 Part 2"
+     "title": "Export Procedure — Part 2",
+     "url": "notes/export-procedure-2.html"
     },
     {
      "id": "export-3",
-     "title": "Export Procedure \u2014 Part 3"
+     "title": "Export Procedure — Part 3",
+     "url": "notes/export-procedure-3.html"
     },
     {
      "id": "customs",
-     "title": "Customs Clearance \u2014 Step 13"
+     "title": "Customs Clearance — Step 13",
+     "url": "notes/customs-clearance.html"
     },
     {
      "id": "shipment-pay",
-     "title": "From Shipment to Payment \u2014 Steps 14\u201317"
+     "title": "From Shipment to Payment — Steps 14–17",
+     "url": "notes/shipment-to-payment.html"
     },
     {
      "id": "import",
-     "title": "Import Trade Mission"
+     "title": "Import Trade Mission",
+     "url": "notes/import-trade-mission.html"
     },
     {
      "id": "arena-ib",
-     "title": "Practice Arena"
+     "title": "Practice Arena",
+     "url": "notes/practice-arena-ib.html"
     },
     {
      "id": "trade-quest",
-     "title": "Trade Quest Practice"
+     "title": "Trade Quest Practice",
+     "url": "notes/trade-quest.html"
     }
    ]
   },
@@ -593,27 +687,32 @@
    "subject": "Business Studies",
    "num": "1",
    "chapter": "Business, Trade and Commerce",
-   "gameId": "03",
+   "gameId": "-",
    "genre": "Chapter Quest",
-   "mechanic": "Trade route journey through eras",
-   "status": "planned",
+   "mechanic": "Travel the trade routes of history and learn what business really is.",
+   "status": "ready",
+   "kit": "quest",
    "file": "arcade/games/class-11/business-studies/xi-u1.html",
    "episodes": [
     {
      "id": "xi-what-is-business",
-     "title": "What Is Business?"
+     "title": "What Is Business?",
+     "url": "notes/xi-what-is-business.html"
     },
     {
      "id": "xi-objectives",
-     "title": "Objectives and Industry"
+     "title": "Objectives and Industry",
+     "url": "notes/xi-objectives-industry.html"
     },
     {
      "id": "xi-commerce-risk",
-     "title": "Commerce and Business Risk"
+     "title": "Commerce and Business Risk",
+     "url": "notes/xi-commerce-risk.html"
     },
     {
      "id": "xi-history-trade",
-     "title": "History of Trade in India"
+     "title": "History of Trade in India",
+     "url": "notes/xi-history-trade.html"
     }
    ]
   },
@@ -623,31 +722,37 @@
    "subject": "Business Studies",
    "num": "2",
    "chapter": "Forms of Business Organisation",
-   "gameId": "07",
+   "gameId": "-",
    "genre": "Business Tycoon",
-   "mechanic": "Pick a business form, survive liability and capital events",
-   "status": "planned",
+   "mechanic": "Pick the right business form and survive its liability and capital events.",
+   "status": "ready",
+   "kit": "tycoon",
    "file": "arcade/games/class-11/business-studies/xi-u2.html",
    "episodes": [
     {
      "id": "xi-sole-huf",
-     "title": "Sole Proprietorship and HUF"
+     "title": "Sole Proprietorship and HUF",
+     "url": "notes/xi-sole-huf.html"
     },
     {
      "id": "xi-partnership",
-     "title": "Partnership"
+     "title": "Partnership",
+     "url": "notes/xi-partnership.html"
     },
     {
      "id": "xi-cooperative",
-     "title": "Cooperative Societies"
+     "title": "Cooperative Societies",
+     "url": "notes/xi-cooperative.html"
     },
     {
      "id": "xi-the-company",
-     "title": "The Company"
+     "title": "The Company",
+     "url": "notes/xi-the-company.html"
     },
     {
      "id": "xi-formation",
-     "title": "Formation of a Company"
+     "title": "Formation of a Company",
+     "url": "notes/xi-formation.html"
     }
    ]
   },
@@ -657,31 +762,37 @@
    "subject": "Business Studies",
    "num": "3",
    "chapter": "Public, Private and Global Enterprises",
-   "gameId": "09",
+   "gameId": "-",
    "genre": "City Builder",
-   "mechanic": "Allocate city budget across enterprise types",
-   "status": "planned",
+   "mechanic": "Allocate the city budget across public, private and global enterprises.",
+   "status": "ready",
+   "kit": "city",
    "file": "arcade/games/class-11/business-studies/xi-u3.html",
    "episodes": [
     {
      "id": "xi-public-sector",
-     "title": "Public Sector and Departmental Undertakings"
+     "title": "Public Sector and Departmental Undertakings",
+     "url": "notes/xi-public-sector.html"
     },
     {
      "id": "xi-statutory",
-     "title": "Statutory Corporations and Government Companies"
+     "title": "Statutory Corporations and Government Companies",
+     "url": "notes/xi-statutory.html"
     },
     {
      "id": "xi-global",
-     "title": "Global Enterprises"
+     "title": "Global Enterprises",
+     "url": "notes/xi-global.html"
     },
     {
      "id": "xi-joint-ventures",
-     "title": "Joint Ventures and PPP"
+     "title": "Joint Ventures and PPP",
+     "url": "notes/xi-joint-ventures.html"
     },
     {
      "id": "xi-unit3-practice",
-     "title": "Unit 3 Practice Arena"
+     "title": "Unit 3 Practice Arena",
+     "url": "notes/xi-unit3-practice.html"
     }
    ]
   },
@@ -691,31 +802,37 @@
    "subject": "Business Studies",
    "num": "4",
    "chapter": "Business Services",
-   "gameId": "04",
+   "gameId": "-",
    "genre": "Detective Academy",
-   "mechanic": "Insurance claims investigator",
-   "status": "planned",
+   "mechanic": "Investigate insurance claims and banking services.",
+   "status": "ready",
+   "kit": "detective",
    "file": "arcade/games/class-11/business-studies/xi-u4.html",
    "episodes": [
     {
      "id": "xi-bank-accounts",
-     "title": "Business Services and Bank Accounts"
+     "title": "Business Services and Bank Accounts",
+     "url": "notes/xi-bank-accounts.html"
     },
     {
      "id": "xi-digital-payments",
-     "title": "Banking Services and Digital Payments"
+     "title": "Banking Services and Digital Payments",
+     "url": "notes/xi-digital-payments.html"
     },
     {
      "id": "xi-insurance-principles",
-     "title": "Insurance Principles"
+     "title": "Insurance Principles",
+     "url": "notes/xi-insurance-principles.html"
     },
     {
      "id": "xi-insurance-types",
-     "title": "Types of Insurance and Postal Services"
+     "title": "Types of Insurance and Postal Services",
+     "url": "notes/xi-insurance-types.html"
     },
     {
      "id": "xi-unit4-practice",
-     "title": "Unit 4 Practice Arena"
+     "title": "Unit 4 Practice Arena",
+     "url": "notes/xi-unit4-practice.html"
     }
    ]
   },
@@ -725,19 +842,22 @@
    "subject": "Business Studies",
    "num": "5",
    "chapter": "Emerging Modes of Business",
-   "gameId": "18",
+   "gameId": "-",
    "genre": "Tower Defence Academy",
-   "mechanic": "Defend an e-shop from cyber threats",
-   "status": "planned",
+   "mechanic": "Defend the e-shop from threats and learn e-business.",
+   "status": "ready",
+   "kit": "tower",
    "file": "arcade/games/class-11/business-studies/xi-u5.html",
    "episodes": [
     {
      "id": "xi-ebusiness-1",
-     "title": "E-Business: Concept and Benefits"
+     "title": "E-Business: Concept and Benefits",
+     "url": "notes/xi-ebusiness-1.html"
     },
     {
      "id": "xi-ebusiness-2",
-     "title": "Scope of E-Business"
+     "title": "Scope of E-Business",
+     "url": "notes/xi-ebusiness-2.html"
     }
    ]
   },
@@ -747,23 +867,27 @@
    "subject": "Business Studies",
    "num": "6",
    "chapter": "Social Responsibility and Business Ethics",
-   "gameId": "12",
+   "gameId": "-",
    "genre": "Story Designer",
-   "mechanic": "Branching ethics stories with stakeholder trust",
-   "status": "planned",
+   "mechanic": "Write a story of responsible business and ethical choices.",
+   "status": "ready",
+   "kit": "story",
    "file": "arcade/games/class-11/business-studies/xi-u6.html",
    "episodes": [
     {
      "id": "xi-social-resp-1",
-     "title": "Concept and Case for Social Responsibility"
+     "title": "Concept and Case for Social Responsibility",
+     "url": "notes/xi-social-resp-1.html"
     },
     {
      "id": "xi-social-resp-2",
-     "title": "Responsibility Towards Different Groups"
+     "title": "Responsibility Towards Different Groups",
+     "url": "notes/xi-social-resp-2.html"
     },
     {
      "id": "xi-social-resp-3",
-     "title": "Environment Protection and Business Ethics"
+     "title": "Environment Protection and Business Ethics",
+     "url": "notes/xi-social-resp-3.html"
     }
    ]
   },
@@ -773,31 +897,37 @@
    "subject": "Business Studies",
    "num": "7",
    "chapter": "Sources of Business Finance",
-   "gameId": "06",
+   "gameId": "-",
    "genre": "Formula Racing",
-   "mechanic": "Fuel as funds: owners vs borrowed",
-   "status": "planned",
+   "mechanic": "Fuel the race: choose between owners' funds and borrowed funds.",
+   "status": "ready",
+   "kit": "racing",
    "file": "arcade/games/class-11/business-studies/xi-u7.html",
    "episodes": [
     {
      "id": "xi-finance-1",
-     "title": "Business Finance: Owners\u2019 and Borrowed Funds"
+     "title": "Business Finance: Owners’ and Borrowed Funds",
+     "url": "notes/xi-finance-1.html"
     },
     {
      "id": "xi-finance-2",
-     "title": "Equity, Retained Earnings and Preference Shares"
+     "title": "Equity, Retained Earnings and Preference Shares",
+     "url": "notes/xi-finance-2.html"
     },
     {
      "id": "xi-finance-3",
-     "title": "GDR, ADR, IDR and Debentures"
+     "title": "GDR, ADR, IDR and Debentures",
+     "url": "notes/xi-finance-3.html"
     },
     {
      "id": "xi-finance-4",
-     "title": "Loans, Deposits, Trade Credit and ICDs"
+     "title": "Loans, Deposits, Trade Credit and ICDs",
+     "url": "notes/xi-finance-4.html"
     },
     {
      "id": "xi-unit7-practice",
-     "title": "Unit 7 Practice Arena"
+     "title": "Unit 7 Practice Arena",
+     "url": "notes/xi-unit7-practice.html"
     }
    ]
   },
@@ -807,31 +937,37 @@
    "subject": "Business Studies",
    "num": "8",
    "chapter": "Small Business and Enterprises",
-   "gameId": "08",
+   "gameId": "-",
    "genre": "Supermarket Simulator",
-   "mechanic": "Run a start-up kirana, unlock MSME benefits",
-   "status": "planned",
+   "mechanic": "Run a start-up kirana and unlock the benefits for small business.",
+   "status": "ready",
+   "kit": "supermarket",
    "file": "arcade/games/class-11/business-studies/xi-u8.html",
    "episodes": [
     {
      "id": "xi-small-biz-1",
-     "title": "Entrepreneurship: Concept, Characteristics and Need"
+     "title": "Entrepreneurship: Concept, Characteristics and Need",
+     "url": "notes/xi-small-biz-1.html"
     },
     {
      "id": "xi-small-biz-2",
-     "title": "Startup India and Ways to Fund Start-ups"
+     "title": "Startup India and Ways to Fund Start-ups",
+     "url": "notes/xi-small-biz-2.html"
     },
     {
      "id": "xi-small-biz-3",
-     "title": "Intellectual Property Rights and Entrepreneurship"
+     "title": "Intellectual Property Rights and Entrepreneurship",
+     "url": "notes/xi-small-biz-3.html"
     },
     {
      "id": "xi-small-biz-4",
-     "title": "MSMEs, Role of Small Business, NSIC and DIC"
+     "title": "MSMEs, Role of Small Business, NSIC and DIC",
+     "url": "notes/xi-small-biz-4.html"
     },
     {
      "id": "xi-unit8-practice",
-     "title": "Unit 8 Practice Arena"
+     "title": "Unit 8 Practice Arena",
+     "url": "notes/xi-unit8-practice.html"
     }
    ]
   },
@@ -841,15 +977,17 @@
    "subject": "Business Studies",
    "num": "9",
    "chapter": "Internal Trade",
-   "gameId": "20",
+   "gameId": "-",
    "genre": "Build Your Machine",
-   "mechanic": "Assemble a supply chain with GST credit flow",
-   "status": "planned",
+   "mechanic": "Assemble the supply chain from wholesaler to retailer.",
+   "status": "ready",
+   "kit": "machine",
    "file": "arcade/games/class-11/business-studies/xi-u9.html",
    "episodes": [
     {
      "id": "xi-internal-trade",
-     "title": "Internal Trade: Wholesale, Retail and GST"
+     "title": "Internal Trade: Wholesale, Retail and GST",
+     "url": "notes/xi-internal-trade.html"
     }
    ]
   },
@@ -859,39 +997,47 @@
    "subject": "Economics",
    "num": "1",
    "chapter": "National Income and Related Aggregates",
-   "gameId": "09",
+   "gameId": "-",
    "genre": "City Builder",
-   "mechanic": "GDP by three methods",
-   "status": "planned",
+   "mechanic": "Count a nation's income by three methods to build the economy.",
+   "status": "ready",
+   "kit": "city",
    "file": "arcade/games/class-12/economics/eco12-ni.html",
    "episodes": [
     {
      "id": "eco12-ni-1",
-     "title": "Basic Concepts of Macroeconomics (Part 1)"
+     "title": "Basic Concepts of Macroeconomics (Part 1)",
+     "url": "notes/eco12-ni-1.html"
     },
     {
      "id": "eco12-ni-2",
-     "title": "Circular Flow of Income (Part 2)"
+     "title": "Circular Flow of Income (Part 2)",
+     "url": "notes/eco12-ni-2.html"
     },
     {
      "id": "eco12-ni-3",
-     "title": "National Income Aggregates (Part 3)"
+     "title": "National Income Aggregates (Part 3)",
+     "url": "notes/eco12-ni-3.html"
     },
     {
      "id": "eco12-ni-4",
-     "title": "Value Added Method (Part 4)"
+     "title": "Value Added Method (Part 4)",
+     "url": "notes/eco12-ni-4.html"
     },
     {
      "id": "eco12-ni-5",
-     "title": "Income and Expenditure Methods (Part 5)"
+     "title": "Income and Expenditure Methods (Part 5)",
+     "url": "notes/eco12-ni-5.html"
     },
     {
      "id": "eco12-ni-6",
-     "title": "Real vs Nominal GDP and Welfare (Part 6)"
+     "title": "Real vs Nominal GDP and Welfare (Part 6)",
+     "url": "notes/eco12-ni-6.html"
     },
     {
      "id": "eco12-ni-7",
-     "title": "Revision: Tricky Items and PYQs (Part 7)"
+     "title": "Revision: Tricky Items and PYQs (Part 7)",
+     "url": "notes/eco12-ni-7.html"
     }
    ]
   },
@@ -901,19 +1047,22 @@
    "subject": "Economics",
    "num": "4",
    "chapter": "Government Budget and the Economy",
-   "gameId": "18",
-   "genre": "Tower Defence Academy",
-   "mechanic": "Defend the budget from deficits",
-   "status": "planned",
+   "gameId": "-",
+   "genre": "City Builder",
+   "mechanic": "Balance the national budget: raise revenue, spend wisely, cut deficits.",
+   "status": "ready",
+   "kit": "city",
    "file": "arcade/games/class-12/economics/eco12-budget.html",
    "episodes": [
     {
      "id": "eco12-budget-1",
-     "title": "Budget: Meaning, Objectives and Components (Part 1)"
+     "title": "Budget: Meaning, Objectives and Components (Part 1)",
+     "url": "notes/eco12-budget-1.html"
     },
     {
      "id": "eco12-budget-2",
-     "title": "Budget Deficits (Part 2)"
+     "title": "Budget Deficits (Part 2)",
+     "url": "notes/eco12-budget-2.html"
     }
    ]
   },
@@ -923,27 +1072,32 @@
    "subject": "Economics",
    "num": "3",
    "chapter": "Determination of Income and Employment",
-   "gameId": "06",
+   "gameId": "-",
    "genre": "Formula Racing",
-   "mechanic": "Throttle is aggregate demand, close the gaps",
-   "status": "planned",
+   "mechanic": "Throttle aggregate demand to hit full employment.",
+   "status": "ready",
+   "kit": "racing",
    "file": "arcade/games/class-12/economics/eco12-income.html",
    "episodes": [
     {
      "id": "eco12-income-1",
-     "title": "Aggregate Demand and Propensities (Part 1)"
+     "title": "Aggregate Demand and Propensities (Part 1)",
+     "url": "notes/eco12-income-1.html"
     },
     {
      "id": "eco12-income-2",
-     "title": "Short-run Equilibrium Output (Part 2)"
+     "title": "Short-run Equilibrium Output (Part 2)",
+     "url": "notes/eco12-income-2.html"
     },
     {
      "id": "eco12-income-3",
-     "title": "Investment Multiplier (Part 3)"
+     "title": "Investment Multiplier (Part 3)",
+     "url": "notes/eco12-income-3.html"
     },
     {
      "id": "eco12-income-4",
-     "title": "Excess and Deficient Demand (Part 4)"
+     "title": "Excess and Deficient Demand (Part 4)",
+     "url": "notes/eco12-income-4.html"
     }
    ]
   },
@@ -953,23 +1107,27 @@
    "subject": "Economics",
    "num": "6",
    "chapter": "Development Experience 1947-90",
-   "gameId": "03",
+   "gameId": "-",
    "genre": "Chapter Quest",
-   "mechanic": "Plan eras and development choices",
-   "status": "planned",
+   "mechanic": "Journey through India's growth from 1947 to 1990.",
+   "status": "ready",
+   "kit": "quest",
    "file": "arcade/games/class-12/economics/eco12-ied1.html",
    "episodes": [
     {
      "id": "eco12-ied1-1",
-     "title": "Indian Economy on the Eve of Independence (Part 1)"
+     "title": "Indian Economy on the Eve of Independence (Part 1)",
+     "url": "notes/eco12-ied1-1.html"
     },
     {
      "id": "eco12-ied1-2",
-     "title": "Five Year Plans and Agriculture (Part 2)"
+     "title": "Five Year Plans and Agriculture (Part 2)",
+     "url": "notes/eco12-ied1-2.html"
     },
     {
      "id": "eco12-ied1-3",
-     "title": "Industry and Foreign Trade 1950-90 (Part 3)"
+     "title": "Industry and Foreign Trade 1950-90 (Part 3)",
+     "url": "notes/eco12-ied1-3.html"
     }
    ]
   },
@@ -979,19 +1137,22 @@
    "subject": "Economics",
    "num": "5",
    "chapter": "Balance of Payments",
-   "gameId": "01",
-   "genre": "Knowledge Runner",
-   "mechanic": "BoP credit and debit lanes",
-   "status": "planned",
+   "gameId": "-",
+   "genre": "Space Mission",
+   "mechanic": "Keep the nation's balance of payments in orbit.",
+   "status": "ready",
+   "kit": "space",
    "file": "arcade/games/class-12/economics/eco12-bop.html",
    "episodes": [
     {
      "id": "eco12-bop-1",
-     "title": "Balance of Payments Account (Part 1)"
+     "title": "Balance of Payments Account (Part 1)",
+     "url": "notes/eco12-bop-1.html"
     },
     {
      "id": "eco12-bop-2",
-     "title": "Foreign Exchange Rate (Part 2)"
+     "title": "Foreign Exchange Rate (Part 2)",
+     "url": "notes/eco12-bop-2.html"
     }
    ]
   },
@@ -1001,27 +1162,32 @@
    "subject": "Economics",
    "num": "8",
    "chapter": "Current Challenges facing Indian Economy",
-   "gameId": "10",
+   "gameId": "-",
    "genre": "Farm Master",
-   "mechanic": "Rural development and sustainability",
-   "status": "planned",
+   "mechanic": "Grow human capital and rural India sustainably.",
+   "status": "ready",
+   "kit": "farm",
    "file": "arcade/games/class-12/economics/eco12-ied2.html",
    "episodes": [
     {
      "id": "eco12-ied2-1",
-     "title": "Human Capital Formation (Part 1)"
+     "title": "Human Capital Formation (Part 1)",
+     "url": "notes/eco12-ied2-1.html"
     },
     {
      "id": "eco12-ied2-2",
-     "title": "Rural Development (Part 2)"
+     "title": "Rural Development (Part 2)",
+     "url": "notes/eco12-ied2-2.html"
     },
     {
      "id": "eco12-ied2-3",
-     "title": "Employment (Part 3)"
+     "title": "Employment (Part 3)",
+     "url": "notes/eco12-ied2-3.html"
     },
     {
      "id": "eco12-ied2-4",
-     "title": "Sustainable Economic Development (Part 4)"
+     "title": "Sustainable Economic Development (Part 4)",
+     "url": "notes/eco12-ied2-4.html"
     }
    ]
   },
@@ -1031,19 +1197,22 @@
    "subject": "Economics",
    "num": "7",
    "chapter": "Economic Reforms since 1991",
-   "gameId": "04",
-   "genre": "Detective Academy",
-   "mechanic": "Investigate the 1991 crisis",
-   "status": "planned",
+   "gameId": "-",
+   "genre": "Business Tycoon",
+   "mechanic": "Open the economy: liberalise, privatise and globalise.",
+   "status": "ready",
+   "kit": "tycoon",
    "file": "arcade/games/class-12/economics/eco12-lpg.html",
    "episodes": [
     {
      "id": "eco12-lpg-1",
-     "title": "Liberalisation, Privatisation and Globalisation (Part 1)"
+     "title": "Liberalisation, Privatisation and Globalisation (Part 1)",
+     "url": "notes/eco12-lpg-1.html"
     },
     {
      "id": "eco12-lpg-2",
-     "title": "Demonetisation and GST (Part 2)"
+     "title": "Demonetisation and GST (Part 2)",
+     "url": "notes/eco12-lpg-2.html"
     }
    ]
   },
@@ -1053,15 +1222,17 @@
    "subject": "Economics",
    "num": "9",
    "chapter": "India and its Neighbours",
-   "gameId": "19",
-   "genre": "Escape Room",
-   "mechanic": "Compare indicators to unlock rooms",
-   "status": "planned",
+   "gameId": "-",
+   "genre": "Chapter Quest",
+   "mechanic": "Compare India, Pakistan and China on the road of development.",
+   "status": "ready",
+   "kit": "quest",
    "file": "arcade/games/class-12/economics/eco12-neighbours.html",
    "episodes": [
     {
      "id": "eco12-neighbours-1",
-     "title": "India, Pakistan and China Compared"
+     "title": "India, Pakistan and China Compared",
+     "url": "notes/eco12-neighbours-1.html"
     }
    ]
   },
@@ -1071,23 +1242,27 @@
    "subject": "Economics",
    "num": "2",
    "chapter": "Money and Banking",
-   "gameId": "07",
+   "gameId": "-",
    "genre": "Business Tycoon",
-   "mechanic": "Run a bank: multiplier, CRR, repo",
-   "status": "planned",
+   "mechanic": "Run the bank: create credit, hold reserves and steer the economy.",
+   "status": "ready",
+   "kit": "tycoon",
    "file": "arcade/games/class-12/economics/eco12-money.html",
    "episodes": [
     {
      "id": "eco12-money-1",
-     "title": "Money: Meaning, Functions and Supply (Part 1)"
+     "title": "Money: Meaning, Functions and Supply (Part 1)",
+     "url": "notes/eco12-money-1.html"
     },
     {
      "id": "eco12-money-2",
-     "title": "Money Creation by Commercial Banks (Part 2)"
+     "title": "Money Creation by Commercial Banks (Part 2)",
+     "url": "notes/eco12-money-2.html"
     },
     {
      "id": "eco12-money-3",
-     "title": "Central Bank and Credit Control (Part 3)"
+     "title": "Central Bank and Credit Control (Part 3)",
+     "url": "notes/eco12-money-3.html"
     }
    ]
   },
@@ -1097,15 +1272,17 @@
    "subject": "Economics",
    "num": "1",
    "chapter": "Statistics: Introduction",
-   "gameId": "04",
+   "gameId": "-",
    "genre": "Detective Academy",
-   "mechanic": "Use data as evidence",
-   "status": "planned",
+   "mechanic": "Use data as evidence to solve the economic case.",
+   "status": "ready",
+   "kit": "detective",
    "file": "arcade/games/class-11/economics/eco11-intro.html",
    "episodes": [
     {
      "id": "eco11-intro-1",
-     "title": "Meaning, Scope and Importance of Statistics"
+     "title": "Meaning, Scope and Importance of Statistics",
+     "url": "notes/eco11-intro-1.html"
     }
    ]
   },
@@ -1115,15 +1292,17 @@
    "subject": "Economics",
    "num": "4",
    "chapter": "Introduction to Microeconomics",
-   "gameId": "10",
+   "gameId": "-",
    "genre": "Farm Master",
-   "mechanic": "Allocate land, plot your PPC",
-   "status": "planned",
+   "mechanic": "Allocate your land, plot your PPC and face the central problems.",
+   "status": "ready",
+   "kit": "farm",
    "file": "arcade/games/class-11/economics/eco11-micro.html",
    "episodes": [
     {
      "id": "eco11-micro-1",
-     "title": "Central Problems and the PPC"
+     "title": "Central Problems and the PPC",
+     "url": "notes/eco11-micro-1.html"
     }
    ]
   },
@@ -1133,27 +1312,32 @@
    "subject": "Economics",
    "num": "3",
    "chapter": "Statistical Tools and Interpretation",
-   "gameId": "15",
+   "gameId": "-",
    "genre": "Sports Champion",
-   "mechanic": "Cricket season with averages and correlation",
-   "status": "planned",
+   "mechanic": "Play the cricket season with averages, medians and correlation.",
+   "status": "ready",
+   "kit": "sports",
    "file": "arcade/games/class-11/economics/eco11-tools.html",
    "episodes": [
     {
      "id": "eco11-tools-1",
-     "title": "Arithmetic Mean (Part 1)"
+     "title": "Arithmetic Mean (Part 1)",
+     "url": "notes/eco11-tools-1.html"
     },
     {
      "id": "eco11-tools-2",
-     "title": "Median and Mode (Part 2)"
+     "title": "Median and Mode (Part 2)",
+     "url": "notes/eco11-tools-2.html"
     },
     {
      "id": "eco11-tools-3",
-     "title": "Correlation (Part 3)"
+     "title": "Correlation (Part 3)",
+     "url": "notes/eco11-tools-3.html"
     },
     {
      "id": "eco11-tools-4",
-     "title": "Index Numbers (Part 4)"
+     "title": "Index Numbers (Part 4)",
+     "url": "notes/eco11-tools-4.html"
     }
    ]
   },
@@ -1163,27 +1347,32 @@
    "subject": "Economics",
    "num": "6",
    "chapter": "Producer Behaviour and Supply",
-   "gameId": "07",
+   "gameId": "-",
    "genre": "Business Tycoon",
-   "mechanic": "Factory cost and revenue curves",
-   "status": "planned",
+   "mechanic": "Run a factory: cost curves, revenue and supply.",
+   "status": "ready",
+   "kit": "tycoon",
    "file": "arcade/games/class-11/economics/eco11-producer.html",
    "episodes": [
     {
      "id": "eco11-producer-1",
-     "title": "Production Function (Part 1)"
+     "title": "Production Function (Part 1)",
+     "url": "notes/eco11-producer-1.html"
     },
     {
      "id": "eco11-producer-2",
-     "title": "Cost (Part 2)"
+     "title": "Cost (Part 2)",
+     "url": "notes/eco11-producer-2.html"
     },
     {
      "id": "eco11-producer-3",
-     "title": "Revenue and Producer's Equilibrium (Part 3)"
+     "title": "Revenue and Producer's Equilibrium (Part 3)",
+     "url": "notes/eco11-producer-3.html"
     },
     {
      "id": "eco11-producer-4",
-     "title": "Supply and Elasticity of Supply (Part 4)"
+     "title": "Supply and Elasticity of Supply (Part 4)",
+     "url": "notes/eco11-producer-4.html"
     }
    ]
   },
@@ -1193,27 +1382,32 @@
    "subject": "Economics",
    "num": "5",
    "chapter": "Consumer's Equilibrium and Demand",
-   "gameId": "08",
+   "gameId": "-",
    "genre": "Supermarket Simulator",
-   "mechanic": "Budget, utility and elasticity",
-   "status": "planned",
+   "mechanic": "Spend a fixed budget for maximum satisfaction and read the demand.",
+   "status": "ready",
+   "kit": "supermarket",
    "file": "arcade/games/class-11/economics/eco11-consumer.html",
    "episodes": [
     {
      "id": "eco11-consumer-1",
-     "title": "Utility Analysis (Part 1)"
+     "title": "Utility Analysis (Part 1)",
+     "url": "notes/eco11-consumer-1.html"
     },
     {
      "id": "eco11-consumer-2",
-     "title": "Indifference Curve Analysis (Part 2)"
+     "title": "Indifference Curve Analysis (Part 2)",
+     "url": "notes/eco11-consumer-2.html"
     },
     {
      "id": "eco11-consumer-3",
-     "title": "Demand (Part 3)"
+     "title": "Demand (Part 3)",
+     "url": "notes/eco11-consumer-3.html"
     },
     {
      "id": "eco11-consumer-4",
-     "title": "Price Elasticity of Demand (Part 4)"
+     "title": "Price Elasticity of Demand (Part 4)",
+     "url": "notes/eco11-consumer-4.html"
     }
    ]
   },
@@ -1223,19 +1417,22 @@
    "subject": "Economics",
    "num": "7",
    "chapter": "Perfect Competition and Price Determination",
-   "gameId": "09",
+   "gameId": "-",
    "genre": "City Builder",
-   "mechanic": "Price ceilings and floors",
-   "status": "planned",
+   "mechanic": "Set prices in perfect competition: ceilings and floors.",
+   "status": "ready",
+   "kit": "city",
    "file": "arcade/games/class-11/economics/eco11-market.html",
    "episodes": [
     {
      "id": "eco11-market-1",
-     "title": "Perfect Competition and Market Equilibrium (Part 1)"
+     "title": "Perfect Competition and Market Equilibrium (Part 1)",
+     "url": "notes/eco11-market-1.html"
     },
     {
      "id": "eco11-market-2",
-     "title": "Price Ceiling and Price Floor (Part 2)"
+     "title": "Price Ceiling and Price Floor (Part 2)",
+     "url": "notes/eco11-market-2.html"
     }
    ]
   },
@@ -1245,27 +1442,2027 @@
    "subject": "Economics",
    "num": "2",
    "chapter": "Collection, Organisation and Presentation of Data",
-   "gameId": "14",
+   "gameId": "-",
    "genre": "Art Studio",
-   "mechanic": "Build charts from raw data",
-   "status": "planned",
+   "mechanic": "Collect, organise and paint the data into charts.",
+   "status": "ready",
+   "kit": "art",
    "file": "arcade/games/class-11/economics/eco11-data.html",
    "episodes": [
     {
      "id": "eco11-data-1",
-     "title": "Collection of Data (Part 1)"
+     "title": "Collection of Data (Part 1)",
+     "url": "notes/eco11-data-1.html"
     },
     {
      "id": "eco11-data-2",
-     "title": "Organisation of Data (Part 2)"
+     "title": "Organisation of Data (Part 2)",
+     "url": "notes/eco11-data-2.html"
     },
     {
      "id": "eco11-data-3",
-     "title": "Tables and Diagrams (Part 3)"
+     "title": "Tables and Diagrams (Part 3)",
+     "url": "notes/eco11-data-3.html"
     },
     {
      "id": "eco11-data-4",
-     "title": "Frequency Diagrams and Graphs (Part 4)"
+     "title": "Frequency Diagrams and Graphs (Part 4)",
+     "url": "notes/eco11-data-4.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "sst10-his1",
+   "class": "X",
+   "subject": "Social Science (SST)",
+   "num": "1",
+   "chapter": "The Rise of Nationalism in Europe",
+   "gameId": "-",
+   "genre": "Chapter Quest",
+   "mechanic": "Follow the rise of nationalism across Europe, from 1789 to unification.",
+   "status": "ready",
+   "kit": "quest",
+   "file": "arcade/games/class-10/social-science/sst10-his1.html",
+   "episodes": [
+    {
+     "id": "sst10-his1-1",
+     "title": "Birth of the Nation (1789–1815) — Part 1",
+     "url": "notes/sst10-his1-1.html"
+    },
+    {
+     "id": "sst10-his1-2",
+     "title": "Europe on Fire (1830–1848) — Part 2",
+     "url": "notes/sst10-his1-2.html"
+    },
+    {
+     "id": "sst10-his1-3",
+     "title": "Nations Unite (1859–1914) — Part 3",
+     "url": "notes/sst10-his1-3.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "sst10-his4",
+   "class": "X",
+   "subject": "Social Science (SST)",
+   "num": "4",
+   "chapter": "The Age of Industrialisation",
+   "gameId": "-",
+   "genre": "Business Tycoon",
+   "mechanic": "Build an industrial empire in the age of industrialisation.",
+   "status": "ready",
+   "kit": "tycoon",
+   "file": "arcade/games/class-10/social-science/sst10-his4.html",
+   "episodes": [
+    {
+     "id": "sst10-his4-1",
+     "title": "Rise of the Machines: The Age of Industrialisation",
+     "url": "notes/sst10-his4-1.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "sst10-his3",
+   "class": "X",
+   "subject": "Social Science (SST)",
+   "num": "3",
+   "chapter": "The Making of a Global World",
+   "gameId": "-",
+   "genre": "Build Your Machine",
+   "mechanic": "Assemble the global economy: trade routes, technology and the world wars.",
+   "status": "ready",
+   "kit": "machine",
+   "file": "arcade/games/class-10/social-science/sst10-his3.html",
+   "episodes": [
+    {
+     "id": "sst10-his3-1",
+     "title": "The World Before Wi-Fi: The Pre-modern World",
+     "url": "notes/sst10-his3-1.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "sst10-geo1",
+   "class": "X",
+   "subject": "Social Science (SST)",
+   "num": "1",
+   "chapter": "Resources and Development",
+   "gameId": "-",
+   "genre": "Farm Master",
+   "mechanic": "Manage land and soil resources for sustainable development.",
+   "status": "ready",
+   "kit": "farm",
+   "file": "arcade/games/class-10/social-science/sst10-geo1.html",
+   "episodes": [
+    {
+     "id": "sst10-geo1-1",
+     "title": "Who Owns the Earth? (Resources and Planning) — Part 1",
+     "url": "notes/sst10-geo1-1.html"
+    },
+    {
+     "id": "sst10-geo1-2",
+     "title": "Holding the Soil (Land and Soil) — Part 2",
+     "url": "notes/sst10-geo1-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "sst10-his5",
+   "class": "X",
+   "subject": "Social Science (SST)",
+   "num": "5",
+   "chapter": "Print Culture and the Modern World",
+   "gameId": "-",
+   "genre": "Story Designer",
+   "mechanic": "Tell the story of print: from woodblock to the modern press.",
+   "status": "ready",
+   "kit": "story",
+   "file": "arcade/games/class-10/social-science/sst10-his5.html",
+   "episodes": [
+    {
+     "id": "sst10-his5-1",
+     "title": "Ideas Go Viral (Print Culture) — Part 1",
+     "url": "notes/sst10-his5-1.html"
+    },
+    {
+     "id": "sst10-his5-2",
+     "title": "Words Against Empire (Print in India) — Part 2",
+     "url": "notes/sst10-his5-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "sst10-geo3",
+   "class": "X",
+   "subject": "Social Science (SST)",
+   "num": "3",
+   "chapter": "Water Resources",
+   "gameId": "-",
+   "genre": "City Builder",
+   "mechanic": "Manage every drop: dams, harvesting and conservation.",
+   "status": "ready",
+   "kit": "city",
+   "file": "arcade/games/class-10/social-science/sst10-geo3.html",
+   "episodes": [
+    {
+     "id": "sst10-geo3-1",
+     "title": "Every Drop Counts (Water Resources) — Part 1",
+     "url": "notes/sst10-geo3-1.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "sst10-geo2",
+   "class": "X",
+   "subject": "Social Science (SST)",
+   "num": "2",
+   "chapter": "Forest and Wildlife Resources",
+   "gameId": "-",
+   "genre": "Knowledge Runner",
+   "mechanic": "Run through the forest and collect only the right category.",
+   "status": "ready",
+   "kit": "runner",
+   "file": "arcade/games/class-10/social-science/sst10-geo2.html",
+   "episodes": [
+    {
+     "id": "sst10-geo2-1",
+     "title": "The Forest Keepers (Forest and Wildlife) — Part 1",
+     "url": "notes/sst10-geo2-1.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "sst10-geo5",
+   "class": "X",
+   "subject": "Social Science (SST)",
+   "num": "5",
+   "chapter": "Minerals and Energy Resources",
+   "gameId": "-",
+   "genre": "Science Lab Simulator",
+   "mechanic": "Examine minerals and energy sources in the lab.",
+   "status": "ready",
+   "kit": "lab",
+   "file": "arcade/games/class-10/social-science/sst10-geo5.html",
+   "episodes": [
+    {
+     "id": "sst10-geo5-1",
+     "title": "Under the Ground (Minerals and Mining) — Part 1",
+     "url": "notes/sst10-geo5-1.html"
+    },
+    {
+     "id": "sst10-geo5-2",
+     "title": "Switch On, Switch Smart — Part 2",
+     "url": "notes/sst10-geo5-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "sst10-geo4",
+   "class": "X",
+   "subject": "Social Science (SST)",
+   "num": "4",
+   "chapter": "Agriculture",
+   "gameId": "-",
+   "genre": "Farm Master",
+   "mechanic": "Take the crop from field to plate.",
+   "status": "ready",
+   "kit": "farm",
+   "file": "arcade/games/class-10/social-science/sst10-geo4.html",
+   "episodes": [
+    {
+     "id": "sst10-geo4-1",
+     "title": "Field to Plate (Agriculture) — Part 1",
+     "url": "notes/sst10-geo4-1.html"
+    },
+    {
+     "id": "sst10-geo4-2",
+     "title": "Seeds, Laws and Milk (Reforms and Revolution) — Part 2",
+     "url": "notes/sst10-geo4-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "sst10-geo7",
+   "class": "X",
+   "subject": "Social Science (SST)",
+   "num": "7",
+   "chapter": "Lifelines of National Economy",
+   "gameId": "-",
+   "genre": "Formula Racing",
+   "mechanic": "Race goods along India's lifelines: roads, rails, ports and pipelines.",
+   "status": "ready",
+   "kit": "racing",
+   "file": "arcade/games/class-10/social-science/sst10-geo7.html",
+   "episodes": [
+    {
+     "id": "sst10-geo7-1",
+     "title": "Goods on the Move — Part 1",
+     "url": "notes/sst10-geo7-1.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "sst10-geo6",
+   "class": "X",
+   "subject": "Social Science (SST)",
+   "num": "6",
+   "chapter": "Manufacturing Industries",
+   "gameId": "-",
+   "genre": "Build Your Machine",
+   "mechanic": "Assemble the factory floor: industries and their raw materials.",
+   "status": "ready",
+   "kit": "machine",
+   "file": "arcade/games/class-10/social-science/sst10-geo6.html",
+   "episodes": [
+    {
+     "id": "sst10-geo6-1",
+     "title": "Factory Floor Stories — Part 1",
+     "url": "notes/sst10-geo6-1.html"
+    },
+    {
+     "id": "sst10-geo6-2",
+     "title": "Smoke and Steel — Part 2",
+     "url": "notes/sst10-geo6-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "sst10-pol2",
+   "class": "X",
+   "subject": "Social Science (SST)",
+   "num": "2",
+   "chapter": "Federalism",
+   "gameId": "-",
+   "genre": "Chapter Quest",
+   "mechanic": "Walk from the Union to the village panchayat across two levels of government.",
+   "status": "ready",
+   "kit": "quest",
+   "file": "arcade/games/class-10/social-science/sst10-pol2.html",
+   "episodes": [
+    {
+     "id": "sst10-pol2-1",
+     "title": "Two Levels, One Nation — Part 1",
+     "url": "notes/sst10-pol2-1.html"
+    },
+    {
+     "id": "sst10-pol2-2",
+     "title": "Power to the Village — Part 2",
+     "url": "notes/sst10-pol2-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "sst10-pol1",
+   "class": "X",
+   "subject": "Social Science (SST)",
+   "num": "1",
+   "chapter": "Power-sharing",
+   "gameId": "-",
+   "genre": "City Builder",
+   "mechanic": "Share power so every community has a seat at the table.",
+   "status": "ready",
+   "kit": "city",
+   "file": "arcade/games/class-10/social-science/sst10-pol1.html",
+   "episodes": [
+    {
+     "id": "sst10-pol1-1",
+     "title": "Share the Power — Part 1",
+     "url": "notes/sst10-pol1-1.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "sst10-pol4",
+   "class": "X",
+   "subject": "Social Science (SST)",
+   "num": "4",
+   "chapter": "Political Parties",
+   "gameId": "-",
+   "genre": "Tower Defence Academy",
+   "mechanic": "Defend the democratic system with strong, accountable parties.",
+   "status": "ready",
+   "kit": "tower",
+   "file": "arcade/games/class-10/social-science/sst10-pol4.html",
+   "episodes": [
+    {
+     "id": "sst10-pol4-1",
+     "title": "Party Line — Part 1",
+     "url": "notes/sst10-pol4-1.html"
+    },
+    {
+     "id": "sst10-pol4-2",
+     "title": "Party Test — Part 2",
+     "url": "notes/sst10-pol4-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "sst10-pol3",
+   "class": "X",
+   "subject": "Social Science (SST)",
+   "num": "3",
+   "chapter": "Gender, Religion and Caste",
+   "gameId": "-",
+   "genre": "Detective Academy",
+   "mechanic": "Investigate gender, religion and caste in politics.",
+   "status": "ready",
+   "kit": "detective",
+   "file": "arcade/games/class-10/social-science/sst10-pol3.html",
+   "episodes": [
+    {
+     "id": "sst10-pol3-1",
+     "title": "Equal Voice — Part 1",
+     "url": "notes/sst10-pol3-1.html"
+    },
+    {
+     "id": "sst10-pol3-2",
+     "title": "Faith and Fair Play — Part 2",
+     "url": "notes/sst10-pol3-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "sst10-eco1",
+   "class": "X",
+   "subject": "Social Science (SST)",
+   "num": "1",
+   "chapter": "Development",
+   "gameId": "-",
+   "genre": "City Builder",
+   "mechanic": "Measure progress beyond the numbers.",
+   "status": "ready",
+   "kit": "city",
+   "file": "arcade/games/class-10/social-science/sst10-eco1.html",
+   "episodes": [
+    {
+     "id": "sst10-eco1-1",
+     "title": "Beyond the Number — Part 1",
+     "url": "notes/sst10-eco1-1.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "sst10-pol5",
+   "class": "X",
+   "subject": "Social Science (SST)",
+   "num": "5",
+   "chapter": "Outcomes of Democracy",
+   "gameId": "-",
+   "genre": "Story Designer",
+   "mechanic": "Judge what democracy has achieved for its people.",
+   "status": "ready",
+   "kit": "story",
+   "file": "arcade/games/class-10/social-science/sst10-pol5.html",
+   "episodes": [
+    {
+     "id": "sst10-pol5-1",
+     "title": "Power to the People — Part 1",
+     "url": "notes/sst10-pol5-1.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "sst10-eco3",
+   "class": "X",
+   "subject": "Social Science (SST)",
+   "num": "3",
+   "chapter": "Money and Credit",
+   "gameId": "-",
+   "genre": "Supermarket Simulator",
+   "mechanic": "Handle money and credit at the counter.",
+   "status": "ready",
+   "kit": "supermarket",
+   "file": "arcade/games/class-10/social-science/sst10-eco3.html",
+   "episodes": [
+    {
+     "id": "sst10-eco3-1",
+     "title": "Coin Flip — Part 1",
+     "url": "notes/sst10-eco3-1.html"
+    },
+    {
+     "id": "sst10-eco3-2",
+     "title": "Loan Lines — Part 2",
+     "url": "notes/sst10-eco3-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "sst10-eco2",
+   "class": "X",
+   "subject": "Social Science (SST)",
+   "num": "2",
+   "chapter": "Sectors of the Indian Economy",
+   "gameId": "-",
+   "genre": "Business Tycoon",
+   "mechanic": "Run the three sectors and secure the safety net.",
+   "status": "ready",
+   "kit": "tycoon",
+   "file": "arcade/games/class-10/social-science/sst10-eco2.html",
+   "episodes": [
+    {
+     "id": "sst10-eco2-1",
+     "title": "Three Sides — Part 1",
+     "url": "notes/sst10-eco2-1.html"
+    },
+    {
+     "id": "sst10-eco2-2",
+     "title": "Safety Net — Part 2",
+     "url": "notes/sst10-eco2-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "sst10-eco4",
+   "class": "X",
+   "subject": "Social Science (SST)",
+   "num": "4",
+   "chapter": "Globalisation and the Indian Economy",
+   "gameId": "-",
+   "genre": "Formula Racing",
+   "mechanic": "Race through the borderless world of globalisation.",
+   "status": "ready",
+   "kit": "racing",
+   "file": "arcade/games/class-10/social-science/sst10-eco4.html",
+   "episodes": [
+    {
+     "id": "sst10-eco4-1",
+     "title": "Borderless — Part 1",
+     "url": "notes/sst10-eco4-1.html"
+    },
+    {
+     "id": "sst10-eco4-2",
+     "title": "Open Gates — Part 2",
+     "url": "notes/sst10-eco4-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "sst10-his2",
+   "class": "X",
+   "subject": "Social Science (SST)",
+   "num": "2",
+   "chapter": "Nationalism in India",
+   "gameId": "-",
+   "genre": "Escape Room",
+   "mechanic": "Open every lock of India's freedom movement, 1914-1930.",
+   "status": "ready",
+   "kit": "escape",
+   "file": "arcade/games/class-10/social-science/sst10-his2.html",
+   "episodes": [
+    {
+     "id": "sst10-his2-1",
+     "title": "India Awakens (1914–1920) — Part 1",
+     "url": "notes/sst10-his2-1.html"
+    },
+    {
+     "id": "sst10-his2-2",
+     "title": "Many Swarajs (1921–1930) — Part 2",
+     "url": "notes/sst10-his2-2.html"
+    },
+    {
+     "id": "sst10-his2-3",
+     "title": "The Salt March and a Sense of Belonging (1930–1934) — Part 3",
+     "url": "notes/sst10-his2-3.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "sci10-ch1",
+   "class": "X",
+   "subject": "Science",
+   "num": "1",
+   "chapter": "Chemical Reactions and Equations",
+   "gameId": "-",
+   "genre": "Science Lab Simulator",
+   "mechanic": "Balance reactions and spot their types in the Fizz Lab.",
+   "status": "ready",
+   "kit": "lab",
+   "file": "arcade/games/class-10/science/sci10-ch1.html",
+   "episodes": [
+    {
+     "id": "sci1-1",
+     "title": "Fizz Lab — Part 1",
+     "url": "notes/sci1-1.html"
+    },
+    {
+     "id": "sci1-2",
+     "title": "Rust Patrol — Part 2",
+     "url": "notes/sci1-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "sci10-ch4",
+   "class": "X",
+   "subject": "Science",
+   "num": "4",
+   "chapter": "Carbon and its Compounds",
+   "gameId": "-",
+   "genre": "Build Your Machine",
+   "mechanic": "Build carbon compounds from the orbit crew's kit.",
+   "status": "ready",
+   "kit": "machine",
+   "file": "arcade/games/class-10/science/sci10-ch4.html",
+   "episodes": [
+    {
+     "id": "sci4-1",
+     "title": "Orbit Crew — Part 1",
+     "url": "notes/sci4-1.html"
+    },
+    {
+     "id": "sci4-2",
+     "title": "Orbit Crew — Part 2",
+     "url": "notes/sci4-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "sci10-ch3",
+   "class": "X",
+   "subject": "Science",
+   "num": "3",
+   "chapter": "Metals and Non-Metals",
+   "gameId": "-",
+   "genre": "Build Your Machine",
+   "mechanic": "Forge metals and non-metals by properties and reactions.",
+   "status": "ready",
+   "kit": "machine",
+   "file": "arcade/games/class-10/science/sci10-ch3.html",
+   "episodes": [
+    {
+     "id": "sci3-1",
+     "title": "Forge Puzzle — Part 1",
+     "url": "notes/sci3-1.html"
+    },
+    {
+     "id": "sci3-2",
+     "title": "Smelter Run — Part 2",
+     "url": "notes/sci3-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "sci10-ch6",
+   "class": "X",
+   "subject": "Science",
+   "num": "6",
+   "chapter": "Control and Coordination",
+   "gameId": "-",
+   "genre": "Knowledge Runner",
+   "mechanic": "Run the nervous and hormone pathways without hitting the wrong one.",
+   "status": "ready",
+   "kit": "runner",
+   "file": "arcade/games/class-10/science/sci10-ch6.html",
+   "episodes": [
+    {
+     "id": "sci6-1",
+     "title": "Signal Check — Part 1",
+     "url": "notes/sci6-1.html"
+    },
+    {
+     "id": "sci6-2",
+     "title": "Slow Signal — Part 2",
+     "url": "notes/sci6-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "sci10-ch5",
+   "class": "X",
+   "subject": "Science",
+   "num": "5",
+   "chapter": "Life Processes",
+   "gameId": "-",
+   "genre": "Chapter Quest",
+   "mechanic": "Trek through the life processes of the human body and plants.",
+   "status": "ready",
+   "kit": "quest",
+   "file": "arcade/games/class-10/science/sci10-ch5.html",
+   "episodes": [
+    {
+     "id": "sci5-1",
+     "title": "Jungle Trek — Part 1",
+     "url": "notes/sci5-1.html"
+    },
+    {
+     "id": "sci5-2",
+     "title": "Heart of the Jungle — Part 2",
+     "url": "notes/sci5-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "sci10-ch8",
+   "class": "X",
+   "subject": "Science",
+   "num": "8",
+   "chapter": "Heredity",
+   "gameId": "-",
+   "genre": "Story Designer",
+   "mechanic": "Write the recipe cards of heredity.",
+   "status": "ready",
+   "kit": "story",
+   "file": "arcade/games/class-10/science/sci10-ch8.html",
+   "episodes": [
+    {
+     "id": "sci8-1",
+     "title": "Recipe Cards",
+     "url": "notes/sci8-1.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "sci10-ch7",
+   "class": "X",
+   "subject": "Science",
+   "num": "7",
+   "chapter": "How do Organisms Reproduce?",
+   "gameId": "-",
+   "genre": "Farm Master",
+   "mechanic": "Grow the life cycle: asexual and sexual reproduction.",
+   "status": "ready",
+   "kit": "farm",
+   "file": "arcade/games/class-10/science/sci10-ch7.html",
+   "episodes": [
+    {
+     "id": "sci7-1",
+     "title": "Seed Parade — Part 1",
+     "url": "notes/sci7-1.html"
+    },
+    {
+     "id": "sci7-2",
+     "title": "Festival Lights — Part 2",
+     "url": "notes/sci7-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "sci10-ch10",
+   "class": "X",
+   "subject": "Science",
+   "num": "10",
+   "chapter": "Human Eye and Colourful World",
+   "gameId": "-",
+   "genre": "Detective Academy",
+   "mechanic": "Investigate how the eye sees and why the sky is blue.",
+   "status": "ready",
+   "kit": "detective",
+   "file": "arcade/games/class-10/science/sci10-ch10.html",
+   "episodes": [
+    {
+     "id": "sci10-1",
+     "title": "Clear View",
+     "url": "notes/sci10-1.html"
+    },
+    {
+     "id": "sci10-2",
+     "title": "True Colours",
+     "url": "notes/sci10-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "sci10-ch9",
+   "class": "X",
+   "subject": "Science",
+   "num": "9",
+   "chapter": "Light: Reflection and Refraction",
+   "gameId": "-",
+   "genre": "Space Mission",
+   "mechanic": "Navigate the light maze: mirrors, lenses and refraction.",
+   "status": "ready",
+   "kit": "space",
+   "file": "arcade/games/class-10/science/sci10-ch9.html",
+   "episodes": [
+    {
+     "id": "sci9-1",
+     "title": "Maze Runner",
+     "url": "notes/sci9-1.html"
+    },
+    {
+     "id": "sci9-2",
+     "title": "Bend It",
+     "url": "notes/sci9-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "sci10-ch12",
+   "class": "X",
+   "subject": "Science",
+   "num": "12",
+   "chapter": "Magnetic Effects of Current",
+   "gameId": "-",
+   "genre": "Build Your Machine",
+   "mechanic": "Build a motor and float on magnetic fields.",
+   "status": "ready",
+   "kit": "machine",
+   "file": "arcade/games/class-10/science/sci10-ch12.html",
+   "episodes": [
+    {
+     "id": "sci12-1",
+     "title": "Float On",
+     "url": "notes/sci12-1.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "sci10-ch11",
+   "class": "X",
+   "subject": "Science",
+   "num": "11",
+   "chapter": "Electricity",
+   "gameId": "-",
+   "genre": "Circuit Master",
+   "mechanic": "Wire the circuit and light every bulb.",
+   "status": "ready",
+   "kit": "circuit",
+   "file": "arcade/games/class-10/science/sci10-ch11.html",
+   "episodes": [
+    {
+     "id": "sci11-1",
+     "title": "Lights On",
+     "url": "notes/sci11-1.html"
+    },
+    {
+     "id": "sci11-2",
+     "title": "Hot Wire",
+     "url": "notes/sci11-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "sci10-ch13",
+   "class": "X",
+   "subject": "Science",
+   "num": "13",
+   "chapter": "Our Environment",
+   "gameId": "-",
+   "genre": "City Builder",
+   "mechanic": "Run the rescue mission for the environment.",
+   "status": "ready",
+   "kit": "city",
+   "file": "arcade/games/class-10/science/sci10-ch13.html",
+   "episodes": [
+    {
+     "id": "sci13-1",
+     "title": "Rescue Mission",
+     "url": "notes/sci13-1.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "sci10-ch2",
+   "class": "X",
+   "subject": "Science",
+   "num": "2",
+   "chapter": "Acids, Bases and Salts",
+   "gameId": "-",
+   "genre": "Science Lab Simulator",
+   "mechanic": "Sort acids, bases and salts and read the pH scale.",
+   "status": "ready",
+   "kit": "lab",
+   "file": "arcade/games/class-10/science/sci10-ch2.html",
+   "episodes": [
+    {
+     "id": "sci2-1",
+     "title": "Sour or Soapy — Part 1",
+     "url": "notes/sci2-1.html"
+    },
+    {
+     "id": "sci2-2",
+     "title": "Salt Shop Mystery — Part 2",
+     "url": "notes/sci2-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-ch2",
+   "class": "IX",
+   "subject": "Science",
+   "num": "2",
+   "chapter": "Cell: The Building Block of Life",
+   "gameId": "-",
+   "genre": "Detective Academy",
+   "mechanic": "Investigate the cell: its organelles and what each one does.",
+   "status": "ready",
+   "kit": "detective",
+   "file": "arcade/games/class-9/science/ix-ch2.html",
+   "episodes": [
+    {
+     "id": "ix2-1",
+     "title": "Microscope Lab · Part 1",
+     "url": "notes/ix2-1.html"
+    },
+    {
+     "id": "ix2-2",
+     "title": "Cell Fortress · Part 2",
+     "url": "notes/ix2-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-ch5",
+   "class": "IX",
+   "subject": "Science",
+   "num": "5",
+   "chapter": "Exploring Mixtures and their Separation",
+   "gameId": "-",
+   "genre": "Science Lab Simulator",
+   "mechanic": "Separate mixtures at the juice bar and clean the water.",
+   "status": "ready",
+   "kit": "lab",
+   "file": "arcade/games/class-9/science/ix-ch5.html",
+   "episodes": [
+    {
+     "id": "ix5-1",
+     "title": "Juice Bar Lab · Part 1",
+     "url": "notes/ix5-1.html"
+    },
+    {
+     "id": "ix5-2",
+     "title": "Clean Water Crew · Part 2",
+     "url": "notes/ix5-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-ch4",
+   "class": "IX",
+   "subject": "Science",
+   "num": "4",
+   "chapter": "Describing Motion Around Us",
+   "gameId": "-",
+   "genre": "Formula Racing",
+   "mechanic": "Race on the track: speed, velocity and acceleration.",
+   "status": "ready",
+   "kit": "racing",
+   "file": "arcade/games/class-9/science/ix-ch4.html",
+   "episodes": [
+    {
+     "id": "ix4-1",
+     "title": "Race Track · Part 1",
+     "url": "notes/ix4-1.html"
+    },
+    {
+     "id": "ix4-2",
+     "title": "Stunt Arena · Part 2",
+     "url": "notes/ix4-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-ch7",
+   "class": "IX",
+   "subject": "Science",
+   "num": "7",
+   "chapter": "Work, Energy and Simple Machines",
+   "gameId": "-",
+   "genre": "Build Your Machine",
+   "mechanic": "Power the plant and assemble simple machines.",
+   "status": "ready",
+   "kit": "machine",
+   "file": "arcade/games/class-9/science/ix-ch7.html",
+   "episodes": [
+    {
+     "id": "ix7-1",
+     "title": "Power Plant · Part 1",
+     "url": "notes/ix7-1.html"
+    },
+    {
+     "id": "ix7-2",
+     "title": "Workshop · Part 2",
+     "url": "notes/ix7-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-ch6",
+   "class": "IX",
+   "subject": "Science",
+   "num": "6",
+   "chapter": "How Forces Affect Motion",
+   "gameId": "-",
+   "genre": "Sports Champion",
+   "mechanic": "Kick the ball by Newton's laws: force, mass and motion.",
+   "status": "ready",
+   "kit": "sports",
+   "file": "arcade/games/class-9/science/ix-ch6.html",
+   "episodes": [
+    {
+     "id": "ix6-1",
+     "title": "Tug of War · Part 1",
+     "url": "notes/ix6-1.html"
+    },
+    {
+     "id": "ix6-2",
+     "title": "Rocket Pad · Part 2",
+     "url": "notes/ix6-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-ch9",
+   "class": "IX",
+   "subject": "Science",
+   "num": "9",
+   "chapter": "Atomic Foundation of Matter",
+   "gameId": "-",
+   "genre": "Build Your Machine",
+   "mechanic": "Build formulae and balance reactions at Formula Foundry.",
+   "status": "ready",
+   "kit": "machine",
+   "file": "arcade/games/class-9/science/ix-ch9.html",
+   "episodes": [
+    {
+     "id": "ix9-1",
+     "title": "Reaction Harbour · Part 1",
+     "url": "notes/ix9-1.html"
+    },
+    {
+     "id": "ix9-2",
+     "title": "Formula Foundry · Part 2",
+     "url": "notes/ix9-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-ch8",
+   "class": "IX",
+   "subject": "Science",
+   "num": "8",
+   "chapter": "Journey Inside the Atom",
+   "gameId": "-",
+   "genre": "Science Lab Simulator",
+   "mechanic": "Take a journey inside the atom and build its shells.",
+   "status": "ready",
+   "kit": "lab",
+   "file": "arcade/games/class-9/science/ix-ch8.html",
+   "episodes": [
+    {
+     "id": "ix8-1",
+     "title": "Atom Lab · Part 1",
+     "url": "notes/ix8-1.html"
+    },
+    {
+     "id": "ix8-2",
+     "title": "Shell Builders · Part 2",
+     "url": "notes/ix8-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-ch11",
+   "class": "IX",
+   "subject": "Science",
+   "num": "11",
+   "chapter": "Reproduction",
+   "gameId": "-",
+   "genre": "Farm Master",
+   "mechanic": "Grow a garden nursery and trace the story of life.",
+   "status": "ready",
+   "kit": "farm",
+   "file": "arcade/games/class-9/science/ix-ch11.html",
+   "episodes": [
+    {
+     "id": "ix11-1",
+     "title": "Garden Nursery · Part 1",
+     "url": "notes/ix11-1.html"
+    },
+    {
+     "id": "ix11-2",
+     "title": "Life Story Lab · Part 2",
+     "url": "notes/ix11-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-ch10",
+   "class": "IX",
+   "subject": "Science",
+   "num": "10",
+   "chapter": "Sound",
+   "gameId": "-",
+   "genre": "Rhythm Master",
+   "mechanic": "Ride the sound waves of Echo Valley.",
+   "status": "ready",
+   "kit": "rhythm",
+   "file": "arcade/games/class-9/science/ix-ch10.html",
+   "episodes": [
+    {
+     "id": "ix10-1",
+     "title": "Echo Valley · Part 1",
+     "url": "notes/ix10-1.html"
+    },
+    {
+     "id": "ix10-2",
+     "title": "Sonar Squad · Part 2",
+     "url": "notes/ix10-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-ch13",
+   "class": "IX",
+   "subject": "Science",
+   "num": "13",
+   "chapter": "Earth as a System",
+   "gameId": "-",
+   "genre": "City Builder",
+   "mechanic": "Control the planet: spheres, cycles and the climate.",
+   "status": "ready",
+   "kit": "city",
+   "file": "arcade/games/class-9/science/ix-ch13.html",
+   "episodes": [
+    {
+     "id": "ix13-1",
+     "title": "Planet Control Room · Part 1",
+     "url": "notes/ix13-1.html"
+    },
+    {
+     "id": "ix13-2",
+     "title": "Cycle City · Part 2",
+     "url": "notes/ix13-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-ch12",
+   "class": "IX",
+   "subject": "Science",
+   "num": "12",
+   "chapter": "Diversity in Living Organisms",
+   "gameId": "-",
+   "genre": "Detective Academy",
+   "mechanic": "Classify life on the species safari.",
+   "status": "ready",
+   "kit": "detective",
+   "file": "arcade/games/class-9/science/ix-ch12.html",
+   "episodes": [
+    {
+     "id": "ix12-1",
+     "title": "Species Safari · Part 1",
+     "url": "notes/ix12-1.html"
+    },
+    {
+     "id": "ix12-2",
+     "title": "Ark Explorers · Part 2",
+     "url": "notes/ix12-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-ch1",
+   "class": "IX",
+   "subject": "Science",
+   "num": "1",
+   "chapter": "Scientific Enquiry and Measurement",
+   "gameId": "-",
+   "genre": "Science Lab Simulator",
+   "mechanic": "Run the young scientists' lab: measure, record and enquire.",
+   "status": "ready",
+   "kit": "lab",
+   "file": "arcade/games/class-9/science/ix-ch1.html",
+   "episodes": [
+    {
+     "id": "ix1-1",
+     "title": "Young Scientists Lab",
+     "url": "notes/ix1-1.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-ch3",
+   "class": "IX",
+   "subject": "Science",
+   "num": "3",
+   "chapter": "Tissues in Action",
+   "gameId": "-",
+   "genre": "City Builder",
+   "mechanic": "Build a green city and body squad from plant and animal tissues.",
+   "status": "ready",
+   "kit": "city",
+   "file": "arcade/games/class-9/science/ix-ch3.html",
+   "episodes": [
+    {
+     "id": "ix3-1",
+     "title": "Green City · Part 1",
+     "url": "notes/ix3-1.html"
+    },
+    {
+     "id": "ix3-2",
+     "title": "Body Squad · Part 2",
+     "url": "notes/ix3-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-sst1",
+   "class": "IX",
+   "subject": "Social Science (SST)",
+   "num": "1",
+   "chapter": "Understanding Social Science",
+   "gameId": "-",
+   "genre": "Detective Academy",
+   "mechanic": "Become a society detective: the branches of social science.",
+   "status": "ready",
+   "kit": "detective",
+   "file": "arcade/games/class-9/social-science/ix-sst1.html",
+   "episodes": [
+    {
+     "id": "sx1-1",
+     "title": "Society Detectives",
+     "url": "notes/sx1-1.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-sst4",
+   "class": "IX",
+   "subject": "Social Science (SST)",
+   "num": "4",
+   "chapter": "Early Humans and Beginning of Civilisation",
+   "gameId": "-",
+   "genre": "Chapter Quest",
+   "mechanic": "Travel from the earliest humans to the cities by the rivers.",
+   "status": "ready",
+   "kit": "quest",
+   "file": "arcade/games/class-9/social-science/ix-sst4.html",
+   "episodes": [
+    {
+     "id": "sx4-1",
+     "title": "The Time Capsule",
+     "url": "notes/sx4-1.html"
+    },
+    {
+     "id": "sx4-2",
+     "title": "Cities by the Rivers",
+     "url": "notes/sx4-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-sst3",
+   "class": "IX",
+   "subject": "Social Science (SST)",
+   "num": "3",
+   "chapter": "Atmosphere and Climate",
+   "gameId": "-",
+   "genre": "Space Mission",
+   "mechanic": "Monitor the sky station: atmosphere, weather and climate.",
+   "status": "ready",
+   "kit": "space",
+   "file": "arcade/games/class-9/social-science/ix-sst3.html",
+   "episodes": [
+    {
+     "id": "sx3-1",
+     "title": "Sky Station Control",
+     "url": "notes/sx3-1.html"
+    },
+    {
+     "id": "sx3-2",
+     "title": "Weather and Climate",
+     "url": "notes/sx3-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-sst6",
+   "class": "IX",
+   "subject": "Social Science (SST)",
+   "num": "6",
+   "chapter": "Democracy",
+   "gameId": "-",
+   "genre": "City Builder",
+   "mechanic": "Govern Council Island by the principles of democracy.",
+   "status": "ready",
+   "kit": "city",
+   "file": "arcade/games/class-9/social-science/ix-sst6.html",
+   "episodes": [
+    {
+     "id": "sx6-1",
+     "title": "Council Island",
+     "url": "notes/sx6-1.html"
+    },
+    {
+     "id": "sx6-2",
+     "title": "Why Democracy",
+     "url": "notes/sx6-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-sst5",
+   "class": "IX",
+   "subject": "Social Science (SST)",
+   "num": "5",
+   "chapter": "State and Society up to 1000 CE",
+   "gameId": "-",
+   "genre": "Story Designer",
+   "mechanic": "Ride the Vedic express through states and societies up to 1000 CE.",
+   "status": "ready",
+   "kit": "story",
+   "file": "arcade/games/class-9/social-science/ix-sst5.html",
+   "episodes": [
+    {
+     "id": "sx5-1",
+     "title": "The Vedic Express",
+     "url": "notes/sx5-1.html"
+    },
+    {
+     "id": "sx5-2",
+     "title": "Empires and Kingdoms",
+     "url": "notes/sx5-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-sst8",
+   "class": "IX",
+   "subject": "Social Science (SST)",
+   "num": "8",
+   "chapter": "Building Blocks in Economics",
+   "gameId": "-",
+   "genre": "Business Tycoon",
+   "mechanic": "Run Castaway Market: production, consumption and trade.",
+   "status": "ready",
+   "kit": "tycoon",
+   "file": "arcade/games/class-9/social-science/ix-sst8.html",
+   "episodes": [
+    {
+     "id": "sx8-1",
+     "title": "Castaway Market",
+     "url": "notes/sx8-1.html"
+    },
+    {
+     "id": "sx8-2",
+     "title": "Castaway Town",
+     "url": "notes/sx8-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-sst7",
+   "class": "IX",
+   "subject": "Social Science (SST)",
+   "num": "7",
+   "chapter": "Elections in a Democracy",
+   "gameId": "-",
+   "genre": "Supermarket Simulator",
+   "mechanic": "Run the ballot box bazaar: fair elections step by step.",
+   "status": "ready",
+   "kit": "supermarket",
+   "file": "arcade/games/class-9/social-science/ix-sst7.html",
+   "episodes": [
+    {
+     "id": "sx7-1",
+     "title": "Ballot Box Bazaar",
+     "url": "notes/sx7-1.html"
+    },
+    {
+     "id": "sx7-2",
+     "title": "Fair Play Bazaar",
+     "url": "notes/sx7-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-sstp2-1",
+   "class": "IX",
+   "subject": "Social Science (SST)",
+   "num": "1",
+   "chapter": "Oceans and Life",
+   "gameId": "-",
+   "genre": "Science Lab Simulator",
+   "mechanic": "Dive in and study the ocean and the life in it.",
+   "status": "ready",
+   "kit": "lab",
+   "file": "arcade/games/class-9/social-science/ix-sstp2-1.html",
+   "episodes": [
+    {
+     "id": "sy1-1",
+     "title": "Deep Dive Academy",
+     "url": "notes/sy1-1.html"
+    },
+    {
+     "id": "sy1-2",
+     "title": "Living Ocean",
+     "url": "notes/sy1-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-sst9",
+   "class": "IX",
+   "subject": "Social Science (SST)",
+   "num": "9",
+   "chapter": "The Price Puzzle",
+   "gameId": "-",
+   "genre": "Detective Academy",
+   "mechanic": "Solve the Mango Mela price puzzle.",
+   "status": "ready",
+   "kit": "detective",
+   "file": "arcade/games/class-9/social-science/ix-sst9.html",
+   "episodes": [
+    {
+     "id": "sx9-1",
+     "title": "Mango Mela Mystery",
+     "url": "notes/sx9-1.html"
+    },
+    {
+     "id": "sx9-2",
+     "title": "Mango Mela Day Two",
+     "url": "notes/sx9-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-sstp2-3",
+   "class": "IX",
+   "subject": "Social Science (SST)",
+   "num": "3",
+   "chapter": "Resistance and Resilience 1000–1700 CE",
+   "gameId": "-",
+   "genre": "Chapter Quest",
+   "mechanic": "Walk the fort trail from 1000 to 1700 CE.",
+   "status": "ready",
+   "kit": "quest",
+   "file": "arcade/games/class-9/social-science/ix-sstp2-3.html",
+   "episodes": [
+    {
+     "id": "sy3-1",
+     "title": "Fort Keepers Trail",
+     "url": "notes/sy3-1.html"
+    },
+    {
+     "id": "sy3-2",
+     "title": "Swarajya Summit",
+     "url": "notes/sy3-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-sstp2-2",
+   "class": "IX",
+   "subject": "Social Science (SST)",
+   "num": "2",
+   "chapter": "Life on Earth",
+   "gameId": "-",
+   "genre": "Farm Master",
+   "mechanic": "Explore the forests: biomes and life on Earth.",
+   "status": "ready",
+   "kit": "farm",
+   "file": "arcade/games/class-9/social-science/ix-sstp2-2.html",
+   "episodes": [
+    {
+     "id": "sy2-1",
+     "title": "Jungle Pulse Expedition",
+     "url": "notes/sy2-1.html"
+    },
+    {
+     "id": "sy2-2",
+     "title": "Jungle Guardians",
+     "url": "notes/sy2-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-sstp2-5",
+   "class": "IX",
+   "subject": "Social Science (SST)",
+   "num": "5",
+   "chapter": "Managing Your Personal Finances",
+   "gameId": "-",
+   "genre": "Supermarket Simulator",
+   "mechanic": "Manage the pocket-money planet: save, spend and plan.",
+   "status": "ready",
+   "kit": "supermarket",
+   "file": "arcade/games/class-9/social-science/ix-sstp2-5.html",
+   "episodes": [
+    {
+     "id": "sy5-1",
+     "title": "Pocket Money Planet",
+     "url": "notes/sy5-1.html"
+    },
+    {
+     "id": "sy5-2",
+     "title": "Pocket Money Planet II",
+     "url": "notes/sy5-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-sstp2-4",
+   "class": "IX",
+   "subject": "Social Science (SST)",
+   "num": "4",
+   "chapter": "Governance and Public Policy",
+   "gameId": "-",
+   "genre": "City Builder",
+   "mechanic": "Design policies in the policy playground.",
+   "status": "ready",
+   "kit": "city",
+   "file": "arcade/games/class-9/social-science/ix-sstp2-4.html",
+   "episodes": [
+    {
+     "id": "sy4-1",
+     "title": "Policy Playground",
+     "url": "notes/sy4-1.html"
+    },
+    {
+     "id": "sy4-2",
+     "title": "Policy Playground Day Two",
+     "url": "notes/sy4-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-sstp2-6",
+   "class": "IX",
+   "subject": "Social Science (SST)",
+   "num": "6",
+   "chapter": "From Ideas to Startups",
+   "gameId": "-",
+   "genre": "Business Tycoon",
+   "mechanic": "Turn ideas into start-ups in the sandbox.",
+   "status": "ready",
+   "kit": "tycoon",
+   "file": "arcade/games/class-9/social-science/ix-sstp2-6.html",
+   "episodes": [
+    {
+     "id": "sy6-1",
+     "title": "Startup Sandbox Lab",
+     "url": "notes/sy6-1.html"
+    },
+    {
+     "id": "sy6-2",
+     "title": "Funding and Growth",
+     "url": "notes/sy6-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-sst2",
+   "class": "IX",
+   "subject": "Social Science (SST)",
+   "num": "2",
+   "chapter": "Shaping of the Earth's Surface",
+   "gameId": "-",
+   "genre": "Chapter Quest",
+   "mechanic": "Journey to the Earth's core and across its landforms.",
+   "status": "ready",
+   "kit": "quest",
+   "file": "arcade/games/class-9/social-science/ix-sst2.html",
+   "episodes": [
+    {
+     "id": "sx2-1",
+     "title": "Earth Core Expedition",
+     "url": "notes/sx2-1.html"
+    },
+    {
+     "id": "sx2-2",
+     "title": "Rocks and Landforms",
+     "url": "notes/sx2-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-eng1",
+   "class": "IX",
+   "subject": "English (Kaveri)",
+   "num": "1",
+   "chapter": "How I Taught My Grandmother to Read",
+   "gameId": "-",
+   "genre": "Story Designer",
+   "mechanic": "Build the story: parts of speech and word skills for the chapter.",
+   "status": "ready",
+   "kit": "story",
+   "file": "arcade/games/class-9/english/ix-eng1.html",
+   "episodes": [
+    {
+     "id": "ie1-1",
+     "title": "Rooftop Library Loft",
+     "url": "notes/ie1-1.html"
+    },
+    {
+     "id": "ie1-2",
+     "title": "Poem of Praise",
+     "url": "notes/ie1-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-eng2",
+   "class": "IX",
+   "subject": "English (Kaveri)",
+   "num": "2",
+   "chapter": "The Pot Maker",
+   "gameId": "-",
+   "genre": "Recipe Master",
+   "mechanic": "Shape the clay: clauses and determiners at the pot maker's workshop.",
+   "status": "ready",
+   "kit": "recipe",
+   "file": "arcade/games/class-9/english/ix-eng2.html",
+   "episodes": [
+    {
+     "id": "ie2-1",
+     "title": "Clay Workshop Fair",
+     "url": "notes/ie2-1.html"
+    },
+    {
+     "id": "ie2-2",
+     "title": "Honour Every Work",
+     "url": "notes/ie2-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-eng3",
+   "class": "IX",
+   "subject": "English (Kaveri)",
+   "num": "3",
+   "chapter": "Winds of Change",
+   "gameId": "-",
+   "genre": "Build Your Machine",
+   "mechanic": "Turn active into passive and break down the poem's devices.",
+   "status": "ready",
+   "kit": "machine",
+   "file": "arcade/games/class-9/english/ix-eng3.html",
+   "episodes": [
+    {
+     "id": "ie3-1",
+     "title": "Breeze Bazaar",
+     "url": "notes/ie3-1.html"
+    },
+    {
+     "id": "ie3-2",
+     "title": "Garden Gallery",
+     "url": "notes/ie3-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-eng4",
+   "class": "IX",
+   "subject": "English (Kaveri)",
+   "num": "4",
+   "chapter": "Vitamin-M",
+   "gameId": "-",
+   "genre": "Detective Academy",
+   "mechanic": "Use modals to give advice and spot humour and irony.",
+   "status": "ready",
+   "kit": "detective",
+   "file": "arcade/games/class-9/english/ix-eng4.html",
+   "episodes": [
+    {
+     "id": "ie4-1",
+     "title": "Memory Lane Fair",
+     "url": "notes/ie4-1.html"
+    },
+    {
+     "id": "ie4-2",
+     "title": "Senses of Memory",
+     "url": "notes/ie4-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-eng5",
+   "class": "IX",
+   "subject": "English (Kaveri)",
+   "num": "5",
+   "chapter": "The World of Limitless Possibilities",
+   "gameId": "-",
+   "genre": "Sports Champion",
+   "mechanic": "Win gold with reported speech and an inspiring speech.",
+   "status": "ready",
+   "kit": "sports",
+   "file": "arcade/games/class-9/english/ix-eng5.html",
+   "episodes": [
+    {
+     "id": "ie5-1",
+     "title": "Limitless Arena",
+     "url": "notes/ie5-1.html"
+    },
+    {
+     "id": "ie5-2",
+     "title": "Nine Gold Medals",
+     "url": "notes/ie5-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-eng6",
+   "class": "IX",
+   "subject": "English (Kaveri)",
+   "num": "6",
+   "chapter": "Twin Melodies",
+   "gameId": "-",
+   "genre": "Rhythm Master",
+   "mechanic": "Play the twin melodies: idioms and phrasal verbs on stage.",
+   "status": "ready",
+   "kit": "rhythm",
+   "file": "arcade/games/class-9/english/ix-eng6.html",
+   "episodes": [
+    {
+     "id": "ie6-1",
+     "title": "Twin Stage Studio",
+     "url": "notes/ie6-1.html"
+    },
+    {
+     "id": "ie6-2",
+     "title": "Friend in Music",
+     "url": "notes/ie6-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-eng7",
+   "class": "IX",
+   "subject": "English (Kaveri)",
+   "num": "7",
+   "chapter": "Carrier of Words",
+   "gameId": "-",
+   "genre": "Chapter Quest",
+   "mechanic": "Deliver the words across the desert with similes and hyperbole.",
+   "status": "ready",
+   "kit": "quest",
+   "file": "arcade/games/class-9/english/ix-eng7.html",
+   "episodes": [
+    {
+     "id": "ie7-1",
+     "title": "Desert Post Office",
+     "url": "notes/ie7-1.html"
+    },
+    {
+     "id": "ie7-2",
+     "title": "Words That Matter",
+     "url": "notes/ie7-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-hin1",
+   "class": "IX",
+   "subject": "Hindi (Ganga)",
+   "num": "1",
+   "chapter": "दो बैलों की कथा",
+   "gameId": "-",
+   "genre": "Chapter Quest",
+   "mechanic": "पर्यायवाची और विलोम की यात्रा पर निकलो।",
+   "status": "ready",
+   "kit": "quest",
+   "file": "arcade/games/class-9/hindi/ix-hin1.html",
+   "episodes": [
+    {
+     "id": "ih1-1",
+     "title": "मेले का बैल",
+     "url": "notes/ih1-1.html"
+    },
+    {
+     "id": "ih1-2",
+     "title": "शब्दों का भंडार",
+     "url": "notes/ih1-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-hin2",
+   "class": "IX",
+   "subject": "Hindi (Ganga)",
+   "num": "2",
+   "chapter": "क्या लिखूँ?",
+   "gameId": "-",
+   "genre": "Story Designer",
+   "mechanic": "विराम-चिह्न और वाक्य-भेद से अपना निबंध सजाओ।",
+   "status": "ready",
+   "kit": "story",
+   "file": "arcade/games/class-9/hindi/ix-hin2.html",
+   "episodes": [
+    {
+     "id": "ih2-1",
+     "title": "विचारों की खोज",
+     "url": "notes/ih2-1.html"
+    },
+    {
+     "id": "ih2-2",
+     "title": "विराम और वाक्य",
+     "url": "notes/ih2-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-hin4",
+   "class": "IX",
+   "subject": "Hindi (Ganga)",
+   "num": "4",
+   "chapter": "ऐसी भी बातें होती हैं",
+   "gameId": "-",
+   "genre": "Formula Racing",
+   "mechanic": "क्रिया और क्रिया-विशेषण की रफ़्तार पकड़ो।",
+   "status": "ready",
+   "kit": "racing",
+   "file": "arcade/games/class-9/hindi/ix-hin4.html",
+   "episodes": [
+    {
+     "id": "ih4-1",
+     "title": "सुरों की बातचीत",
+     "url": "notes/ih4-1.html"
+    },
+    {
+     "id": "ih4-2",
+     "title": "काम और उसका ढंग",
+     "url": "notes/ih4-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-hin3",
+   "class": "IX",
+   "subject": "Hindi (Ganga)",
+   "num": "3",
+   "chapter": "संवादहीन",
+   "gameId": "-",
+   "genre": "Detective Academy",
+   "mechanic": "संज्ञा और सर्वनाम की पहचान करो।",
+   "status": "ready",
+   "kit": "detective",
+   "file": "arcade/games/class-9/hindi/ix-hin3.html",
+   "episodes": [
+    {
+     "id": "ih3-1",
+     "title": "सूना आँगन",
+     "url": "notes/ih3-1.html"
+    },
+    {
+     "id": "ih3-2",
+     "title": "नाम और उसकी जगह",
+     "url": "notes/ih3-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-hin6",
+   "class": "IX",
+   "subject": "Hindi (Ganga)",
+   "num": "6",
+   "chapter": "रीढ़ की हड्डी",
+   "gameId": "-",
+   "genre": "Escape Room",
+   "mechanic": "विराम-चिह्न से अर्थ बदलो और ताले खोलो।",
+   "status": "ready",
+   "kit": "escape",
+   "file": "arcade/games/class-9/hindi/ix-hin6.html",
+   "episodes": [
+    {
+     "id": "ih6-1",
+     "title": "रिश्ते की बात",
+     "url": "notes/ih6-1.html"
+    },
+    {
+     "id": "ih6-2",
+     "title": "विराम और चिह्न",
+     "url": "notes/ih6-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-hin5",
+   "class": "IX",
+   "subject": "Hindi (Ganga)",
+   "num": "5",
+   "chapter": "आखिरी चट्टान तक",
+   "gameId": "-",
+   "genre": "Farm Master",
+   "mechanic": "वचन और लिंग का मेल सही बैठाओ।",
+   "status": "ready",
+   "kit": "farm",
+   "file": "arcade/games/class-9/hindi/ix-hin5.html",
+   "episodes": [
+    {
+     "id": "ih5-1",
+     "title": "सागर का मिलन",
+     "url": "notes/ih5-1.html"
+    },
+    {
+     "id": "ih5-2",
+     "title": "एक और अनेक",
+     "url": "notes/ih5-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-hin8",
+   "class": "IX",
+   "subject": "Hindi (Ganga)",
+   "num": "8",
+   "chapter": "रैदास के पद",
+   "gameId": "-",
+   "genre": "Art Studio",
+   "mechanic": "उपमा और रूपक अलंकार को पहचानो।",
+   "status": "ready",
+   "kit": "art",
+   "file": "arcade/games/class-9/hindi/ix-hin8.html",
+   "episodes": [
+    {
+     "id": "ih8-1",
+     "title": "रैदास के पद",
+     "url": "notes/ih8-1.html"
+    },
+    {
+     "id": "ih8-2",
+     "title": "अलंकार",
+     "url": "notes/ih8-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-hin7",
+   "class": "IX",
+   "subject": "Hindi (Ganga)",
+   "num": "7",
+   "chapter": "मैं और मेरा देश",
+   "gameId": "-",
+   "genre": "Build Your Machine",
+   "mechanic": "उपसर्ग और प्रत्यय जोड़कर नए शब्द बनाओ।",
+   "status": "ready",
+   "kit": "machine",
+   "file": "arcade/games/class-9/hindi/ix-hin7.html",
+   "episodes": [
+    {
+     "id": "ih7-1",
+     "title": "मैं और मेरा देश",
+     "url": "notes/ih7-1.html"
+    },
+    {
+     "id": "ih7-2",
+     "title": "उपसर्ग और प्रत्यय",
+     "url": "notes/ih7-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-hin10",
+   "class": "IX",
+   "subject": "Hindi (Ganga)",
+   "num": "10",
+   "chapter": "भारती, जय, विजय करे!",
+   "gameId": "-",
+   "genre": "Rhythm Master",
+   "mechanic": "पर्यायवाची और विलोम की ताल पर शब्द-भंडार बढ़ाओ।",
+   "status": "ready",
+   "kit": "rhythm",
+   "file": "arcade/games/class-9/hindi/ix-hin10.html",
+   "episodes": [
+    {
+     "id": "ih10-1",
+     "title": "भारती, जय, विजय करे",
+     "url": "notes/ih10-1.html"
+    },
+    {
+     "id": "ih10-2",
+     "title": "पर्यायवाची और विलोम",
+     "url": "notes/ih10-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-hin9",
+   "class": "IX",
+   "subject": "Hindi (Ganga)",
+   "num": "9",
+   "chapter": "राम-लक्ष्मण-परशुराम संवाद",
+   "gameId": "-",
+   "genre": "Detective Academy",
+   "mechanic": "कारक और विभक्ति की जाँच करो।",
+   "status": "ready",
+   "kit": "detective",
+   "file": "arcade/games/class-9/hindi/ix-hin9.html",
+   "episodes": [
+    {
+     "id": "ih9-1",
+     "title": "परशुराम संवाद",
+     "url": "notes/ih9-1.html"
+    },
+    {
+     "id": "ih9-2",
+     "title": "कारक और विभक्ति",
+     "url": "notes/ih9-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-hin12",
+   "class": "IX",
+   "subject": "Hindi (Ganga)",
+   "num": "12",
+   "chapter": "घर की याद",
+   "gameId": "-",
+   "genre": "Story Designer",
+   "mechanic": "अनेकार्थी शब्दों के सही अर्थ चुनकर कहानी पूरी करो।",
+   "status": "ready",
+   "kit": "story",
+   "file": "arcade/games/class-9/hindi/ix-hin12.html",
+   "episodes": [
+    {
+     "id": "ih12-1",
+     "title": "घर की याद",
+     "url": "notes/ih12-1.html"
+    },
+    {
+     "id": "ih12-2",
+     "title": "अनेकार्थी शब्द",
+     "url": "notes/ih12-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-hin11",
+   "class": "IX",
+   "subject": "Hindi (Ganga)",
+   "num": "11",
+   "chapter": "झाँसी की रानी",
+   "gameId": "-",
+   "genre": "Concept Jumper",
+   "mechanic": "संधि के नियमों से शब्द जोड़ो और तोड़ो।",
+   "status": "ready",
+   "kit": "jumper",
+   "file": "arcade/games/class-9/hindi/ix-hin11.html",
+   "episodes": [
+    {
+     "id": "ih11-1",
+     "title": "झाँसी की रानी",
+     "url": "notes/ih11-1.html"
+    },
+    {
+     "id": "ih11-2",
+     "title": "संधि",
+     "url": "notes/ih11-2.html"
+    }
+   ]
+  },
+  {
+   "chapterId": "ix-eng8",
+   "class": "IX",
+   "subject": "English (Kaveri)",
+   "num": "8",
+   "chapter": "Follow That Dream",
+   "gameId": "-",
+   "genre": "Concept Jumper",
+   "mechanic": "Follow the dream: conditionals and the steps of a letter.",
+   "status": "ready",
+   "kit": "jumper",
+   "file": "arcade/games/class-9/english/ix-eng8.html",
+   "episodes": [
+    {
+     "id": "ie8-1",
+     "title": "Dream Launch Pad",
+     "url": "notes/ie8-1.html"
+    },
+    {
+     "id": "ie8-2",
+     "title": "First Step Bridge",
+     "url": "notes/ie8-2.html"
     }
    ]
   }

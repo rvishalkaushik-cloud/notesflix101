@@ -33,7 +33,8 @@
     '.nfa-toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);background:var(--p);color:#fff;font-weight:800;border-radius:99px;padding:8px 16px;z-index:50;animation:nfaT 1.8s forwards}@keyframes nfaT{0%{opacity:0;transform:translate(-50%,14px)}12%,80%{opacity:1;transform:translate(-50%,0)}100%{opacity:0}}' +
     '.nfa-hide{display:none!important}.nfa-cb{display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center;font-size:14px}';
 
-  var cfg, st, data, root, stage, hudEl, game, paused = false, ended = false, tally, score, regEntry = null;
+  var cfg, st, data, root, stage, hudEl, game, paused = false, ended = false, tally, score, regEntry = null, cleanups = [];
+  function runCleanups() { var c = cleanups; cleanups = []; c.forEach(function (f) { try { f(); } catch (e) {} }); }
 
   function toast(t) { var d = el('div', 'nfa-toast', esc(t)); document.body.appendChild(d); setTimeout(function () { d.remove(); }, 1900); }
 
@@ -64,6 +65,7 @@
     }).catch(function () { regEntry = null; gate(); });
   }
 
+  function partUrl(id) { var e = regEntry && regEntry.episodes.filter(function (x) { return x.id === id; })[0]; return e && e.url ? e.url : 'notes/' + id + '.html'; }
   function partTitle(id) { var e = regEntry && regEntry.episodes.filter(function (x) { return x.id === id; })[0]; return e ? e.title : id; }
 
   function gate() {
@@ -104,10 +106,12 @@
     toast: toast,
     isPaused: function () { return paused; },
     finish: function (won) { finish(won); },
-    on: function (fn) { game.tick = fn; }
+    on: function (fn) { game.tick = fn; },
+    cleanup: function (fn) { cleanups.push(fn); }
   };
 
   function play() {
+    runCleanups(); window.__auto = null;
     ended = false; paused = false; st = 'play'; tally = {}; score = 0; game = { hud: {} };
     stage.textContent = ''; cfg._pb.classList.remove('nfa-hide'); cfg._rb.classList.remove('nfa-hide'); hudEl.classList.remove('nfa-hide');
     ctx.root = stage; ctx.cfg = cfg; hud();
@@ -122,7 +126,7 @@
   }
 
   function finish(won) {
-    if (ended) return; ended = true; st = 'end';
+    if (ended) return; ended = true; st = 'end'; runCleanups();
     var keys = Object.keys(cfg.concepts), right = 0, total = 0, rows = [];
     keys.forEach(function (k) { var t = tally[k] || { right: 0, total: 0 }; right += t.right; total += t.total; rows.push({ k: k, pct: t.total ? Math.round(t.right / t.total * 100) : null, t: t }); });
     var mastery = total ? Math.round(right / total * 100) : 0;
@@ -147,11 +151,11 @@
       '<div class="nfa-card"><b>Concept by concept</b>' + rows.map(function (r) {
         return '<div class="nfa-cb" style="margin-top:8px"><span>' + esc(cfg.concepts[r.k].label) + '</span><div class="nfa-bar" style="width:90px"><i style="width:' + (r.pct || 0) + '%"></i></div><span>' + (r.pct === null ? '–' : r.pct + '%') + '</span></div>';
       }).join('') + '</div>' +
-      (weak.length ? '<div class="nfa-card nfa-weak"><b>Revise these</b><ul>' + weak.map(function (r) { var p = cfg.concepts[r.k].part; return '<li>' + esc(cfg.concepts[r.k].label) + (p ? ' → <a href="../../../../notes/' + p + '.html">' + esc(partTitle(p)) + '</a>' : '') + '</li>'; }).join('') + '</ul></div>' : '<div class="nfa-card">No weak spots. Strong chapter.</div>') +
+      (weak.length ? '<div class="nfa-card nfa-weak"><b>Revise these</b><ul>' + weak.map(function (r) { var p = cfg.concepts[r.k].part; return '<li>' + esc(cfg.concepts[r.k].label) + (p ? ' → <a href="../../../../' + partUrl(p) + '">' + esc(partTitle(p)) + '</a>' : '') + '</li>'; }).join('') + '</ul></div>' : '<div class="nfa-card">No weak spots. Strong chapter.</div>') +
       (mastery < 60 ? '<p class="nfa-mute">Reach 60% mastery to mark this chapter completed.</p>' : '') +
       '<div class="nfa-row"><button class="nfa-btn" id="nfaAgain">↻ Play again</button><a class="nfa-btn alt" style="text-decoration:none" href="../../../../index.html">Back to notes</a></div>');
     stage.appendChild(s); $('#nfaAgain').onclick = play;
   }
 
-  window.NFA = { boot: boot, el: el, esc: esc, $: $ };
+  window.NFA = { boot: boot, el: el, esc: esc, $: $, T: +((/[?&]fast=(\d+)/.exec(location.search) || [0, 1])[1]) };
 })();
