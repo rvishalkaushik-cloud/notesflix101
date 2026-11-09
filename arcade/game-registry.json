@@ -8,10 +8,10 @@
    "num": "6",
    "chapter": "Resource Mobilization",
    "gameId": "-",
-   "genre": "Business Tycoon",
+   "genre": "Hill Racer",
    "mechanic": "Mobilise money, men and machines for your enterprise.",
    "status": "ready",
-   "kit": "tycoon",
+   "kit": "hill",
    "file": "arcade/games/class-12/entrepreneurship/ent-u6.html",
    "episodes": [
     {
@@ -28,10 +28,10 @@
    "num": "2",
    "chapter": "Principles of Management",
    "gameId": "-",
-   "genre": "Escape Room",
+   "genre": "Gate Runner 3D",
    "mechanic": "Open every locked door of the management vault by applying the right principle.",
    "status": "ready",
-   "kit": "escape",
+   "kit": "run3d",
    "file": "arcade/games/class-12/business-studies/ch02.html",
    "episodes": [
     {
@@ -63,10 +63,10 @@
    "num": "3",
    "chapter": "Business Environment",
    "gameId": "-",
-   "genre": "City Builder",
+   "genre": "Gate Runner 3D",
    "mechanic": "Build a business city that survives every shock of its environment.",
    "status": "ready",
-   "kit": "city",
+   "kit": "run3d",
    "file": "arcade/games/class-12/business-studies/ch03.html",
    "episodes": [
     {
@@ -83,10 +83,10 @@
    "num": "4",
    "chapter": "Planning",
    "gameId": "-",
-   "genre": "Space Mission",
+   "genre": "Gate Runner 3D",
    "mechanic": "Plan the mission: sort every plan type before launch.",
    "status": "ready",
-   "kit": "space",
+   "kit": "run3d",
    "file": "arcade/games/class-12/business-studies/ch04.html",
    "episodes": [
     {
@@ -108,10 +108,10 @@
    "num": "5",
    "chapter": "Organising",
    "gameId": "-",
-   "genre": "Build Your Machine",
+   "genre": "Hill Racer",
    "mechanic": "Assemble a working organisation: structure, delegation and decentralisation.",
    "status": "ready",
-   "kit": "machine",
+   "kit": "hill",
    "file": "arcade/games/class-12/business-studies/ch05.html",
    "episodes": [
     {
@@ -138,10 +138,10 @@
    "num": "6",
    "chapter": "Staffing",
    "gameId": "-",
-   "genre": "Tower Defence Academy",
+   "genre": "Rope Drop Lab",
    "mechanic": "Defend the company: every candidate must pass the selection funnel in order.",
    "status": "ready",
-   "kit": "tower",
+   "kit": "rope",
    "file": "arcade/games/class-12/business-studies/ch06.html",
    "episodes": [
     {
@@ -168,10 +168,10 @@
    "num": "7",
    "chapter": "Directing",
    "gameId": "-",
-   "genre": "Sports Champion",
+   "genre": "Rope Drop Lab",
    "mechanic": "Captain the team: motivate, lead and communicate to win the match.",
    "status": "ready",
-   "kit": "sports",
+   "kit": "rope",
    "file": "arcade/games/class-12/business-studies/ch07.html",
    "episodes": [
     {
@@ -203,10 +203,10 @@
    "num": "8",
    "chapter": "Controlling",
    "gameId": "-",
-   "genre": "Formula Racing",
+   "genre": "Hill Racer",
    "mechanic": "Compare lap data with standards and take corrective pit stops before the flag.",
    "status": "ready",
-   "kit": "racing",
+   "kit": "hill",
    "file": "arcade/games/class-12/business-studies/ch08.html",
    "episodes": [
     {
@@ -228,10 +228,10 @@
    "num": "9",
    "chapter": "Financial Management",
    "gameId": "-",
-   "genre": "Business Tycoon",
+   "genre": "Hill Racer",
    "mechanic": "Run the finance office: raise, invest and distribute funds wisely.",
    "status": "ready",
-   "kit": "tycoon",
+   "kit": "hill",
    "file": "arcade/games/class-12/business-studies/ch09.html",
    "episodes": [
     {
@@ -263,10 +263,10 @@
    "num": "10",
    "chapter": "Financial Markets",
    "gameId": "-",
-   "genre": "Knowledge Runner",
+   "genre": "Gate Runner 3D",
    "mechanic": "Run through the financial market and collect only items from the target segment.",
    "status": "ready",
-   "kit": "runner",
+   "kit": "run3d",
    "file": "arcade/games/class-12/business-studies/ch10.html",
    "episodes": [
     {
@@ -303,10 +303,10 @@
    "num": "11",
    "chapter": "Marketing Management",
    "gameId": "-",
-   "genre": "Supermarket Simulator",
+   "genre": "Hill Racer",
    "mechanic": "Serve every customer by getting the marketing mix right.",
    "status": "ready",
-   "kit": "supermarket",
+   "kit": "hill",
    "file": "arcade/games/class-12/business-studies/ch11.html",
    "episodes": [
     {
@@ -358,10 +358,10 @@
    "num": "12",
    "chapter": "Consumer Protection",
    "gameId": "-",
-   "genre": "Detective Academy",
+   "genre": "Gate Runner 3D",
    "mechanic": "Investigate consumer complaints and take each to the right forum.",
    "status": "ready",
-   "kit": "detective",
+   "kit": "run3d",
    "file": "arcade/games/class-12/business-studies/ch12.html",
    "episodes": [
     {
@@ -388,10 +388,10 @@
    "num": "1",
    "chapter": "Partnership Fundamentals",
    "gameId": "-",
-   "genre": "Business Tycoon",
+   "genre": "Hill Racer",
    "mechanic": "Run a three-partner firm: deed, interest, drawings and profit sharing.",
    "status": "ready",
-   "kit": "tycoon",
+   "kit": "hill",
    "file": "arcade/games/class-12/accountancy/acc-partnership.html",
    "episodes": [
     {
@@ -423,10 +423,10 @@
    "num": "2",
    "chapter": "Goodwill",
    "gameId": "-",
-   "genre": "Detective Academy",
+   "genre": "Gate Runner 3D",
    "mechanic": "Value a firm from the clues: profits, years and the average.",
    "status": "ready",
-   "kit": "detective",
+   "kit": "run3d",
    "file": "arcade/games/class-12/accountancy/acc-goodwill.html",
    "episodes": [
     {
@@ -448,10 +448,10 @@
    "num": "8",
    "chapter": "Financial Statements of a Company and Their Analysis",
    "gameId": "-",
-   "genre": "Escape Room",
+   "genre": "Gate Runner 3D",
    "mechanic": "File each item under its Schedule III head to unlock the next room.",
    "status": "ready",
-   "kit": "escape",
+   "kit": "run3d",
    "file": "arcade/games/class-12/accountancy/acc-fs-company.html",
    "episodes": [
     {
@@ -518,10 +518,10 @@
    "num": "1",
    "chapter": "Entrepreneurial Opportunity",
    "gameId": "-",
-   "genre": "Chapter Quest",
+   "genre": "Gate Runner 3D",
    "mechanic": "Hunt the best business opportunity and take it from idea to reality.",
    "status": "ready",
-   "kit": "quest",
+   "kit": "run3d",
    "file": "arcade/games/class-12/entrepreneurship/ent-u1.html",
    "episodes": [
     {
@@ -538,10 +538,10 @@
    "num": "2",
    "chapter": "Enterprise Planning",
    "gameId": "-",
-   "genre": "Business Tycoon",
+   "genre": "Hill Racer",
    "mechanic": "Draft the blueprint of your enterprise and pick the right form.",
    "status": "ready",
-   "kit": "tycoon",
+   "kit": "hill",
    "file": "arcade/games/class-12/entrepreneurship/ent-u2.html",
    "episodes": [
     {
@@ -568,10 +568,10 @@
    "num": "3",
    "chapter": "Enterprise Marketing",
    "gameId": "-",
-   "genre": "Supermarket Simulator",
+   "genre": "Hill Racer",
    "mechanic": "Market your enterprise: brand, price, place and promotion.",
    "status": "ready",
-   "kit": "supermarket",
+   "kit": "hill",
    "file": "arcade/games/class-12/entrepreneurship/ent-u3.html",
    "episodes": [
     {
@@ -603,10 +603,10 @@
    "num": "4",
    "chapter": "Enterprise Growth Strategies",
    "gameId": "-",
-   "genre": "City Builder",
+   "genre": "Gate Runner 3D",
    "mechanic": "Grow the enterprise through the right growth strategy.",
    "status": "ready",
-   "kit": "city",
+   "kit": "run3d",
    "file": "arcade/games/class-12/entrepreneurship/ent-u4.html",
    "episodes": [
     {
@@ -633,10 +633,10 @@
    "num": "14",
    "chapter": "International Business",
    "gameId": "-",
-   "genre": "Concept Jumper",
+   "genre": "Gate Runner 3D",
    "mechanic": "Platform your way through export and import procedures in the right order.",
    "status": "ready",
-   "kit": "jumper",
+   "kit": "run3d",
    "file": "arcade/games/class-11/business-studies/ch14.html",
    "episodes": [
     {
@@ -688,10 +688,10 @@
    "num": "1",
    "chapter": "Business, Trade and Commerce",
    "gameId": "-",
-   "genre": "Chapter Quest",
+   "genre": "Gate Runner 3D",
    "mechanic": "Travel the trade routes of history and learn what business really is.",
    "status": "ready",
-   "kit": "quest",
+   "kit": "run3d",
    "file": "arcade/games/class-11/business-studies/xi-u1.html",
    "episodes": [
     {
@@ -723,10 +723,10 @@
    "num": "2",
    "chapter": "Forms of Business Organisation",
    "gameId": "-",
-   "genre": "Business Tycoon",
+   "genre": "Hill Racer",
    "mechanic": "Pick the right business form and survive its liability and capital events.",
    "status": "ready",
-   "kit": "tycoon",
+   "kit": "hill",
    "file": "arcade/games/class-11/business-studies/xi-u2.html",
    "episodes": [
     {
@@ -763,10 +763,10 @@
    "num": "3",
    "chapter": "Public, Private and Global Enterprises",
    "gameId": "-",
-   "genre": "City Builder",
+   "genre": "Gate Runner 3D",
    "mechanic": "Allocate the city budget across public, private and global enterprises.",
    "status": "ready",
-   "kit": "city",
+   "kit": "run3d",
    "file": "arcade/games/class-11/business-studies/xi-u3.html",
    "episodes": [
     {
@@ -803,10 +803,10 @@
    "num": "4",
    "chapter": "Business Services",
    "gameId": "-",
-   "genre": "Detective Academy",
+   "genre": "Gate Runner 3D",
    "mechanic": "Investigate insurance claims and banking services.",
    "status": "ready",
-   "kit": "detective",
+   "kit": "run3d",
    "file": "arcade/games/class-11/business-studies/xi-u4.html",
    "episodes": [
     {
@@ -843,10 +843,10 @@
    "num": "5",
    "chapter": "Emerging Modes of Business",
    "gameId": "-",
-   "genre": "Tower Defence Academy",
+   "genre": "Rope Drop Lab",
    "mechanic": "Defend the e-shop from threats and learn e-business.",
    "status": "ready",
-   "kit": "tower",
+   "kit": "rope",
    "file": "arcade/games/class-11/business-studies/xi-u5.html",
    "episodes": [
     {
@@ -868,10 +868,10 @@
    "num": "6",
    "chapter": "Social Responsibility and Business Ethics",
    "gameId": "-",
-   "genre": "Story Designer",
+   "genre": "Rope Drop Lab",
    "mechanic": "Write a story of responsible business and ethical choices.",
    "status": "ready",
-   "kit": "story",
+   "kit": "rope",
    "file": "arcade/games/class-11/business-studies/xi-u6.html",
    "episodes": [
     {
@@ -898,10 +898,10 @@
    "num": "7",
    "chapter": "Sources of Business Finance",
    "gameId": "-",
-   "genre": "Formula Racing",
+   "genre": "Hill Racer",
    "mechanic": "Fuel the race: choose between owners' funds and borrowed funds.",
    "status": "ready",
-   "kit": "racing",
+   "kit": "hill",
    "file": "arcade/games/class-11/business-studies/xi-u7.html",
    "episodes": [
     {
@@ -938,10 +938,10 @@
    "num": "8",
    "chapter": "Small Business and Enterprises",
    "gameId": "-",
-   "genre": "Supermarket Simulator",
+   "genre": "Hill Racer",
    "mechanic": "Run a start-up kirana and unlock the benefits for small business.",
    "status": "ready",
-   "kit": "supermarket",
+   "kit": "hill",
    "file": "arcade/games/class-11/business-studies/xi-u8.html",
    "episodes": [
     {
@@ -978,10 +978,10 @@
    "num": "9",
    "chapter": "Internal Trade",
    "gameId": "-",
-   "genre": "Build Your Machine",
+   "genre": "Hill Racer",
    "mechanic": "Assemble the supply chain from wholesaler to retailer.",
    "status": "ready",
-   "kit": "machine",
+   "kit": "hill",
    "file": "arcade/games/class-11/business-studies/xi-u9.html",
    "episodes": [
     {
@@ -998,10 +998,10 @@
    "num": "1",
    "chapter": "National Income and Related Aggregates",
    "gameId": "-",
-   "genre": "City Builder",
+   "genre": "Gate Runner 3D",
    "mechanic": "Count a nation's income by three methods to build the economy.",
    "status": "ready",
-   "kit": "city",
+   "kit": "run3d",
    "file": "arcade/games/class-12/economics/eco12-ni.html",
    "episodes": [
     {
@@ -1048,10 +1048,10 @@
    "num": "4",
    "chapter": "Government Budget and the Economy",
    "gameId": "-",
-   "genre": "City Builder",
+   "genre": "Gate Runner 3D",
    "mechanic": "Balance the national budget: raise revenue, spend wisely, cut deficits.",
    "status": "ready",
-   "kit": "city",
+   "kit": "run3d",
    "file": "arcade/games/class-12/economics/eco12-budget.html",
    "episodes": [
     {
@@ -1073,10 +1073,10 @@
    "num": "3",
    "chapter": "Determination of Income and Employment",
    "gameId": "-",
-   "genre": "Formula Racing",
+   "genre": "Hill Racer",
    "mechanic": "Throttle aggregate demand to hit full employment.",
    "status": "ready",
-   "kit": "racing",
+   "kit": "hill",
    "file": "arcade/games/class-12/economics/eco12-income.html",
    "episodes": [
     {
@@ -1108,10 +1108,10 @@
    "num": "6",
    "chapter": "Development Experience 1947-90",
    "gameId": "-",
-   "genre": "Chapter Quest",
+   "genre": "Gate Runner 3D",
    "mechanic": "Journey through India's growth from 1947 to 1990.",
    "status": "ready",
-   "kit": "quest",
+   "kit": "run3d",
    "file": "arcade/games/class-12/economics/eco12-ied1.html",
    "episodes": [
     {
@@ -1138,10 +1138,10 @@
    "num": "5",
    "chapter": "Balance of Payments",
    "gameId": "-",
-   "genre": "Space Mission",
+   "genre": "Gate Runner 3D",
    "mechanic": "Keep the nation's balance of payments in orbit.",
    "status": "ready",
-   "kit": "space",
+   "kit": "run3d",
    "file": "arcade/games/class-12/economics/eco12-bop.html",
    "episodes": [
     {
@@ -1163,10 +1163,10 @@
    "num": "8",
    "chapter": "Current Challenges facing Indian Economy",
    "gameId": "-",
-   "genre": "Farm Master",
+   "genre": "Gate Runner 3D",
    "mechanic": "Grow human capital and rural India sustainably.",
    "status": "ready",
-   "kit": "farm",
+   "kit": "run3d",
    "file": "arcade/games/class-12/economics/eco12-ied2.html",
    "episodes": [
     {
@@ -1198,10 +1198,10 @@
    "num": "7",
    "chapter": "Economic Reforms since 1991",
    "gameId": "-",
-   "genre": "Business Tycoon",
+   "genre": "Hill Racer",
    "mechanic": "Open the economy: liberalise, privatise and globalise.",
    "status": "ready",
-   "kit": "tycoon",
+   "kit": "hill",
    "file": "arcade/games/class-12/economics/eco12-lpg.html",
    "episodes": [
     {
@@ -1223,10 +1223,10 @@
    "num": "9",
    "chapter": "India and its Neighbours",
    "gameId": "-",
-   "genre": "Chapter Quest",
+   "genre": "Gate Runner 3D",
    "mechanic": "Compare India, Pakistan and China on the road of development.",
    "status": "ready",
-   "kit": "quest",
+   "kit": "run3d",
    "file": "arcade/games/class-12/economics/eco12-neighbours.html",
    "episodes": [
     {
@@ -1243,10 +1243,10 @@
    "num": "2",
    "chapter": "Money and Banking",
    "gameId": "-",
-   "genre": "Business Tycoon",
+   "genre": "Hill Racer",
    "mechanic": "Run the bank: create credit, hold reserves and steer the economy.",
    "status": "ready",
-   "kit": "tycoon",
+   "kit": "hill",
    "file": "arcade/games/class-12/economics/eco12-money.html",
    "episodes": [
     {
@@ -1273,10 +1273,10 @@
    "num": "1",
    "chapter": "Statistics: Introduction",
    "gameId": "-",
-   "genre": "Detective Academy",
+   "genre": "Gate Runner 3D",
    "mechanic": "Use data as evidence to solve the economic case.",
    "status": "ready",
-   "kit": "detective",
+   "kit": "run3d",
    "file": "arcade/games/class-11/economics/eco11-intro.html",
    "episodes": [
     {
@@ -1293,10 +1293,10 @@
    "num": "4",
    "chapter": "Introduction to Microeconomics",
    "gameId": "-",
-   "genre": "Farm Master",
+   "genre": "Gate Runner 3D",
    "mechanic": "Allocate your land, plot your PPC and face the central problems.",
    "status": "ready",
-   "kit": "farm",
+   "kit": "run3d",
    "file": "arcade/games/class-11/economics/eco11-micro.html",
    "episodes": [
     {
@@ -1313,10 +1313,10 @@
    "num": "3",
    "chapter": "Statistical Tools and Interpretation",
    "gameId": "-",
-   "genre": "Sports Champion",
+   "genre": "Rope Drop Lab",
    "mechanic": "Play the cricket season with averages, medians and correlation.",
    "status": "ready",
-   "kit": "sports",
+   "kit": "rope",
    "file": "arcade/games/class-11/economics/eco11-tools.html",
    "episodes": [
     {
@@ -1348,10 +1348,10 @@
    "num": "6",
    "chapter": "Producer Behaviour and Supply",
    "gameId": "-",
-   "genre": "Business Tycoon",
+   "genre": "Hill Racer",
    "mechanic": "Run a factory: cost curves, revenue and supply.",
    "status": "ready",
-   "kit": "tycoon",
+   "kit": "hill",
    "file": "arcade/games/class-11/economics/eco11-producer.html",
    "episodes": [
     {
@@ -1383,10 +1383,10 @@
    "num": "5",
    "chapter": "Consumer's Equilibrium and Demand",
    "gameId": "-",
-   "genre": "Supermarket Simulator",
+   "genre": "Hill Racer",
    "mechanic": "Spend a fixed budget for maximum satisfaction and read the demand.",
    "status": "ready",
-   "kit": "supermarket",
+   "kit": "hill",
    "file": "arcade/games/class-11/economics/eco11-consumer.html",
    "episodes": [
     {
@@ -1418,10 +1418,10 @@
    "num": "7",
    "chapter": "Perfect Competition and Price Determination",
    "gameId": "-",
-   "genre": "City Builder",
+   "genre": "Gate Runner 3D",
    "mechanic": "Set prices in perfect competition: ceilings and floors.",
    "status": "ready",
-   "kit": "city",
+   "kit": "run3d",
    "file": "arcade/games/class-11/economics/eco11-market.html",
    "episodes": [
     {
@@ -1443,10 +1443,10 @@
    "num": "2",
    "chapter": "Collection, Organisation and Presentation of Data",
    "gameId": "-",
-   "genre": "Art Studio",
+   "genre": "Rope Drop Lab",
    "mechanic": "Collect, organise and paint the data into charts.",
    "status": "ready",
-   "kit": "art",
+   "kit": "rope",
    "file": "arcade/games/class-11/economics/eco11-data.html",
    "episodes": [
     {
@@ -1478,10 +1478,10 @@
    "num": "1",
    "chapter": "The Rise of Nationalism in Europe",
    "gameId": "-",
-   "genre": "Chapter Quest",
+   "genre": "Gate Runner 3D",
    "mechanic": "Follow the rise of nationalism across Europe, from 1789 to unification.",
    "status": "ready",
-   "kit": "quest",
+   "kit": "run3d",
    "file": "arcade/games/class-10/social-science/sst10-his1.html",
    "episodes": [
     {
@@ -1508,10 +1508,10 @@
    "num": "4",
    "chapter": "The Age of Industrialisation",
    "gameId": "-",
-   "genre": "Business Tycoon",
+   "genre": "Hill Racer",
    "mechanic": "Build an industrial empire in the age of industrialisation.",
    "status": "ready",
-   "kit": "tycoon",
+   "kit": "hill",
    "file": "arcade/games/class-10/social-science/sst10-his4.html",
    "episodes": [
     {
@@ -1528,10 +1528,10 @@
    "num": "3",
    "chapter": "The Making of a Global World",
    "gameId": "-",
-   "genre": "Build Your Machine",
+   "genre": "Hill Racer",
    "mechanic": "Assemble the global economy: trade routes, technology and the world wars.",
    "status": "ready",
-   "kit": "machine",
+   "kit": "hill",
    "file": "arcade/games/class-10/social-science/sst10-his3.html",
    "episodes": [
     {
@@ -1548,10 +1548,10 @@
    "num": "1",
    "chapter": "Resources and Development",
    "gameId": "-",
-   "genre": "Farm Master",
+   "genre": "Gate Runner 3D",
    "mechanic": "Manage land and soil resources for sustainable development.",
    "status": "ready",
-   "kit": "farm",
+   "kit": "run3d",
    "file": "arcade/games/class-10/social-science/sst10-geo1.html",
    "episodes": [
     {
@@ -1573,10 +1573,10 @@
    "num": "5",
    "chapter": "Print Culture and the Modern World",
    "gameId": "-",
-   "genre": "Story Designer",
+   "genre": "Rope Drop Lab",
    "mechanic": "Tell the story of print: from woodblock to the modern press.",
    "status": "ready",
-   "kit": "story",
+   "kit": "rope",
    "file": "arcade/games/class-10/social-science/sst10-his5.html",
    "episodes": [
     {
@@ -1598,10 +1598,10 @@
    "num": "3",
    "chapter": "Water Resources",
    "gameId": "-",
-   "genre": "City Builder",
+   "genre": "Gate Runner 3D",
    "mechanic": "Manage every drop: dams, harvesting and conservation.",
    "status": "ready",
-   "kit": "city",
+   "kit": "run3d",
    "file": "arcade/games/class-10/social-science/sst10-geo3.html",
    "episodes": [
     {
@@ -1618,10 +1618,10 @@
    "num": "2",
    "chapter": "Forest and Wildlife Resources",
    "gameId": "-",
-   "genre": "Knowledge Runner",
+   "genre": "Gate Runner 3D",
    "mechanic": "Run through the forest and collect only the right category.",
    "status": "ready",
-   "kit": "runner",
+   "kit": "run3d",
    "file": "arcade/games/class-10/social-science/sst10-geo2.html",
    "episodes": [
     {
@@ -1638,10 +1638,10 @@
    "num": "5",
    "chapter": "Minerals and Energy Resources",
    "gameId": "-",
-   "genre": "Science Lab Simulator",
+   "genre": "Rope Drop Lab",
    "mechanic": "Examine minerals and energy sources in the lab.",
    "status": "ready",
-   "kit": "lab",
+   "kit": "rope",
    "file": "arcade/games/class-10/social-science/sst10-geo5.html",
    "episodes": [
     {
@@ -1663,10 +1663,10 @@
    "num": "4",
    "chapter": "Agriculture",
    "gameId": "-",
-   "genre": "Farm Master",
+   "genre": "Gate Runner 3D",
    "mechanic": "Take the crop from field to plate.",
    "status": "ready",
-   "kit": "farm",
+   "kit": "run3d",
    "file": "arcade/games/class-10/social-science/sst10-geo4.html",
    "episodes": [
     {
@@ -1688,10 +1688,10 @@
    "num": "7",
    "chapter": "Lifelines of National Economy",
    "gameId": "-",
-   "genre": "Formula Racing",
+   "genre": "Hill Racer",
    "mechanic": "Race goods along India's lifelines: roads, rails, ports and pipelines.",
    "status": "ready",
-   "kit": "racing",
+   "kit": "hill",
    "file": "arcade/games/class-10/social-science/sst10-geo7.html",
    "episodes": [
     {
@@ -1708,10 +1708,10 @@
    "num": "6",
    "chapter": "Manufacturing Industries",
    "gameId": "-",
-   "genre": "Build Your Machine",
+   "genre": "Hill Racer",
    "mechanic": "Assemble the factory floor: industries and their raw materials.",
    "status": "ready",
-   "kit": "machine",
+   "kit": "hill",
    "file": "arcade/games/class-10/social-science/sst10-geo6.html",
    "episodes": [
     {
@@ -1733,10 +1733,10 @@
    "num": "2",
    "chapter": "Federalism",
    "gameId": "-",
-   "genre": "Chapter Quest",
+   "genre": "Gate Runner 3D",
    "mechanic": "Walk from the Union to the village panchayat across two levels of government.",
    "status": "ready",
-   "kit": "quest",
+   "kit": "run3d",
    "file": "arcade/games/class-10/social-science/sst10-pol2.html",
    "episodes": [
     {
@@ -1758,10 +1758,10 @@
    "num": "1",
    "chapter": "Power-sharing",
    "gameId": "-",
-   "genre": "City Builder",
+   "genre": "Gate Runner 3D",
    "mechanic": "Share power so every community has a seat at the table.",
    "status": "ready",
-   "kit": "city",
+   "kit": "run3d",
    "file": "arcade/games/class-10/social-science/sst10-pol1.html",
    "episodes": [
     {
@@ -1778,10 +1778,10 @@
    "num": "4",
    "chapter": "Political Parties",
    "gameId": "-",
-   "genre": "Tower Defence Academy",
+   "genre": "Rope Drop Lab",
    "mechanic": "Defend the democratic system with strong, accountable parties.",
    "status": "ready",
-   "kit": "tower",
+   "kit": "rope",
    "file": "arcade/games/class-10/social-science/sst10-pol4.html",
    "episodes": [
     {
@@ -1803,10 +1803,10 @@
    "num": "3",
    "chapter": "Gender, Religion and Caste",
    "gameId": "-",
-   "genre": "Detective Academy",
+   "genre": "Gate Runner 3D",
    "mechanic": "Investigate gender, religion and caste in politics.",
    "status": "ready",
-   "kit": "detective",
+   "kit": "run3d",
    "file": "arcade/games/class-10/social-science/sst10-pol3.html",
    "episodes": [
     {
@@ -1828,10 +1828,10 @@
    "num": "1",
    "chapter": "Development",
    "gameId": "-",
-   "genre": "City Builder",
+   "genre": "Gate Runner 3D",
    "mechanic": "Measure progress beyond the numbers.",
    "status": "ready",
-   "kit": "city",
+   "kit": "run3d",
    "file": "arcade/games/class-10/social-science/sst10-eco1.html",
    "episodes": [
     {
@@ -1848,10 +1848,10 @@
    "num": "5",
    "chapter": "Outcomes of Democracy",
    "gameId": "-",
-   "genre": "Story Designer",
+   "genre": "Rope Drop Lab",
    "mechanic": "Judge what democracy has achieved for its people.",
    "status": "ready",
-   "kit": "story",
+   "kit": "rope",
    "file": "arcade/games/class-10/social-science/sst10-pol5.html",
    "episodes": [
     {
@@ -1868,10 +1868,10 @@
    "num": "3",
    "chapter": "Money and Credit",
    "gameId": "-",
-   "genre": "Supermarket Simulator",
+   "genre": "Hill Racer",
    "mechanic": "Handle money and credit at the counter.",
    "status": "ready",
-   "kit": "supermarket",
+   "kit": "hill",
    "file": "arcade/games/class-10/social-science/sst10-eco3.html",
    "episodes": [
     {
@@ -1893,10 +1893,10 @@
    "num": "2",
    "chapter": "Sectors of the Indian Economy",
    "gameId": "-",
-   "genre": "Business Tycoon",
+   "genre": "Hill Racer",
    "mechanic": "Run the three sectors and secure the safety net.",
    "status": "ready",
-   "kit": "tycoon",
+   "kit": "hill",
    "file": "arcade/games/class-10/social-science/sst10-eco2.html",
    "episodes": [
     {
@@ -1918,10 +1918,10 @@
    "num": "4",
    "chapter": "Globalisation and the Indian Economy",
    "gameId": "-",
-   "genre": "Formula Racing",
+   "genre": "Hill Racer",
    "mechanic": "Race through the borderless world of globalisation.",
    "status": "ready",
-   "kit": "racing",
+   "kit": "hill",
    "file": "arcade/games/class-10/social-science/sst10-eco4.html",
    "episodes": [
     {
@@ -1943,10 +1943,10 @@
    "num": "2",
    "chapter": "Nationalism in India",
    "gameId": "-",
-   "genre": "Escape Room",
+   "genre": "Gate Runner 3D",
    "mechanic": "Open every lock of India's freedom movement, 1914-1930.",
    "status": "ready",
-   "kit": "escape",
+   "kit": "run3d",
    "file": "arcade/games/class-10/social-science/sst10-his2.html",
    "episodes": [
     {
@@ -1973,10 +1973,10 @@
    "num": "1",
    "chapter": "Chemical Reactions and Equations",
    "gameId": "-",
-   "genre": "Science Lab Simulator",
+   "genre": "Rope Drop Lab",
    "mechanic": "Balance reactions and spot their types in the Fizz Lab.",
    "status": "ready",
-   "kit": "lab",
+   "kit": "rope",
    "file": "arcade/games/class-10/science/sci10-ch1.html",
    "episodes": [
     {
@@ -1998,10 +1998,10 @@
    "num": "4",
    "chapter": "Carbon and its Compounds",
    "gameId": "-",
-   "genre": "Build Your Machine",
+   "genre": "Hill Racer",
    "mechanic": "Build carbon compounds from the orbit crew's kit.",
    "status": "ready",
-   "kit": "machine",
+   "kit": "hill",
    "file": "arcade/games/class-10/science/sci10-ch4.html",
    "episodes": [
     {
@@ -2023,10 +2023,10 @@
    "num": "3",
    "chapter": "Metals and Non-Metals",
    "gameId": "-",
-   "genre": "Build Your Machine",
+   "genre": "Hill Racer",
    "mechanic": "Forge metals and non-metals by properties and reactions.",
    "status": "ready",
-   "kit": "machine",
+   "kit": "hill",
    "file": "arcade/games/class-10/science/sci10-ch3.html",
    "episodes": [
     {
@@ -2048,10 +2048,10 @@
    "num": "6",
    "chapter": "Control and Coordination",
    "gameId": "-",
-   "genre": "Knowledge Runner",
+   "genre": "Gate Runner 3D",
    "mechanic": "Run the nervous and hormone pathways without hitting the wrong one.",
    "status": "ready",
-   "kit": "runner",
+   "kit": "run3d",
    "file": "arcade/games/class-10/science/sci10-ch6.html",
    "episodes": [
     {
@@ -2073,10 +2073,10 @@
    "num": "5",
    "chapter": "Life Processes",
    "gameId": "-",
-   "genre": "Chapter Quest",
+   "genre": "Gate Runner 3D",
    "mechanic": "Trek through the life processes of the human body and plants.",
    "status": "ready",
-   "kit": "quest",
+   "kit": "run3d",
    "file": "arcade/games/class-10/science/sci10-ch5.html",
    "episodes": [
     {
@@ -2098,10 +2098,10 @@
    "num": "8",
    "chapter": "Heredity",
    "gameId": "-",
-   "genre": "Story Designer",
+   "genre": "Rope Drop Lab",
    "mechanic": "Write the recipe cards of heredity.",
    "status": "ready",
-   "kit": "story",
+   "kit": "rope",
    "file": "arcade/games/class-10/science/sci10-ch8.html",
    "episodes": [
     {
@@ -2118,10 +2118,10 @@
    "num": "7",
    "chapter": "How do Organisms Reproduce?",
    "gameId": "-",
-   "genre": "Farm Master",
+   "genre": "Gate Runner 3D",
    "mechanic": "Grow the life cycle: asexual and sexual reproduction.",
    "status": "ready",
-   "kit": "farm",
+   "kit": "run3d",
    "file": "arcade/games/class-10/science/sci10-ch7.html",
    "episodes": [
     {
@@ -2143,10 +2143,10 @@
    "num": "10",
    "chapter": "Human Eye and Colourful World",
    "gameId": "-",
-   "genre": "Detective Academy",
+   "genre": "Gate Runner 3D",
    "mechanic": "Investigate how the eye sees and why the sky is blue.",
    "status": "ready",
-   "kit": "detective",
+   "kit": "run3d",
    "file": "arcade/games/class-10/science/sci10-ch10.html",
    "episodes": [
     {
@@ -2168,10 +2168,10 @@
    "num": "9",
    "chapter": "Light: Reflection and Refraction",
    "gameId": "-",
-   "genre": "Space Mission",
+   "genre": "Gate Runner 3D",
    "mechanic": "Navigate the light maze: mirrors, lenses and refraction.",
    "status": "ready",
-   "kit": "space",
+   "kit": "run3d",
    "file": "arcade/games/class-10/science/sci10-ch9.html",
    "episodes": [
     {
@@ -2193,10 +2193,10 @@
    "num": "12",
    "chapter": "Magnetic Effects of Current",
    "gameId": "-",
-   "genre": "Build Your Machine",
+   "genre": "Hill Racer",
    "mechanic": "Build a motor and float on magnetic fields.",
    "status": "ready",
-   "kit": "machine",
+   "kit": "hill",
    "file": "arcade/games/class-10/science/sci10-ch12.html",
    "episodes": [
     {
@@ -2213,10 +2213,10 @@
    "num": "11",
    "chapter": "Electricity",
    "gameId": "-",
-   "genre": "Circuit Master",
+   "genre": "Hill Racer",
    "mechanic": "Wire the circuit and light every bulb.",
    "status": "ready",
-   "kit": "circuit",
+   "kit": "hill",
    "file": "arcade/games/class-10/science/sci10-ch11.html",
    "episodes": [
     {
@@ -2238,10 +2238,10 @@
    "num": "13",
    "chapter": "Our Environment",
    "gameId": "-",
-   "genre": "City Builder",
+   "genre": "Gate Runner 3D",
    "mechanic": "Run the rescue mission for the environment.",
    "status": "ready",
-   "kit": "city",
+   "kit": "run3d",
    "file": "arcade/games/class-10/science/sci10-ch13.html",
    "episodes": [
     {
@@ -2258,10 +2258,10 @@
    "num": "2",
    "chapter": "Acids, Bases and Salts",
    "gameId": "-",
-   "genre": "Science Lab Simulator",
+   "genre": "Rope Drop Lab",
    "mechanic": "Sort acids, bases and salts and read the pH scale.",
    "status": "ready",
-   "kit": "lab",
+   "kit": "rope",
    "file": "arcade/games/class-10/science/sci10-ch2.html",
    "episodes": [
     {
@@ -2283,10 +2283,10 @@
    "num": "2",
    "chapter": "Cell: The Building Block of Life",
    "gameId": "-",
-   "genre": "Detective Academy",
+   "genre": "Gate Runner 3D",
    "mechanic": "Investigate the cell: its organelles and what each one does.",
    "status": "ready",
-   "kit": "detective",
+   "kit": "run3d",
    "file": "arcade/games/class-9/science/ix-ch2.html",
    "episodes": [
     {
@@ -2308,10 +2308,10 @@
    "num": "5",
    "chapter": "Exploring Mixtures and their Separation",
    "gameId": "-",
-   "genre": "Science Lab Simulator",
+   "genre": "Rope Drop Lab",
    "mechanic": "Separate mixtures at the juice bar and clean the water.",
    "status": "ready",
-   "kit": "lab",
+   "kit": "rope",
    "file": "arcade/games/class-9/science/ix-ch5.html",
    "episodes": [
     {
@@ -2333,10 +2333,10 @@
    "num": "4",
    "chapter": "Describing Motion Around Us",
    "gameId": "-",
-   "genre": "Formula Racing",
+   "genre": "Hill Racer",
    "mechanic": "Race on the track: speed, velocity and acceleration.",
    "status": "ready",
-   "kit": "racing",
+   "kit": "hill",
    "file": "arcade/games/class-9/science/ix-ch4.html",
    "episodes": [
     {
@@ -2358,10 +2358,10 @@
    "num": "7",
    "chapter": "Work, Energy and Simple Machines",
    "gameId": "-",
-   "genre": "Build Your Machine",
+   "genre": "Hill Racer",
    "mechanic": "Power the plant and assemble simple machines.",
    "status": "ready",
-   "kit": "machine",
+   "kit": "hill",
    "file": "arcade/games/class-9/science/ix-ch7.html",
    "episodes": [
     {
@@ -2383,10 +2383,10 @@
    "num": "6",
    "chapter": "How Forces Affect Motion",
    "gameId": "-",
-   "genre": "Sports Champion",
+   "genre": "Rope Drop Lab",
    "mechanic": "Kick the ball by Newton's laws: force, mass and motion.",
    "status": "ready",
-   "kit": "sports",
+   "kit": "rope",
    "file": "arcade/games/class-9/science/ix-ch6.html",
    "episodes": [
     {
@@ -2408,10 +2408,10 @@
    "num": "9",
    "chapter": "Atomic Foundation of Matter",
    "gameId": "-",
-   "genre": "Build Your Machine",
+   "genre": "Hill Racer",
    "mechanic": "Build formulae and balance reactions at Formula Foundry.",
    "status": "ready",
-   "kit": "machine",
+   "kit": "hill",
    "file": "arcade/games/class-9/science/ix-ch9.html",
    "episodes": [
     {
@@ -2433,10 +2433,10 @@
    "num": "8",
    "chapter": "Journey Inside the Atom",
    "gameId": "-",
-   "genre": "Science Lab Simulator",
+   "genre": "Rope Drop Lab",
    "mechanic": "Take a journey inside the atom and build its shells.",
    "status": "ready",
-   "kit": "lab",
+   "kit": "rope",
    "file": "arcade/games/class-9/science/ix-ch8.html",
    "episodes": [
     {
@@ -2458,10 +2458,10 @@
    "num": "11",
    "chapter": "Reproduction",
    "gameId": "-",
-   "genre": "Farm Master",
+   "genre": "Gate Runner 3D",
    "mechanic": "Grow a garden nursery and trace the story of life.",
    "status": "ready",
-   "kit": "farm",
+   "kit": "run3d",
    "file": "arcade/games/class-9/science/ix-ch11.html",
    "episodes": [
     {
@@ -2483,10 +2483,10 @@
    "num": "10",
    "chapter": "Sound",
    "gameId": "-",
-   "genre": "Rhythm Master",
+   "genre": "Hill Racer",
    "mechanic": "Ride the sound waves of Echo Valley.",
    "status": "ready",
-   "kit": "rhythm",
+   "kit": "hill",
    "file": "arcade/games/class-9/science/ix-ch10.html",
    "episodes": [
     {
@@ -2508,10 +2508,10 @@
    "num": "13",
    "chapter": "Earth as a System",
    "gameId": "-",
-   "genre": "City Builder",
+   "genre": "Gate Runner 3D",
    "mechanic": "Control the planet: spheres, cycles and the climate.",
    "status": "ready",
-   "kit": "city",
+   "kit": "run3d",
    "file": "arcade/games/class-9/science/ix-ch13.html",
    "episodes": [
     {
@@ -2533,10 +2533,10 @@
    "num": "12",
    "chapter": "Diversity in Living Organisms",
    "gameId": "-",
-   "genre": "Detective Academy",
+   "genre": "Gate Runner 3D",
    "mechanic": "Classify life on the species safari.",
    "status": "ready",
-   "kit": "detective",
+   "kit": "run3d",
    "file": "arcade/games/class-9/science/ix-ch12.html",
    "episodes": [
     {
@@ -2558,10 +2558,10 @@
    "num": "1",
    "chapter": "Scientific Enquiry and Measurement",
    "gameId": "-",
-   "genre": "Science Lab Simulator",
+   "genre": "Rope Drop Lab",
    "mechanic": "Run the young scientists' lab: measure, record and enquire.",
    "status": "ready",
-   "kit": "lab",
+   "kit": "rope",
    "file": "arcade/games/class-9/science/ix-ch1.html",
    "episodes": [
     {
@@ -2578,10 +2578,10 @@
    "num": "3",
    "chapter": "Tissues in Action",
    "gameId": "-",
-   "genre": "City Builder",
+   "genre": "Gate Runner 3D",
    "mechanic": "Build a green city and body squad from plant and animal tissues.",
    "status": "ready",
-   "kit": "city",
+   "kit": "run3d",
    "file": "arcade/games/class-9/science/ix-ch3.html",
    "episodes": [
     {
@@ -2603,10 +2603,10 @@
    "num": "1",
    "chapter": "Understanding Social Science",
    "gameId": "-",
-   "genre": "Detective Academy",
+   "genre": "Gate Runner 3D",
    "mechanic": "Become a society detective: the branches of social science.",
    "status": "ready",
-   "kit": "detective",
+   "kit": "run3d",
    "file": "arcade/games/class-9/social-science/ix-sst1.html",
    "episodes": [
     {
@@ -2623,10 +2623,10 @@
    "num": "4",
    "chapter": "Early Humans and Beginning of Civilisation",
    "gameId": "-",
-   "genre": "Chapter Quest",
+   "genre": "Gate Runner 3D",
    "mechanic": "Travel from the earliest humans to the cities by the rivers.",
    "status": "ready",
-   "kit": "quest",
+   "kit": "run3d",
    "file": "arcade/games/class-9/social-science/ix-sst4.html",
    "episodes": [
     {
@@ -2648,10 +2648,10 @@
    "num": "3",
    "chapter": "Atmosphere and Climate",
    "gameId": "-",
-   "genre": "Space Mission",
+   "genre": "Gate Runner 3D",
    "mechanic": "Monitor the sky station: atmosphere, weather and climate.",
    "status": "ready",
-   "kit": "space",
+   "kit": "run3d",
    "file": "arcade/games/class-9/social-science/ix-sst3.html",
    "episodes": [
     {
@@ -2673,10 +2673,10 @@
    "num": "6",
    "chapter": "Democracy",
    "gameId": "-",
-   "genre": "City Builder",
+   "genre": "Gate Runner 3D",
    "mechanic": "Govern Council Island by the principles of democracy.",
    "status": "ready",
-   "kit": "city",
+   "kit": "run3d",
    "file": "arcade/games/class-9/social-science/ix-sst6.html",
    "episodes": [
     {
@@ -2698,10 +2698,10 @@
    "num": "5",
    "chapter": "State and Society up to 1000 CE",
    "gameId": "-",
-   "genre": "Story Designer",
+   "genre": "Rope Drop Lab",
    "mechanic": "Ride the Vedic express through states and societies up to 1000 CE.",
    "status": "ready",
-   "kit": "story",
+   "kit": "rope",
    "file": "arcade/games/class-9/social-science/ix-sst5.html",
    "episodes": [
     {
@@ -2723,10 +2723,10 @@
    "num": "8",
    "chapter": "Building Blocks in Economics",
    "gameId": "-",
-   "genre": "Business Tycoon",
+   "genre": "Hill Racer",
    "mechanic": "Run Castaway Market: production, consumption and trade.",
    "status": "ready",
-   "kit": "tycoon",
+   "kit": "hill",
    "file": "arcade/games/class-9/social-science/ix-sst8.html",
    "episodes": [
     {
@@ -2748,10 +2748,10 @@
    "num": "7",
    "chapter": "Elections in a Democracy",
    "gameId": "-",
-   "genre": "Supermarket Simulator",
+   "genre": "Hill Racer",
    "mechanic": "Run the ballot box bazaar: fair elections step by step.",
    "status": "ready",
-   "kit": "supermarket",
+   "kit": "hill",
    "file": "arcade/games/class-9/social-science/ix-sst7.html",
    "episodes": [
     {
@@ -2773,10 +2773,10 @@
    "num": "1",
    "chapter": "Oceans and Life",
    "gameId": "-",
-   "genre": "Science Lab Simulator",
+   "genre": "Rope Drop Lab",
    "mechanic": "Dive in and study the ocean and the life in it.",
    "status": "ready",
-   "kit": "lab",
+   "kit": "rope",
    "file": "arcade/games/class-9/social-science/ix-sstp2-1.html",
    "episodes": [
     {
@@ -2798,10 +2798,10 @@
    "num": "9",
    "chapter": "The Price Puzzle",
    "gameId": "-",
-   "genre": "Detective Academy",
+   "genre": "Gate Runner 3D",
    "mechanic": "Solve the Mango Mela price puzzle.",
    "status": "ready",
-   "kit": "detective",
+   "kit": "run3d",
    "file": "arcade/games/class-9/social-science/ix-sst9.html",
    "episodes": [
     {
@@ -2823,10 +2823,10 @@
    "num": "3",
    "chapter": "Resistance and Resilience 1000–1700 CE",
    "gameId": "-",
-   "genre": "Chapter Quest",
+   "genre": "Gate Runner 3D",
    "mechanic": "Walk the fort trail from 1000 to 1700 CE.",
    "status": "ready",
-   "kit": "quest",
+   "kit": "run3d",
    "file": "arcade/games/class-9/social-science/ix-sstp2-3.html",
    "episodes": [
     {
@@ -2848,10 +2848,10 @@
    "num": "2",
    "chapter": "Life on Earth",
    "gameId": "-",
-   "genre": "Farm Master",
+   "genre": "Gate Runner 3D",
    "mechanic": "Explore the forests: biomes and life on Earth.",
    "status": "ready",
-   "kit": "farm",
+   "kit": "run3d",
    "file": "arcade/games/class-9/social-science/ix-sstp2-2.html",
    "episodes": [
     {
@@ -2873,10 +2873,10 @@
    "num": "5",
    "chapter": "Managing Your Personal Finances",
    "gameId": "-",
-   "genre": "Supermarket Simulator",
+   "genre": "Hill Racer",
    "mechanic": "Manage the pocket-money planet: save, spend and plan.",
    "status": "ready",
-   "kit": "supermarket",
+   "kit": "hill",
    "file": "arcade/games/class-9/social-science/ix-sstp2-5.html",
    "episodes": [
     {
@@ -2898,10 +2898,10 @@
    "num": "4",
    "chapter": "Governance and Public Policy",
    "gameId": "-",
-   "genre": "City Builder",
+   "genre": "Gate Runner 3D",
    "mechanic": "Design policies in the policy playground.",
    "status": "ready",
-   "kit": "city",
+   "kit": "run3d",
    "file": "arcade/games/class-9/social-science/ix-sstp2-4.html",
    "episodes": [
     {
@@ -2923,10 +2923,10 @@
    "num": "6",
    "chapter": "From Ideas to Startups",
    "gameId": "-",
-   "genre": "Business Tycoon",
+   "genre": "Hill Racer",
    "mechanic": "Turn ideas into start-ups in the sandbox.",
    "status": "ready",
-   "kit": "tycoon",
+   "kit": "hill",
    "file": "arcade/games/class-9/social-science/ix-sstp2-6.html",
    "episodes": [
     {
@@ -2948,10 +2948,10 @@
    "num": "2",
    "chapter": "Shaping of the Earth's Surface",
    "gameId": "-",
-   "genre": "Chapter Quest",
+   "genre": "Gate Runner 3D",
    "mechanic": "Journey to the Earth's core and across its landforms.",
    "status": "ready",
-   "kit": "quest",
+   "kit": "run3d",
    "file": "arcade/games/class-9/social-science/ix-sst2.html",
    "episodes": [
     {
@@ -2973,10 +2973,10 @@
    "num": "1",
    "chapter": "How I Taught My Grandmother to Read",
    "gameId": "-",
-   "genre": "Story Designer",
+   "genre": "Rope Drop Lab",
    "mechanic": "Build the story: parts of speech and word skills for the chapter.",
    "status": "ready",
-   "kit": "story",
+   "kit": "rope",
    "file": "arcade/games/class-9/english/ix-eng1.html",
    "episodes": [
     {
@@ -2998,10 +2998,10 @@
    "num": "2",
    "chapter": "The Pot Maker",
    "gameId": "-",
-   "genre": "Recipe Master",
+   "genre": "Hill Racer",
    "mechanic": "Shape the clay: clauses and determiners at the pot maker's workshop.",
    "status": "ready",
-   "kit": "recipe",
+   "kit": "hill",
    "file": "arcade/games/class-9/english/ix-eng2.html",
    "episodes": [
     {
@@ -3023,10 +3023,10 @@
    "num": "3",
    "chapter": "Winds of Change",
    "gameId": "-",
-   "genre": "Build Your Machine",
+   "genre": "Hill Racer",
    "mechanic": "Turn active into passive and break down the poem's devices.",
    "status": "ready",
-   "kit": "machine",
+   "kit": "hill",
    "file": "arcade/games/class-9/english/ix-eng3.html",
    "episodes": [
     {
@@ -3048,10 +3048,10 @@
    "num": "4",
    "chapter": "Vitamin-M",
    "gameId": "-",
-   "genre": "Detective Academy",
+   "genre": "Gate Runner 3D",
    "mechanic": "Use modals to give advice and spot humour and irony.",
    "status": "ready",
-   "kit": "detective",
+   "kit": "run3d",
    "file": "arcade/games/class-9/english/ix-eng4.html",
    "episodes": [
     {
@@ -3073,10 +3073,10 @@
    "num": "5",
    "chapter": "The World of Limitless Possibilities",
    "gameId": "-",
-   "genre": "Sports Champion",
+   "genre": "Rope Drop Lab",
    "mechanic": "Win gold with reported speech and an inspiring speech.",
    "status": "ready",
-   "kit": "sports",
+   "kit": "rope",
    "file": "arcade/games/class-9/english/ix-eng5.html",
    "episodes": [
     {
@@ -3098,10 +3098,10 @@
    "num": "6",
    "chapter": "Twin Melodies",
    "gameId": "-",
-   "genre": "Rhythm Master",
+   "genre": "Hill Racer",
    "mechanic": "Play the twin melodies: idioms and phrasal verbs on stage.",
    "status": "ready",
-   "kit": "rhythm",
+   "kit": "hill",
    "file": "arcade/games/class-9/english/ix-eng6.html",
    "episodes": [
     {
@@ -3123,10 +3123,10 @@
    "num": "7",
    "chapter": "Carrier of Words",
    "gameId": "-",
-   "genre": "Chapter Quest",
+   "genre": "Gate Runner 3D",
    "mechanic": "Deliver the words across the desert with similes and hyperbole.",
    "status": "ready",
-   "kit": "quest",
+   "kit": "run3d",
    "file": "arcade/games/class-9/english/ix-eng7.html",
    "episodes": [
     {
@@ -3148,10 +3148,10 @@
    "num": "1",
    "chapter": "दो बैलों की कथा",
    "gameId": "-",
-   "genre": "Chapter Quest",
+   "genre": "Gate Runner 3D",
    "mechanic": "पर्यायवाची और विलोम की यात्रा पर निकलो।",
    "status": "ready",
-   "kit": "quest",
+   "kit": "run3d",
    "file": "arcade/games/class-9/hindi/ix-hin1.html",
    "episodes": [
     {
@@ -3173,10 +3173,10 @@
    "num": "2",
    "chapter": "क्या लिखूँ?",
    "gameId": "-",
-   "genre": "Story Designer",
+   "genre": "Rope Drop Lab",
    "mechanic": "विराम-चिह्न और वाक्य-भेद से अपना निबंध सजाओ।",
    "status": "ready",
-   "kit": "story",
+   "kit": "rope",
    "file": "arcade/games/class-9/hindi/ix-hin2.html",
    "episodes": [
     {
@@ -3198,10 +3198,10 @@
    "num": "4",
    "chapter": "ऐसी भी बातें होती हैं",
    "gameId": "-",
-   "genre": "Formula Racing",
+   "genre": "Hill Racer",
    "mechanic": "क्रिया और क्रिया-विशेषण की रफ़्तार पकड़ो।",
    "status": "ready",
-   "kit": "racing",
+   "kit": "hill",
    "file": "arcade/games/class-9/hindi/ix-hin4.html",
    "episodes": [
     {
@@ -3223,10 +3223,10 @@
    "num": "3",
    "chapter": "संवादहीन",
    "gameId": "-",
-   "genre": "Detective Academy",
+   "genre": "Gate Runner 3D",
    "mechanic": "संज्ञा और सर्वनाम की पहचान करो।",
    "status": "ready",
-   "kit": "detective",
+   "kit": "run3d",
    "file": "arcade/games/class-9/hindi/ix-hin3.html",
    "episodes": [
     {
@@ -3248,10 +3248,10 @@
    "num": "6",
    "chapter": "रीढ़ की हड्डी",
    "gameId": "-",
-   "genre": "Escape Room",
+   "genre": "Gate Runner 3D",
    "mechanic": "विराम-चिह्न से अर्थ बदलो और ताले खोलो।",
    "status": "ready",
-   "kit": "escape",
+   "kit": "run3d",
    "file": "arcade/games/class-9/hindi/ix-hin6.html",
    "episodes": [
     {
@@ -3273,10 +3273,10 @@
    "num": "5",
    "chapter": "आखिरी चट्टान तक",
    "gameId": "-",
-   "genre": "Farm Master",
+   "genre": "Gate Runner 3D",
    "mechanic": "वचन और लिंग का मेल सही बैठाओ।",
    "status": "ready",
-   "kit": "farm",
+   "kit": "run3d",
    "file": "arcade/games/class-9/hindi/ix-hin5.html",
    "episodes": [
     {
@@ -3298,10 +3298,10 @@
    "num": "8",
    "chapter": "रैदास के पद",
    "gameId": "-",
-   "genre": "Art Studio",
+   "genre": "Rope Drop Lab",
    "mechanic": "उपमा और रूपक अलंकार को पहचानो।",
    "status": "ready",
-   "kit": "art",
+   "kit": "rope",
    "file": "arcade/games/class-9/hindi/ix-hin8.html",
    "episodes": [
     {
@@ -3323,10 +3323,10 @@
    "num": "7",
    "chapter": "मैं और मेरा देश",
    "gameId": "-",
-   "genre": "Build Your Machine",
+   "genre": "Hill Racer",
    "mechanic": "उपसर्ग और प्रत्यय जोड़कर नए शब्द बनाओ।",
    "status": "ready",
-   "kit": "machine",
+   "kit": "hill",
    "file": "arcade/games/class-9/hindi/ix-hin7.html",
    "episodes": [
     {
@@ -3348,10 +3348,10 @@
    "num": "10",
    "chapter": "भारती, जय, विजय करे!",
    "gameId": "-",
-   "genre": "Rhythm Master",
+   "genre": "Hill Racer",
    "mechanic": "पर्यायवाची और विलोम की ताल पर शब्द-भंडार बढ़ाओ।",
    "status": "ready",
-   "kit": "rhythm",
+   "kit": "hill",
    "file": "arcade/games/class-9/hindi/ix-hin10.html",
    "episodes": [
     {
@@ -3373,10 +3373,10 @@
    "num": "9",
    "chapter": "राम-लक्ष्मण-परशुराम संवाद",
    "gameId": "-",
-   "genre": "Detective Academy",
+   "genre": "Gate Runner 3D",
    "mechanic": "कारक और विभक्ति की जाँच करो।",
    "status": "ready",
-   "kit": "detective",
+   "kit": "run3d",
    "file": "arcade/games/class-9/hindi/ix-hin9.html",
    "episodes": [
     {
@@ -3398,10 +3398,10 @@
    "num": "12",
    "chapter": "घर की याद",
    "gameId": "-",
-   "genre": "Story Designer",
+   "genre": "Rope Drop Lab",
    "mechanic": "अनेकार्थी शब्दों के सही अर्थ चुनकर कहानी पूरी करो।",
    "status": "ready",
-   "kit": "story",
+   "kit": "rope",
    "file": "arcade/games/class-9/hindi/ix-hin12.html",
    "episodes": [
     {
@@ -3423,10 +3423,10 @@
    "num": "11",
    "chapter": "झाँसी की रानी",
    "gameId": "-",
-   "genre": "Concept Jumper",
+   "genre": "Gate Runner 3D",
    "mechanic": "संधि के नियमों से शब्द जोड़ो और तोड़ो।",
    "status": "ready",
-   "kit": "jumper",
+   "kit": "run3d",
    "file": "arcade/games/class-9/hindi/ix-hin11.html",
    "episodes": [
     {
@@ -3448,10 +3448,10 @@
    "num": "8",
    "chapter": "Follow That Dream",
    "gameId": "-",
-   "genre": "Concept Jumper",
+   "genre": "Gate Runner 3D",
    "mechanic": "Follow the dream: conditionals and the steps of a letter.",
    "status": "ready",
-   "kit": "jumper",
+   "kit": "run3d",
    "file": "arcade/games/class-9/english/ix-eng8.html",
    "episodes": [
     {

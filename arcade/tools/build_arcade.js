@@ -7,6 +7,8 @@ const C=eval('('+s.slice(s.indexOf('[',a),b+1)+')');
 const specs=Object.assign({},...['c12','c11','c10','c9'].map(f=>require(__dirname+'/specs/'+f+'.js')));
 const RT=['runner','space','rhythm','sports','tower'];
 const KITS={runner:'Knowledge Runner',space:'Space Mission',rhythm:'Rhythm Master',sports:'Sports Champion',tower:'Tower Defence Academy',jumper:'Concept Jumper',racing:'Formula Racing',detective:'Detective Academy',escape:'Escape Room',tycoon:'Business Tycoon',supermarket:'Supermarket Simulator',city:'City Builder',farm:'Farm Master',story:'Story Designer',quest:'Chapter Quest',machine:'Build Your Machine',lab:'Science Lab Simulator',art:'Art Studio',circuit:'Circuit Master',recipe:'Recipe Master'};
+const ENGINE={runner:'run3d',space:'run3d',quest:'run3d',detective:'run3d',escape:'run3d',jumper:'run3d',farm:'run3d',city:'run3d',racing:'hill',tycoon:'hill',supermarket:'hill',machine:'hill',circuit:'hill',recipe:'hill',rhythm:'hill',lab:'rope',art:'rope',story:'rope',tower:'rope',sports:'rope'};
+const ENAME={run3d:'Gate Runner 3D',hill:'Hill Racer',rope:'Rope Drop Lab'};
 const clsDir={IX:'class-9',X:'class-10',XI:'class-11',XII:'class-12'};
 const subDir=n=>n.toLowerCase().replace(/\(.*?\)/g,'').trim().replace(/[^a-z]+/g,'-').replace(/-$/,'');
 const prev=JSON.parse(fs.readFileSync(root+'/arcade/game-registry.json','utf8')).games;
@@ -32,19 +34,20 @@ for(const c of C){
   if(sp.pair){if(sp.pair.length<4)e('need >=4 pairs');if(new Set(sp.pair.map(p=>p[0])).size!==sp.pair.length)e('dup pair term');if(new Set(sp.pair.map(p=>p[1])).size!==sp.pair.length)e('dup pair meaning');}
   if(sp.calc)sp.calc.forEach(q=>{if(isNaN(parseFloat(q[1])))e('bad calc answer');});
   if(!sp.pair&&!sp.calc&&!(sp.seq&&sp.seq.length)&&RT.includes(sp.kit)===false&&!hasSort)e('too thin');
-  const full={id:c.id,title:c.title,kit:sp.kit,mission:sp.mission,sport:sp.sport,parts:c.episodes.map(x=>x.id),sort:sp.sort,seq:sp.seq,pair:sp.pair,calc:sp.calc};
+  const full={id:c.id,title:c.title,kit:ENGINE[sp.kit],skin:sp.kit,mission:sp.mission,sport:sp.sport,parts:c.episodes.map(x=>x.id),sort:sp.sort,seq:sp.seq,pair:sp.pair,calc:sp.calc};
   const html=`<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><title>${c.title.replace(/</g,'&lt;')} | Notesflix Arcade</title>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"></head>
 <body><div id="nfa"></div>
 <script src="../../../shared/arcade.js"></script>
 <script src="../../../shared/kits-rt.js"></script>
-<script src="../../../shared/kits-dom.js"></script>
+${ENGINE[sp.kit]==='run3d'?'<script src="../../../shared/three.min.js"></script>\n':''}<script src="../../../shared/kits-3d.js"></script>
+<script src="../../../shared/kits-2dpro.js"></script>
 <script>NFA.game(${JSON.stringify(full)});</script>
 </body></html>
 `;
   fs.mkdirSync(path.join(root,dir),{recursive:true});fs.writeFileSync(path.join(root,file),html);
-  reg.push({chapterId:c.id,class:c.cls,subject:c.subject,num:c.num,chapter:c.title,gameId:'-',genre:KITS[sp.kit],mechanic:sp.mission,status:oldStatus[c.id]||'planned',kit:sp.kit,file,episodes:eps});
+  reg.push({chapterId:c.id,class:c.cls,subject:c.subject,num:c.num,chapter:c.title,gameId:'-',genre:ENAME[ENGINE[sp.kit]],mechanic:sp.mission,status:oldStatus[c.id]||'planned',kit:ENGINE[sp.kit],file,episodes:eps});
 }
 const arg=(process.argv.find(x=>x.startsWith('--ready='))||'').slice(8);
 if(arg){const ids=arg==='all'?reg.map(r=>r.chapterId):arg.split(',');reg.forEach(r=>{if(ids.includes(r.chapterId))r.status='ready';});}
