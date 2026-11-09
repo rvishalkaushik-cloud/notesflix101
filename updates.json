@@ -1,23 +1,50 @@
 {
-  "checked": "2026-11-08",
+  "checked": "2026-11-09",
   "items": [
     {
-      "date": "2026-11-06",
+      "date": "2026-11-09",
       "tag": "Date sheet",
-      "status": "Confirmed",
-      "title": "Class X and XII 2027 date sheet released",
-      "summary": "CBSE released the 2027 board date sheets on 6 Nov 2026. Exams start 16 Feb 2027 at 10:30 AM IST. Class XII: Entrepreneurship 19 Feb, Accountancy 23 Feb, Economics 16 Mar, Business Studies 1 Apr 2027. Class X: Social Science 8 Mar 2027. Every paper runs 10:30 AM to 1:30 PM. Check the official notice for any changes.",
+      "status": "Awaited",
+      "title": "2027 board exam date sheet not yet listed",
+      "summary": "As of 9 Nov 2026, no notice for the Class X and XII 2027 main exam date sheet is listed on the official CBSE circulars or press pages. Dates will be shown here once CBSE publishes them. Please check the official site for the latest.",
       "source": "CBSE (official)",
-      "url": "https://www.cbse.gov.in/cbsenew/examination_circular.html"
+      "url": "https://www.cbse.gov.in/cbsenew/examination_Circular.html"
     },
     {
-      "date": "2026-11-02",
+      "date": "2026-11-09",
       "tag": "Practicals",
       "status": "Awaited",
       "title": "2027 practical exam schedule not yet issued",
-      "summary": "As of 2 Nov 2026, no notice on practical exam dates or guidelines for the 2027 boards is listed on the official CBSE circulars page. The only practical guidelines listed are for the 2026 supplementary exams. Your school will share dates once CBSE announces them.",
+      "summary": "As of 9 Nov 2026, no notice on practical exam dates or guidelines for schools in general for the 2027 boards is listed on the official CBSE circulars page. Your school will share dates once CBSE announces them.",
       "source": "CBSE (official)",
       "url": "https://www.cbse.gov.in/cbsenew/examination_Circular.html"
+    },
+    {
+      "date": "2026-11-06",
+      "tag": "Circular",
+      "status": "Confirmed",
+      "title": "Subject-wise marks bifurcation for 2026-27 released",
+      "summary": "CBSE issued a circular on 6 Nov 2026 listing, subject by subject, the theory, practical and internal assessment marks, exam duration and answer book type for Classes X and XII. Check your subjects in the PDF.",
+      "source": "CBSE (official)",
+      "url": "https://www.cbse.gov.in/cbsenew/documents/Circular_Marks_Bifurcation_06112026%20-.pdf"
+    },
+    {
+      "date": "2026-11-05",
+      "tag": "Practicals",
+      "status": "Confirmed",
+      "title": "Circular for winter-bound schools on practicals and internal assessment",
+      "summary": "On 5 Nov 2026 CBSE issued a circular on conducting practical exams, project assessment and internal assessment for Classes X and XII in winter-bound schools for 2026-27. Only the title could be read, so see the PDF for details.",
+      "source": "CBSE (official)",
+      "url": "https://www.cbse.gov.in/cbsenew/documents/Circular_Practical_Examination_Winter_Bound_05112026.pdf"
+    },
+    {
+      "date": "2026-11-02",
+      "tag": "LOC",
+      "status": "Confirmed",
+      "title": "CBSE issues notice on correction of LOC data",
+      "summary": "CBSE published a circular titled 'Correction of LOC data 2026-27' on 2 Nov 2026. The PDF text could not be read, so please check the official notice for the process and dates, and talk to your school.",
+      "source": "CBSE (official)",
+      "url": "https://www.cbse.gov.in/cbsenew/documents/LOC_Correction_2026_27_02112026.pdf"
     },
     {
       "date": "2026-10-21",
@@ -27,15 +54,6 @@
       "summary": "CBSE issued the LOC circular on 21 Sep 2026 and sent reminders until 21 Oct 2026, which it called the last date. Ask your school to confirm that your name, subjects and details were entered correctly.",
       "source": "CBSE (official)",
       "url": "https://www.cbse.gov.in/cbsenew/documents/Reminder_6_Submission_LOC_21102026.pdf"
-    },
-    {
-      "date": "2026-09-29",
-      "tag": "Circular",
-      "status": "Confirmed",
-      "title": "CBSE held a live Q&A on registration and LOC for 2027 boards",
-      "summary": "CBSE ran a webinar to answer school questions on registration and LOC for the 2027 board exams. The press release is on the CBSE website.",
-      "source": "CBSE press release (official)",
-      "url": "https://www.cbse.gov.in/cbsenew/documents/Press_Release_LOC_Webinar_29092026.pdf"
     },
     {
       "date": "Apr 2026",
