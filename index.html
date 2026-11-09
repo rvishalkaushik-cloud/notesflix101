@@ -3439,7 +3439,7 @@ CHAPTERS.forEach(function(c){
   function arcadeEntry(id, cb){
     function pick(){ cb((arcadeReg.games || []).filter(function(g){ return g.chapterId === id; })[0]); }
     if(arcadeReg){ pick(); return; }
-    fetch("arcade/game-registry.json").then(function(r){ return r.json(); })
+    fetch("arcade/game-registry.json?v=320", {cache:"no-cache"}).then(function(r){ return r.json(); })
       .then(function(j){ arcadeReg = j; pick(); }).catch(function(){});
   }
 
