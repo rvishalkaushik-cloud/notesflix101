@@ -1869,6 +1869,13 @@ const CHAPTERS = [
       { id:"ie8-1", title:"Dream Launch Pad", mins:35, tier:"free", art:"globe", desc:"Irene Chua's letter to Ming: passion, planning, sacrifice, support and hurdles, with a letter writing skill.", url:"notes/ie8-1.html", keys:"LETTER · PASSION · PLAN" },
       { id:"ie8-2", title:"First Step Bridge", mins:35, tier:"pass", art:"globe", desc:"Robert Langley's poem: a solitary challenge, the first step, comfort zone, self belief, plus conditionals.", url:"notes/ie8-2.html", keys:"POEM · BELIEF · CONDITIONALS" },
     ]},
+
+  // ===================== PHYSICS =====================
+  { id:"phy11-ch3", cls:"XI", subject:"Physics", unit:"Chapter", num:"3", title:"Motion in a Plane",
+    tagline:"Vectors, projectiles and circular motion",
+    art:"gears", thumb:"img/phy11-ch3.jpg", episodes:[
+      { id:"phy11-3-1", title:"Vectors (Part 1)", mins:35, tier:"free", art:"gears", desc:"Scalars and vectors, adding vectors by drawing and by components, unit vectors, dot and cross products, with a drag-and-drop vector playground, a 3D right-hand rule, a parallelogram-law virtual lab and a numerical generator.", url:"notes/phy11-3-1.html", keys:"vectors scalar vector resultant parallelogram triangle law components resolution unit vector dot product cross product right-hand rule displacement position equal vectors projectile motion in a plane class 11 physics" },
+    ]},
 ];
 
 // every episode also knows its chapter and its number in the season
@@ -2271,7 +2278,7 @@ CHAPTERS.forEach(function(c){
   function subjectCount(sub, cl){
     return CHAPTERS.filter(function(c){ return c.subject === sub && (!cl || c.cls === cl); }).length;
   }
-  var LIVE_SUBJECTS = ["Business Studies", "Accountancy", "Economics", "Entrepreneurship"];
+  var LIVE_SUBJECTS = ["Business Studies", "Accountancy", "Economics", "Entrepreneurship", "Physics"];
   /* streams: the student picks one first; subjects and classes follow from it */
   var STREAMS = [
     { key:"Commerce", sub:"Class XI & XII", subjects:["Business Studies","Accountancy","Entrepreneurship","Economics"] },
