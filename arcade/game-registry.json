@@ -63,10 +63,10 @@
    "num": "3",
    "chapter": "Business Environment",
    "gameId": "-",
-   "genre": "Gate Runner 3D",
+   "genre": "Jetpack Flyer",
    "mechanic": "Build a business city that survives every shock of its environment.",
    "status": "ready",
-   "kit": "run3d",
+   "kit": "jet",
    "file": "arcade/games/class-12/business-studies/ch03.html",
    "episodes": [
     {
@@ -83,10 +83,10 @@
    "num": "4",
    "chapter": "Planning",
    "gameId": "-",
-   "genre": "Gate Runner 3D",
+   "genre": "Jetpack Flyer",
    "mechanic": "Plan the mission: sort every plan type before launch.",
    "status": "ready",
-   "kit": "run3d",
+   "kit": "jet",
    "file": "arcade/games/class-12/business-studies/ch04.html",
    "episodes": [
     {
@@ -138,10 +138,10 @@
    "num": "6",
    "chapter": "Staffing",
    "gameId": "-",
-   "genre": "Rope Drop Lab",
+   "genre": "Shot Master",
    "mechanic": "Defend the company: every candidate must pass the selection funnel in order.",
    "status": "ready",
-   "kit": "rope",
+   "kit": "shot",
    "file": "arcade/games/class-12/business-studies/ch06.html",
    "episodes": [
     {
@@ -168,10 +168,10 @@
    "num": "7",
    "chapter": "Directing",
    "gameId": "-",
-   "genre": "Rope Drop Lab",
+   "genre": "Shot Master",
    "mechanic": "Captain the team: motivate, lead and communicate to win the match.",
    "status": "ready",
-   "kit": "rope",
+   "kit": "shot",
    "file": "arcade/games/class-12/business-studies/ch07.html",
    "episodes": [
     {
@@ -303,10 +303,10 @@
    "num": "11",
    "chapter": "Marketing Management",
    "gameId": "-",
-   "genre": "Hill Racer",
+   "genre": "Shot Master",
    "mechanic": "Serve every customer by getting the marketing mix right.",
    "status": "ready",
-   "kit": "hill",
+   "kit": "shot",
    "file": "arcade/games/class-12/business-studies/ch11.html",
    "episodes": [
     {
@@ -568,10 +568,10 @@
    "num": "3",
    "chapter": "Enterprise Marketing",
    "gameId": "-",
-   "genre": "Hill Racer",
+   "genre": "Shot Master",
    "mechanic": "Market your enterprise: brand, price, place and promotion.",
    "status": "ready",
-   "kit": "hill",
+   "kit": "shot",
    "file": "arcade/games/class-12/entrepreneurship/ent-u3.html",
    "episodes": [
     {
@@ -603,10 +603,10 @@
    "num": "4",
    "chapter": "Enterprise Growth Strategies",
    "gameId": "-",
-   "genre": "Gate Runner 3D",
+   "genre": "Jetpack Flyer",
    "mechanic": "Grow the enterprise through the right growth strategy.",
    "status": "ready",
-   "kit": "run3d",
+   "kit": "jet",
    "file": "arcade/games/class-12/entrepreneurship/ent-u4.html",
    "episodes": [
     {
@@ -763,10 +763,10 @@
    "num": "3",
    "chapter": "Public, Private and Global Enterprises",
    "gameId": "-",
-   "genre": "Gate Runner 3D",
+   "genre": "Jetpack Flyer",
    "mechanic": "Allocate the city budget across public, private and global enterprises.",
    "status": "ready",
-   "kit": "run3d",
+   "kit": "jet",
    "file": "arcade/games/class-11/business-studies/xi-u3.html",
    "episodes": [
     {
@@ -843,10 +843,10 @@
    "num": "5",
    "chapter": "Emerging Modes of Business",
    "gameId": "-",
-   "genre": "Rope Drop Lab",
+   "genre": "Shot Master",
    "mechanic": "Defend the e-shop from threats and learn e-business.",
    "status": "ready",
-   "kit": "rope",
+   "kit": "shot",
    "file": "arcade/games/class-11/business-studies/xi-u5.html",
    "episodes": [
     {
@@ -938,10 +938,10 @@
    "num": "8",
    "chapter": "Small Business and Enterprises",
    "gameId": "-",
-   "genre": "Hill Racer",
+   "genre": "Shot Master",
    "mechanic": "Run a start-up kirana and unlock the benefits for small business.",
    "status": "ready",
-   "kit": "hill",
+   "kit": "shot",
    "file": "arcade/games/class-11/business-studies/xi-u8.html",
    "episodes": [
     {
@@ -998,10 +998,10 @@
    "num": "1",
    "chapter": "National Income and Related Aggregates",
    "gameId": "-",
-   "genre": "Gate Runner 3D",
+   "genre": "Jetpack Flyer",
    "mechanic": "Count a nation's income by three methods to build the economy.",
    "status": "ready",
-   "kit": "run3d",
+   "kit": "jet",
    "file": "arcade/games/class-12/economics/eco12-ni.html",
    "episodes": [
     {
@@ -1048,10 +1048,10 @@
    "num": "4",
    "chapter": "Government Budget and the Economy",
    "gameId": "-",
-   "genre": "Gate Runner 3D",
+   "genre": "Jetpack Flyer",
    "mechanic": "Balance the national budget: raise revenue, spend wisely, cut deficits.",
    "status": "ready",
-   "kit": "run3d",
+   "kit": "jet",
    "file": "arcade/games/class-12/economics/eco12-budget.html",
    "episodes": [
     {
@@ -1138,10 +1138,10 @@
    "num": "5",
    "chapter": "Balance of Payments",
    "gameId": "-",
-   "genre": "Gate Runner 3D",
+   "genre": "Jetpack Flyer",
    "mechanic": "Keep the nation's balance of payments in orbit.",
    "status": "ready",
-   "kit": "run3d",
+   "kit": "jet",
    "file": "arcade/games/class-12/economics/eco12-bop.html",
    "episodes": [
     {
@@ -1163,10 +1163,10 @@
    "num": "8",
    "chapter": "Current Challenges facing Indian Economy",
    "gameId": "-",
-   "genre": "Gate Runner 3D",
+   "genre": "Jetpack Flyer",
    "mechanic": "Grow human capital and rural India sustainably.",
    "status": "ready",
-   "kit": "run3d",
+   "kit": "jet",
    "file": "arcade/games/class-12/economics/eco12-ied2.html",
    "episodes": [
     {
@@ -1293,10 +1293,10 @@
    "num": "4",
    "chapter": "Introduction to Microeconomics",
    "gameId": "-",
-   "genre": "Gate Runner 3D",
+   "genre": "Jetpack Flyer",
    "mechanic": "Allocate your land, plot your PPC and face the central problems.",
    "status": "ready",
-   "kit": "run3d",
+   "kit": "jet",
    "file": "arcade/games/class-11/economics/eco11-micro.html",
    "episodes": [
     {
@@ -1313,10 +1313,10 @@
    "num": "3",
    "chapter": "Statistical Tools and Interpretation",
    "gameId": "-",
-   "genre": "Rope Drop Lab",
+   "genre": "Shot Master",
    "mechanic": "Play the cricket season with averages, medians and correlation.",
    "status": "ready",
-   "kit": "rope",
+   "kit": "shot",
    "file": "arcade/games/class-11/economics/eco11-tools.html",
    "episodes": [
     {
@@ -1383,10 +1383,10 @@
    "num": "5",
    "chapter": "Consumer's Equilibrium and Demand",
    "gameId": "-",
-   "genre": "Hill Racer",
+   "genre": "Shot Master",
    "mechanic": "Spend a fixed budget for maximum satisfaction and read the demand.",
    "status": "ready",
-   "kit": "hill",
+   "kit": "shot",
    "file": "arcade/games/class-11/economics/eco11-consumer.html",
    "episodes": [
     {
@@ -1418,10 +1418,10 @@
    "num": "7",
    "chapter": "Perfect Competition and Price Determination",
    "gameId": "-",
-   "genre": "Gate Runner 3D",
+   "genre": "Jetpack Flyer",
    "mechanic": "Set prices in perfect competition: ceilings and floors.",
    "status": "ready",
-   "kit": "run3d",
+   "kit": "jet",
    "file": "arcade/games/class-11/economics/eco11-market.html",
    "episodes": [
     {
@@ -1548,10 +1548,10 @@
    "num": "1",
    "chapter": "Resources and Development",
    "gameId": "-",
-   "genre": "Gate Runner 3D",
+   "genre": "Jetpack Flyer",
    "mechanic": "Manage land and soil resources for sustainable development.",
    "status": "ready",
-   "kit": "run3d",
+   "kit": "jet",
    "file": "arcade/games/class-10/social-science/sst10-geo1.html",
    "episodes": [
     {
@@ -1598,10 +1598,10 @@
    "num": "3",
    "chapter": "Water Resources",
    "gameId": "-",
-   "genre": "Gate Runner 3D",
+   "genre": "Jetpack Flyer",
    "mechanic": "Manage every drop: dams, harvesting and conservation.",
    "status": "ready",
-   "kit": "run3d",
+   "kit": "jet",
    "file": "arcade/games/class-10/social-science/sst10-geo3.html",
    "episodes": [
     {
@@ -1663,10 +1663,10 @@
    "num": "4",
    "chapter": "Agriculture",
    "gameId": "-",
-   "genre": "Gate Runner 3D",
+   "genre": "Jetpack Flyer",
    "mechanic": "Take the crop from field to plate.",
    "status": "ready",
-   "kit": "run3d",
+   "kit": "jet",
    "file": "arcade/games/class-10/social-science/sst10-geo4.html",
    "episodes": [
     {
@@ -1758,10 +1758,10 @@
    "num": "1",
    "chapter": "Power-sharing",
    "gameId": "-",
-   "genre": "Gate Runner 3D",
+   "genre": "Jetpack Flyer",
    "mechanic": "Share power so every community has a seat at the table.",
    "status": "ready",
-   "kit": "run3d",
+   "kit": "jet",
    "file": "arcade/games/class-10/social-science/sst10-pol1.html",
    "episodes": [
     {
@@ -1778,10 +1778,10 @@
    "num": "4",
    "chapter": "Political Parties",
    "gameId": "-",
-   "genre": "Rope Drop Lab",
+   "genre": "Shot Master",
    "mechanic": "Defend the democratic system with strong, accountable parties.",
    "status": "ready",
-   "kit": "rope",
+   "kit": "shot",
    "file": "arcade/games/class-10/social-science/sst10-pol4.html",
    "episodes": [
     {
@@ -1828,10 +1828,10 @@
    "num": "1",
    "chapter": "Development",
    "gameId": "-",
-   "genre": "Gate Runner 3D",
+   "genre": "Jetpack Flyer",
    "mechanic": "Measure progress beyond the numbers.",
    "status": "ready",
-   "kit": "run3d",
+   "kit": "jet",
    "file": "arcade/games/class-10/social-science/sst10-eco1.html",
    "episodes": [
     {
@@ -1868,10 +1868,10 @@
    "num": "3",
    "chapter": "Money and Credit",
    "gameId": "-",
-   "genre": "Hill Racer",
+   "genre": "Shot Master",
    "mechanic": "Handle money and credit at the counter.",
    "status": "ready",
-   "kit": "hill",
+   "kit": "shot",
    "file": "arcade/games/class-10/social-science/sst10-eco3.html",
    "episodes": [
     {
@@ -2118,10 +2118,10 @@
    "num": "7",
    "chapter": "How do Organisms Reproduce?",
    "gameId": "-",
-   "genre": "Gate Runner 3D",
+   "genre": "Jetpack Flyer",
    "mechanic": "Grow the life cycle: asexual and sexual reproduction.",
    "status": "ready",
-   "kit": "run3d",
+   "kit": "jet",
    "file": "arcade/games/class-10/science/sci10-ch7.html",
    "episodes": [
     {
@@ -2168,10 +2168,10 @@
    "num": "9",
    "chapter": "Light: Reflection and Refraction",
    "gameId": "-",
-   "genre": "Gate Runner 3D",
+   "genre": "Jetpack Flyer",
    "mechanic": "Navigate the light maze: mirrors, lenses and refraction.",
    "status": "ready",
-   "kit": "run3d",
+   "kit": "jet",
    "file": "arcade/games/class-10/science/sci10-ch9.html",
    "episodes": [
     {
@@ -2238,10 +2238,10 @@
    "num": "13",
    "chapter": "Our Environment",
    "gameId": "-",
-   "genre": "Gate Runner 3D",
+   "genre": "Jetpack Flyer",
    "mechanic": "Run the rescue mission for the environment.",
    "status": "ready",
-   "kit": "run3d",
+   "kit": "jet",
    "file": "arcade/games/class-10/science/sci10-ch13.html",
    "episodes": [
     {
@@ -2383,10 +2383,10 @@
    "num": "6",
    "chapter": "How Forces Affect Motion",
    "gameId": "-",
-   "genre": "Rope Drop Lab",
+   "genre": "Shot Master",
    "mechanic": "Kick the ball by Newton's laws: force, mass and motion.",
    "status": "ready",
-   "kit": "rope",
+   "kit": "shot",
    "file": "arcade/games/class-9/science/ix-ch6.html",
    "episodes": [
     {
@@ -2458,10 +2458,10 @@
    "num": "11",
    "chapter": "Reproduction",
    "gameId": "-",
-   "genre": "Gate Runner 3D",
+   "genre": "Jetpack Flyer",
    "mechanic": "Grow a garden nursery and trace the story of life.",
    "status": "ready",
-   "kit": "run3d",
+   "kit": "jet",
    "file": "arcade/games/class-9/science/ix-ch11.html",
    "episodes": [
     {
@@ -2483,10 +2483,10 @@
    "num": "10",
    "chapter": "Sound",
    "gameId": "-",
-   "genre": "Hill Racer",
+   "genre": "Jetpack Flyer",
    "mechanic": "Ride the sound waves of Echo Valley.",
    "status": "ready",
-   "kit": "hill",
+   "kit": "jet",
    "file": "arcade/games/class-9/science/ix-ch10.html",
    "episodes": [
     {
@@ -2508,10 +2508,10 @@
    "num": "13",
    "chapter": "Earth as a System",
    "gameId": "-",
-   "genre": "Gate Runner 3D",
+   "genre": "Jetpack Flyer",
    "mechanic": "Control the planet: spheres, cycles and the climate.",
    "status": "ready",
-   "kit": "run3d",
+   "kit": "jet",
    "file": "arcade/games/class-9/science/ix-ch13.html",
    "episodes": [
     {
@@ -2578,10 +2578,10 @@
    "num": "3",
    "chapter": "Tissues in Action",
    "gameId": "-",
-   "genre": "Gate Runner 3D",
+   "genre": "Jetpack Flyer",
    "mechanic": "Build a green city and body squad from plant and animal tissues.",
    "status": "ready",
-   "kit": "run3d",
+   "kit": "jet",
    "file": "arcade/games/class-9/science/ix-ch3.html",
    "episodes": [
     {
@@ -2648,10 +2648,10 @@
    "num": "3",
    "chapter": "Atmosphere and Climate",
    "gameId": "-",
-   "genre": "Gate Runner 3D",
+   "genre": "Jetpack Flyer",
    "mechanic": "Monitor the sky station: atmosphere, weather and climate.",
    "status": "ready",
-   "kit": "run3d",
+   "kit": "jet",
    "file": "arcade/games/class-9/social-science/ix-sst3.html",
    "episodes": [
     {
@@ -2673,10 +2673,10 @@
    "num": "6",
    "chapter": "Democracy",
    "gameId": "-",
-   "genre": "Gate Runner 3D",
+   "genre": "Jetpack Flyer",
    "mechanic": "Govern Council Island by the principles of democracy.",
    "status": "ready",
-   "kit": "run3d",
+   "kit": "jet",
    "file": "arcade/games/class-9/social-science/ix-sst6.html",
    "episodes": [
     {
@@ -2748,10 +2748,10 @@
    "num": "7",
    "chapter": "Elections in a Democracy",
    "gameId": "-",
-   "genre": "Hill Racer",
+   "genre": "Shot Master",
    "mechanic": "Run the ballot box bazaar: fair elections step by step.",
    "status": "ready",
-   "kit": "hill",
+   "kit": "shot",
    "file": "arcade/games/class-9/social-science/ix-sst7.html",
    "episodes": [
     {
@@ -2848,10 +2848,10 @@
    "num": "2",
    "chapter": "Life on Earth",
    "gameId": "-",
-   "genre": "Gate Runner 3D",
+   "genre": "Jetpack Flyer",
    "mechanic": "Explore the forests: biomes and life on Earth.",
    "status": "ready",
-   "kit": "run3d",
+   "kit": "jet",
    "file": "arcade/games/class-9/social-science/ix-sstp2-2.html",
    "episodes": [
     {
@@ -2873,10 +2873,10 @@
    "num": "5",
    "chapter": "Managing Your Personal Finances",
    "gameId": "-",
-   "genre": "Hill Racer",
+   "genre": "Shot Master",
    "mechanic": "Manage the pocket-money planet: save, spend and plan.",
    "status": "ready",
-   "kit": "hill",
+   "kit": "shot",
    "file": "arcade/games/class-9/social-science/ix-sstp2-5.html",
    "episodes": [
     {
@@ -2898,10 +2898,10 @@
    "num": "4",
    "chapter": "Governance and Public Policy",
    "gameId": "-",
-   "genre": "Gate Runner 3D",
+   "genre": "Jetpack Flyer",
    "mechanic": "Design policies in the policy playground.",
    "status": "ready",
-   "kit": "run3d",
+   "kit": "jet",
    "file": "arcade/games/class-9/social-science/ix-sstp2-4.html",
    "episodes": [
     {
@@ -2998,10 +2998,10 @@
    "num": "2",
    "chapter": "The Pot Maker",
    "gameId": "-",
-   "genre": "Hill Racer",
+   "genre": "Shot Master",
    "mechanic": "Shape the clay: clauses and determiners at the pot maker's workshop.",
    "status": "ready",
-   "kit": "hill",
+   "kit": "shot",
    "file": "arcade/games/class-9/english/ix-eng2.html",
    "episodes": [
     {
@@ -3073,10 +3073,10 @@
    "num": "5",
    "chapter": "The World of Limitless Possibilities",
    "gameId": "-",
-   "genre": "Rope Drop Lab",
+   "genre": "Shot Master",
    "mechanic": "Win gold with reported speech and an inspiring speech.",
    "status": "ready",
-   "kit": "rope",
+   "kit": "shot",
    "file": "arcade/games/class-9/english/ix-eng5.html",
    "episodes": [
     {
@@ -3098,10 +3098,10 @@
    "num": "6",
    "chapter": "Twin Melodies",
    "gameId": "-",
-   "genre": "Hill Racer",
+   "genre": "Jetpack Flyer",
    "mechanic": "Play the twin melodies: idioms and phrasal verbs on stage.",
    "status": "ready",
-   "kit": "hill",
+   "kit": "jet",
    "file": "arcade/games/class-9/english/ix-eng6.html",
    "episodes": [
     {
@@ -3273,10 +3273,10 @@
    "num": "5",
    "chapter": "आखिरी चट्टान तक",
    "gameId": "-",
-   "genre": "Gate Runner 3D",
+   "genre": "Jetpack Flyer",
    "mechanic": "वचन और लिंग का मेल सही बैठाओ।",
    "status": "ready",
-   "kit": "run3d",
+   "kit": "jet",
    "file": "arcade/games/class-9/hindi/ix-hin5.html",
    "episodes": [
     {
@@ -3348,10 +3348,10 @@
    "num": "10",
    "chapter": "भारती, जय, विजय करे!",
    "gameId": "-",
-   "genre": "Hill Racer",
+   "genre": "Jetpack Flyer",
    "mechanic": "पर्यायवाची और विलोम की ताल पर शब्द-भंडार बढ़ाओ।",
    "status": "ready",
-   "kit": "hill",
+   "kit": "jet",
    "file": "arcade/games/class-9/hindi/ix-hin10.html",
    "episodes": [
     {

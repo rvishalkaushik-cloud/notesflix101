@@ -219,3 +219,173 @@
       window.__solvable = function () { return st && st.sols.length; };
     } };
 })();
+
+/* ================= more engines: jetpack flyer and shot master ================= */
+(function () {
+  'use strict';
+  var NFA = window.NFA, el = NFA.el, esc = NFA.esc, shuffle = NFA.shuffle, K = NFA.kits;
+  function hex(n) { return '#' + ('000000' + n.toString(16)).slice(-6); }
+  function rr(g, x, y, w, h, r) { g.beginPath(); g.moveTo(x + r, y); g.arcTo(x + w, y, x + w, y + h, r); g.arcTo(x + w, y + h, x, y + h, r); g.arcTo(x, y + h, x, y, r); g.arcTo(x, y, x + w, y, r); g.closePath(); }
+  function fit(g, s, x, y, maxW, maxH, col, max) { var size = max || 16, lines; for (; size >= 9; size--) { g.font = '800 ' + size + 'px system-ui,sans-serif'; var w = String(s).split(' '), cur = ''; lines = []; w.forEach(function (t) { var tt = cur ? cur + ' ' + t : t; if (g.measureText(tt).width > maxW && cur) { lines.push(cur); cur = t; } else cur = tt; }); lines.push(cur); if (lines.length * size * 1.15 <= maxH) break; } g.fillStyle = col; g.textAlign = 'center'; g.textBaseline = 'middle'; var y0 = y - (lines.length - 1) * size * 0.575; lines.forEach(function (l, i) { g.fillText(l, x, y0 + i * size * 1.15); }); }
+
+  /* ----- Jetpack flyer: your altitude picks the answer ----- */
+  K.jet = { name: 'Jetpack Flyer', howto: function () { return ['Hold the screen (or Space / ↑) to fly up, release to fall.', 'The banner tells you what to collect. Fly to the height of the right bubble in each column.', 'Dodge the electric zappers. A wrong bubble, a missed column or a zapper hit costs a heart. Some stages end at a pit stop where you type a number.']; },
+    run: function (ctx, spec) {
+      var W = 420, H = 440, cv = NFA.canvas(ctx.root, W, H), g = cv.g, skin = NFA.skin(spec), cs = NFA.challenges(spec, 'cat'), bn = NFA.bar(ctx.root), nt = NFA.note(ctx.root), host = cv.c.parentNode; host.style.position = 'relative';
+      var py = 220, vy = 0, up = false, lives = 5, done = false, hold = false, t = 0, solved = 0, ci = 0, nextX = 520, objs = [], parts = [], flash = 0, shake = 0, wx = 0, SP = 190, PX = 90, imm = 0;
+      var Y = [100, 220, 340];
+      function hud() { ctx.setHud({ Lives: '❤'.repeat(Math.max(0, lives)), Columns: solved + '/' + cs.length }); }
+      function setBanner() { var o = objs.filter(function (q) { return q.k !== 'zap' && !q.done; })[0]; bn.innerHTML = '🎯 <span style="color:#ffd24d">' + esc(o ? (o.k === 'calc' ? 'Pit stop ahead: work out the number' : o.c.prompt) : 'Finish line!') + '</span>'; }
+      function hurt(m) { if (imm > 0) return; (window.__hl=window.__hl||[]).push([m?m.slice(0,8):'',Math.round(py)]); lives--; imm = 1.0; shake = 0.4; flash = 0.35; NFA.sfx('hit'); if (m) NFA.say(nt, false, m); hud(); if (lives <= 0 && !done) { done = true; ctx.finish(false); } }
+      function burst(x, y, col, n) { for (var i = 0; i < n; i++) parts.push({ x: x, y: y, vx: (Math.random() - 0.5) * 240, vy: (Math.random() - 0.5) * 240, life: 0.7, col: col }); }
+      function spawn(c) {
+        var x = nextX;
+        if (c.k === 'calc') { objs.push({ k: 'calc', x: x, c: c, done: false }); nextX = x + 420; return; }
+        var order = shuffle([0, 1, 2]); objs.push({ k: 'col', x: x, c: c, done: false, hits: false, b: c.opts.map(function (o, i) { return { o: o, y: Y[order[i]], got: false }; }) });
+        var zy = 100 + Math.random() * 240; objs.push({ k: 'zap', x: x + 260, y: zy, h: 48 });
+        if (Math.random() < 0.6) objs.push({ k: 'zap', x: x + 480, y: zy > 220 ? zy - 130 : zy + 130, h: 44 });
+        nextX = x + 700;
+      }
+      hud(); for (var q0 = 0; q0 < 2 && ci < cs.length; q0++) spawn(cs[ci++]); setBanner();
+      function fly(v) { up = v; } NFA.keys(ctx, { ' ': function () { up = true; }, ArrowUp: function () { up = true; }, w: function () { up = true; } });
+      var ku = function (e) { if (e.key === ' ' || e.key === 'ArrowUp' || e.key === 'w') up = false; }; window.addEventListener('keyup', ku); ctx.cleanup(function () { window.removeEventListener('keyup', ku); });
+      cv.c.addEventListener('pointerdown', function () { up = true; }); ['pointerup', 'pointerleave', 'pointercancel'].forEach(function (ev) { cv.c.addEventListener(ev, function () { up = false; }); });
+      function step(dt) {
+        if (done) return; t += dt; if (hold) return; imm = Math.max(0, imm - dt);
+        SP = 190 + wx / 60; wx += SP * dt; vy += (up ? -1500 : 900) * dt; vy = Math.max(-380, Math.min(420, vy)); py += vy * dt; if (py < 30) { py = 30; vy = 0; } if (py > H - 50) { py = H - 50; vy = 0; }
+        if (nextX - wx < 800 && ci < cs.length) spawn(cs[ci++]);
+        objs.forEach(function (o) {
+          var sx = o.x - wx + PX; if (o.done) return;
+          if (o.k === 'col') { o.b.forEach(function (b) { if (!b.got && Math.abs(sx - PX) < 40 && Math.abs(b.y - py) < 44) { b.got = true; o.hits = true; o.done = true;
+              ctx.record(o.c.k, b.o.ok); if (b.o.ok) { ctx.addScore(100); NFA.sfx('coin'); burst(PX, b.y, '#ffd24d', 24); NFA.say(nt, true, o.c.why); } else { burst(PX, b.y, '#e0405a', 14); hurt('"' + b.o.t + '" is not right. ' + o.c.why); } solved++; hud(); setBanner(); } });
+            if (!o.done && sx < PX - 50) { o.done = true; ctx.record(o.c.k, false); solved++; hurt('You flew past it. ' + o.c.why); hud(); setBanner(); } }
+          else if (o.k === 'zap') { if (Math.abs(sx - PX) < 18 && Math.abs(py - o.y) < o.h + 10) { hurt('Zapped! Fly around the electric bars.'); burst(PX, py, '#4dfff0', 14); } if (sx < -40) o.done = true; }
+          else if (o.k === 'calc' && sx < PX + 10) { o.done = true; hold = true; var cp = NFA.checkpoint(ctx, host, o.c.q, function (ok) { if (!ok) hurt(); solved++; hud(); hold = false; setBanner(); }); window.__cp = cp; }
+        });
+        objs = objs.filter(function (o) { return o.x - wx > -200; });
+        if (up && Math.random() < 0.7) parts.push({ x: PX - 14, y: py + 18, vx: -90 - Math.random() * 60, vy: 40 + Math.random() * 60, life: 0.4, col: '#ffb02e' });
+        parts.forEach(function (p) { p.x += p.vx * dt; p.y += p.vy * dt; p.life -= dt; }); parts = parts.filter(function (p) { return p.life > 0; });
+        shake = Math.max(0, shake - dt * 1.5); flash = Math.max(0, flash - dt);
+        if (!done && ci >= cs.length && !objs.some(function (o) { return o.k !== 'zap' && !o.done; })) { done = true; NFA.sfx('win'); setTimeout(function () { ctx.finish(true); }, 600 / NFA.T); }
+      }
+      function draw() {
+        var sy = shake > 0 ? (Math.random() - 0.5) * shake * 12 : 0, gr = g.createLinearGradient(0, 0, 0, H); gr.addColorStop(0, hex(skin.sky)); gr.addColorStop(1, hex(skin.fog)); g.fillStyle = gr; g.fillRect(0, 0, W, H);
+        g.fillStyle = '#ffffff30'; for (var i = 0; i < 8; i++) { var cx = ((i * 150 - wx * 0.15) % (W + 200) + W + 200) % (W + 200) - 100; g.beginPath(); g.ellipse(cx, 60 + (i * 47) % 260, 50, 16, 0, 0, 7); g.fill(); }
+        g.fillStyle = '#00000020'; for (var j = 0; j < 12; j++) { var bx = ((j * 90 - wx * 0.4) % (W + 120) + W + 120) % (W + 120) - 60; g.fillRect(bx, H - 120 - (j * 37) % 70, 46, 200); }
+        g.save(); g.translate(0, sy); g.fillStyle = hex(skin.road); g.fillRect(0, H - 22, W, 22); g.fillStyle = hex(skin.acc); g.fillRect(0, H - 22, W, 4); g.fillRect(0, 0, W, 5);
+        objs.forEach(function (o) {
+          var sx = o.x - wx + PX; if (sx < -80 || sx > W + 80) return;
+          if (o.k === 'col') o.b.forEach(function (b) { g.globalAlpha = b.got ? 0.3 : 1; var pulse = 1 + Math.sin(t * 5 + b.y) * 0.04; g.fillStyle = hex(skin.acc) + '55'; g.beginPath(); g.arc(sx, b.y, 46 * pulse, 0, 7); g.fill(); var bg = g.createRadialGradient(sx - 10, b.y - 12, 4, sx, b.y, 38); bg.addColorStop(0, '#ffffff'); bg.addColorStop(1, '#8fb8ff'); g.fillStyle = bg; g.beginPath(); g.arc(sx, b.y, 38, 0, 7); g.fill(); g.strokeStyle = '#fff'; g.lineWidth = 3; g.stroke(); fit(g, b.o.t, sx, b.y, 62, 56, '#10102e', 14); g.globalAlpha = 1; });
+          else if (o.k === 'zap') { var a = 0.6 + Math.random() * 0.4; g.strokeStyle = '#4dfff0'; g.globalAlpha = a; g.lineWidth = 6; g.beginPath(); g.moveTo(sx, o.y - o.h); for (var z = -o.h; z <= o.h; z += 14) g.lineTo(sx + (Math.random() - 0.5) * 12, o.y + z); g.stroke(); g.lineWidth = 2; g.strokeStyle = '#fff'; g.stroke(); g.globalAlpha = 1; g.fillStyle = '#2a2a6a'; g.fillRect(sx - 9, o.y - o.h - 8, 18, 12); g.fillRect(sx - 9, o.y + o.h - 4, 18, 12); }
+          else if (o.k === 'calc') { g.fillStyle = '#7a3df0'; rr(g, sx - 60, 120, 120, 40, 10); g.fill(); g.fillStyle = '#fff'; g.font = '900 16px system-ui'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText('PIT STOP', sx, 140); g.fillStyle = '#ffd24d'; g.fillRect(sx - 4, 160, 8, 260); }
+        });
+        parts.forEach(function (p) { g.globalAlpha = Math.max(0, p.life / 0.5); g.fillStyle = p.col; g.beginPath(); g.arc(p.x, p.y, 4, 0, 7); g.fill(); }); g.globalAlpha = 1;
+        g.save(); g.translate(PX, py); g.rotate(vy / 1200); g.globalAlpha = imm > 0 && Math.floor(t * 16) % 2 ? 0.4 : 1;
+        g.fillStyle = '#9aa0b8'; rr(g, -18, -6, 10, 28, 4); g.fill(); if (up) { g.fillStyle = '#ffb02e'; g.beginPath(); g.moveTo(-18, 22); g.lineTo(-13, 40 + Math.random() * 10); g.lineTo(-8, 22); g.fill(); }
+        g.fillStyle = hex(skin.acc); rr(g, -10, -16, 24, 34, 8); g.fill(); g.fillStyle = '#ffd0a8'; g.beginPath(); g.arc(4, -24, 10, 0, 7); g.fill(); g.fillStyle = '#2b2b6a'; g.beginPath(); g.arc(4, -26, 10.5, Math.PI, 0); g.fill(); g.fillStyle = '#2b2b6a'; g.fillRect(-4, 16, 6, 14); g.fillRect(6, 16, 6, 14); g.restore(); g.globalAlpha = 1; g.restore();
+        if (flash > 0) { g.fillStyle = 'rgba(255,40,70,' + flash * 0.5 + ')'; g.fillRect(0, 0, W, H); }
+        if (t < 3) { g.fillStyle = '#fff'; g.font = '800 14px system-ui'; g.textAlign = 'center'; g.fillText('Hold to fly up', W / 2, H - 40); }
+      }
+      var last = performance.now(), run = true, rid;
+      function frame(now) { if (!run) return; var dt = Math.min(0.033, (now - last) / 1000); last = now; if (!ctx.isPaused()) step(dt); draw(); rid = requestAnimationFrame(frame); }
+      rid = requestAnimationFrame(frame); ctx.cleanup(function () { run = false; cancelAnimationFrame(rid); });
+      window.__auto = function () {
+        var n = 0; while (!done && n++ < 200000) {
+          if (hold) { if (window.__cp) { var c = window.__cp; window.__cp = null; c.now(); } else hold = false; step(0.001); continue; }
+          var col = objs.filter(function (o) { return o.k === 'col' && !o.done; })[0], want = py;
+          if (col) want = col.b.filter(function (b) { return b.o.ok; })[0].y;
+          var zs = objs.filter(function (o) { var d = o.x - wx; return o.k === 'zap' && !o.done && d > -30 && d < 200 && (!col || o.x <= col.x + 30); });
+          zs.forEach(function (z) { var lo = z.y - z.h - 46, hi = z.y + z.h + 46, canUp = lo > 36, canDn = hi < H - 36, up2 = canUp && (py <= z.y || !canDn);
+            if (want > lo && want < hi || (py < z.y) !== (want < z.y)) { if (up2) want = Math.min(want, lo); else want = Math.max(want, hi); } });
+           var dv = Math.max(-260, Math.min(260, (want - py) * 5)); up = vy > dv;
+          step(0.01);
+        }
+      };
+    } };
+
+  /* ----- Shot master: aim and release so the ball drops through the right hoop ----- */
+  K.shot = { name: 'Shot Master', howto: function () { return ['Drag back from the ball like a slingshot, then release to shoot. The dotted line shows your path.', 'Each hoop is labelled. Shoot the ball into the hoop that matches the banner and the ball.', 'Three misses on one ball reveals the answer and costs a heart. A wrong hoop also costs a heart. Some stages end at a pit stop where you type a number.']; },
+    run: function (ctx, spec) {
+      var W = 420, H = 460, cv = NFA.canvas(ctx.root, W, H), g = cv.g, skin = NFA.skin(spec), cs = NFA.challenges(spec, 'item'), bn = NFA.bar(ctx.root), nt = NFA.note(ctx.root), host = cv.c.parentNode; host.style.position = 'relative';
+      var GR = 900, DT = 1 / 120, BX = 56, BY = H - 70, lives = 5, done = false, hold = false, ci = 0, solved = 0, t = 0, st = null, wait = 0, parts = [], flash = 0, shake = 0, drag = null, acc = 0;
+      function hud() { ctx.setHud({ Lives: '❤'.repeat(Math.max(0, lives)), Shots: solved + '/' + cs.length }); }
+      function hurt(m) { lives--; shake = 0.4; flash = 0.35; NFA.sfx('hit'); hud(); if (lives <= 0 && !done) { done = true; ctx.finish(false); } }
+      function burst(x, y, col, n) { for (var i = 0; i < n; i++) parts.push({ x: x, y: y, vx: (Math.random() - 0.5) * 260, vy: -Math.random() * 280, life: 0.8, col: col }); }
+      function fly(b) { b.vy += GR * DT; b.x += b.vx * DT; b.y += b.vy * DT; }
+      function hoopCheck(b, py) { for (var i = 0; i < st.hoops.length; i++) { var h = st.hoops[i]; if (b.vy > 0 && py <= h.y && b.y > h.y && Math.abs(b.x - h.x) < 24) return i; } return -1; }
+      function simShot(vx, vy) { var b = { x: BX, y: BY, vx: vx, vy: vy }, n = 0; while (n++ < 900) { var py = b.y; fly(b); var h = hoopCheck(b, py); if (h >= 0) return h; if (b.y > BY + 20 || b.x > W + 40) return -1; } return -1; }
+      function levelFor(c) {
+        var bin = c.opts.findIndex(function (o) { return o.ok; });
+        for (var tryN = 0; tryN < 60; tryN++) {
+          var xs = shuffle(c.opts.length < 3 ? [190, 320] : [170, 255, 340]), hoops = xs.map(function (x, i) { return { x: x + (Math.random() - 0.5) * 16, y: 130 + Math.random() * 170, o: c.opts[i] }; });
+          st = { c: c, hoops: hoops, ball: { x: BX, y: BY, vx: 0, vy: 0 }, flying: false, tries: 3, resolved: false };
+          if (solveFor(bin)) return;
+        }
+        st.hoops.forEach(function (h, i) { h.x = (st.hoops.length < 3 ? [190, 320] : [170, 255, 340])[i]; h.y = 200; });
+      }
+      function solveFor(bin) { var h = st.hoops[bin]; for (var a = 40; a <= 80; a += 1) { var th = a * Math.PI / 180, d = h.x - BX, hh = BY - h.y, den = 2 * Math.pow(Math.cos(th), 2) * (d * Math.tan(th) - -hh * -1 - 0); /* v^2 = g d^2 / (2 cos^2 (d tan - rise)) */ var rise = hh, dn = d * Math.tan(th) - rise; if (dn <= 0) continue; var v2 = GR * d * d / (2 * Math.pow(Math.cos(th), 2) * dn), v = Math.sqrt(v2); if (v > 720) continue; var vx = v * Math.cos(th), vy = -v * Math.sin(th); for (var dv = 0; dv < 3; dv++) { if (simShot(vx, vy) === bin) { st.sol = [vx, vy]; return true; } vx *= 1.005; vy *= 1.005; } } return false; }
+      function next() {
+        if (ci >= cs.length) { done = true; NFA.sfx('win'); setTimeout(function () { ctx.finish(true); }, 600 / NFA.T); return; }
+        var c = cs[ci++];
+        if (c.k === 'calc') { hold = true; st = null; var cp = NFA.checkpoint(ctx, host, c.q, function (ok) { if (!ok) hurt(); solved++; hud(); hold = false; next(); }); window.__cp = cp; bn.innerHTML = '🎯 <span style="color:#ffd24d">Pit stop: work out the number</span>'; return; }
+        levelFor(c); bn.innerHTML = '🎯 <span style="color:#ffd24d">' + esc(c.k === 'sort' ? 'Which hoop does "' + c.prompt + '" belong to?' : c.prompt) + '</span>';
+      }
+      function launch(vx, vy) { if (!st || st.flying || st.resolved) return; st.ball = { x: BX, y: BY, vx: vx, vy: vy }; st.flying = true; NFA.sfx('jump'); acc = 0; }
+      function resolve(h) {
+        var ok = st.hoops[h].o.ok; st.resolved = true; st.flying = false; ctx.record(st.c.k, ok); var hp = st.hoops[h];
+        if (ok) { ctx.addScore(100); NFA.sfx('coin'); burst(hp.x, hp.y, '#ffd24d', 28); NFA.say(nt, true, st.c.why); } else { hurt(); burst(hp.x, hp.y, '#e0405a', 16); NFA.say(nt, false, '"' + hp.o.t + '" is not right. ' + st.c.why); }
+        solved++; hud(); wait = 1.0;
+      }
+      function miss() {
+        st.flying = false; st.tries--; NFA.sfx('tick');
+        if (st.tries <= 0) { st.resolved = true; ctx.record(st.c.k, false); hurt(); NFA.say(nt, false, 'Out of shots. ' + st.c.why); solved++; hud(); wait = 1.2; } else { NFA.say(nt, false, 'Missed. ' + st.tries + ' shot' + (st.tries > 1 ? 's' : '') + ' left. Adjust your angle and power.'); st.ball = { x: BX, y: BY, vx: 0, vy: 0 }; }
+      }
+      function pt(e) { return cv.pt(e); }
+      cv.c.addEventListener('pointerdown', function (e) { if (!st || st.flying || hold || done) return; var p = pt(e); drag = { x: p.x, y: p.y }; });
+      cv.c.addEventListener('pointermove', function (e) { if (drag) { var p = pt(e); drag.x = p.x; drag.y = p.y; } });
+      function rel() { if (!drag) return; var vx = (BX - drag.x) * 5.2, vy = (BY - drag.y) * 5.2, m = Math.hypot(vx, vy); if (m > 760) { vx *= 760 / m; vy *= 760 / m; } drag = null; if (m > 90) launch(vx, vy); }
+      ['pointerup', 'pointerleave', 'pointercancel'].forEach(function (ev) { cv.c.addEventListener(ev, rel); });
+      function step(dt) {
+        if (done || hold) return; t += dt;
+        if (wait > 0) { wait -= dt; if (wait <= 0) next(); }
+        else if (st && st.flying) { acc += dt; while (acc >= DT && st.flying) { acc -= DT; var b = st.ball, py = b.y; fly(b); var h = hoopCheck(b, py); if (h >= 0) { resolve(h); break; } if (b.y > BY + 20 || b.x > W + 40 || b.x < -40) { miss(); break; } } }
+        parts.forEach(function (p) { p.x += p.vx * dt; p.y += p.vy * dt; p.vy += 500 * dt; p.life -= dt; }); parts = parts.filter(function (p) { return p.life > 0; });
+        shake = Math.max(0, shake - dt * 1.5); flash = Math.max(0, flash - dt);
+      }
+      function draw() {
+        var sy = shake > 0 ? (Math.random() - 0.5) * shake * 12 : 0, gr = g.createLinearGradient(0, 0, 0, H); gr.addColorStop(0, hex(skin.sky)); gr.addColorStop(1, hex(skin.fog)); g.fillStyle = gr; g.fillRect(0, 0, W, H);
+        g.fillStyle = '#ffffff30'; for (var i = 0; i < 6; i++) { g.beginPath(); g.ellipse((i * 110 + t * 6) % (W + 120) - 40, 50 + (i * 53) % 150, 46, 14, 0, 0, 7); g.fill(); }
+        g.save(); g.translate(0, sy); g.fillStyle = hex(skin.ground); g.fillRect(0, BY + 20, W, H); g.fillStyle = hex(skin.acc); g.fillRect(0, BY + 20, W, 5);
+        if (st) st.hoops.forEach(function (h, i) {
+          g.fillStyle = '#ffffffdd'; rr(g, h.x - 52, h.y - 84, 104, 46, 9); g.fill(); fit(g, h.o.t, h.x, h.y - 61, 94, 40, '#10102e', 14);
+          g.fillStyle = '#ffffff90'; g.fillRect(h.x + 26, h.y - 40, 6, 60); g.strokeStyle = '#ff6a1f'; g.lineWidth = 6; g.beginPath(); g.moveTo(h.x - 26, h.y); g.lineTo(h.x + 26, h.y); g.stroke();
+          g.strokeStyle = '#ffffffaa'; g.lineWidth = 2; for (var k = -20; k <= 20; k += 10) { g.beginPath(); g.moveTo(h.x + k, h.y); g.lineTo(h.x + k * 0.6, h.y + 28); g.stroke(); }
+        });
+        if (st && !hold) {
+          if (drag && !st.flying) { var vx = (BX - drag.x) * 5.2, vy = (BY - drag.y) * 5.2, m = Math.hypot(vx, vy); if (m > 760) { vx *= 760 / m; vy *= 760 / m; } var b2 = { x: BX, y: BY, vx: vx, vy: vy }; g.fillStyle = '#fff'; for (var s = 0; s < 70; s++) { fly(b2); if (s % 4 === 0) { g.globalAlpha = 1 - s / 80; g.beginPath(); g.arc(b2.x, b2.y, 3, 0, 7); g.fill(); } if (b2.y > BY + 20) break; } g.globalAlpha = 1; }
+          var b = st.ball, bx = st.flying ? b.x : (drag ? Math.max(BX - 60, Math.min(BX, drag.x)) : BX), by = st.flying ? b.y : (drag ? Math.max(BY, Math.min(BY + 50, drag.y)) : BY);
+          if (st.resolved && !st.flying) { bx = -100; }
+          g.fillStyle = '#00000030'; g.beginPath(); g.ellipse(bx, BY + 22, 16, 4, 0, 0, 7); g.fill();
+          var bg = g.createRadialGradient(bx - 4, by - 4, 2, bx, by, 16); bg.addColorStop(0, '#ffb060'); bg.addColorStop(1, '#e0601a'); g.fillStyle = bg; g.beginPath(); g.arc(bx, by, 16, 0, 7); g.fill(); g.strokeStyle = '#6a2a0a'; g.lineWidth = 2; g.stroke(); g.beginPath(); g.moveTo(bx - 16, by); g.lineTo(bx + 16, by); g.moveTo(bx, by - 16); g.lineTo(bx, by + 16); g.stroke();
+          if (st.c.k === 'sort') { g.fillStyle = '#fff'; rr(g, 8, BY + 34, 150, 30, 8); g.fill(); fit(g, st.c.prompt, 83, BY + 49, 140, 26, '#10102e', 14); }
+          g.fillStyle = '#fff'; g.font = '800 13px system-ui'; g.textAlign = 'right'; g.fillText('Shots left: ' + st.tries, W - 10, 20);
+        }
+        parts.forEach(function (p) { g.globalAlpha = Math.max(0, p.life / 0.8); g.fillStyle = p.col; g.beginPath(); g.arc(p.x, p.y, 4, 0, 7); g.fill(); }); g.globalAlpha = 1; g.restore();
+        if (flash > 0) { g.fillStyle = 'rgba(255,40,70,' + flash * 0.5 + ')'; g.fillRect(0, 0, W, H); }
+        if (st && !st.flying && !st.resolved && t < 8 && !drag) { g.fillStyle = '#fff'; g.font = '800 14px system-ui'; g.textAlign = 'center'; g.fillText('Drag back from the ball and release', W / 2, 24); }
+      }
+      hud(); next();
+      var last = performance.now(), run = true, rid;
+      function frame(now) { if (!run) return; var dt = Math.min(0.033, (now - last) / 1000); last = now; if (!ctx.isPaused()) step(dt); draw(); rid = requestAnimationFrame(frame); }
+      rid = requestAnimationFrame(frame); ctx.cleanup(function () { run = false; cancelAnimationFrame(rid); });
+      window.__auto = function () {
+        var n = 0; while (!done && n++ < 100000) {
+          if (hold) { if (window.__cp) { var c = window.__cp; window.__cp = null; c.now(); } else hold = false; continue; }
+          if (wait > 0) { step(0.05); continue; }
+          if (st && !st.resolved && !st.flying) { var sol = st.sol; if (!sol) { solveFor(st.c.opts.findIndex(function (o) { return o.ok; })); sol = st.sol; } if (sol) launch(sol[0], sol[1]); else launch(300, -500); }
+          if (st && st.flying) { var g2 = 0; while (st.flying && g2++ < 2000) { var b = st.ball, py = b.y; fly(b); var h = hoopCheck(b, py); if (h >= 0) { resolve(h); break; } if (b.y > BY + 20 || b.x > W + 40 || b.x < -40) { miss(); break; } } }
+          else step(0.05);
+        }
+      };
+    } };
+})();
