@@ -9,24 +9,24 @@
   /* ================= HILL CLIMB RACER ================= */
   K.hill = { name: 'Hill Racer', howto: function () { return ['Hold GAS (or →/D) to drive and BRAKE (or ←/A) to slow down. Tap JUMP (or Space/↑) to leap over things.', 'The banner tells you what to collect. Drive through the barrel with the right answer and JUMP over the wrong ones and over rocks.', 'A wrong barrel or a rock costs a heart. Some stages end at a pit stop where you type a number.']; },
     run: function (ctx, spec) {
-      var W = 420, H = 440, cv = NFA.canvas(ctx.root, W, H), g = cv.g, skin = NFA.skin(spec), cs = NFA.challenges(spec, 'cat');
+      var W = 420, H = 440, cv = NFA.canvas(ctx.root, W, H), g = cv.g, skin = NFA.skin(spec), cs = NFA.challenges(spec, 'cat', 100);
       function hex(n) { return '#' + ('000000' + n.toString(16)).slice(-6); }
       var bn = NFA.bar(ctx.root), nt = NFA.note(ctx.root), host = cv.c.parentNode; host.style.position = 'relative';
       function ground(x) { return 330 + 34 * Math.sin(x / 230) + 22 * Math.sin(x / 83 + 1.3) + 12 * Math.sin(x / 41); }
       var car = { x: 60, y: ground(60) - 16, vy: 0, v: 0, ang: 0, air: false, wr: 0 }, lives = 5, done = false, hold = false, t = 0, solved = 0, shake = 0, flash = 0, gas = false, brake = false, parts = [], objs = [], ci = 0, nextX = 560, fin = null;
-      function hud() { ctx.setHud({ Lives: '❤'.repeat(Math.max(0, lives)), Barrels: solved + '/' + cs.length }); }
+      function hud() { ctx.setHud({ Lives: '❤'.repeat(Math.max(0, lives)), Level: NFA.LEVELS[NFA.lvl], Barrels: solved + '/' + cs.length }); } ctx.heal = function () { lives = 5; hud(); }; setTimeout(function () { ctx.toast('LEVEL 1 · EASY'); }, 400);
       function banner(s) { bn.innerHTML = '🎯 <span style="color:#ffd24d">' + esc(s) + '</span>'; }
       function hurt(msg) { lives--; shake = 0.4; flash = 0.35; car.v *= 0.35; NFA.sfx('hit'); if (msg) NFA.say(nt, false, msg); hud(); if (lives <= 0 && !done) { done = true; ctx.finish(false); } }
       function puff(x, y, col, n) { for (var i = 0; i < n; i++) parts.push({ x: x, y: y, vx: (Math.random() - 0.5) * 160 - 40, vy: -Math.random() * 140, life: 0.6, col: col }); }
       function spawn(c) {
         var x = nextX;
         if (c.k === 'calc') { objs.push({ k: 'calc', x: x + 120, c: c, hit: false }); nextX = x + 420; return; }
-        c.opts.forEach(function (o, i) { objs.push({ k: 'can', x: x + i * 250, o: o, c: c, hit: false, lastOfRow: i === 2 }); });
-        var rx = x + 3 * 250 + 20; objs.push({ k: 'rock', x: rx, hit: false }); nextX = rx + 330;
+        c.opts.forEach(function (o, i) { objs.push({ k: 'can', x: x + i * 290, o: o, c: c, hit: false, lastOfRow: i === 2 }); });
+        var rx = x + 3 * 290 + 20; objs.push({ k: 'rock', x: rx, hit: false }); nextX = rx + 400;
       }
       function curC() { var o = objs.filter(function (q) { return (q.k === 'can' || q.k === 'calc') && !q.hit; })[0]; return o ? o.c : null; }
       function setBanner() { var c = curC(); banner(c ? (c.k === 'calc' ? 'Pit stop ahead: work out the number' : c.prompt) : 'Reach the flag!'); }
-      function jump() { if (!car.air && !hold && !done) { car.vy = -420; car.air = true; NFA.sfx('jump'); puff(car.x, car.y + 14, '#e8d8b0', 8); } }
+      function jump() { if (!car.air && !hold && !done) { car.vy = -470; car.air = true; NFA.sfx('jump'); puff(car.x, car.y + 14, '#e8d8b0', 8); } }
       NFA.keys(ctx, { ArrowRight: function () { gas = true; }, d: function () { gas = true; }, ArrowLeft: function () { brake = true; }, a: function () { brake = true; }, ArrowUp: jump, w: jump, ' ': jump });
       var ku = function (e) { if (e.key === 'ArrowRight' || e.key === 'd') gas = false; if (e.key === 'ArrowLeft' || e.key === 'a') brake = false; }; window.addEventListener('keyup', ku); ctx.cleanup(function () { window.removeEventListener('keyup', ku); });
       var pad = el('div'); pad.style.cssText = 'display:flex;justify-content:center;gap:8px;margin-top:8px;max-width:420px;margin-left:auto;margin-right:auto';
@@ -35,9 +35,9 @@
       ctx.root.appendChild(pad);
       hud(); for (var k = 0; k < 2 && ci < cs.length; k++) spawn(cs[ci++]); setBanner();
       function step(dt) {
-        if (done) return; t += dt; if (hold) return;
+        if (done) return; t += dt; window.__t = t; if (hold) return;
         var gy = ground(car.x), gy2 = ground(car.x + 8), slope = (gy2 - gy) / 8, tang = Math.atan(slope);
-        var acc = (gas ? 190 : 0) - (brake ? 260 : 0) - Math.sin(tang) * 220 - car.v * 0.45; car.v = Math.max(0, Math.min(260, car.v + acc * dt)); if (gas && car.v < 40) car.v = 40;
+        var acc = (gas ? 190 : 0) - (brake ? 260 : 0) - Math.sin(tang) * 220 - car.v * 0.45; car.v = Math.max(0, Math.min(135 + 28 * NFA.lvl, car.v + acc * dt)); if (gas && car.v < 40) car.v = 40;
         car.x += car.v * Math.cos(tang) * dt; car.wr += car.v * dt / 14;
         if (car.air) { car.vy += 900 * dt; car.y += car.vy * dt; var g2 = ground(car.x) - 16; if (car.y >= g2 && car.vy > 0) { car.y = g2; car.vy = 0; car.air = false; puff(car.x, car.y + 14, '#e8d8b0', 10); } }
         else { var g3 = ground(car.x) - 16; if (car.y < g3 - 4 && false) car.air = true; car.y = g3; }
@@ -46,9 +46,9 @@
         if (ci < cs.length && nextX - car.x < 900) spawn(cs[ci++]);
         objs.forEach(function (o) {
           if (o.hit) return; var dx = o.x - car.x, h = (ground(o.x) - 16) - car.y;
-          if (o.k === 'can' && Math.abs(dx) < 26 && h < 34) { o.hit = true; if (o.o.ok) { ctx.record(o.c.k, true); ctx.addScore(100); solved++; NFA.sfx('coin'); puff(o.x, ground(o.x) - 30, '#ffd24d', 20); NFA.say(nt, true, o.c.why); } else { ctx.record(o.c.k, false); puff(o.x, ground(o.x) - 30, '#e0405a', 14); hurt('"' + o.o.t + '" is not right. ' + o.c.why); }
+          if (o.k === 'can' && Math.abs(dx) < 26 && h < 34) { o.hit = true; if (o.o.ok) { ctx.record(o.c.k, true); NFA.lvlTick(ctx, o.c); ctx.addScore(100); solved++; NFA.sfx('coin'); puff(o.x, ground(o.x) - 30, '#ffd24d', 20); NFA.say(nt, true, o.c.why); } else { ctx.record(o.c.k, false); NFA.lvlTick(ctx, o.c); puff(o.x, ground(o.x) - 30, '#e0405a', 14); hurt('"' + o.o.t + '" is not right. ' + o.c.why); }
             if (o.lastOfRow) { /* row finished; count it solved if player missed correct (rare) */ } hud(); setBanner(); }
-          else if (o.k === 'can' && dx < -40 && !o.hit) { o.hit = true; if (o.o.ok) { ctx.record(o.c.k, false); hurt('You drove past the right barrel. ' + o.c.why); solved++; } hud(); setBanner(); }
+          else if (o.k === 'can' && dx < -40 && !o.hit) { o.hit = true; if (o.o.ok) { ctx.record(o.c.k, false); NFA.lvlTick(ctx, o.c); hurt('You drove past the right barrel. ' + o.c.why); solved++; } hud(); setBanner(); }
           else if (o.k === 'rock' && Math.abs(dx) < 24 && h < 30) { o.hit = true; puff(o.x, ground(o.x) - 20, '#9aa0b0', 14); hurt('Rock! Jump over the hurdles.'); }
           else if (o.k === 'calc' && dx < 10) { o.hit = true; hold = true; var cp = NFA.checkpoint(ctx, host, o.c.q, function (ok) { if (!ok) hurt(); solved++; hud(); hold = false; setBanner(); }); window.__cp = cp; }
         });
@@ -95,11 +95,11 @@
       function frame(now) { if (!run) return; var dt = Math.min(0.033, (now - last) / 1000); last = now; if (!ctx.isPaused()) step(dt); draw(); rid = requestAnimationFrame(frame); }
       rid = requestAnimationFrame(frame); ctx.cleanup(function () { run = false; cancelAnimationFrame(rid); });
       window.__auto = function () {
-        var n = 0; while (!done && n++ < 80000) {
+        var n = 0; while (!done && n++ < 400000) {
           if (hold) { if (window.__cp) { var c = window.__cp; window.__cp = null; c.now(); } else hold = false; step(0.001); continue; }
           gas = true; brake = false;
           var near = objs.filter(function (o) { return !o.hit && (o.k === 'rock' || (o.k === 'can' && !o.o.ok)) && o.x - car.x > 0 && o.x - car.x < 240; })[0];
-          if (near && !car.air) { var dx = near.x - car.x; if (dx <= car.v * 0.467) jump(); }
+          if (near && !car.air) { var dx = near.x - car.x; if (dx <= car.v * 0.522) jump(); }
           step(0.016);
         }
       };
@@ -109,10 +109,10 @@
   K.rope = { name: 'Rope Drop Lab', howto: function () { return ['The gift hangs from a rope. Tap or swipe across a rope to cut it.', 'Time the cut so the gift falls into the right bucket. When it hangs from two ropes, cut one first, then the other.', 'The banner tells you where the gift must go. A wrong bucket costs a heart. Some stages end at a pit stop where you type a number.']; },
     run: function (ctx, spec) {
       var W = 420, H = 540, cv = NFA.canvas(ctx.root, W, H), g = cv.g, skin = NFA.skin(spec), hk = skin.acc;
-      var cs = NFA.challenges(spec, 'item'), bn = NFA.bar(ctx.root), nt = NFA.note(ctx.root), host = cv.c.parentNode; host.style.position = 'relative';
+      var cs = NFA.challenges(spec, 'item', 72), bn = NFA.bar(ctx.root), nt = NFA.note(ctx.root), host = cv.c.parentNode; host.style.position = 'relative';
       function hex(n) { return '#' + ('000000' + n.toString(16)).slice(-6); }
       var BINY = H - 120, G = 900, DT = 1 / 120, lives = 4, done = false, hold = false, ci = 0, solved = 0, t = 0, st = null, wait = 0, parts = [], flash = 0, shake = 0, lastBin = -1, lastOk = null, acc = 0;
-      function hud() { ctx.setHud({ Lives: '❤'.repeat(Math.max(0, lives)), Gifts: solved + '/' + cs.length }); }
+      function hud() { ctx.setHud({ Lives: '❤'.repeat(Math.max(0, lives)), Level: NFA.LEVELS[NFA.lvl], Gifts: solved + '/' + cs.length }); } ctx.heal = function () { lives = 5; hud(); }; setTimeout(function () { ctx.toast('LEVEL 1 · EASY'); }, 400);
       function binOf(x) { return Math.max(0, Math.min(2, Math.floor(x / (W / 3)))); }
       /* deterministic physics: state s = {x,y,px,py, ropes:[{ax,ay,L,on}], landed:-1} */
       function phys(s) {
@@ -147,7 +147,7 @@
         if (ci >= cs.length) { done = true; NFA.sfx('win'); setTimeout(function () { ctx.finish(true); }, 600 / NFA.T); return; }
         var c = cs[ci++];
         if (c.k === 'calc') { hold = true; var cp = NFA.checkpoint(ctx, host, c.q, function (ok) { if (!ok) hurt(); solved++; hud(); hold = false; next(); }); window.__cp = cp; st = null; bn.innerHTML = '🎯 <span style="color:#ffd24d">Pit stop: work out the number</span>'; return; }
-        var L = layout(c); st = { c: c, s: L.s, sols: L.sols, bin: L.bin, cut: 0, resolved: false }; bn.innerHTML = '🎯 <span style="color:#ffd24d">' + esc(c.k === 'sort' ? 'Where does "' + c.prompt + '" belong?' : c.prompt) + '</span>'; acc = 0;
+        var L = layout(c); st = { c: c, s: L.s, sols: L.sols, bin: L.bin, cut: 0, resolved: false }; bn.innerHTML = '🎯 <span style="color:#ffd24d">' + esc(c.ask) + '</span>'; acc = 0;
       }
       function hurt() { lives--; shake = 0.4; flash = 0.35; NFA.sfx('hit'); hud(); if (lives <= 0 && !done) { done = true; ctx.finish(false); } }
       function sparkle(x, y, col, n) { for (var i = 0; i < n; i++) parts.push({ x: x, y: y, vx: (Math.random() - 0.5) * 240, vy: -Math.random() * 260, life: 0.8, col: col }); }
@@ -159,12 +159,12 @@
       cv.c.addEventListener('pointermove', function (e) { if (!down || !st || hold || done) return; var p = cv.pt(e); st.s.ropes.forEach(function (r, i) { if (r.on && segHit(last.x, last.y, p.x, p.y, r.ax, r.ay, st.s.x, st.s.y)) cutRope(i); }); last = p; });
       ['pointerup', 'pointerleave', 'pointercancel'].forEach(function (ev) { cv.c.addEventListener(ev, function () { down = false; }); });
       function land() {
-        var s = st.s, ok = s.landed === st.bin; st.resolved = true; lastBin = s.landed; lastOk = ok; ctx.record(st.c.k, ok);
+        var s = st.s, ok = s.landed === st.bin; st.resolved = true; lastBin = s.landed; lastOk = ok; ctx.record(st.c.k, ok); NFA.lvlTick(ctx, st.c);
         if (ok) { ctx.addScore(100); NFA.sfx('coin'); sparkle(s.x, BINY, '#ffd24d', 30); NFA.say(nt, true, st.c.why); } else { hurt(); sparkle(s.x, BINY, '#e0405a', 18); NFA.say(nt, false, st.c.why); }
         solved++; hud(); wait = 1.1;
       }
       function step(dt) {
-        if (done || hold) return; t += dt;
+        if (done || hold) return; t += dt; window.__t = t;
         if (wait > 0) { wait -= dt; if (wait <= 0) { lastBin = -1; next(); } }
         else if (st && !st.resolved) { acc += dt; while (acc >= DT && !st.resolved) { acc -= DT; phys(st.s); if (st.s.landed >= 0) land(); } }
         parts.forEach(function (p) { p.x += p.vx * dt; p.y += p.vy * dt; p.vy += 500 * dt; p.life -= dt; }); parts = parts.filter(function (p) { return p.life > 0; });
@@ -194,7 +194,7 @@
           var gg = g.createLinearGradient(-34, -26, 34, 26); gg.addColorStop(0, '#ffe98a'); gg.addColorStop(1, hex(hk)); g.fillStyle = gg; rr(g, -36, -28, 72, 56, 10); g.fill(); g.strokeStyle = '#fff'; g.lineWidth = 3; g.stroke();
           g.fillStyle = '#e0405a'; g.fillRect(-5, -28, 10, 56); g.beginPath(); g.ellipse(-10, -32, 12, 7, -0.5, 0, 7); g.ellipse(10, -32, 12, 7, 0.5, 0, 7); g.fill();
           g.restore();
-          var pt = st.c.k === 'sort' ? st.c.prompt : '';
+          var pt = st.c.tag || '';
           if (pt) { var lx = Math.max(64, Math.min(W - 64, gx)); g.fillStyle = '#fff'; rr(g, lx - 62, gy + 34, 124, 30, 8); g.fill(); fitText(g, pt, lx, gy + 49, 116, 26, '#10102e', 14); }
         }
         parts.forEach(function (p) { g.globalAlpha = Math.max(0, p.life / 0.8); g.fillStyle = p.col; g.beginPath(); g.arc(p.x, p.y, 4, 0, 7); g.fill(); }); g.globalAlpha = 1;
@@ -207,7 +207,7 @@
       function frame(now) { if (!run) return; var dt = Math.min(0.033, (now - lastT) / 1000); lastT = now; if (!ctx.isPaused()) step(dt); draw(); rid = requestAnimationFrame(frame); }
       rid = requestAnimationFrame(frame); ctx.cleanup(function () { run = false; cancelAnimationFrame(rid); });
       window.__auto = function () {
-        var n = 0; while (!done && n++ < 200000) {
+        var n = 0; while (!done && n++ < 400000) {
           if (hold) { if (window.__cp) { var c = window.__cp; window.__cp = null; c.now(); } else hold = false; continue; }
           if (wait > 0) { step(0.05); continue; }
           if (st && !st.resolved) {
@@ -231,34 +231,34 @@
   /* ----- Jetpack flyer: your altitude picks the answer ----- */
   K.jet = { name: 'Jetpack Flyer', howto: function () { return ['Hold the screen (or Space / ↑) to fly up, release to fall.', 'The banner tells you what to collect. Fly to the height of the right bubble in each column.', 'Dodge the electric zappers. A wrong bubble, a missed column or a zapper hit costs a heart. Some stages end at a pit stop where you type a number.']; },
     run: function (ctx, spec) {
-      var W = 420, H = 440, cv = NFA.canvas(ctx.root, W, H), g = cv.g, skin = NFA.skin(spec), cs = NFA.challenges(spec, 'cat'), bn = NFA.bar(ctx.root), nt = NFA.note(ctx.root), host = cv.c.parentNode; host.style.position = 'relative';
+      var W = 420, H = 440, cv = NFA.canvas(ctx.root, W, H), g = cv.g, skin = NFA.skin(spec), cs = NFA.challenges(spec, 'cat', 108), bn = NFA.bar(ctx.root), nt = NFA.note(ctx.root), host = cv.c.parentNode; host.style.position = 'relative';
       var py = 220, vy = 0, up = false, lives = 5, done = false, hold = false, t = 0, solved = 0, ci = 0, nextX = 520, objs = [], parts = [], flash = 0, shake = 0, wx = 0, SP = 190, PX = 90, imm = 0;
       var Y = [100, 220, 340];
-      function hud() { ctx.setHud({ Lives: '❤'.repeat(Math.max(0, lives)), Columns: solved + '/' + cs.length }); }
+      function hud() { ctx.setHud({ Lives: '❤'.repeat(Math.max(0, lives)), Level: NFA.LEVELS[NFA.lvl], Columns: solved + '/' + cs.length }); } ctx.heal = function () { lives = 5; hud(); }; setTimeout(function () { ctx.toast('LEVEL 1 · EASY'); }, 400);
       function setBanner() { var o = objs.filter(function (q) { return q.k !== 'zap' && !q.done; })[0]; bn.innerHTML = '🎯 <span style="color:#ffd24d">' + esc(o ? (o.k === 'calc' ? 'Pit stop ahead: work out the number' : o.c.prompt) : 'Finish line!') + '</span>'; }
-      function hurt(m) { if (imm > 0) return; (window.__hl=window.__hl||[]).push([m?m.slice(0,8):'',Math.round(py)]); lives--; imm = 1.0; shake = 0.4; flash = 0.35; NFA.sfx('hit'); if (m) NFA.say(nt, false, m); hud(); if (lives <= 0 && !done) { done = true; ctx.finish(false); } }
+      function hurt(m) { if (imm > 0) return; lives--; imm = 1.0; shake = 0.4; flash = 0.35; NFA.sfx('hit'); if (m) NFA.say(nt, false, m); hud(); if (lives <= 0 && !done) { done = true; ctx.finish(false); } }
       function burst(x, y, col, n) { for (var i = 0; i < n; i++) parts.push({ x: x, y: y, vx: (Math.random() - 0.5) * 240, vy: (Math.random() - 0.5) * 240, life: 0.7, col: col }); }
       function spawn(c) {
         var x = nextX;
-        if (c.k === 'calc') { objs.push({ k: 'calc', x: x, c: c, done: false }); nextX = x + 420; return; }
+        if (c.k === 'calc') { objs.push({ k: 'calc', x: x, c: c, done: false }); nextX = x + 600; return; }
         var order = shuffle([0, 1, 2]); objs.push({ k: 'col', x: x, c: c, done: false, hits: false, b: c.opts.map(function (o, i) { return { o: o, y: Y[order[i]], got: false }; }) });
-        var zy = 100 + Math.random() * 240; objs.push({ k: 'zap', x: x + 260, y: zy, h: 48 });
-        if (Math.random() < 0.6) objs.push({ k: 'zap', x: x + 480, y: zy > 220 ? zy - 130 : zy + 130, h: 44 });
-        nextX = x + 700;
+        var zy = 100 + Math.random() * 240; objs.push({ k: 'zap', x: x + 420, y: zy, h: 48 });
+        if (Math.random() < 0.6) objs.push({ k: 'zap', x: x + 800, y: zy > 220 ? zy - 130 : zy + 130, h: 44 });
+        nextX = x + 1100;
       }
       hud(); for (var q0 = 0; q0 < 2 && ci < cs.length; q0++) spawn(cs[ci++]); setBanner();
       function fly(v) { up = v; } NFA.keys(ctx, { ' ': function () { up = true; }, ArrowUp: function () { up = true; }, w: function () { up = true; } });
       var ku = function (e) { if (e.key === ' ' || e.key === 'ArrowUp' || e.key === 'w') up = false; }; window.addEventListener('keyup', ku); ctx.cleanup(function () { window.removeEventListener('keyup', ku); });
       cv.c.addEventListener('pointerdown', function () { up = true; }); ['pointerup', 'pointerleave', 'pointercancel'].forEach(function (ev) { cv.c.addEventListener(ev, function () { up = false; }); });
       function step(dt) {
-        if (done) return; t += dt; if (hold) return; imm = Math.max(0, imm - dt);
-        SP = 190 + wx / 60; wx += SP * dt; vy += (up ? -1500 : 900) * dt; vy = Math.max(-380, Math.min(420, vy)); py += vy * dt; if (py < 30) { py = 30; vy = 0; } if (py > H - 50) { py = H - 50; vy = 0; }
-        if (nextX - wx < 800 && ci < cs.length) spawn(cs[ci++]);
+        if (done) return; t += dt; window.__t = t; if (hold) return; imm = Math.max(0, imm - dt);
+        SP = 172 + (NFA.lvl - 1) * 22 + Math.min(20, wx / 400); wx += SP * dt; vy += (up ? -1500 : 900) * dt; vy = Math.max(-380, Math.min(420, vy)); py += vy * dt; if (py < 30) { py = 30; vy = 0; } if (py > H - 50) { py = H - 50; vy = 0; }
+        if (nextX - wx < 1100 && ci < cs.length) spawn(cs[ci++]);
         objs.forEach(function (o) {
           var sx = o.x - wx + PX; if (o.done) return;
           if (o.k === 'col') { o.b.forEach(function (b) { if (!b.got && Math.abs(sx - PX) < 40 && Math.abs(b.y - py) < 44) { b.got = true; o.hits = true; o.done = true;
-              ctx.record(o.c.k, b.o.ok); if (b.o.ok) { ctx.addScore(100); NFA.sfx('coin'); burst(PX, b.y, '#ffd24d', 24); NFA.say(nt, true, o.c.why); } else { burst(PX, b.y, '#e0405a', 14); hurt('"' + b.o.t + '" is not right. ' + o.c.why); } solved++; hud(); setBanner(); } });
-            if (!o.done && sx < PX - 50) { o.done = true; ctx.record(o.c.k, false); solved++; hurt('You flew past it. ' + o.c.why); hud(); setBanner(); } }
+              ctx.record(o.c.k, b.o.ok); NFA.lvlTick(ctx, o.c); if (b.o.ok) { ctx.addScore(100); NFA.sfx('coin'); burst(PX, b.y, '#ffd24d', 24); NFA.say(nt, true, o.c.why); } else { burst(PX, b.y, '#e0405a', 14); hurt('"' + b.o.t + '" is not right. ' + o.c.why); } solved++; hud(); setBanner(); } });
+            if (!o.done && sx < PX - 50) { o.done = true; ctx.record(o.c.k, false); NFA.lvlTick(ctx, o.c); solved++; hurt('You flew past it. ' + o.c.why); hud(); setBanner(); } }
           else if (o.k === 'zap') { if (Math.abs(sx - PX) < 18 && Math.abs(py - o.y) < o.h + 10) { hurt('Zapped! Fly around the electric bars.'); burst(PX, py, '#4dfff0', 14); } if (sx < -40) o.done = true; }
           else if (o.k === 'calc' && sx < PX + 10) { o.done = true; hold = true; var cp = NFA.checkpoint(ctx, host, o.c.q, function (ok) { if (!ok) hurt(); solved++; hud(); hold = false; setBanner(); }); window.__cp = cp; }
         });
@@ -290,7 +290,7 @@
       function frame(now) { if (!run) return; var dt = Math.min(0.033, (now - last) / 1000); last = now; if (!ctx.isPaused()) step(dt); draw(); rid = requestAnimationFrame(frame); }
       rid = requestAnimationFrame(frame); ctx.cleanup(function () { run = false; cancelAnimationFrame(rid); });
       window.__auto = function () {
-        var n = 0; while (!done && n++ < 200000) {
+        var n = 0; while (!done && n++ < 400000) {
           if (hold) { if (window.__cp) { var c = window.__cp; window.__cp = null; c.now(); } else hold = false; step(0.001); continue; }
           var col = objs.filter(function (o) { return o.k === 'col' && !o.done; })[0], want = py;
           if (col) want = col.b.filter(function (b) { return b.o.ok; })[0].y;
@@ -306,9 +306,9 @@
   /* ----- Shot master: aim and release so the ball drops through the right hoop ----- */
   K.shot = { name: 'Shot Master', howto: function () { return ['Drag back from the ball like a slingshot, then release to shoot. The dotted line shows your path.', 'Each hoop is labelled. Shoot the ball into the hoop that matches the banner and the ball.', 'Three misses on one ball reveals the answer and costs a heart. A wrong hoop also costs a heart. Some stages end at a pit stop where you type a number.']; },
     run: function (ctx, spec) {
-      var W = 420, H = 460, cv = NFA.canvas(ctx.root, W, H), g = cv.g, skin = NFA.skin(spec), cs = NFA.challenges(spec, 'item'), bn = NFA.bar(ctx.root), nt = NFA.note(ctx.root), host = cv.c.parentNode; host.style.position = 'relative';
+      var W = 420, H = 460, cv = NFA.canvas(ctx.root, W, H), g = cv.g, skin = NFA.skin(spec), cs = NFA.challenges(spec, 'item', 72), bn = NFA.bar(ctx.root), nt = NFA.note(ctx.root), host = cv.c.parentNode; host.style.position = 'relative';
       var GR = 900, DT = 1 / 120, BX = 56, BY = H - 70, lives = 5, done = false, hold = false, ci = 0, solved = 0, t = 0, st = null, wait = 0, parts = [], flash = 0, shake = 0, drag = null, acc = 0;
-      function hud() { ctx.setHud({ Lives: '❤'.repeat(Math.max(0, lives)), Shots: solved + '/' + cs.length }); }
+      function hud() { ctx.setHud({ Lives: '❤'.repeat(Math.max(0, lives)), Level: NFA.LEVELS[NFA.lvl], Shots: solved + '/' + cs.length }); } ctx.heal = function () { lives = 5; hud(); }; setTimeout(function () { ctx.toast('LEVEL 1 · EASY'); }, 400);
       function hurt(m) { lives--; shake = 0.4; flash = 0.35; NFA.sfx('hit'); hud(); if (lives <= 0 && !done) { done = true; ctx.finish(false); } }
       function burst(x, y, col, n) { for (var i = 0; i < n; i++) parts.push({ x: x, y: y, vx: (Math.random() - 0.5) * 260, vy: -Math.random() * 280, life: 0.8, col: col }); }
       function fly(b) { b.vy += GR * DT; b.x += b.vx * DT; b.y += b.vy * DT; }
@@ -328,17 +328,17 @@
         if (ci >= cs.length) { done = true; NFA.sfx('win'); setTimeout(function () { ctx.finish(true); }, 600 / NFA.T); return; }
         var c = cs[ci++];
         if (c.k === 'calc') { hold = true; st = null; var cp = NFA.checkpoint(ctx, host, c.q, function (ok) { if (!ok) hurt(); solved++; hud(); hold = false; next(); }); window.__cp = cp; bn.innerHTML = '🎯 <span style="color:#ffd24d">Pit stop: work out the number</span>'; return; }
-        levelFor(c); bn.innerHTML = '🎯 <span style="color:#ffd24d">' + esc(c.k === 'sort' ? 'Which hoop does "' + c.prompt + '" belong to?' : c.prompt) + '</span>';
+        levelFor(c); bn.innerHTML = '🎯 <span style="color:#ffd24d">' + esc(c.ask) + '</span>';
       }
       function launch(vx, vy) { if (!st || st.flying || st.resolved) return; st.ball = { x: BX, y: BY, vx: vx, vy: vy }; st.flying = true; NFA.sfx('jump'); acc = 0; }
       function resolve(h) {
-        var ok = st.hoops[h].o.ok; st.resolved = true; st.flying = false; ctx.record(st.c.k, ok); var hp = st.hoops[h];
+        var ok = st.hoops[h].o.ok; st.resolved = true; st.flying = false; ctx.record(st.c.k, ok); NFA.lvlTick(ctx, st.c); var hp = st.hoops[h];
         if (ok) { ctx.addScore(100); NFA.sfx('coin'); burst(hp.x, hp.y, '#ffd24d', 28); NFA.say(nt, true, st.c.why); } else { hurt(); burst(hp.x, hp.y, '#e0405a', 16); NFA.say(nt, false, '"' + hp.o.t + '" is not right. ' + st.c.why); }
         solved++; hud(); wait = 1.0;
       }
       function miss() {
         st.flying = false; st.tries--; NFA.sfx('tick');
-        if (st.tries <= 0) { st.resolved = true; ctx.record(st.c.k, false); hurt(); NFA.say(nt, false, 'Out of shots. ' + st.c.why); solved++; hud(); wait = 1.2; } else { NFA.say(nt, false, 'Missed. ' + st.tries + ' shot' + (st.tries > 1 ? 's' : '') + ' left. Adjust your angle and power.'); st.ball = { x: BX, y: BY, vx: 0, vy: 0 }; }
+        if (st.tries <= 0) { st.resolved = true; ctx.record(st.c.k, false); NFA.lvlTick(ctx, st.c); hurt(); NFA.say(nt, false, 'Out of shots. ' + st.c.why); solved++; hud(); wait = 1.2; } else { NFA.say(nt, false, 'Missed. ' + st.tries + ' shot' + (st.tries > 1 ? 's' : '') + ' left. Adjust your angle and power.'); st.ball = { x: BX, y: BY, vx: 0, vy: 0 }; }
       }
       function pt(e) { return cv.pt(e); }
       cv.c.addEventListener('pointerdown', function (e) { if (!st || st.flying || hold || done) return; var p = pt(e); drag = { x: p.x, y: p.y }; });
@@ -346,7 +346,7 @@
       function rel() { if (!drag) return; var vx = (BX - drag.x) * 5.2, vy = (BY - drag.y) * 5.2, m = Math.hypot(vx, vy); if (m > 760) { vx *= 760 / m; vy *= 760 / m; } drag = null; if (m > 90) launch(vx, vy); }
       ['pointerup', 'pointerleave', 'pointercancel'].forEach(function (ev) { cv.c.addEventListener(ev, rel); });
       function step(dt) {
-        if (done || hold) return; t += dt;
+        if (done || hold) return; t += dt; window.__t = t;
         if (wait > 0) { wait -= dt; if (wait <= 0) next(); }
         else if (st && st.flying) { acc += dt; while (acc >= DT && st.flying) { acc -= DT; var b = st.ball, py = b.y; fly(b); var h = hoopCheck(b, py); if (h >= 0) { resolve(h); break; } if (b.y > BY + 20 || b.x > W + 40 || b.x < -40) { miss(); break; } } }
         parts.forEach(function (p) { p.x += p.vx * dt; p.y += p.vy * dt; p.vy += 500 * dt; p.life -= dt; }); parts = parts.filter(function (p) { return p.life > 0; });
@@ -367,7 +367,7 @@
           if (st.resolved && !st.flying) { bx = -100; }
           g.fillStyle = '#00000030'; g.beginPath(); g.ellipse(bx, BY + 22, 16, 4, 0, 0, 7); g.fill();
           var bg = g.createRadialGradient(bx - 4, by - 4, 2, bx, by, 16); bg.addColorStop(0, '#ffb060'); bg.addColorStop(1, '#e0601a'); g.fillStyle = bg; g.beginPath(); g.arc(bx, by, 16, 0, 7); g.fill(); g.strokeStyle = '#6a2a0a'; g.lineWidth = 2; g.stroke(); g.beginPath(); g.moveTo(bx - 16, by); g.lineTo(bx + 16, by); g.moveTo(bx, by - 16); g.lineTo(bx, by + 16); g.stroke();
-          if (st.c.k === 'sort') { g.fillStyle = '#fff'; rr(g, 8, BY + 34, 150, 30, 8); g.fill(); fit(g, st.c.prompt, 83, BY + 49, 140, 26, '#10102e', 14); }
+          if (st.c.tag) { g.fillStyle = '#fff'; rr(g, 8, BY + 34, 150, 30, 8); g.fill(); fit(g, st.c.tag, 83, BY + 49, 140, 26, '#10102e', 14); }
           g.fillStyle = '#fff'; g.font = '800 13px system-ui'; g.textAlign = 'right'; g.fillText('Shots left: ' + st.tries, W - 10, 20);
         }
         parts.forEach(function (p) { g.globalAlpha = Math.max(0, p.life / 0.8); g.fillStyle = p.col; g.beginPath(); g.arc(p.x, p.y, 4, 0, 7); g.fill(); }); g.globalAlpha = 1; g.restore();
@@ -379,7 +379,7 @@
       function frame(now) { if (!run) return; var dt = Math.min(0.033, (now - last) / 1000); last = now; if (!ctx.isPaused()) step(dt); draw(); rid = requestAnimationFrame(frame); }
       rid = requestAnimationFrame(frame); ctx.cleanup(function () { run = false; cancelAnimationFrame(rid); });
       window.__auto = function () {
-        var n = 0; while (!done && n++ < 100000) {
+        var n = 0; while (!done && n++ < 400000) {
           if (hold) { if (window.__cp) { var c = window.__cp; window.__cp = null; c.now(); } else hold = false; continue; }
           if (wait > 0) { step(0.05); continue; }
           if (st && !st.resolved && !st.flying) { var sol = st.sol; if (!sol) { solveFor(st.c.opts.findIndex(function (o) { return o.ok; })); sol = st.sol; } if (sol) launch(sol[0], sol[1]); else launch(300, -500); }

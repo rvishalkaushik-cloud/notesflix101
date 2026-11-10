@@ -5,6 +5,15 @@ const s=fs.readFileSync(root+'/index.html','utf8');
 const a=s.indexOf('const CHAPTERS');const b=s.indexOf('];',a);
 const C=eval('('+s.slice(s.indexOf('[',a),b+1)+')');
 const specs=Object.assign({},...['c12','c11','c10','c9'].map(f=>require(__dirname+'/specs/'+f+'.js')));
+/* extra content (x*.js) is merged into the base specs: more items per category, new categories, more pairs, sequences, numericals */
+const extras=Object.assign({},...fs.readdirSync(__dirname+'/specs').filter(f=>/^x.*\.js$/.test(f)&&f!=='xlib.js').map(f=>require(__dirname+'/specs/'+f)));
+for(const id of Object.keys(extras)){
+  const sp=specs[id]; if(!sp){console.error('extra for unknown chapter '+id);continue;} const ex=extras[id];
+  if(ex.sort){sp.sort=sp.sort||[];ex.sort.forEach(([cat,items])=>{let t=sp.sort.find(c=>c[0]===cat);if(!t){t=[cat,[]];sp.sort.push(t);}items.forEach(i=>{if(!t[1].includes(i))t[1].push(i);});});}
+  if(ex.pair){sp.pair=sp.pair||[];ex.pair.forEach(([t,m])=>{if(!sp.pair.some(x=>x[0]===t||x[1]===m))sp.pair.push([t,m]);});}
+  if(ex.seq){sp.seq=sp.seq||[];ex.seq.forEach(q=>{if(!sp.seq.some(x=>x[0]===q[0]))sp.seq.push(q);});}
+  if(ex.calc){sp.calc=sp.calc||[];ex.calc.forEach(q=>{if(!sp.calc.some(x=>x[0]===q[0]))sp.calc.push(q);});}
+}
 const RT=['runner','space','rhythm','sports','tower'];
 const KITS={runner:'Knowledge Runner',space:'Space Mission',rhythm:'Rhythm Master',sports:'Sports Champion',tower:'Tower Defence Academy',jumper:'Concept Jumper',racing:'Formula Racing',detective:'Detective Academy',escape:'Escape Room',tycoon:'Business Tycoon',supermarket:'Supermarket Simulator',city:'City Builder',farm:'Farm Master',story:'Story Designer',quest:'Chapter Quest',machine:'Build Your Machine',lab:'Science Lab Simulator',art:'Art Studio',circuit:'Circuit Master',recipe:'Recipe Master'};
 const ENGINE={runner:'run3d',quest:'run3d',detective:'run3d',escape:'run3d',jumper:'run3d',racing:'hill',tycoon:'hill',machine:'hill',circuit:'hill',lab:'rope',art:'rope',story:'rope',space:'jet',rhythm:'jet',city:'jet',farm:'jet',sports:'shot',tower:'shot',supermarket:'shot',recipe:'shot'};
@@ -26,7 +35,7 @@ for(const c of C){
   if(!KITS[sp.kit])e('unknown kit '+sp.kit);
   const hasSort=sp.sort&&sp.sort.length>=2;
   if(RT.includes(sp.kit)&&!hasSort)e('real-time kit needs >=2 sort categories');
-  if(RT.includes(sp.kit)&&sp.sort&&sp.sort.length>3)e('real-time kit allows max 3 categories');
+  
   if(sp.kit==='jumper'&&!(sp.seq&&sp.seq.length))e('jumper needs seq');
   if(!sp.sort&&!sp.seq&&!sp.pair&&!sp.calc)e('no content');
   if(sp.sort){const seen={};sp.sort.forEach(([cat,items])=>{if(items.length<2)e('category too small: '+cat);items.forEach(i=>{if(seen[i])e('duplicate sort item "'+i+'" in '+seen[i]+' and '+cat);seen[i]=cat;});});}

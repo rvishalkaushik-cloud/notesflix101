@@ -89,6 +89,7 @@
     var s = el('div', 'nfa-screen',
       '<span class="nfa-eyebrow">' + esc(cfg.genre || 'Chapter game') + '</span><h1>' + esc(cfg.title) + '</h1><p>' + esc(cfg.tagline || '') + '</p>' +
       '<div class="nfa-card"><b>How to play</b><ul>' + (cfg.howto || []).map(function (h) { return '<li>' + esc(h) + '</li>'; }).join('') + '</ul></div>' +
+      '<div class="nfa-card"><b>3 levels · about 10–15 minutes</b><ul><li>Level 1 · Easy: every concept of the chapter, once.</li><li>Level 2 · Medium: the same ideas the other way round, plus the order of steps.</li><li>Level 3 · Hard: faster, mixed, with numericals. Hearts refill at every new level.</li></ul></div>' +
       '<div class="nfa-card"><b>Concepts you will practise</b><ul>' + Object.keys(cfg.concepts).map(function (k) { return '<li>' + esc(cfg.concepts[k].label) + '</li>'; }).join('') + '</ul></div>' +
       (best ? '<p class="nfa-mute">Your best: ' + '★'.repeat(best.stars) + '☆'.repeat(3 - best.stars) + ' · mastery ' + best.mastery + '%</p>' : '') +
       '<button class="nfa-btn" id="nfaGo">▶ Start</button>');
