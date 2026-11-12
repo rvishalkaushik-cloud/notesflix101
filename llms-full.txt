@@ -805,6 +805,14 @@ Work, kinetic and potential energy, power and collisions
 - Potential Energy and Conservation (Part 2) (password) — Potential energy, conservative and non-conservative forces, conservation of mechanical energy, spring potential energy and motion in a vertical circle, with an energy skate bowl, a spring launcher, the Loop Launch game and the double inclined plane activity.
 - Collisions (Part 3) (password) — Elastic and inelastic collisions in one and two dimensions, perfectly inelastic collisions and KE loss, neutron moderators and the 90 degree rule, with a collision track, the Pocket the Ball game, the pendulum energy-dissipation activity and the Chapter 5 final test with certificate.
 
+### System of Particles and Rotational Motion
+
+Centre of mass, torque, angular momentum and moment of inertia
+
+- Centre of Mass (Part 1) (password) — Centre of mass of two particles, many particles and rigid bodies including a uniform rod, total momentum and the motion of the centre of mass, with a CM Balancer, an exploding firework, the Mobile Maker game and a plumb-line lamina activity.
+- Torque, Angular Momentum and Equilibrium (Part 2) (password) — Torque as r x F, angular momentum, tau = dL/dt, conservation of angular momentum, equilibrium of rigid bodies, couples and the principle of moments, with a Torque Door, a Spin Studio, the See-saw Balance game and the metre-scale principle of moments lab.
+- Rotational Motion and Moment of Inertia (Part 3) (password) — Rotation about a fixed axis, equations of rotational motion, moment of inertia and radius of gyration, moments of inertia of simple bodies, torque = I alpha, power and the linear-rotational comparison, with a Bead Spinner, a Spin-Up Lab, the Inertia Ranker game, a flywheel activity and the Chapter 6 final test with certificate.
+
 ## Class 12 Accountancy
 
 Page: https://notesflix101.com/learn/xii-acc.html
