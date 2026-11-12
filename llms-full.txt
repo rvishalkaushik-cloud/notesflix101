@@ -1,6 +1,6 @@
 # Notesflix 101: every chapter and part
 
-> Interactive CBSE notes for Classes 9 to 12 by Vishal Sir, C&S Classes. Updated 2026-11-08. Parts marked (free) open without a password.
+> Interactive CBSE notes for Classes 9 to 12 from Notesflix 101 (founder: Vishal Kaushik). Updated 2026-11-12. Parts marked (free) open without a password.
 
 ## Class 9 English (Kaveri)
 
@@ -104,6 +104,55 @@ Practice marathon: https://notesflix101.com/marathon.html?s=ix-hindi (254 questi
 
 - सागर का मिलन (free): https://notesflix101.com/notes/ih5-1.html — यात्रा-वृत्तांत का रूप, कन्याकुमारी के सागर और चट्टानें, सूर्यास्त और आत्मचिंतन।
 - एक और अनेक (password) — वचन के दो भेद, लिंग के दो भेद, और क्रिया तथा विशेषण का मेल।
+
+### रीढ़ की हड्डी
+
+जगदीश चंद्र माथुर का व्यंग्य: विवाह की बातचीत, दिखावा और पुरानी सोच पर हँसी में छिपी चोट।
+
+- रिश्ते की बात (password) — रीढ़ की हड्डी: परिवेश, दिखावा, रूढ़ि पर व्यंग्य और पाठक की सोच की परख।
+- विराम और चिह्न (password) — विराम-चिह्न, वाक्य के भेद और चिह्न से अर्थ बदलने का अभ्यास।
+
+### मैं और मेरा देश
+
+कन्हैयालाल मिश्र प्रभाकर का निबंध: देश केवल नक्शा नहीं, वह हमारे अपनेपन और कर्म से बनता है।
+
+- मैं और मेरा देश (password) — मैं और मेरा देश: देश की परिभाषा, अपनापन, संस्कृति और कर्तव्य का बोध।
+- उपसर्ग और प्रत्यय (password) — उपसर्ग और प्रत्यय की पहचान, मूल शब्द और नए शब्दों की रचना।
+
+### रैदास के पद
+
+संत रैदास के दो पद: चंदन, दीपक और मोती जैसे सरल प्रतीकों में भक्त और प्रभु का अटूट संबंध।
+
+- रैदास के पद (password) — रैदास के पद: भक्ति का सरल रूप, प्रतीकों का सौंदर्य और सच्ची निष्ठा।
+- अलंकार (password) — अलंकार: उपमा, उपमेय, उपमान और रूपक की पहचान तथा काव्य-सौंदर्य।
+
+### राम-लक्ष्मण-परशुराम संवाद
+
+तुलसीदास के रामचरितमानस का संवाद: क्रोध, तर्क और विनय, और अंत में मर्यादा की जीत।
+
+- परशुराम संवाद (password) — परशुराम संवाद: धनुष प्रसंग, क्रोध, तर्क और विनय की जीत।
+- कारक और विभक्ति (password) — कारक और विभक्ति: कर्ता, कर्म और अधिकरण की पहचान।
+
+### भारती, जय, विजय करे!
+
+निराला की राष्ट्रभक्ति कविता: भारत माता की वंदना, शक्ति, एकता और विजय की कामना।
+
+- भारती, जय, विजय करे (password) — भारती, जय, विजय करे: भारत माता की वंदना, शक्ति, एकता और विजय का संदेश।
+- पर्यायवाची और विलोम (password) — पर्यायवाची और विलोम शब्द, और उनसे शब्द-भंडार बढ़ाने का अभ्यास।
+
+### झाँसी की रानी
+
+सुभद्रा कुमारी चौहान की कथा-कविता: रानी लक्ष्मीबाई का साहस और 1857 के विद्रोह की गाथा।
+
+- झाँसी की रानी (password) — झाँसी की रानी: रानी लक्ष्मीबाई का साहस, 1857 का विद्रोह और गाथा की लय।
+- संधि (password) — संधि: दीर्घ और गुण संधि के नियम और नए शब्द बनाने का अभ्यास।
+
+### घर की याद
+
+भवानी प्रसाद मिश्र की कविता: दूर रहकर घर की याद, आँगन, परिवार और अपनापन।
+
+- घर की याद (password) — घर की याद: दूरी, स्मृति, विरह और घर का अपनापन।
+- अनेकार्थी शब्द (password) — अनेकार्थी शब्द: एक रूप, कई अर्थ और प्रसंग से सही अर्थ का चुनाव।
 
 ## Class 9 Science
 
@@ -711,6 +760,25 @@ How markets set prices, and what price controls do.
 
 - Perfect Competition and Market Equilibrium (Part 1) (password) — Story, animations, 3D board, simulations and board-exam practice on features of perfect competition, market equilibrium, effects of shifts in demand and supply.
 - Price Ceiling and Price Floor (Part 2) (password) — Story, animations, 3D board, simulations and board-exam practice on price ceiling, price floor.
+
+## Class 11 Physics
+
+Page: https://notesflix101.com/learn/xi-physics.html
+Syllabus: the CBSE syllabus and NCERT textbook for Class 11
+
+### Units and Measurements
+
+SI units, significant figures and dimensions
+
+- Units and Significant Figures (Part 1) (password) — Base and derived units, SI base and supplementary units, prefixes, significant figures, rounding off, arithmetic with significant figures and uncertainty in results, with a Sig-Fig X-ray, a Sig-Fig Sprint game, a Powers of Ten slider and a Vernier callipers virtual lab.
+
+### Motion in a Plane
+
+Vectors, projectiles and circular motion
+
+- Vectors (Part 1) (password) — Scalars and vectors, adding vectors by drawing and by components, unit vectors, dot and cross products, with a drag-and-drop vector playground, a 3D right-hand rule, a parallelogram-law virtual lab and a numerical generator.
+- Projectile Motion (Part 2) (password) — Velocity and acceleration in a plane, motion with constant acceleration, and projectile motion: path, time of flight, maximum height and range, with a projectile launcher, a Parcel Drop game, a strobe-photo animation and a range-vs-angle virtual lab.
+- Circular Motion and Chapter Test (Part 3) (password) — Uniform circular motion, angular speed, period and frequency, centripetal acceleration v²/R, with a circle simulator, a Sling Shot game, a turntable virtual activity, the 15-question Chapter 3 final assessment and a completion certificate.
 
 ## Class 12 Accountancy
 

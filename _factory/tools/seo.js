@@ -42,7 +42,7 @@ subjects.forEach(g => {
   g.mar = MAR.find(m => m.slug === g.slug) || null;
   g.book = BOOK[g.cls + '|' + g.subject] || ('the CBSE syllabus and NCERT textbook for ' + CLASSNAME[g.cls]);
 });
-const wa = 'https://wa.me/' + CONFIG.whatsapp;
+const wa = 'mailto:' + CONFIG.email;  // contact is by email
 
 // ---------- shared page shell ----------
 const CSS = `:root{--bg:#0b0b0f;--panel:#14141b;--line:rgba(255,255,255,.1);--ink:#f5f5f7;--dim:#b4b4c2;--red:#e50914;--green:#22c55e}
@@ -85,8 +85,8 @@ function page({ title, desc, canon, image, jsonld, body, crumbs }) {
 <header><div class="in"><a class="logo" href="../index.html">NOTESFLIX <span>101</span></a>
 <nav class="bc" aria-label="Breadcrumb">${crumbs.map(c => c.url ? `<a href="${c.url}">${esc(c.name)}</a>` : esc(c.name)).join(' › ')}</nav></div></header>
 <main>${body}</main>
-<footer><div class="in">Notesflix 101 is made by ${esc(CONFIG.teacher)}, ${esc(CONFIG.brand)}, Gurugram. Interactive CBSE notes for Classes 9 to 12. Updated ${TODAY}.
- · <a href="../index.html">Home</a> · <a href="index.html">All subjects</a> · <a href="../marathon.html">Practice marathons</a> · <a href="${wa}">WhatsApp</a></div></footer>
+<footer><div class="in">Notesflix 101 · Founder: ${esc(CONFIG.founder)} · ${esc(CONFIG.brand)}, Gurugram. Interactive CBSE notes for Classes 9 to 12. Updated ${TODAY}.
+ · <a href="../index.html">Home</a> · <a href="index.html">All subjects</a> · <a href="../marathon.html">Practice marathons</a> · <a href="${wa}">Email us</a></div></footer>
 </body>
 </html>
 `;
@@ -98,8 +98,8 @@ fs.mkdirSync(path.join(ROOT, 'learn'), { recursive: true });
 for (const g of subjects) {
   const canon = SITE + 'learn/' + g.slug + '.html';
   const img = abs(g.chapters.find(c => c.thumb)?.thumb || 'img/subj-bst.jpg');
-  const freeLine = g.free ? `${g.free} of ${g.parts} parts are free to read with no password${g.cls === 'IX' ? ' (Part 1 of every chapter)' : ''}. The other parts open with a password from ${CONFIG.teacher}.` :
-    `All ${g.parts} parts open with a password from ${CONFIG.teacher}.`;
+  const freeLine = g.free ? `${g.free} of ${g.parts} parts are free to read with no password${g.cls === 'IX' ? ' (Part 1 of every chapter)' : ''}. The other parts open with a password from Notesflix 101.` :
+    `All ${g.parts} parts open with a password from Notesflix 101.`;
   const desc = `${g.name} notes for CBSE, following ${g.book.replace(/^the /, '')}: ${g.chapters.length} chapters in ${g.parts} interactive parts with quizzes, exam questions and a practice marathon.`.slice(0, 300);
   const faqs = [
     [`Are the ${g.name} notes free?`, freeLine],
@@ -107,7 +107,7 @@ for (const g of subjects) {
     [`How many chapters are covered?`, `${g.chapters.length} chapters: ${g.chapters.map(c => md(c.title)).join('; ')}.`],
   ];
   if (g.mar) faqs.push([`Is there a practice test for ${g.name}?`, `Yes. The ${g.name} Practice Marathon has ${g.mar.total} multiple-choice questions taken from the notes: a weekly marathon (30 questions, 20 minutes, the same set for everyone that week), a 10-question sprint, a 100-question mega marathon and chapter practice. A free sample is open to all; the full bank opens with the subject password.`]);
-  faqs.push([`How do I get the password for locked notes?`, `Message ${CONFIG.teacher} of ${CONFIG.brand} on WhatsApp from the Notesflix 101 website. The same password opens every locked ${g.subject} note.`]);
+  faqs.push([`How do I get the password for locked notes?`, `Email ${CONFIG.email} with your name, class, school and the Gmail ID you sign in with. The same password opens every locked ${g.subject} note.`]);
   const course = {
     '@type': 'Course', '@id': canon + '#course', name: g.name + ' notes', description: desc, url: canon, inLanguage: g.subject.startsWith('Hindi') ? 'hi-IN' : 'en-IN',
     educationalLevel: CLASSNAME[g.cls] + ' (CBSE)', provider: { '@id': SITE + '#org' }, isAccessibleForFree: g.free > 0,
@@ -118,15 +118,15 @@ for (const g of subjects) {
   const list = { '@type': 'ItemList', name: g.name + ' chapters', itemListElement: g.chapters.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: md(c.title),
     url: canon + '#' + c.id })) };
   const jsonld = { '@context': 'https://schema.org', '@graph': [
-    { '@type': 'EducationalOrganization', '@id': SITE + '#org', name: CONFIG.brand, url: SITE, founder: { '@type': 'Person', name: CONFIG.teacher } },
+    { '@type': 'EducationalOrganization', '@id': SITE + '#org', name: CONFIG.brand, url: SITE, founder: { '@type': 'Person', name: CONFIG.founder, jobTitle: 'Founder' } },
     course, list,
     { '@type': 'FAQPage', mainEntity: faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
     { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Notesflix 101', item: SITE }, { '@type': 'ListItem', position: 2, name: 'All subjects', item: SITE + 'learn/' },
       { '@type': 'ListItem', position: 3, name: g.name, item: canon }] }] };
   let body = `<h1>${esc(g.name)} Notes</h1>
-<p class="lead">Interactive CBSE ${esc(g.name)} notes by ${esc(CONFIG.teacher)}, ${esc(CONFIG.brand)}. They follow ${esc(g.book)}. Each chapter is broken into short parts with easy explanations, picture stories, flash cards, quizzes and board-style exam questions with model answers. ${esc(freeLine)}</p>
+<p class="lead">Interactive CBSE ${esc(g.name)} notes from Notesflix 101. They follow ${esc(g.book)}. Each chapter is broken into short parts with easy explanations, picture stories, flash cards, quizzes and board-style exam questions with model answers. ${esc(freeLine)}</p>
 <div class="stats"><span>${g.chapters.length} chapters</span><span>${g.parts} parts</span><span>${g.free} free parts</span>${g.mar ? `<span>${g.mar.total} practice questions</span>` : ''}</div>
-<div class="cta"><a class="btn" href="../index.html">Open the notes</a>${g.mar ? `<a class="btn g" href="../marathon.html?s=${g.slug}">Practice marathon</a>` : ''}<a class="btn g" href="${wa}">Get the password on WhatsApp</a></div>
+<div class="cta"><a class="btn" href="../index.html">Open the notes</a>${g.mar ? `<a class="btn g" href="../marathon.html?s=${g.slug}">Practice marathon</a>` : ''}<a class="btn g" href="${wa}">Get the password by email</a></div>
 <h2>Chapters</h2>\n`;
   for (const c of g.chapters) {
     const label = (c.unit ? c.unit.replace(/\s*·\s*Chapter$/, '').replace(/^Unit$/, 'Unit') + ' ' : 'Chapter ') + (c.num || '');
@@ -145,7 +145,7 @@ ${c.episodes.map((e, i) => `<li>${e.open ? `<a href="../${esc(e.url)}">${esc(e.t
 // ---------- all subjects ----------
 {
   const canon = SITE + 'learn/';
-  const desc = `Free interactive CBSE notes for Classes 9 to 12 by ${CONFIG.teacher}, ${CONFIG.brand}: ${subjects.map(g => g.name).join(', ')}.`;
+  const desc = `Free interactive CBSE notes for Classes 9 to 12 from Notesflix 101: ${subjects.map(g => g.name).join(', ')}.`;
   let body = `<h1>All subjects: CBSE notes for Classes 9 to 12</h1><p class="lead">${esc(desc)} Every subject has short interactive parts, quizzes, board-style exam questions and a practice marathon.</p>`;
   for (const cls of ORDER) {
     const gs = subjects.filter(g => g.cls === cls); if (!gs.length) continue;
@@ -159,12 +159,12 @@ ${c.episodes.map((e, i) => `<li>${e.open ? `<a href="../${esc(e.url)}">${esc(e.t
 
 // ---------- llms.txt / llms-full.txt ----------
 {
-  let s = `# Notesflix 101\n\n> Interactive CBSE notes for Classes 9 to 12 by ${CONFIG.teacher} of ${CONFIG.brand}, Gurugram, India. Each chapter is split into short parts with simple explanations, flash cards, quizzes and board-style exam questions with model answers. Many parts are free to read (in Class 9, Part 1 of every chapter); the rest open with a subject password from ${CONFIG.teacher}. Every subject also has a Practice Marathon of multiple-choice questions taken from the notes.\n\n`;
-  s += `Key facts:\n- Board: CBSE (India). Classes: 9, 10, 11, 12.\n- Class 9 notes follow the new NCERT books for 2026-27 (Exploration, Understanding Society: India and Beyond, Kaveri, Ganga).\n- Access: free parts open directly; locked parts need the subject password, available from ${CONFIG.teacher} on WhatsApp (${wa}).\n- Practice: weekly marathon (30 questions, 20 minutes, same set for everyone that week), 10-question sprint, 100-question mega marathon and chapter practice.\n\n`;
+  let s = `# Notesflix 101\n\n> Interactive CBSE notes for Classes 9 to 12 from Notesflix 101 (founder: ${CONFIG.founder}; ${CONFIG.brand}, Gurugram, India). Each chapter is split into short parts with simple explanations, flash cards, quizzes and board-style exam questions with model answers. Many parts are free to read (in Class 9, Part 1 of every chapter); the rest open with a subject password from Notesflix 101. Every subject also has a Practice Marathon of multiple-choice questions taken from the notes.\n\n`;
+  s += `Key facts:\n- Board: CBSE (India). Classes: 9, 10, 11, 12.\n- Class 9 notes follow the new NCERT books for 2026-27 (Exploration, Understanding Society: India and Beyond, Kaveri, Ganga).\n- Access: free parts open directly; locked parts need the subject password, available by email from ${CONFIG.email}.\n- Practice: weekly marathon (30 questions, 20 minutes, same set for everyone that week), 10-question sprint, 100-question mega marathon and chapter practice.\n\n`;
   s += `## Subjects\n\n` + subjects.map(g => `- [${g.name} notes](${SITE}learn/${g.slug}.html): ${g.chapters.length} chapters, ${g.parts} parts, ${g.free} free${g.mar ? `, ${g.mar.total} practice questions` : ''}`).join('\n') + '\n\n';
   s += `## Practice\n\n- [Practice marathons for every subject](${SITE}marathon.html)\n\n## Optional\n\n- [Full list of chapters and parts](${SITE}llms-full.txt)\n- [All subjects page](${SITE}learn/)\n`;
   fs.writeFileSync(path.join(ROOT, 'llms.txt'), s);
-  let f = `# Notesflix 101: every chapter and part\n\n> Interactive CBSE notes for Classes 9 to 12 by ${CONFIG.teacher}, ${CONFIG.brand}. Updated ${TODAY}. Parts marked (free) open without a password.\n\n`;
+  let f = `# Notesflix 101: every chapter and part\n\n> Interactive CBSE notes for Classes 9 to 12 from Notesflix 101 (founder: ${CONFIG.founder}). Updated ${TODAY}. Parts marked (free) open without a password.\n\n`;
   for (const g of subjects) {
     f += `## ${g.name}\n\nPage: ${SITE}learn/${g.slug}.html\nSyllabus: ${g.book}\n${g.mar ? `Practice marathon: ${SITE}marathon.html?s=${g.slug} (${g.mar.total} questions)\n` : ''}\n`;
     for (const c of g.chapters) {
@@ -206,9 +206,9 @@ for (const g of subjects) for (const c of g.chapters) for (const e of c.episodes
   const p = path.join(ROOT, 'index.html'); let h = fs.readFileSync(p, 'utf8');
   const totalQ = MAR.reduce((n, m) => n + m.total, 0);
   const faqs = [
-    ['What is Notesflix 101?', `Notesflix 101 is a website of interactive CBSE notes for Classes 9 to 12, made by ${CONFIG.teacher} of ${CONFIG.brand}, Gurugram. Each chapter is split into short parts with simple explanations, picture stories, flash cards, quizzes and board-style exam questions with model answers.`],
+    ['What is Notesflix 101?', `Notesflix 101 is a website of interactive CBSE notes for Classes 9 to 12, founded by ${CONFIG.founder} (${CONFIG.brand}, Gurugram). Each chapter is split into short parts with simple explanations, picture stories, flash cards, quizzes and board-style exam questions with model answers.`],
     ['Which classes and subjects are covered?', ORDER.map(cls => { const gs = subjects.filter(g => g.cls === cls); return gs.length ? `${CLASSNAME[cls]}: ${gs.map(g => g.subject).join(', ')}` : ''; }).filter(Boolean).join('. ') + '.'],
-    ['Are the notes free?', `Many parts are free and open without a password; in Class 9, Part 1 of every chapter is free. Each subject page shows exactly which parts are free. The other parts open with a subject password from ${CONFIG.teacher}, available on WhatsApp.`],
+    ['Are the notes free?', `Many parts are free and open without a password; in Class 9, Part 1 of every chapter is free. Each subject page shows exactly which parts are free. The other parts open with a subject password from Notesflix 101, available by email at ${CONFIG.email}.`],
     ['Do the notes follow the latest syllabus?', 'Yes. Class 9 notes follow the new NCERT books for 2026-27: Exploration (Science), Understanding Society: India and Beyond (Social Science), Kaveri (English) and Ganga (Hindi). Classes 10, 11 and 12 follow the CBSE syllabus and NCERT textbooks.'],
     ['What is a practice marathon?', `Every subject has a Practice Marathon of multiple-choice questions taken from the notes (${totalQ.toLocaleString('en-IN')} questions in all): a weekly marathon of 30 questions in 20 minutes with the same set for everyone that week, a 10-question sprint, a 100-question mega marathon and chapter practice. Results show chapter-wise accuracy and the questions you missed.`]
   ];

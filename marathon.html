@@ -251,7 +251,7 @@ h2{font:800 22px/1.2 var(--body);margin:0 0 12px}
       if(!pw){ msg.textContent = "Type the password first."; return; }
       btn.disabled = true; msg.textContent = "Checking…";
       unlockWith(pw).then(function(q){ BANK = q; FULL = true; setRaw(passKey(), pw); setup(); })
-        .catch(function(){ btn.disabled = false; msg.textContent = "That password did not work. Ask Vishal Sir for the " + META.subject + " password."; });
+        .catch(function(){ btn.disabled = false; msg.textContent = "That password did not work. Email support@notesflix101.com for the " + META.subject + " password."; });
     });
   }
   function histHTML(){
