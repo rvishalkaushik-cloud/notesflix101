@@ -773,6 +773,14 @@ SI units, significant figures and dimensions
 - Units and Significant Figures (Part 1) (password) — Base and derived units, SI base and supplementary units, prefixes, significant figures, rounding off, arithmetic with significant figures and uncertainty in results, with a Sig-Fig X-ray, a Sig-Fig Sprint game, a Powers of Ten slider and a Vernier callipers virtual lab.
 - Dimensions and Dimensional Analysis (Part 2) (password) — Dimensions, dimensional formulae and equations, the principle of homogeneity, checking and deriving relations (pendulum), with an equation checker, a Dimension Match game, a screw gauge virtual lab and the Chapter 1 final test with certificate.
 
+### Motion in a Straight Line
+
+Displacement, velocity, acceleration and the equations of motion
+
+- Position and Average Velocity (Part 1) (password) — Frame of reference, path length and displacement, average velocity and average speed, uniform and non-uniform motion and position-time graphs, with a Trip Builder, the Graph Match Sprint game and a graph-plotting lab with proper scales and error bars.
+- Instantaneous Velocity and Acceleration (Part 2) (password) — Instantaneous velocity as dx/dt, basic differentiation, average and instantaneous acceleration, velocity-time graphs, slope and area (integration), with a Tangent Zoom, a Graph Trio, the Graph Detective game and a ticker-tape activity.
+- Uniformly Accelerated Motion (Part 3) (password) — Equations of uniformly accelerated motion by graph and calculus, free fall and vertical throws, Galileo's law of odd numbers, stopping distance and reaction time, with an Equation Sandbox, a Tower Toss, the Ruler Catch game, Galileo's inclined plane and the Chapter 2 final test with certificate.
+
 ### Motion in a Plane
 
 Vectors, projectiles and circular motion
