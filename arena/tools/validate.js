@@ -35,6 +35,7 @@ for (const id of ids) {
     (s.cards || []).forEach((c, i) => { if (!c.t || !c.b) E("section " + s.id + " card " + i + ": needs t and b"); });
     [s.table].concat(s.tables || []).filter(Boolean).forEach(t => t.rows.forEach((r, i) => { if (r.length !== t.head.length) E("section " + s.id + " table '" + t.cap + "' row " + i + " has " + r.length + " cells, head has " + t.head.length); }));
   });
+  if (!D.sections.some(s => s.cards && s.cards.length)) E("no expandable concept cards in any section (Quick Revision needs some)");
   // Module 3
   D.flashcards.forEach((f, i) => { if (!f.q || !f.a) E("flashcard " + i + ": needs q and a"); cref(f.c, "flashcard " + i); });
   // Module 2
