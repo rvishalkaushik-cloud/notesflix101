@@ -37,6 +37,18 @@ function countUp(el, to, ms){
   function f(t){ var k = Math.min(1, (t - t0) / ms); el.textContent = Math.round(to * (1 - Math.pow(1 - k, 3))); if(k < 1) requestAnimationFrame(f); }
   requestAnimationFrame(f);
 }
+/* in-page confirm box (the browser's own confirm box is blocked in some frames and looks poor on phones) */
+function ask(msg, okText, onOk){
+  var old = $(".askbox"); if(old) old.remove();
+  var w = document.createElement("div"); w.className = "askbox"; w.setAttribute("role","dialog"); w.setAttribute("aria-modal","true");
+  w.innerHTML = '<div class="askin"><p>' + esc(msg) + '</p><div class="btns" style="justify-content:flex-end"><button class="btn" data-x="no">Cancel</button><button class="btn red" data-x="ok">' + esc(okText) + '</button></div></div>';
+  document.body.appendChild(w);
+  function close(){ w.remove(); document.removeEventListener("keydown", key); }
+  function key(e){ if(e.key === "Escape") close(); }
+  document.addEventListener("keydown", key);
+  w.addEventListener("click", function(e){ var x = e.target.dataset && e.target.dataset.x; if(e.target === w || x === "no") close(); else if(x === "ok"){ close(); onOk(); } });
+  $('[data-x="ok"]', w).focus();
+}
 function cname(id){ return (D.concepts[id] && D.concepts[id].n) || id; }
 
 /* ---------- progress ---------- */
@@ -155,7 +167,7 @@ function hub(){
   }); });
   $$(".chip.weak").forEach(function(a){ a.addEventListener("click", function(){ sessionStorage.setItem("nf.arena.open", a.dataset.sec); }); });
   $("#resetP").addEventListener("click", function(){
-    if(confirm("Clear all Revision Arena progress for this chapter on this device?")){ delete S.ch[D.id]; initP(); save(); route(); toast("Progress cleared"); }
+    ask("Clear all Revision Arena progress for this chapter on this device?", "Clear progress", function(){ delete S.ch[D.id]; initP(); save(); route(); toast("Progress cleared"); });
   });
 }
 
@@ -706,7 +718,7 @@ function battleRun(){
   $("#bSub").addEventListener("click", function(){
     store();
     var un = bt.qs.length - Object.keys(bt.ans).length;
-    if(confirm((un ? un + " question" + (un > 1 ? "s are" : " is") + " not answered. " : "") + "Submit the battle now?")) battleEnd();
+    ask((un ? un + " question" + (un > 1 ? "s are" : " is") + " not answered. " : "") + "Submit the battle now?", "Submit", battleEnd);
   });
   function refreshPal(){ var b = $('.pgrid button[data-i="' + bt.i + '"]'); if(b){ b.className = (bt.rev[bt.i] ? "ar" : "a") + " cur"; } }
   var cur = $(".pgrid .cur"); if(cur && cur.scrollIntoView && window.innerWidth <= 900){ var g = cur.parentNode; g.scrollLeft = cur.offsetLeft - g.clientWidth / 2; }

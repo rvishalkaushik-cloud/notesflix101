@@ -339,3 +339,8 @@ table.cmp tr:nth-child(even) td{background:rgba(255,255,255,.025)}
 .fade{animation:pop .35s var(--ease)}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 .err{padding:40px;text-align:center}
+
+.askbox{position:fixed;inset:0;z-index:50;background:rgba(5,2,15,.7);display:grid;place-items:center;padding:20px;animation:fadein .2s}
+.askin{background:var(--bg2,#1c1442);border:2px solid var(--yel,#ffd84d);border-radius:18px;padding:20px;max-width:420px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.askin p{margin:0 0 14px;font-size:17px;font-weight:600}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
