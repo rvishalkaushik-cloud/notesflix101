@@ -31,7 +31,7 @@ for (const id of ids) {
   // Module 1
   D.sections.forEach(s => {
     ["id","title","icon","color","quick"].forEach(k => { if (!s[k]) E("section " + s.id + ": missing " + k); });
-    if (!s.cards && !s.table && !s.tables && !s.defs) W("section " + s.id + ": no cards, tables or definitions for detailed mode");
+    if (!s.cards && !s.table && !s.tables && !s.defs) W("section " + s.id + ": no cards or tables; detailed mode will show the quick points as a list");
     (s.cards || []).forEach((c, i) => { if (!c.t || !c.b) E("section " + s.id + " card " + i + ": needs t and b"); });
     [s.table].concat(s.tables || []).filter(Boolean).forEach(t => t.rows.forEach((r, i) => { if (r.length !== t.head.length) E("section " + s.id + " table '" + t.cap + "' row " + i + " has " + r.length + " cells, head has " + t.head.length); }));
   });

@@ -190,6 +190,7 @@ function quick(){
     html += D.sections.map(function(s){
       return '<details class="sec" id="sec-' + s.id + '" style="--sc:' + s.color + '"' + (s.id === openSec ? " open" : "") + '><summary><span class="si">' + s.icon + '</span><h3>' + esc(s.title) + '<small>' + esc(s.sub || "") + '</small></h3>' + tickBtn(s.id) + '<span class="chev">▶</span></summary><div class="sbody">' +
         (s.intro ? '<p>' + s.intro + '</p>' : '') +
+        (!s.cards && !s.table && !s.tables ? '<ul class="qlist">' + s.quick.map(function(q){ return '<li>' + q + '</li>'; }).join("") + '</ul>' : '') +
         (s.defs ? s.defs.map(function(d){ return '<div class="def"><b>' + d[0] + ':</b> ' + d[1] + '</div>'; }).join("") : '') +
         (s.flow ? flow(s.flow) : '') +
         (s.cards ? '<div class="cards">' + s.cards.map(function(c, i){ return concept(c, s, i); }).join("") + '</div>' : '') +
