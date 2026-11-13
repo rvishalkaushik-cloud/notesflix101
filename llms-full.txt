@@ -1,6 +1,6 @@
 # Notesflix 101: every chapter and part
 
-> Interactive CBSE notes for Classes 9 to 12 from Notesflix 101 (founder: Vishal Kaushik). Updated 2026-11-12. Parts marked (free) open without a password.
+> Interactive CBSE notes for Classes 9 to 12 from Notesflix 101 (founder: Vishal Kaushik). Updated 2026-11-13. Parts marked (free) open without a password.
 
 ## Class 9 English (Kaveri)
 
@@ -818,6 +818,15 @@ Centre of mass, torque, angular momentum and moment of inertia
 - Torque, Angular Momentum and Equilibrium (Part 2) (password) — Torque as r x F, angular momentum, tau = dL/dt, conservation of angular momentum, equilibrium of rigid bodies, couples and the principle of moments, with a Torque Door, a Spin Studio, the See-saw Balance game and the metre-scale principle of moments lab.
 - Rotational Motion and Moment of Inertia (Part 3) (password) — Rotation about a fixed axis, equations of rotational motion, moment of inertia and radius of gyration, moments of inertia of simple bodies, torque = I alpha, power and the linear-rotational comparison, with a Bead Spinner, a Spin-Up Lab, the Inertia Ranker game, a flywheel activity and the Chapter 6 final test with certificate.
 - NCERT Exercises Solved (password) — All 17 end-of-chapter NCERT exercises of System of Particles and Rotational Motion, solved step by step, with hints, an answer checker for numericals and redrawn figures.
+
+### Gravitation
+
+Kepler's laws, g and its variation, potential energy, orbits and escape speed
+
+- Kepler's Laws and the Law of Gravitation (Part 1) (password) — Kepler's three laws of planetary motion, the law of areas as conservation of angular momentum, Newton's universal law of gravitation, G and superposition, with a Kepler Orbit Lab, a gravity calculator, the Gravity Ratio Rush game and a T-squared vs a-cubed activity with real planetary data.
+- g, its Variation and Gravitational Potential Energy (Part 2) (password) — Acceleration due to gravity from the shell theorem, variation of g with height and depth, gravitational potential energy U = -GMm/r and gravitational potential, with a g-Map, a Gravity Well, the Weight Watcher game and a pendulum thought-experiment lab.
+- Escape Speed, Orbits and Satellite Energy (Part 3) (password) — Escape speed, orbital velocity and period of a satellite, kinetic, potential and total energy of an orbiting satellite, with Newton's cannon orbit launcher, an orbit energy panel, the Satellite Commander game, a weigh-the-Earth satellite activity and the Chapter 7 final test.
+- NCERT Exercises Solved (password) — All 21 end-of-chapter NCERT exercises of Gravitation, solved step by step, with hints, an answer checker for numericals and redrawn figures.
 
 ## Class 12 Accountancy
 
