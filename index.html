@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><script async src="https://www.googletagmanager.com/gtag/js?id=G-GGM18EJQC8"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-GGM18EJQC8");</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
 <title>Free CBSE Notes for Class 9, 10, 11 &amp; 12 | Interactive Notes &amp; Practice | Notesflix 101</title>
@@ -4355,6 +4355,7 @@ CHAPTERS.forEach(function(c){
   }
   auth.onAuthStateChanged(u => {
     user = u; render();
+    if (window.gtag) gtag('set', { user_id: u ? u.uid : undefined });
     document.dispatchEvent(new CustomEvent('nf:user', { detail: { uid: u ? u.uid : null } }));
     if (u) loadProgress(u);
   });
