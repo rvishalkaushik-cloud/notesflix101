@@ -1,6 +1,6 @@
 # Notesflix 101: every chapter and part
 
-> Interactive CBSE notes for Classes 9 to 12 from Notesflix 101 (founder: Vishal Kaushik). Updated 2026-11-13. Parts marked (free) open without a password.
+> Interactive CBSE notes for Classes 9 to 12 from Notesflix 101 (founder: Vishal Kaushik). Updated 2026-11-14. Parts marked (free) open without a password.
 
 ## Class 9 English (Kaveri)
 
@@ -827,6 +827,69 @@ Kepler's laws, g and its variation, potential energy, orbits and escape speed
 - g, its Variation and Gravitational Potential Energy (Part 2) (password) — Acceleration due to gravity from the shell theorem, variation of g with height and depth, gravitational potential energy U = -GMm/r and gravitational potential, with a g-Map, a Gravity Well, the Weight Watcher game and a pendulum thought-experiment lab.
 - Escape Speed, Orbits and Satellite Energy (Part 3) (password) — Escape speed, orbital velocity and period of a satellite, kinetic, potential and total energy of an orbiting satellite, with Newton's cannon orbit launcher, an orbit energy panel, the Satellite Commander game, a weigh-the-Earth satellite activity and the Chapter 7 final test.
 - NCERT Exercises Solved (password) — All 21 end-of-chapter NCERT exercises of Gravitation, solved step by step, with hints, an answer checker for numericals and redrawn figures.
+
+### Mechanical Properties of Solids
+
+Stress, strain, Hooke’s law, elastic moduli and elastic energy
+
+- Elasticity, stress, strain and Hooke's law (Part 1) (password) — Elasticity, stress, strain and Hooke's law. Explore the Wire Stretch Rig and the Three Kinds of Deformation, play Load Limit, watch the motion scene, and do the virtual lab: force constant of a helical spring (CBSE Experiment B2).
+- Young's modulus, shear and bulk moduli, Poisson's ratio (Part 2) (password) — Young's modulus, shear and bulk moduli, Poisson's ratio. Explore the Material Tester and the Poisson Stretcher, play Modulus Match, watch the motion scene, and do the virtual lab: Young's modulus of a wire, Searle's method (CBSE Experiment B1).
+- Elastic potential energy and applications of elasticity (Part 3) (password) — Elastic potential energy and applications of elasticity. Explore the Energy Stored in a Stretched Wire and the Beam Designer, play Bridge Inspector, watch the motion scene, and do the virtual activity: depression of a loaded metre scale (CBSE Activity B6). Ends with the Chapter 8 final test.
+- NCERT Exercises Solved (password) — All 16 end-of-chapter NCERT exercises of Mechanical Properties of Solids, solved step by step, with hints, an answer checker for numericals and redrawn figures.
+
+### Mechanical Properties of Fluids
+
+Pressure, Pascal’s law, viscosity, Bernoulli’s principle and surface tension
+
+- Pressure, Pascal's law and hydraulic machines (Part 1) (password) — Pressure, Pascal's law and hydraulic machines. Explore the Deep Dive Pressure Explorer and the Hydraulic Lift, play Pressure Points, watch the motion scene, and do the virtual activity: pressure against depth.
+- Viscosity, streamline flow and Bernoulli's principle (Part 2) (password) — Viscosity, streamline flow and Bernoulli's principle. Explore the Venturi Pipe and the Terminal Velocity Tank, play Flow Master, watch the motion scene, and do the virtual lab: viscosity of glycerine from terminal velocity (CBSE Experiment B5).
+- Surface tension, drops, bubbles and capillary rise (Part 3) (password) — Surface tension, drops, bubbles and capillary rise. Explore the Capillary Rise Lab and the Bubble Pressure Duel, play Droplet Dash, watch the motion scene, and do the virtual lab: surface tension of water by capillary rise (CBSE Experiment B4 + Activity B4). Ends with the Chapter 9 final test.
+- NCERT Exercises Solved (password) — All 20 end-of-chapter NCERT exercises of Mechanical Properties of Fluids, solved step by step, with hints, an answer checker for numericals and redrawn figures.
+
+### Thermal Properties of Matter
+
+Thermal expansion, calorimetry, latent heat, heat transfer and Newton’s law of cooling
+
+- Temperature, heat and thermal expansion (Part 1) (password) — Temperature, heat and thermal expansion. Explore the Bimetallic Strip and Expanding Rod and the Water's Strange Density, play Scale Switcher, watch the motion scene, and do the virtual activity: change in liquid level on heating (CBSE Activity B3).
+- Specific heat, calorimetry and latent heat (Part 2) (password) — Specific heat, calorimetry and latent heat. Explore the Ice to Steam and the Cooling Curve of Molten Wax, play Calorie Chef, watch the motion scene, and do the virtual lab: specific heat of a solid by the method of mixtures (CBSE Experiment B7).
+- Conduction, convection, radiation and Newton's law of cooling (Part 3) (password) — Conduction, convection, radiation and Newton's law of cooling. Explore the Two-Rod Heat Bridge and the Blackbody Glow, play Heat Highway, watch the motion scene, and do the virtual lab: cooling curve and the factors affecting heat loss (CBSE Experiment B6 + Activity B5). Ends with the Chapter 10 final test.
+- NCERT Exercises Solved (password) — All 20 end-of-chapter NCERT exercises of Thermal Properties of Matter, solved step by step, with hints, an answer checker for numericals and redrawn figures.
+
+### Thermodynamics
+
+Zeroth and first laws, thermodynamic processes, heat engines, refrigerators and the second law
+
+- Thermal equilibrium, internal energy and the first law (Part 1) (password) — Thermal equilibrium, internal energy and the first law. Explore the Zeroth Law Lab and the First-Law Piston, play Energy Accountant, watch the motion scene, and do the virtual activity: Joule's paddle-wheel, work into heat.
+- Isothermal, adiabatic, isobaric and isochoric processes (Part 2) (password) — Isothermal, adiabatic, isobaric and isochoric processes. Explore the P–V Process Explorer and the Twin Cylinders, play Process Detective, watch the motion scene, and do the virtual lab: Boyle's law (CBSE Experiment B3).
+- Heat engines, refrigerators and the second law (Part 3) (password) — Heat engines, refrigerators and the second law. Explore the Engine and Fridge Energy Flow and the Gas Box, play Patent Office, watch the motion scene, and do the virtual activity: how unlikely is "un-mixing"?. Ends with the Chapter 11 final test.
+- NCERT Exercises Solved (password) — All 8 end-of-chapter NCERT exercises of Thermodynamics, solved step by step, with hints, an answer checker for numericals and redrawn figures.
+
+### Kinetic Theory
+
+Gas laws, equation of state, kinetic theory of pressure, rms speed, equipartition and mean free path
+
+- The behaviour of gases and the equation of state (Part 1) (password) — The behaviour of gases and the equation of state. Explore the Gas State Machine and the Real vs Ideal, play Gas Law Sprint, watch the motion scene, and do the virtual activity: Charles's law and absolute zero.
+- Pressure, temperature and the speed of molecules (Part 2) (password) — Pressure, temperature and the speed of molecules. Explore the Molecule Box and the Speed Race, play Speed Radar, watch the motion scene, and do the virtual activity: find Boltzmann's constant.
+- Degrees of freedom, specific heats and the mean free path (Part 3) (password) — Degrees of freedom, specific heats and the mean free path. Explore the Energy Shares and the Mean Free Path Explorer, play Gamma Guesser, watch the motion scene, and do the virtual activity: mean free path and pressure. Ends with the Chapter 12 final test.
+- NCERT Exercises Solved (password) — All 10 end-of-chapter NCERT exercises of Kinetic Theory, solved step by step, with hints, an answer checker for numericals and redrawn figures.
+
+### Oscillations
+
+Periodic motion, SHM, energy in SHM, spring–mass system and the simple pendulum
+
+- Periodic motion and simple harmonic motion (Part 1) (password) — Periodic motion and simple harmonic motion. Explore the SHM Graph Studio and the Reference Circle, play Ride Rhythm, watch the motion scene, and do the virtual activity: timing an oscillation with a stopwatch.
+- Force law, energy and the loaded spring (Part 2) (password) — Force law, energy and the loaded spring. Explore the x–v–a Live Lab and the Energy Swap, play Spring Sprint, watch the motion scene, and do the virtual activity: spring constant from oscillations.
+- The simple pendulum (Part 3) (password) — The simple pendulum. Explore the Pendulum Playground and the Gravity Swap, play Pendulum Pulse, watch the motion scene, and do the virtual lab: Experiment 7, L–T² graph and the seconds pendulum. Ends with the Chapter 13 final test.
+- NCERT Exercises Solved (password) — All 18 end-of-chapter NCERT exercises of Oscillations, solved step by step, with hints, an answer checker for numericals and redrawn figures.
+
+### Waves
+
+Travelling waves, speed of sound, superposition, standing waves, pipes and beats
+
+- Travelling waves and their speed (Part 1) (password) — Travelling waves and their speed. Explore the Wave Studio and the Transverse vs Longitudinal side by side, play Sound Check, watch the motion scene, and do the virtual activity: wave speed on a string against tension.
+- Superposition, reflection and standing waves on strings (Part 2) (password) — Superposition, reflection and standing waves on strings. Explore the Superposition Lab and the Standing Wave Generator, play Harmonic Hero, watch the motion scene, and do the virtual lab: Experiment 9, the sonometer.
+- Air columns, harmonics and beats (Part 3) (password) — Air columns, harmonics and beats. Explore the Pipe Organ Builder and the Beat Mixer, play Beat Battle, watch the motion scene, and do the virtual lab: Experiment 10, speed of sound with a resonance tube. Ends with the Chapter 14 final test.
+- NCERT Exercises Solved (password) — All 19 end-of-chapter NCERT exercises of Waves, solved step by step, with hints, an answer checker for numericals and redrawn figures.
 
 ## Class 12 Accountancy
 
