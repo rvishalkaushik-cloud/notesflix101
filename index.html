@@ -2945,6 +2945,14 @@ CHAPTERS.forEach(function(c){
       ask.textContent = "Ask when it is ready";
       playRow.appendChild(ask);
     }
+    if(LAB[c.id]){
+      var lb = document.createElement("a");
+      lb.className = "btn btn-arena btn-lg";
+      lb.href = labUrl(c.id);
+      lb.textContent = "🧾 Accountancy Lab";
+      lb.title = "Learn in Class 7 or Class 12 mode, solve inside real journal, ledger and Balance Sheet formats, play chapter games and take a marked test";
+      playRow.appendChild(lb);
+    }
     if(ARENA[c.id]){
       var ar = document.createElement("a");
       ar.className = "btn btn-arena btn-lg";
@@ -3042,6 +3050,20 @@ CHAPTERS.forEach(function(c){
       list.appendChild(row);
     });
     chBody.appendChild(list);
+
+    /* ACCOUNTANCY LAB: practice-first lab for the chapter, always open (no lock). */
+    if(LAB[c.id]){
+      var lrow = document.createElement("a");
+      lrow.className = "ep arena"; lrow.href = labUrl(c.id);
+      lrow.setAttribute("aria-label", "Accountancy Lab for " + c.title);
+      lrow.innerHTML = '<span class="ep-no">🧾</span>'
+        + '<span class="ep-thumb" style="display:grid;place-items:center;font-size:30px;background:linear-gradient(135deg,#1d2470,#6d3df2 60%,#3fd6ff)">📒</span>'
+        + '<span class="ep-txt"><span class="ep-title">Accountancy Lab · ' + c.title.replace(/[<>&]/g, "") + '</span>'
+        + '<span class="ep-desc">Class 7 and Class 12 modes, step-by-step solver, journal, ledger and Balance Sheet worksheets with instant checking, games and a marked chapter test.</span>'
+        + '<span class="ep-foot"><span class="free">Open</span><span class="dot"></span><span>' + labPct(LAB[c.id]) + '</span></span></span>'
+        + '<span class="ep-acts"><span class="ep-play" aria-hidden="true">▶</span></span>';
+      list.appendChild(lrow);
+    }
 
     /* REVISION ARENA: the chapter's revision ecosystem, always open (no lock), after the last note. */
     if(ARENA[c.id]){
@@ -3574,6 +3596,17 @@ CHAPTERS.forEach(function(c){
     up.innerHTML = '<span class="nx-ui">' + nxIco("mega") + '</span><b>CBSE Updates</b><span class="nx-ut">Latest circulars, date sheets, sample papers and more</span><span class="nx-uv">View all →</span>';
     wrap.appendChild(up);
     return wrap;
+  }
+
+  /* ACCOUNTANCY LAB: home chapter id → lab/data/<lab id>.js. The lab's own sidebar opens its other chapters. */
+  var LAB = {"acc-partnership":"partnership", "acc-goodwill":"goodwill"};
+  function labUrl(id){ return "lab/?ch=" + encodeURIComponent(LAB[id]); }
+  function labPct(id){
+    try{
+      var st = JSON.parse(localStorage.getItem("nf.lab.v1") || "{}"), p = st.ch && st.ch[id];
+      if(!p || !p.done) return "Learn · Solve · Play · Test";
+      var n = Object.keys(p.done).length; return n + " of 17 sections done";
+    }catch(e){ return "Learn · Solve · Play · Test"; }
   }
 
   /* REVISION ARENA: chapters whose arena/data/<id>.js is ready. Add an id here when its file is added. */

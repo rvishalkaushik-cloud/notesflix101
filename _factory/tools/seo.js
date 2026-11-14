@@ -126,7 +126,7 @@ for (const g of subjects) {
   let body = `<h1>${esc(g.name)} Notes</h1>
 <p class="lead">Interactive CBSE ${esc(g.name)} notes from Notesflix 101. They follow ${esc(g.book)}. Each chapter is broken into short parts with easy explanations, picture stories, flash cards, quizzes and board-style exam questions with model answers. ${esc(freeLine)}</p>
 <div class="stats"><span>${g.chapters.length} chapters</span><span>${g.parts} parts</span><span>${g.free} free parts</span>${g.mar ? `<span>${g.mar.total} practice questions</span>` : ''}</div>
-<div class="cta"><a class="btn" href="../index.html">Open the notes</a>${g.mar ? `<a class="btn g" href="../marathon.html?s=${g.slug}">Practice marathon</a>` : ''}<a class="btn g" href="${wa}">Get the password by email</a></div>
+<div class="cta"><a class="btn" href="../index.html">Open the notes</a>${g.mar ? `<a class="btn g" href="../marathon.html?s=${g.slug}">Practice marathon</a>` : ''}${g.slug === 'xii-acc' ? `<a class="btn g" href="../lab/?ch=partnership">🧾 Accountancy Lab (free)</a>` : ''}<a class="btn g" href="${wa}">Get the password by email</a></div>
 <h2>Chapters</h2>\n`;
   for (const c of g.chapters) {
     const label = (c.unit ? c.unit.replace(/\s*·\s*Chapter$/, '').replace(/^Unit$/, 'Unit') + ' ' : 'Chapter ') + (c.num || '');

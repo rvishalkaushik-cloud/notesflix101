@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Accountancy Lab | Notesflix 101</title>
+<meta name="description" content="Accountancy Lab: learn Class 12 CBSE Accountancy in two modes, solve inside real journal, ledger and Balance Sheet formats, get instant feedback, play chapter games and take a marked chapter test.">
+<meta name="robots" content="noindex,follow">
+<meta name="theme-color" content="#0b0f2e">
+<link rel="manifest" href="../manifest.json">
+<link rel="icon" href="../img/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="lab.css?v=1">
+</head>
+<body>
+<p style="padding:40px;color:#fff;font-family:system-ui">Loading the Accountancy Lab…</p>
+<!-- sign-in is optional: with it, progress is saved to the student's own record (students/{uid}.lab) -->
+<script src="https://cdn.jsdelivr.net/npm/firebase@10.12.2/firebase-app-compat.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/firebase@10.12.2/firebase-auth-compat.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/firebase@10.12.2/firebase-firestore-compat.js" defer></script>
+<script src="../auth-config.js" defer></script>
+<script src="lab.js?v=1" defer></script>
+<script src="lab-fmt.js?v=1" defer></script>
+<script src="lab-play.js?v=1" defer></script>
+<script>
+  /* after the deferred engine files run, load the chapter named in ?ch= (default: admission), then start */
+  document.addEventListener("DOMContentLoaded", function(){
+    var id = (new URLSearchParams(location.search).get("ch") || "partnership").replace(/[^a-z0-9-]/g, "");
+    var s = document.createElement("script"); s.src = "data/" + id + ".js?v=1";
+    s.onload = s.onerror = function(){ NFLab.boot(); };
+    document.body.appendChild(s);
+  });
+</script>
+</body>
+</html>
