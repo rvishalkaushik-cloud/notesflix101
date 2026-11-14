@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08",
+ "built": "2026-11-14",
  "subjects": [
   {
    "slug": "ix-english",
@@ -13,9 +13,9 @@
    "slug": "ix-hindi",
    "cls": "IX",
    "subject": "Hindi (Ganga)",
-   "total": 254,
+   "total": 559,
    "freeCount": 127,
-   "chapters": 5
+   "chapters": 12
   },
   {
    "slug": "ix-science",
@@ -64,6 +64,14 @@
    "total": 492,
    "freeCount": 20,
    "chapters": 7
+  },
+  {
+   "slug": "xi-physics",
+   "cls": "XI",
+   "subject": "Physics",
+   "total": 662,
+   "freeCount": 20,
+   "chapters": 14
   },
   {
    "slug": "xii-acc",
