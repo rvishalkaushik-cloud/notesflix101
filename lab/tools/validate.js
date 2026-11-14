@@ -178,7 +178,35 @@ function dissolution(){
   eq(D.games.missing[4].ans, 30000 * .9, "Missing 5");
   const T = D.test.items; eq(T[8].parts[0].ans, (100000 + 29000 + 1000) - (30000 + 85000), "Test loss"); eq(T[9].parts[0].ans, 25000 * .96, "Test creditors"); eq(T[10].parts[0].ans, 40000 + 5000 + 3000 - 12000, "Test P");
 }
-const RECOMPUTE = {admission:admission, partnership:partnership, goodwill:goodwill, "change-psr":changePsr, retirement:retirement, dissolution:dissolution};
+/* ---------- Share Capital ---------- */
+function shares(){
+  const L = id => D.lab.find(x => x.id === id), S = id => D.solver.find(x => x.id === id).steps.map(s => s.ans);
+  const N = 50000, ravi = 1000;
+  eq(L("L1").format.entries[0].lines[2].cr, N * 2, "L1 premium"); eq(L("L1").format.entries[1].lines[0].dr, (N - ravi) * 5, "L1 allotment received"); eq(L("L1").format.entries[3].lines[0].dr, (N - ravi) * 4, "L1 call received");
+  const fe = L("L2").format.entries; eq(fe[0].lines[4].cr, ravi * 3, "L2 forfeited"); eq(fe[1].lines[1].dr, 600 * 2, "L2 discount"); eq(fe[2].lines[0].dr, 600 * 3 - 600 * 2, "L2 capital reserve");
+  eq(L("L3").format.left[2].amt, 400 * 3, "L3 balance");
+  eq(val(L("L4").format.rows[2][1]), (N - ravi + 600) * 10, "L4 fully paid"); eq(val(L("L4").format.rows[4][1]), (N - ravi + 600) * 10 + 1200, "L4 total");
+  const l5 = L("L5").format.entries; eq(l5[1].lines[2].cr, 25000 * 4 - 20000 * 4, "L5 excess"); eq(l5[3].lines[0].dr, 20000 * 6 - 20000, "L5 allotment received");
+  eq(S("s1")[3], 600 * 3 - 600 * 2, "s1"); eq(S("s2")[4], 800 * 6 - (4000 - 3200), "s2"); eq(S("s3")[2], 4000 * .12 * 2 / 12, "s3"); eq(S("s4")[1], 80000 - 2000, "s4");
+  const cs = D.cases[0].qs; eq(cs[1].ans, 120000 * 4 - 100000 * 4, "case excess"); eq(cs[2].ans, 2000 * (4 + 1), "case forfeit"); eq(cs[3].ans, 10000 - 2000, "case CR");
+  const pf = D.games.profit; eq(pf.final.ans, 400 * 3 - 400, "Forfeiture Tracker"); eq(pf.steps.reduce((a, s) => a + s.v, 0), 800, "tracker running");
+  const es = D.games.escape.locks; eq(es[3].ans, 800 * 7 - 800 * 4, "Escape 4");
+  const T = D.test.items; eq(T[9].parts[1].ans, 300 * 5 - 300 * 2, "Test CR"); eq(T[10].parts[1].ans, 1500000 - 6000 + 1500, "Test note");
+}
+/* ---------- Debentures ---------- */
+function debentures(){
+  const L = id => D.lab.find(x => x.id === id), S = id => D.solver.find(x => x.id === id).steps.map(s => s.ans);
+  const n = 10000, loss = n * 5 + n * 10;
+  eq(L("L1").format.entries[1].lines[1].dr, loss, "L1 loss"); eq(L("L2").format.entries[0].lines[1].dr, loss - 40000, "L2 P&L");
+  eq(L("L3").format.entries[1].lines[1].cr, 440000 / 110 * 100, "L3 debentures"); eq(L("L4").format.entries[0].lines[2].cr, 1000000 * .09 * .1, "L4 TDS");
+  eq(val(L("L5").format.rows[2][1]), loss, "L5 total"); eq(val(L("L5").format.rows[4][1]), loss - 40000, "L5 P&L");
+  eq(S("s1")[2], loss, "s1"); eq(S("s2")[1], 440000 / 110, "s2"); eq(S("s3")[2], 90000 * .9, "s3"); eq(S("s4")[1], 110000, "s4");
+  const cs = D.cases[0].qs; eq(cs[0].ans, 20000 * 106, "case cash"); eq(cs[2].ans, 315000 / 105, "case farmer"); eq(cs[3].ans, 2000000 * .08 * .9, "case interest"); eq(cs[4].ans, 200000 - (120000 + 15000), "case P&L");
+  const es = D.games.escape.locks; eq(es[0].ans, 5000 * 92, "Escape 1"); eq(es[1].ans, 5000 * 13, "Escape 2"); eq(es[2].ans, 330000 / 110, "Escape 3"); eq(es[3].ans, 6000, "Escape 4");
+  const T = D.test.items; eq(T[8].parts[1].ans, 4000 * 11 - 10000, "Test P&L"); eq(T[9].parts[0].ans, 264000 / 110, "Test vendor"); eq(T[10].parts[1].ans, 96000 * .9, "Test interest");
+  eq(D.games.profit.final.ans, D.games.profit.steps.reduce((a, s) => a + s.v, 0), "Loss Tracker");
+}
+const RECOMPUTE = {debentures:debentures, shares:shares, admission:admission, partnership:partnership, goodwill:goodwill, "change-psr":changePsr, retirement:retirement, dissolution:dissolution};
 /* ---------- Partnership Fundamentals ---------- */
 function partnership(){
   const L = id => D.lab.find(x => x.id === id), S = id => D.solver.find(x => x.id === id).steps.map(s => s.ans);

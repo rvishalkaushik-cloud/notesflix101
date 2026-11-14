@@ -16,8 +16,8 @@ var CHAPTERS = [
   {id:"admission", t:"Admission of a Partner", s:"live"},
   {id:"retirement", t:"Retirement and Death of a Partner", s:"live"},
   {id:"dissolution", t:"Dissolution of a Partnership Firm", s:"live"},
-  {id:"shares", t:"Accounting for Share Capital", s:"soon"},
-  {id:"debentures", t:"Issue of Debentures", s:"soon"}
+  {id:"shares", t:"Accounting for Share Capital", s:"live"},
+  {id:"debentures", t:"Issue of Debentures", s:"live"}
 ];
 /* accounts every chapter may use; a chapter's own acc list adds to these */
 function cap(x){ return {n: x + "'s Capital A/c", al:[x + " capital", "capital " + x, "capital of " + x, x + " cap", "capital a c of " + x]}; }
@@ -47,9 +47,9 @@ function gcd(a, b){ a = Math.abs(a); b = Math.abs(b); while(b){ var t = b; b = a
 /* numbers typed by students: "1,56,300", "₹ 6300", "−2,500", "(2,500)" */
 function parseNum(s){
   s = String(s == null ? "" : s).trim(); if(!s) return NaN;
-  var neg = /^[-−–]|^\(.*\)$/.test(s);
-  s = s.replace(/[^0-9.]/g, ""); if(!s) return NaN;
-  var n = parseFloat(s); return neg ? -n : n;
+  var neg = /^[-−–]|^\(.*\)$/.test(s), low = s.toLowerCase(), mult = /\b(lakhs?|lacs?)\b/.test(low) ? 100000 : /\bcrores?\b/.test(low) ? 10000000 : 1;
+  s = low.replace(/\b(rs|inr)\.?/g, "").replace(/[^0-9.]/g, "").replace(/^\.+/, ""); if(!s) return NaN;
+  var n = parseFloat(s) * mult; return neg ? -n : n;
 }
 function parseFrac(s){
   s = String(s || "").trim().replace(/\s+/g, ""); if(!s) return NaN;
@@ -84,10 +84,12 @@ function rupeeOr(a){ return Math.abs(a) >= 100 ? rupee(a) : String(a); }
 
 /* account names: "To A's Capital A/c (profit)" → "a capital" */
 function normAcc(s){
-  s = String(s || "").toLowerCase().replace(/[’`]/g, "'");
+  s = String(s || "").toLowerCase().replace(/[’`]/g, "'").replace(/&/g, " and ");
+  /* common short forms students write */
+  s = s.replace(/\bapprop(n)?\b\.?/g, "appropriation").replace(/\bprov\b\.?/g, "provision").replace(/\bdeb\b\.?/g, "debenture").replace(/\bint\b\.?/g, "interest").replace(/\bexps?\b\.?/g, "expenses");
   s = s.replace(/\([^)]*\)/g, " ").replace(/\ba\s*\/\s*cs?\b|\baccounts?\b/g, " ");
   s = s.replace(/'s\b/g, "").replace(/s'/g, "s").replace(/[^a-z0-9 ]+/g, " ").replace(/\s+/g, " ").trim();
-  s = s.replace(/^(to|by)\s+/, "").replace(/\b(dr|cr)\b\.?/g, " ").replace(/\s+/g, " ").trim();
+  s = s.replace(/\bp and l\b/g, "p l").replace(/^(to|by)\s+/, "").replace(/\b(dr|cr)\b\.?/g, " ").replace(/\s+/g, " ").trim();
   s = s.replace(/^(profit|loss|gain)\s+(on\s+revaluation\s+)?(transferred\s+)?to\s+/, "").replace(/^(less|add)\s+/, "");
   return s.trim();
 }
@@ -509,6 +511,24 @@ var PLAY = {
         var avg = (p[0] + p[1] + p[2]) / 3, wavg = (p[0] * 1 + p[1] * 2 + p[2] * 3) / 6, np = ce * nrr / 100, sp = avg - np;
         var k = [["Average profit", avg], ["Goodwill: average profit × " + yp, avg * yp], ["Weighted average (weights 1, 2, 3)", wavg], ["Goodwill: weighted average × " + yp, wavg * yp], ["Normal profit = " + nrr + "% of capital", np], ["Super profit = average − normal", sp], ["Goodwill: super profit × " + yp, sp * yp], ["Capitalisation of super profit", nrr ? sp * 100 / nrr : 0], ["Capitalisation of average profit", nrr ? avg * 100 / nrr - ce : 0]];
         return ['', '<div class="kpis">' + k.map(function(x){ return '<div><small>' + esc(x[0]) + '</small><b>₹' + inr(Math.round(x[1])) + '</b></div>'; }).join("") + '</div><p class="muted">Change any figure: every method recalculates. Notice that a negative super profit means no goodwill.</p>'];
+      }};
+  },
+  forfeit:function(V){
+    return {ctl:'<label>Face value (₹) ' + num("fv", V.fv, 60) + '</label><label>Amount paid per share before forfeiture (₹) ' + num("pd", V.paid, 60) + '</label><label>Shares forfeited ' + num("nf", V.n, 80) + '</label><label>Shares reissued ' + num("nr", V.re, 80) + '</label><label>Reissue price per share (₹, fully paid) ' + num("rp", V.price, 60) + '</label>',
+      draw:function(){
+        var fv = +$("#fv").value || 0, pd = +$("#pd").value || 0, nf = +$("#nf").value || 0, nr = Math.min(+$("#nr").value || 0, nf), rp = +$("#rp").value || 0;
+        var forf = pd * nf, onRe = pd * nr, disc = Math.max(0, fv - rp) * nr, ok = disc <= onRe, cr = ok ? onRe - disc : 0, left = forf - onRe;
+        return ['', '<div class="kpis"><div><small>Amount forfeited (Share Forfeiture A/c)</small><b>₹' + inr(forf) + '</b></div><div><small>Forfeited amount on reissued shares</small><b>₹' + inr(onRe) + '</b></div><div><small>Discount on reissue</small><b>₹' + inr(disc) + '</b></div><div><small>Transfer to Capital Reserve</small><b>₹' + inr(cr) + '</b></div><div><small>Balance left in Share Forfeiture</small><b>₹' + inr(left) + '</b></div></div>' +
+          (ok ? '<p class="muted">Discount on reissue can never exceed the amount forfeited on those shares. What is left on the reissued shares is a capital profit and goes to Capital Reserve; the forfeited amount on shares not yet reissued stays in Share Forfeiture A/c.</p>' : '<p class="fb bad">Not allowed: the discount (₹' + inr(disc) + ') is more than the amount forfeited on these shares (₹' + inr(onRe) + '). Raise the reissue price.</p>')];
+      }};
+  },
+  debenture:function(V){
+    return {ctl:'<label>Number of debentures ' + num("dn", V.n, 90) + '</label><label>Face value (₹) ' + num("dfv", V.fv, 70) + '</label><label>Issued at <select id="dk"><option value="d">discount</option><option value="p">premium</option><option value="par">par</option></select> of % ' + num("dip", V.issue, 55) + '</label><label>Redeemable at premium % ' + num("drp", V.red, 55) + '</label><label>Interest rate % ' + num("dir", V.rate, 55) + '</label>',
+      draw:function(){
+        var n = +$("#dn").value || 0, fv = +$("#dfv").value || 0, k = $("#dk").value, ip = k === "par" ? 0 : (+$("#dip").value || 0), rp = +$("#drp").value || 0, rt = +$("#dir").value || 0;
+        var price = k === "d" ? fv * (1 - ip / 100) : k === "p" ? fv * (1 + ip / 100) : fv, cash = price * n, nominal = fv * n;
+        var loss = (k === "d" ? nominal - cash : 0) + nominal * rp / 100, sp = k === "p" ? cash - nominal : 0;
+        return ['', '<div class="kpis"><div><small>Cash received</small><b>₹' + inr(cash) + '</b></div><div><small>Debentures A/c credited</small><b>₹' + inr(nominal) + '</b></div><div><small>Securities Premium</small><b>₹' + inr(sp) + '</b></div><div><small>Premium on redemption (liability)</small><b>₹' + inr(nominal * rp / 100) + '</b></div><div><small>Loss on issue</small><b>₹' + inr(loss) + '</b></div><div><small>Yearly interest (on face value)</small><b>₹' + inr(nominal * rt / 100) + '</b></div></div><p class="muted">Debentures are always credited at face value. Discount on issue and premium payable on redemption together make the Loss on Issue of Debentures; interest is always calculated on the face value, not on the issue price.</p>'];
       }};
   },
   realise:function(V){

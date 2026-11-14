@@ -358,3 +358,4 @@ table.acct.wrongent{min-width:0;margin:10px 0;border:2px solid #ff5d6c;border-ra
 .sc-i{display:flex;flex-direction:column;align-items:center;gap:2px}.sc-i span{font-size:46px;line-height:1.1}.sc-i b{font:700 12.5px var(--head);color:#16123a;background:#fff;border:2px solid #16123a22;border-radius:8px;padding:1px 7px}
 .anim .sc-i{animation:pop .55s calc(var(--i)*.18s) var(--ease) both}.scap{margin:10px 0 0;font:700 13.5px var(--head);color:#5b21b6}
 .work{background:#fff;color:var(--ink);border:2px solid #ff5d6c;border-radius:10px;padding:10px 12px 10px 34px;margin:10px 0;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px}.work li{margin:3px 0}
+.lbl .lx{display:none}.examstyle .lbl .lt{display:none}.examstyle .lbl .lx{display:inline}.exs{font-size:13px;color:var(--dim);margin-right:8px;cursor:pointer;white-space:nowrap}.exs input{accent-color:var(--acc);vertical-align:middle}

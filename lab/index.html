@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="lab.css?v=1">
+<link rel="stylesheet" href="lab.css?v=2">
 </head>
 <body>
 <p style="padding:40px;color:#fff;font-family:system-ui">Loading the Accountancy Lab…</p>
@@ -21,14 +21,14 @@
 <script src="https://cdn.jsdelivr.net/npm/firebase@10.12.2/firebase-auth-compat.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/firebase@10.12.2/firebase-firestore-compat.js" defer></script>
 <script src="../auth-config.js" defer></script>
-<script src="lab.js?v=1" defer></script>
-<script src="lab-fmt.js?v=1" defer></script>
-<script src="lab-play.js?v=1" defer></script>
+<script src="lab.js?v=2" defer></script>
+<script src="lab-fmt.js?v=2" defer></script>
+<script src="lab-play.js?v=2" defer></script>
 <script>
   /* after the deferred engine files run, load the chapter named in ?ch= (default: admission), then start */
   document.addEventListener("DOMContentLoaded", function(){
     var id = (new URLSearchParams(location.search).get("ch") || "partnership").replace(/[^a-z0-9-]/g, "");
-    var s = document.createElement("script"); s.src = "data/" + id + ".js?v=1";
+    var s = document.createElement("script"); s.src = "data/" + id + ".js?v=2";
     s.onload = s.onerror = function(){ NFLab.boot(); };
     document.body.appendChild(s);
   });

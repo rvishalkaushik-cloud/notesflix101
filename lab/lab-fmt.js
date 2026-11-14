@@ -18,7 +18,7 @@ function journalHTML(spec, mode, rows){
     for(var r = 0; r < rows; r++) h += '<tr class="jl"><td>' + inp("r" + r + "t", "dt") + '</td><td class="pc">' + inp("r" + r + "p", "pt", r === 0 ? "e.g. Cash A/c … Dr." : "") + '</td><td>' + inp("r" + r + "f", "lf") + '</td><td>' + inp("r" + r + "d", "amt") + '</td><td>' + inp("r" + r + "c", "amt") + '</td></tr>';
   } else {
     spec.entries.forEach(function(e, b){
-      if(e.label) h += '<tr class="lbl"><td colspan="5">(' + ROMAN[b] + ') ' + esc(e.label) + '</td></tr>';
+      if(e.label) h += '<tr class="lbl"><td colspan="5">(' + ROMAN[b] + ') <span class="lt">' + esc(e.label) + '</span><span class="lx">Entry ' + (b + 1) + '</span></td></tr>';
       var n = mode === "show" ? e.lines.length : e.lines.length + 1;
       for(var r = 0; r < n; r++){
         var L = mode === "show" ? e.lines[r] : null;
@@ -264,7 +264,7 @@ X.worksheet = function(box, spec, opt){
   var f = spec.format, K = KIND[f.type], p = P(), W = p.ws[spec.id] = p.ws[spec.id] || {}, revealed = 0, units = K.units(f), hintN = 0;
   box.innerHTML = '<div class="ws" data-ws="' + spec.id + '">' +
     (opt.compact ? '<p class="wq">' + spec.q + '</p>' :
-    '<div class="wh"><div><h3>' + esc(spec.id) + ' · ' + esc(spec.title) + '</h3><div class="chips">' + tagLabel(spec.tag) + '<span class="chip lv">' + esc(spec.level) + '</span><span class="chip">' + esc(D().concepts[spec.c].n) + '</span>' + (W.best != null ? '<span class="chip ok">Best ' + W.best + '%</span>' : '') + '</div></div><button class="btn sm ghost fsb">⛶ Full screen</button></div>' +
+    '<div class="wh"><div><h3>' + esc(spec.id) + ' · ' + esc(spec.title) + '</h3><div class="chips">' + tagLabel(spec.tag) + '<span class="chip lv">' + esc(spec.level) + '</span><span class="chip">' + esc(D().concepts[spec.c].n) + '</span>' + (W.best != null ? '<span class="chip ok">Best ' + W.best + '%</span>' : '') + '</div></div><div>' + (f.type === "journal" ? '<label class="exs" title="Hide the entry titles, as in the board exam"><input type="checkbox"' + (X.S().examStyle ? " checked" : "") + '> Exam style</label> ' : '') + '<button class="btn sm ghost fsb">⛶ Full screen</button></div></div>' +
     (spec.ref ? '<details class="wq refq"' + (opt.openRef ? ' open' : '') + '><summary>📄 Question ' + spec.ref + ' (tap to ' + 'show)</summary>' + D().lab.filter(function(l){ return l.id === spec.ref; })[0].q + '</details>' : '') +
     '<div class="wq">' + spec.q + '</div>') +
     '<p class="howto">Type account names and amounts. <kbd>Tab</kbd> or <kbd>Enter</kbd> moves to the next cell. Your work saves automatically.</p>' +
@@ -273,6 +273,8 @@ X.worksheet = function(box, spec, opt){
     '<div class="wres"></div><div class="wsol"></div></div>';
   var ws = $(".ws", box), sheet = $(".sheet", ws);
   enterNav(sheet); draftWire(sheet, spec.id, K.live);
+  ws.classList.toggle("examstyle", !!X.S().examStyle);
+  var exs = $(".exs input", ws); if(exs) exs.onchange = function(){ X.S().examStyle = exs.checked; ws.classList.toggle("examstyle", exs.checked); U.save(); };
   if($(".fsb", ws)) $(".fsb", ws).onclick = function(){ fsToggle(ws); };
   $(".clr", ws).onclick = function(){ W.draft = {}; U.save(); X.worksheet(box, spec, opt); };
   $(".hint", ws).onclick = function(){

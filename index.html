@@ -3611,14 +3611,20 @@ CHAPTERS.forEach(function(c){
     {id:"change-psr", n:"3", t:"Change in Profit Sharing Ratio", e:"🔄"},
     {id:"admission", n:"4", t:"Admission of a Partner", e:"🙋"},
     {id:"retirement", n:"5", t:"Retirement and Death of a Partner", e:"👋"},
-    {id:"dissolution", n:"6", t:"Dissolution of a Partnership Firm", e:"🏁"}
+    {id:"dissolution", n:"6", t:"Dissolution of a Partnership Firm", e:"🏁"},
+    {id:"shares", n:"7", t:"Accounting for Share Capital", e:"📜", g:"Company Accounts"},
+    {id:"debentures", n:"8", t:"Issue of Debentures", e:"📃", g:"Company Accounts"}
   ];
   function labRow(){
     var box = document.createElement("div");
     box.className = "lab-row";
-    box.innerHTML = '<div class="row-head"><h3 class="lab-h">🧾 Accountancy Lab · Partnership</h3><span class="note">Free · learn, solve in real formats, play, test</span></div>'
-      + '<div class="lab-grid">' + LAB_CHAPTERS.map(function(c){
-        return '<a class="lab-card" href="lab/?ch=' + c.id + '"><span class="lab-e">' + c.e + '</span><span class="lab-n">Chapter ' + c.n + '</span><b>' + c.t + '</b><small>' + labPct(c.id) + '</small></a>'; }).join("") + '</div>';
+    var groups = [];
+    LAB_CHAPTERS.forEach(function(c){ var g = c.g || "Partnership"; if(groups.indexOf(g) < 0) groups.push(g); });
+    box.innerHTML = groups.map(function(g, gi){
+      return '<div class="row-head"' + (gi ? ' style="margin-top:14px"' : '') + '><h3 class="lab-h">🧾 Accountancy Lab · ' + g + '</h3><span class="note">Free · learn, solve in real formats, play, test</span></div>'
+        + '<div class="lab-grid">' + LAB_CHAPTERS.filter(function(c){ return (c.g || "Partnership") === g; }).map(function(c){
+          return '<a class="lab-card" href="lab/?ch=' + c.id + '"><span class="lab-e">' + c.e + '</span><span class="lab-n">Chapter ' + c.n + '</span><b>' + c.t + '</b><small>' + labPct(c.id) + '</small></a>'; }).join("") + '</div>';
+    }).join("");
     return box;
   }
 

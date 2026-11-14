@@ -10,7 +10,7 @@ One reusable engine for every Accountancy chapter. Content is kept separate from
     lab/tools/validate.js   node lab/tools/validate.js  → recomputes every answer from the facts
     lab/tools/bundle.py     single-file preview for review
 
-Live chapters: partnership, goodwill, change-psr, admission, retirement, dissolution (sidebar list: CHAPTERS in lab.js).
+Live chapters: partnership, goodwill, change-psr, admission, retirement, dissolution, shares, debentures (sidebar list: CHAPTERS in lab.js).
 Home page: LAB map in index.html links acc-partnership and acc-goodwill; learn/xii-acc.html has an Accountancy Lab button (seo.js).
 
 Add a chapter: copy lab/data/admission.js, change the content, mark it s:"live" in CHAPTERS in lab.js, add a recompute function in tools/validate.js, run the validator. No engine change is needed.
