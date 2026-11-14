@@ -207,6 +207,11 @@ main{padding-block:clamp(26px,5vw,42px) 10px}
 .ch-actions{padding:16px 22px 4px;display:flex;flex-wrap:wrap;gap:10px}
 .btn-arena{background:linear-gradient(135deg,#ffd84d,#ff9f43);color:#1a103d;font-weight:800;text-decoration:none}
 .btn-arena:hover{filter:brightness(1.07)}
+.lab-row{margin-top:18px}.lab-h{margin:0;font-size:18px}
+.lab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px;margin-top:8px}
+.lab-card{display:flex;flex-direction:column;gap:4px;padding:14px;border-radius:14px;text-decoration:none;color:#fff;background:linear-gradient(135deg,#1d2470,#4b2bb8 70%,#6d3df2);border:1px solid rgba(255,255,255,.14);transition:transform .2s,box-shadow .2s}
+.lab-card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(109,61,242,.35)}
+.lab-e{font-size:28px}.lab-n{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#ffd84d;font-weight:800}.lab-card b{font-size:15px;line-height:1.3}.lab-card small{color:#c9c6f2;font-size:12px}
 .ep.arena{text-decoration:none;color:inherit;background:linear-gradient(90deg,rgba(143,107,255,.22),rgba(255,216,77,.08));border:1px solid rgba(255,216,77,.35);margin-top:6px}
 .ep.arena:hover{background:linear-gradient(90deg,rgba(143,107,255,.32),rgba(255,216,77,.14))}
 .ch-list-head{font-family:var(--display);font-size:22px;letter-spacing:.04em;margin:18px 0 0;padding:0 22px;color:var(--paper)}
@@ -2847,6 +2852,7 @@ CHAPTERS.forEach(function(c){
         grid.className = "chapters";
         items.forEach(function(c){ grid.appendChild(chapterCard(c)); shown++; });
         inner.appendChild(grid);
+        if(cl === "XII" && sub === "Accountancy") inner.appendChild(labRow());
 
         sec.appendChild(inner);
         host.appendChild(sec);
@@ -3596,6 +3602,24 @@ CHAPTERS.forEach(function(c){
     up.innerHTML = '<span class="nx-ui">' + nxIco("mega") + '</span><b>CBSE Updates</b><span class="nx-ut">Latest circulars, date sheets, sample papers and more</span><span class="nx-uv">View all →</span>';
     wrap.appendChild(up);
     return wrap;
+  }
+
+  /* ACCOUNTANCY LAB row under Class 12 Accountancy: every lab chapter, each opens lab/?ch=<id> */
+  var LAB_CHAPTERS = [
+    {id:"partnership", n:"1", t:"Partnership Fundamentals", e:"🤝"},
+    {id:"goodwill", n:"2", t:"Goodwill: Nature and Valuation", e:"⭐"},
+    {id:"change-psr", n:"3", t:"Change in Profit Sharing Ratio", e:"🔄"},
+    {id:"admission", n:"4", t:"Admission of a Partner", e:"🙋"},
+    {id:"retirement", n:"5", t:"Retirement and Death of a Partner", e:"👋"},
+    {id:"dissolution", n:"6", t:"Dissolution of a Partnership Firm", e:"🏁"}
+  ];
+  function labRow(){
+    var box = document.createElement("div");
+    box.className = "lab-row";
+    box.innerHTML = '<div class="row-head"><h3 class="lab-h">🧾 Accountancy Lab · Partnership</h3><span class="note">Free · learn, solve in real formats, play, test</span></div>'
+      + '<div class="lab-grid">' + LAB_CHAPTERS.map(function(c){
+        return '<a class="lab-card" href="lab/?ch=' + c.id + '"><span class="lab-e">' + c.e + '</span><span class="lab-n">Chapter ' + c.n + '</span><b>' + c.t + '</b><small>' + labPct(c.id) + '</small></a>'; }).join("") + '</div>';
+    return box;
   }
 
   /* ACCOUNTANCY LAB: home chapter id → lab/data/<lab id>.js. The lab's own sidebar opens its other chapters. */
