@@ -1,6 +1,6 @@
 # Notesflix 101: every chapter and part
 
-> Interactive CBSE notes for Classes 9 to 12 from Notesflix 101 (founder: Vishal Kaushik). Updated 2026-11-14. Parts marked (free) open without a password.
+> Interactive CBSE notes for Classes 9 to 12 from Notesflix 101 (founder: Vishal Kaushik). Updated 2026-11-15. Parts marked (free) open without a password.
 
 ## Class 9 English (Kaveri)
 
@@ -68,7 +68,7 @@ Irene Chua's letter from a mother to her daughter about passion, planning and th
 
 Page: https://notesflix101.com/learn/ix-hindi.html
 Syllabus: the new NCERT Hindi textbook Ganga (2026-27)
-Practice marathon: https://notesflix101.com/marathon.html?s=ix-hindi (254 questions)
+Practice marathon: https://notesflix101.com/marathon.html?s=ix-hindi (559 questions)
 
 ### दो बैलों की कथा
 
@@ -765,6 +765,7 @@ How markets set prices, and what price controls do.
 
 Page: https://notesflix101.com/learn/xi-physics.html
 Syllabus: the CBSE syllabus and NCERT textbook for Class 11
+Practice marathon: https://notesflix101.com/marathon.html?s=xi-physics (662 questions)
 
 ### Units and Measurements
 
@@ -861,7 +862,7 @@ Zeroth and first laws, thermodynamic processes, heat engines, refrigerators and 
 
 - Thermal equilibrium, internal energy and the first law (Part 1) (password) — Thermal equilibrium, internal energy and the first law. Explore the Zeroth Law Lab and the First-Law Piston, play Energy Accountant, watch the motion scene, and do the virtual activity: Joule's paddle-wheel, work into heat.
 - Isothermal, adiabatic, isobaric and isochoric processes (Part 2) (password) — Isothermal, adiabatic, isobaric and isochoric processes. Explore the P–V Process Explorer and the Twin Cylinders, play Process Detective, watch the motion scene, and do the virtual lab: Boyle's law (CBSE Experiment B3).
-- Heat engines, refrigerators and the second law (Part 3) (password) — Heat engines, refrigerators and the second law. Explore the Engine and Fridge Energy Flow and the Gas Box, play Patent Office, watch the motion scene, and do the virtual activity: how unlikely is "un-mixing"?. Ends with the Chapter 11 final test.
+- Heat engines, refrigerators and the second law (Part 3) (password) — Heat engines, refrigerators and the second law. Explore the Engine and Fridge Energy Flow and the Gas Box, play Patent Office, watch the motion scene, and do the virtual activity: how unlikely is "un-mixing"? Ends with the Chapter 11 final test.
 - NCERT Exercises Solved (password) — All 8 end-of-chapter NCERT exercises of Thermodynamics, solved step by step, with hints, an answer checker for numericals and redrawn figures.
 
 ### Kinetic Theory
@@ -1030,6 +1031,101 @@ Your rights as a buyer, the forums that enforce them, and how a case is actually
 - Consumer Protection — Part 1 (password) — Consumer rights, responsibilities and who can complain.
 - Consumer Protection — Part 2 (password) — Redressal machinery, consumer forums and how a complaint is filed.
 - Practice Lab (password) — MCQs, 3, 4 and 6-mark labs and case studies, with full-marks structure.
+
+## Class 12 Chemistry
+
+Page: https://notesflix101.com/learn/xii-chemistry.html
+Syllabus: the CBSE syllabus and NCERT textbook for Class 12
+
+### Solutions
+
+Concentration, Raoult’s law and colligative properties
+
+- Types of solutions, concentration and solubility (Part 1) (password) — Types of solutions, concentration and solubility. Explore the Concentration Mixer and the Henry’s Law Fizz Chamber, play Unit Juggler, watch the motion scene, and do the virtual lab: enthalpy of dissolution (CBSE practical C, thermochemistry).
+- Vapour pressure, Raoult’s law and non-ideal solutions (Part 2) (password) — Vapour pressure, Raoult’s law and non-ideal solutions. Explore the Raoult’s Law Plotter and the Escape Counter: why solutes lower vapour pressure, play Deviation Detective, watch the motion scene, and do the virtual lab: enthalpy of mixing acetone and chloroform (CBSE practical C).
+- Colligative properties and abnormal molar masses (Part 3) (password) — Colligative properties and abnormal molar masses. Explore the Colligative Calculator: boil, freeze, push and the Osmosis U-tube and reverse osmosis, play Colligative Clash, watch the motion scene, and do the virtual activity: molar mass by depression of freezing point. Ends with the Unit 1 final test.
+- NCERT Exercises Solved (password) — All 41 end-of-unit NCERT exercises of Solutions, solved step by step, with hints and an answer checker for numericals.
+
+### Electrochemistry
+
+Cells, Nernst equation, conductance and electrolysis
+
+- Galvanic cells, electrode potentials and the Nernst equation (Part 1) (password) — Galvanic cells, electrode potentials and the Nernst equation. Explore the Cell Builder and the Nernst Dial: Daniell cell, play Potential Showdown, watch the motion scene, and do the virtual lab: cell potential of the Daniell cell against concentration (CBSE practical D).
+- Conductance of electrolytic solutions (Part 2) (password) — Conductance of electrolytic solutions. Explore the Dilution Lab: κ and Λm and the Kohlrausch Tile Builder, play Conductance Quest, watch the motion scene, and do the virtual activity: dissociation constant of acetic acid by conductometry.
+- Electrolysis, batteries, fuel cells and corrosion (Part 3) (password) — Electrolysis, batteries, fuel cells and corrosion. Explore the Electrolysis Bench and the Battery Teardown, play Faraday Frenzy, watch the motion scene, and do the virtual activity: faraday’s first law with a copper coulometer. Ends with the Unit 2 final test.
+- NCERT Exercises Solved (password) — All 18 end-of-unit NCERT exercises of Electrochemistry, solved step by step, with hints and an answer checker for numericals.
+
+### Chemical Kinetics
+
+Rate laws, integrated equations, half-life and activation energy
+
+- Rate of reaction, rate law, order and molecularity (Part 1) (password) — Rate of reaction, rate law, order and molecularity. Explore the Rate Tracker: average vs instantaneous and the Order Finder: initial-rate experiments, play Order Up!, watch the motion scene, and do the virtual lab: effect of concentration on rate, sodium thiosulphate + HCl (CBSE practical B1).
+- Integrated rate equations and half-life (Part 2) (password) — Integrated rate equations and half-life. Explore the Order Grapher and the Carbon Dating Desk, play Half-life Hustle, watch the motion scene, and do the virtual activity: decomposition of H₂O₂ followed by KMnO₄ titration.
+- Temperature, activation energy and collision theory (Part 3) (password) — Temperature, activation energy and collision theory. Explore the Boltzmann Energy Spread and the Arrhenius Plotter, play Barrier Blitz, watch the motion scene, and do the virtual lab: effect of temperature on the reaction between Na₂S₂O₃ and HCl. Ends with the Unit 3 final test.
+- NCERT Exercises Solved (password) — All 30 end-of-unit NCERT exercises of Chemical Kinetics, solved step by step, with hints and an answer checker for numericals.
+
+### The d- and f-Block Elements
+
+Transition metals, KMnO₄, K₂Cr₂O₇, lanthanoids and actinoids
+
+- Transition elements: configuration and general properties (Part 1) (password) — Transition elements: configuration and general properties. Explore the Configuration Studio and the Trend Explorer: Sc to Zn, play Unpaired Rush, watch the motion scene, and do the virtual lab: identify the transition-metal cation (salt analysis).
+- Oxidation states, K₂Cr₂O₇ and KMnO₄ (Part 2) (password) — Oxidation states, K₂Cr₂O₇ and KMnO₄. Explore the Chromate–Dichromate pH Switch and the Oxidiser Bench, play Redox Rally, watch the motion scene, and do the virtual lab: molarity of KMnO₄ by titration.
+- Lanthanoids, actinoids and applications (Part 3) (password) — Lanthanoids, actinoids and applications. Explore the Contraction Tracker and the Oxidation-State Map, play f-Block Face-off, watch the motion scene, and do the virtual lab: preparation of Mohr’s salt. Ends with the Unit 4 final test.
+- NCERT Exercises Solved (password) — All 38 end-of-unit NCERT exercises of The d- and f-Block Elements, solved step by step, with hints and an answer checker for numericals.
+
+### Coordination Compounds
+
+Werner’s theory, IUPAC names, isomerism, VBT and CFT
+
+- Werner’s theory, key terms and IUPAC names (Part 1) (password) — Werner’s theory, key terms and IUPAC names. Explore the Werner’s Silver Test and the Complex Decoder, play Ligand Lineup, watch the motion scene, and do the virtual activity: how many chlorides are ionisable?.
+- Isomerism in coordination compounds (Part 2) (password) — Isomerism in coordination compounds. Explore the Isomer Viewer and the Structural Isomer Detective, play Isomer Count Clash, watch the motion scene, and do the virtual lab: separating two cations by paper chromatography.
+- Bonding, colour, magnetism and applications (Part 3) (password) — Bonding, colour, magnetism and applications. Explore the Crystal Field Splitter and the VBT Hybridiser, play Spin Showdown, watch the motion scene, and do the virtual lab: preparation of potassium ferric oxalate. Ends with the Unit 5 final test.
+- NCERT Exercises Solved (password) — All 31 end-of-unit NCERT exercises of Coordination Compounds, solved step by step, with hints and an answer checker for numericals.
+
+### Haloalkanes and Haloarenes
+
+Naming, SN1/SN2, elimination and haloarene reactions
+
+- Classification, naming, preparation and physical properties (Part 1) (password) — Classification, naming, preparation and physical properties. Explore the Halide Classifier and the Boiling Point Lab, play Reagent Rush, watch the motion scene, and do the virtual activity: which halogen is in the alkyl halide?.
+- Reactions of haloalkanes: SN1, SN2, elimination, metals (Part 2) (password) — Reactions of haloalkanes: SN1, SN2, elimination, metals. Explore the SN1 vs SN2 Arena and the Zaitsev Eliminator, play Mechanism Match, watch the motion scene, and do the virtual activity: which bromide reacts fastest by SN1?.
+- Haloarenes and polyhalogen compounds (Part 3) (password) — Haloarenes and polyhalogen compounds. Explore the Nitro Booster and the Polyhalogen Files, play Arene Arena, watch the motion scene, and do the virtual activity: the iodoform test. Ends with the Unit 6 final test.
+- NCERT Exercises Solved (password) — All 22 end-of-unit NCERT exercises of Haloalkanes and Haloarenes, solved step by step, with hints and an answer checker for numericals.
+
+### Alcohols, Phenols and Ethers
+
+Preparation, properties and reactions of C–O compounds
+
+- Classification, naming, preparation and physical properties (Part 1) (password) — Classification, naming, preparation and physical properties. Explore the Grignard Alcohol Builder and the Hydrogen Bond Showdown, play Alcohol Architect, watch the motion scene, and do the virtual lab: tests for the alcoholic group.
+- Reactions of alcohols and phenols (Part 2) (password) — Reactions of alcohols and phenols. Explore the Acidity Ladder and the Oxidation Station, play Phenol Frenzy, watch the motion scene, and do the virtual lab: tests for the phenolic group.
+- Ethers: preparation, properties and reactions (Part 3) (password) — Ethers: preparation, properties and reactions. Explore the Williamson Planner and the HI Cleaver, play Ether Express, watch the motion scene, and do the virtual activity: the Lucas test. Ends with the Unit 7 final test.
+- NCERT Exercises Solved (password) — All 33 end-of-unit NCERT exercises of Alcohols, Phenols and Ethers, solved step by step, with hints and an answer checker for numericals.
+
+### Aldehydes, Ketones and Carboxylic Acids
+
+Nucleophilic addition, named reactions and acidity
+
+- Aldehydes and ketones: naming, structure and preparation (Part 1) (password) — Aldehydes and ketones: naming, structure and preparation. Explore the Preparation Router and the Boiling Point Line-up, play Carbonyl Quest, watch the motion scene, and do the virtual lab: test for the carbonyl group (2,4-DNP).
+- Reactions of aldehydes and ketones (Part 2) (password) — Reactions of aldehydes and ketones. Explore the Reagent Station and the Aldol and Cannizzaro Mixer, play Carbonyl Clash, watch the motion scene, and do the virtual lab: tell aldehydes from ketones.
+- Carboxylic acids (Part 3) (password) — Carboxylic acids. Explore the Sour Scale and the Derivative Workshop, play Acid Arena, watch the motion scene, and do the virtual lab: tests for the carboxylic group. Ends with the Unit 8 final test.
+- NCERT Exercises Solved (password) — All 20 end-of-unit NCERT exercises of Aldehydes, Ketones and Carboxylic Acids, solved step by step, with hints and an answer checker for numericals.
+
+### Amines
+
+Basicity, reactions of amines and diazonium salts
+
+- Structure, naming, preparation and physical properties (Part 1) (password) — Structure, naming, preparation and physical properties. Explore the Amine Factory and the H-Bond Ladder, play Amine Arcade, watch the motion scene, and do the virtual activity: hinsberg test.
+- Basic character and chemical reactions (Part 2) (password) — Basic character and chemical reactions. Explore the Basicity Ladder and the Aniline Workshop, play Reaction Roulette, watch the motion scene, and do the virtual lab: preparation of acetanilide.
+- Diazonium salts (Part 3) (password) — Diazonium salts. Explore the Diazonium Switchboard and the Coupling Studio, play Diazo Dash, watch the motion scene, and do the virtual lab: 2-Naphthol aniline dye. Ends with the Unit 9 final test.
+- NCERT Exercises Solved (password) — All 14 end-of-unit NCERT exercises of Amines, solved step by step, with hints and an answer checker for numericals.
+
+### Biomolecules
+
+Carbohydrates, proteins, vitamins, nucleic acids and hormones
+
+- Carbohydrates (Part 1) (password) — Carbohydrates. Explore the Glucose Detective and the Sugar Linker, play Sugar Rush, watch the motion scene, and do the virtual lab: tests for carbohydrates.
+- Amino acids, proteins and enzymes (Part 2) (password) — Amino acids, proteins and enzymes. Explore the Zwitterion pH Meter and the Protein Origami, play Protein Power-up, watch the motion scene, and do the virtual lab: tests for proteins.
+- Vitamins, nucleic acids and hormones (Part 3) (password) — Vitamins, nucleic acids and hormones. Explore the Vitamin Clinic and the DNA Zipper, play Bio Blitz, watch the motion scene, and do the virtual lab: detecting nutrients in foodstuffs. Ends with the Unit 10 final test.
+- NCERT Exercises Solved (password) — All 25 end-of-unit NCERT exercises of Biomolecules, solved step by step, with hints and an answer checker for numericals.
 
 ## Class 12 Economics
 
