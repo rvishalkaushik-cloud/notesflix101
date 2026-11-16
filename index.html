@@ -849,6 +849,9 @@ body.nx-lock{overflow:hidden}
 .nx-mt span{color:var(--paper-dim);font:500 13px/1.4 var(--body)}
 .nx-mg{background:var(--red);color:#fff;font:800 14px var(--body);padding:9px 16px;border-radius:10px}
 #shelves > .nx-mara{margin-left:16px;margin-right:16px}
+.nx-mara.nx-test{background:linear-gradient(120deg,rgba(20,214,195,.2),rgba(184,71,255,.18));border-color:rgba(20,214,195,.5);box-shadow:0 0 30px -14px rgba(20,214,195,.9)}
+.nx-mara.nx-test:hover{box-shadow:0 0 40px -10px rgba(20,214,195,1)}
+.nx-mara.nx-test .nx-mg{background:#14d6c3;color:#05211e}
 .nf-hub{max-width:1180px;margin:30px auto 0;padding:0 16px;color:var(--paper)}
 .nf-hub h2{font:400 30px/1 var(--display);letter-spacing:.02em;margin:0 0 14px}
 .nf-hub .g{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin:0 0 26px}
@@ -2868,6 +2871,8 @@ CHAPTERS.forEach(function(c){
 
     if(activeSubject && !filter){
       host.appendChild(backBar());
+      var tb = testBanner(activeSubject, activeClass || pickedClass);
+      if(tb) host.appendChild(tb);
       var mb = marathonBanner(activeSubject, activeClass || pickedClass);
       if(mb) host.appendChild(mb);
       var svHero = subjectHero(activeSubject, activeClass);
@@ -3650,6 +3655,22 @@ CHAPTERS.forEach(function(c){
     for(var i = 0; i < MARATHONS.length; i++){ if(MARATHONS[i].subject === sub && (!cl || MARATHONS[i].cls === cl)) return MARATHONS[i]; }
     return null;
   }
+  /* ---------- Board Test Series: full timed papers in the board pattern, built into tests/ ---------- */
+  var TESTS = [];
+  fetch("tests/index.json", { cache:"no-cache" }).then(function(r){ return r.ok ? r.json() : null; }).then(function(d){
+    if(d && d.series){ TESTS = d.series; if(activeSubject && !filter) render(); }
+  }).catch(function(){});
+  function testBanner(sub, cl){
+    var t = null;
+    for(var i = 0; i < TESTS.length; i++){ if(TESTS[i].subject === sub && (!cl || TESTS[i].cls === cl)) { t = TESTS[i]; break; } }
+    if(!t) return null;
+    var a = document.createElement("a");
+    a.className = "nx-mara nx-test";
+    a.href = "tests.html?s=" + encodeURIComponent(t.slug);
+    a.innerHTML = '<span class="nx-mi">📝</span><span class="nx-mt"><b>Board Test Series · Class 12 ' + esc(sub) + '</b>'
+      + '<span>' + t.papers + ' full papers · ' + t.marks + ' marks · 3 hours, timed · instant result report</span></span><span class="nx-mg">Take a test →</span>';
+    return a;
+  }
   function marathonBanner(sub, cl){
     var m = marathonFor(sub, cl) || marathonFor(sub, "");
     if(!m) return null;
@@ -3678,6 +3699,11 @@ CHAPTERS.forEach(function(c){
     mr.href = "marathon.html";
     mr.innerHTML = '<span class="nx-mi">🏁</span><span class="nx-mt"><b>Practice Marathons</b><span>A weekly marathon for every subject, plus sprints, mega marathons and chapter practice</span></span><span class="nx-mg">Start →</span>';
     wrap.appendChild(mr);
+    var tr = document.createElement("a");
+    tr.className = "nx-mara nx-test";
+    tr.href = "tests.html?s=xii-bst";
+    tr.innerHTML = '<span class="nx-mi">📝</span><span class="nx-mt"><b>Board Test Series · Class 12 Business Studies</b><span>Full 80-mark papers, timed like the board exam, with a report on what to revise next</span></span><span class="nx-mg">Take a test →</span>';
+    wrap.appendChild(tr);
     var up = document.createElement("a");
     up.className = "nx-upd";
     up.href = "#updates";

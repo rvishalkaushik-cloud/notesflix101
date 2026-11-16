@@ -221,6 +221,7 @@ h2{font:800 22px/1.2 var(--body);margin:0 0 12px}
         + '<input id="pw" type="password" autocomplete="current-password" placeholder="Subject password" aria-label="Subject password">'
         + '<button class="btn" type="submit">Unlock</button><div class="msg" id="pwMsg"></div></form>';
     }
+    if(slug === "xii-bst") h += '<a class="card unlock" href="tests.html?s=xii-bst" style="text-decoration:none;border-color:rgba(20,214,195,.5);background:linear-gradient(120deg,rgba(20,214,195,.14),rgba(184,71,255,.12))"><p>📝 <b>Board Test Series:</b> full 80-mark papers, timed like the board exam, with a chapter-wise result report.</p><span class="btn" style="background:#14d6c3;color:#05211e">Take a test →</span></a>';
     h += '<h2>Choose a mode</h2><div class="modes">';
     Object.keys(MODES).forEach(function(k){
       var m = MODES[k], b = bestOf(k), n = k === "chap" ? "" : Math.min(m.n, avail);

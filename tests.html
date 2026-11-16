@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="en">
+<head><script async src="https://www.googletagmanager.com/gtag/js?id=G-GGM18EJQC8"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-GGM18EJQC8");</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Board Test Series | Notesflix 101</title>
+<meta name="description" content="Timed CBSE board-pattern practice papers with an instant result report: marks by chapter, time per section and what to revise next.">
+<meta name="theme-color" content="#0b0b0f">
+<link rel="canonical" href="https://notesflix101.com/tests.html">
+<link rel="icon" href="img/icon-192.png">
+<style>
+:root{--bg:#0b0b0f;--panel:#14141b;--panel2:#1b1b24;--line:rgba(255,255,255,.1);--ink:#f5f5f7;--dim:#a7a7b5;--red:#e50914;--green:#22c55e;--amber:#f5b301;--violet:#b847ff;--teal:#14d6c3;
+  --body:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Devanagari",sans-serif}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:500 16px/1.55 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+.top{position:sticky;top:0;z-index:30;background:rgba(11,11,15,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .in{max-width:1180px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.logo{font:800 22px/1 var(--body);letter-spacing:.02em;text-decoration:none;color:var(--red)}
+.logo span{color:#fff}
+.sp{flex:1}
+.back{color:var(--dim);text-decoration:none;font:700 13px var(--body);border:1px solid var(--line);border-radius:999px;padding:7px 12px;background:none}
+.back:hover{color:#fff;border-color:rgba(255,255,255,.3)}
+main{max-width:1180px;margin:0 auto;padding:22px 16px 70px}
+.kick{font:800 12px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+h1{font:800 34px/1.05 var(--body);margin:6px 0 8px;letter-spacing:-.02em}
+h2{font:800 22px/1.2 var(--body);margin:0 0 12px}
+h3{font:800 17px/1.3 var(--body);margin:0 0 8px}
+.lead{color:var(--dim);margin:0 0 18px;max-width:700px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}
+.chip{border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:6px 12px;font:700 13px var(--body);color:var(--dim)}
+.chip b{color:#fff}.chip.ok{border-color:rgba(34,197,94,.5);color:#bff3cf}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px}
+.unlock{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:0 0 22px;background:linear-gradient(120deg,rgba(229,9,20,.14),rgba(184,71,255,.12));border-color:rgba(229,9,20,.35)}
+.unlock p{margin:0;flex:1 1 260px;color:#e9e9ee;font-size:14px}
+input[type=password],input[type=text]{flex:1 1 180px;min-width:0;background:#0b0b0f;border:1px solid var(--line);border-radius:10px;color:#fff;font:600 16px var(--body);padding:11px 12px}
+.btn{border:0;border-radius:10px;padding:11px 18px;font:800 15px var(--body);background:var(--red);color:#fff;box-shadow:0 8px 22px -8px rgba(229,9,20,.7);transition:transform .15s ease,filter .15s ease;text-decoration:none;display:inline-block}
+.btn:hover{filter:brightness(1.1)}.btn:active{transform:scale(.97)}
+.btn.ghost{background:transparent;border:1px solid var(--line);box-shadow:none}
+.btn.small{padding:8px 12px;font-size:13px}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.msg{width:100%;font:600 13px var(--body);color:#ffb4b4}
+.note{color:var(--dim);font-size:13px}
+.hide{display:none !important}
+.empty{color:var(--dim)}
+/* papers */
+.papers{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px;margin:0 0 24px}
+.paper{display:flex;flex-direction:column;gap:10px;position:relative}
+.paper .pt{display:flex;align-items:center;gap:10px}
+.paper .num{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font:800 20px var(--body);background:linear-gradient(135deg,var(--red),var(--violet));flex:0 0 46px}
+.paper.locked .num{background:var(--panel2);color:var(--dim)}
+.paper .best{font:700 13px var(--body);color:var(--amber)}
+.paper .acts{display:flex;gap:8px;flex-wrap:wrap}
+.tag{display:inline-block;font:800 10px var(--body);letter-spacing:.1em;padding:3px 7px;border-radius:5px;background:var(--green);color:#04210f;vertical-align:middle;margin-left:6px}
+.tag.lock{background:var(--panel2);color:var(--dim)}
+.resume{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:0 0 20px;border-color:rgba(245,179,1,.5);background:rgba(245,179,1,.08)}
+.resume p{margin:0;flex:1 1 260px}
+table.t{width:100%;border-collapse:collapse;font-size:14px}
+table.t td,table.t th{padding:8px 6px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+table.t th{color:var(--dim);font:700 12px var(--body);text-transform:uppercase;letter-spacing:.06em}
+table.t td.n,table.t th.n{text-align:right}
+.tw{overflow-x:auto}
+/* instructions */
+.instr ol{margin:0 0 14px;padding-left:20px}.instr li{margin:0 0 6px}
+.opt-row{display:flex;gap:10px;align-items:center;margin:14px 0;font:600 14px var(--body)}
+.opt-row input{width:18px;height:18px;accent-color:var(--teal)}
+/* exam */
+.xbar{position:sticky;top:57px;z-index:20;background:rgba(11,11,15,.95);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);margin:-22px -16px 16px;padding:10px 16px;border-bottom:1px solid var(--line)}
+.xbar .r{display:flex;align-items:center;gap:10px;flex-wrap:wrap;max-width:1180px;margin:0 auto}
+.pill{background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:6px 12px;font:800 14px var(--body);white-space:nowrap;font-variant-numeric:tabular-nums}
+.pill.warn{color:#000;background:var(--amber);border-color:var(--amber)}
+.pill.low{color:#fff;background:var(--red);border-color:var(--red);animation:pulse 1s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.6}}
+.xwrap{display:grid;grid-template-columns:1fr 290px;gap:18px;align-items:start}
+.qpane{min-width:0}
+.qhead{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:var(--dim);font:700 12px var(--body);letter-spacing:.06em;text-transform:uppercase;margin:0 0 10px}
+.qhead .mk{color:var(--amber)}
+.passage{background:var(--panel2);border-left:4px solid var(--teal);border-radius:10px;padding:12px 14px;margin:0 0 14px;font-size:15px}
+.passage p{margin:0 0 8px}.passage p:last-child{margin:0}
+.qtext{font:700 20px/1.4 var(--body);margin:0 0 16px}
+.reason{font:600 16px/1.45 var(--body);margin:-6px 0 16px;color:#dcdce6}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{display:flex;gap:12px;align-items:flex-start;text-align:left;width:100%;background:var(--panel);border:2px solid var(--line);border-radius:14px;padding:13px;font:600 15px/1.4 var(--body);transition:border-color .15s ease,background .15s ease}
+.opt:hover{border-color:rgba(255,255,255,.35)}
+.opt .k{flex:0 0 28px;height:28px;border-radius:8px;display:grid;place-items:center;background:rgba(255,255,255,.08);font:800 13px var(--body)}
+.opt.sel{border-color:var(--teal);background:rgba(20,214,195,.1)}.opt.sel .k{background:var(--teal);color:#05211e}
+textarea{width:100%;min-height:220px;resize:vertical;background:#0b0b0f;border:1px solid var(--line);border-radius:12px;color:#fff;font:500 16px/1.55 var(--body);padding:12px}
+textarea:focus,input:focus{outline:2px solid var(--teal);outline-offset:1px}
+.wc{display:flex;justify-content:space-between;color:var(--dim);font:600 13px var(--body);margin:6px 0 0}
+.qnav{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin:18px 0 0}
+.qnav .mid{display:flex;gap:8px;flex-wrap:wrap}
+.btn.rev.on{background:var(--violet);border-color:var(--violet);box-shadow:none}
+.pal{position:sticky;top:120px}
+.pal h3{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+.pal .sec{font:700 12px var(--body);color:var(--dim);margin:10px 0 6px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(38px,1fr));gap:6px}
+.pn{height:38px;border-radius:9px;border:1px solid var(--line);background:var(--panel2);font:800 13px var(--body);position:relative}
+.pn.vis{background:rgba(229,9,20,.18);border-color:rgba(229,9,20,.5)}
+.pn.ans{background:var(--green);border-color:var(--green);color:#04210f}
+.pn.rev{box-shadow:inset 0 0 0 3px var(--violet)}
+.pn.cur{outline:2px solid #fff;outline-offset:1px}
+.legend{display:flex;flex-wrap:wrap;gap:8px 12px;margin:12px 0 0;font:600 12px var(--body);color:var(--dim)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:4px;border:1px solid var(--line);background:var(--panel2)}
+.legend .a{background:var(--green)}.legend .v{background:rgba(229,9,20,.4)}.legend .r{box-shadow:inset 0 0 0 2px var(--violet)}
+.palbtn{display:none}
+.modal{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.7);display:grid;place-items:center;padding:16px}
+.modal .card{max-width:480px;width:100%}
+.modal .acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+/* marking */
+.mk-q{margin:0 0 18px}
+.yours{background:#0b0b0f;border:1px solid var(--line);border-radius:10px;padding:10px 12px;white-space:pre-wrap;font-size:15px;margin:8px 0 12px}
+.yours.blank{color:var(--dim);font-style:italic}
+.pts{display:flex;flex-direction:column;gap:8px;margin:0 0 10px}
+.pt-row{display:flex;gap:10px;align-items:flex-start;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer}
+.pt-row input{width:20px;height:20px;accent-color:var(--green);flex:0 0 20px;margin-top:2px}
+.pt-row .pm{margin-left:auto;font:800 12px var(--body);color:var(--amber);white-space:nowrap}
+.found{font:700 11px var(--body);color:#9ff0bb;background:rgba(34,197,94,.12);border-radius:5px;padding:1px 6px;margin-left:6px;white-space:nowrap}
+details.model{margin:6px 0 0}
+details.model summary{cursor:pointer;font:700 14px var(--body);color:var(--teal)}
+details.model .mb{margin-top:8px;font-size:15px}
+.mk-sum{font:800 14px var(--body);color:var(--amber)}
+/* report */
+.score{display:flex;gap:20px;align-items:center;flex-wrap:wrap;margin:0 0 18px}
+.ring{--p:0;width:140px;height:140px;border-radius:50%;background:conic-gradient(var(--c,var(--green)) calc(var(--p)*1%),var(--panel2) 0);display:grid;place-items:center;flex:0 0 140px}
+.ring div{width:112px;height:112px;border-radius:50%;background:var(--bg);display:grid;place-items:center;text-align:center;font:800 28px/1.1 var(--body)}
+.ring small{display:block;font:700 12px var(--body);color:var(--dim)}
+.score h2{margin:0 0 4px;font-size:26px}.score p{margin:0;color:var(--dim)}
+.delta{font:800 13px var(--body);border-radius:999px;padding:3px 10px;display:inline-block;margin-top:8px}
+.delta.up{background:rgba(34,197,94,.15);color:#9ff0bb}.delta.down{background:rgba(229,9,20,.15);color:#ffb4b4}
+.xp{display:inline-block;margin:8px 0 0 6px;background:rgba(245,179,1,.15);border:1px solid rgba(245,179,1,.4);color:#ffd866;border-radius:999px;padding:3px 10px;font:800 13px var(--body)}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px;margin:0 0 16px}
+.bars{display:flex;flex-direction:column;gap:10px}
+.bar{display:grid;grid-template-columns:1fr auto;gap:4px 10px;font:600 14px var(--body)}
+.bar .tr{grid-column:1/-1;height:8px;background:var(--panel2);border-radius:999px;overflow:hidden}
+.bar .tr i{display:block;height:100%}
+.bar small{color:var(--dim)}
+.rev-list{display:flex;flex-direction:column;gap:10px}
+.rq{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--dim);border-radius:12px;padding:12px 14px;font-size:14px}
+.rq.full{border-left-color:var(--green)}.rq.part{border-left-color:var(--amber)}.rq.zero{border-left-color:var(--red)}
+.rq .h{display:flex;justify-content:space-between;gap:10px;font:800 13px var(--body);color:var(--dim);margin:0 0 6px}
+.rq .y{color:#ff9b9b}.rq .c{color:#9ff0bb}.rq .x{color:var(--dim);margin-top:4px}
+.focus{display:flex;flex-direction:column;gap:10px}
+.fitem{display:flex;gap:12px;align-items:center;flex-wrap:wrap;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:12px}
+.fitem b{flex:1 1 200px}
+.acts{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.disclaim{color:var(--dim);font-size:12px;margin-top:26px}
+/* print view */
+.print-paper{background:#fff;color:#000;padding:24px;border-radius:8px;font:400 14px/1.5 Georgia,"Times New Roman",serif}
+.print-paper h1{font:700 20px/1.2 Georgia,serif;text-align:center;margin:0 0 4px;color:#000}
+.print-paper .ph{text-align:center;margin:0 0 4px}
+.print-paper .pq{display:grid;grid-template-columns:34px 1fr 36px;gap:6px;margin:0 0 12px;break-inside:avoid}
+.print-paper .pq .pm{text-align:right;font-weight:700}
+.print-paper .po{margin:4px 0 0 0;padding-left:0;list-style:none}
+.print-paper .psec{font:700 15px Georgia,serif;margin:16px 0 8px;border-bottom:1px solid #000}
+.print-paper .ans{margin:6px 0 0;padding:6px 8px;border-left:3px solid #777;background:#f3f3f3}
+.print-paper .passage{background:#f5f5f5;border-left:3px solid #555;color:#000}
+@media (max-width:900px){
+  .xwrap{grid-template-columns:1fr}
+  .pal{position:fixed;inset:auto 0 0 0;top:auto;z-index:40;max-height:70vh;overflow:auto;border-radius:16px 16px 0 0;transform:translateY(100%);transition:transform .25s ease}
+  .pal.open{transform:none;box-shadow:0 -20px 60px rgba(0,0,0,.6)}
+  .palbtn{display:inline-block}
+}
+@media (max-width:560px){h1{font-size:28px}.qtext{font-size:18px}.xbar{top:55px}}
+@media print{
+  body{background:#fff}
+  .top,.noprint,.xbar{display:none !important}
+  main{padding:0;max-width:none}
+  .print-paper{padding:0}
+  .card,.rq,.bar .tr{border-color:#bbb !important;background:#fff !important;color:#000 !important}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important}}
+</style>
+</head>
+<body>
+<header class="top"><div class="in">
+  <a class="logo" href="index.html">NOTESFLIX <span>101</span></a>
+  <div class="sp"></div>
+  <a class="back" id="backLink" href="index.html">← Back to notes</a>
+</div></header>
+<main id="app" aria-live="polite"></main>
+
+<script>
+(function(){
+  "use strict";
+  var app = document.getElementById("app");
+  var params = new URLSearchParams(location.search);
+  var slug = (params.get("s") || "xii-bst").toLowerCase().replace(/[^a-z0-9-]/g, "");
+  var CLS = { IX:"Class 9", X:"Class 10", XI:"Class 11", XII:"Class 12" };
+  var MODES = {
+    full:{ name:"Full paper", part:null, mins:180, sub:"34 questions · 80 marks · 3 hours" },
+    A:{ name:"Part A only", part:"A", mins:110, sub:"Chapters 1–8 · 50 marks · 1 h 50 min" },
+    B:{ name:"Part B only", part:"B", mins:70, sub:"Chapters 9–12 · 30 marks · 1 h 10 min" }
+  };
+  // suggested pace in minutes per question, by marks (leaves about 15 minutes to revise in a 3-hour paper)
+  var PACE = { 1:1.5, 3:5, 4:7, 6:11 };
+  var STORE = "notesflix101.tests", RUNKEY = "notesflix101.tests.run", PKEY = "notesflix101.progress";
+  function passKey(){ return "notesflix101.mpass." + slug; }       // shared with the Practice Marathon of the same subject
+  function esc(t){ return String(t == null ? "" : t).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+  function load(k, d){ try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch(e){ return d; } }
+  function save(k, v){ try { if(v == null) localStorage.removeItem(k); else localStorage.setItem(k, JSON.stringify(v)); } catch(e){} }
+  function getRaw(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }
+  function setRaw(k, v){ try { if(v == null) localStorage.removeItem(k); else localStorage.setItem(k, v); } catch(e){} }
+  function today(){ return new Date().toLocaleDateString("en-CA", { timeZone:"Asia/Kolkata" }); }
+  function hms(s){ s = Math.max(0, Math.round(s)); var h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), x = s % 60; return (h ? h + ":" + ("0" + m).slice(-2) : m) + ":" + ("0" + x).slice(-2); }
+  function mins(s){ var m = Math.round(s / 60); return m < 60 ? m + " min" : Math.floor(m / 60) + " h " + (m % 60) + " min"; }
+  function words(t){ t = (t || "").trim(); return t ? t.split(/\s+/).length : 0; }
+  function track(name, data){ try { if(window.gtag) gtag("event", name, data || {}); } catch(e){} }
+  function chTitle(id){ var c = META.chapters[id]; return c ? "Ch " + c.num + " · " + c.title : id; }
+  function secOf(m){ return m === 1 ? "1-mark questions" : m + "-mark questions"; }
+
+  var META = null, PAPERS = [], FULL = false, RUN = null, timer = null;
+
+  /* ---------- data ---------- */
+  function unlockWith(pw){
+    return fetch("tests/" + slug + ".full.json", { cache:"no-cache" }).then(function(r){ return r.json(); }).then(function(P){
+      var b = function(s){ return Uint8Array.from(atob(s), function(c){ return c.charCodeAt(0); }); };
+      return crypto.subtle.importKey("raw", new TextEncoder().encode(pw), "PBKDF2", false, ["deriveKey"]).then(function(base){
+        return crypto.subtle.deriveKey({ name:"PBKDF2", salt:b(P.s), iterations:P.it || 250000, hash:"SHA-256" }, base, { name:"AES-GCM", length:256 }, false, ["decrypt"]);
+      }).then(function(key){ return crypto.subtle.decrypt({ name:"AES-GCM", iv:b(P.i) }, key, b(P.c)); })
+        .then(function(buf){ return JSON.parse(new TextDecoder().decode(buf)); });
+    });
+  }
+  function boot(){
+    app.innerHTML = '<p class="empty">Loading test series…</p>';
+    fetch("tests/" + slug + ".free.json", { cache:"no-cache" }).then(function(r){ if(!r.ok) throw 0; return r.json(); }).then(function(d){
+      META = d; PAPERS = d.papers; FULL = false;
+      document.title = "Board Test Series · " + CLS[d.cls] + " " + d.subject + " | Notesflix 101";
+      var pw = getRaw(passKey());
+      if(pw) return unlockWith(pw).then(function(p){ PAPERS = p; FULL = true; }).catch(function(){});
+    }).then(function(){ if(META) route(); }).catch(function(){
+      app.innerHTML = '<p class="empty">This test series was not found. <a href="index.html">Back to notes</a>.</p>';
+    });
+  }
+  function paperById(id){ for(var i = 0; i < PAPERS.length; i++) if(PAPERS[i].id === id) return PAPERS[i]; return null; }
+  function hist(){ var s = load(STORE, {}); return (s[slug] && s[slug].attempts) || []; }
+  function addHist(a){ var s = load(STORE, {}); s[slug] = s[slug] || { attempts:[] }; s[slug].attempts.push(a); if(s[slug].attempts.length > 60) s[slug].attempts.shift(); save(STORE, s); }
+  function route(){
+    var r = load(RUNKEY, null);
+    if(r && r.slug === slug && r.done && !r.reported){ RUN = r; marking(); return; }
+    if(r && r.slug === slug && !r.done && r.limit && (Date.now() - r.t0) / 1000 >= r.limit && paperById(r.paper)){ RUN = r; submit(true); return; }
+    home();
+  }
+
+  /* ---------- home: papers ---------- */
+  function home(){
+    stopTimer(); window.scrollTo(0, 0);
+    document.getElementById("backLink").textContent = "← Back to notes";
+    var H = hist(), run = load(RUNKEY, null);
+    var h = '<div class="kick">' + esc(CLS[META.cls]) + ' · ' + esc(META.subject) + ' (' + esc(META.code) + ')</div><h1>Board Test Series</h1>'
+      + '<p class="lead">Full papers in the CBSE board pattern, timed like the real exam. Multiple-choice questions are marked for you; for written answers you check yours against the marking points. Then you get a report: marks by chapter, time per section and what to revise next.</p>'
+      + '<div class="chips"><span class="chip"><b>34</b> questions</span><span class="chip"><b>80</b> marks</span><span class="chip"><b>3</b> hours</span><span class="chip">CBSE 2026-27 pattern</span>'
+      + (FULL ? '<span class="chip ok">✓ All ' + META.paperList.length + ' papers unlocked</span>' : '<span class="chip">Paper 1 is free</span>') + '</div>';
+    if(run && run.slug === slug && !run.done){
+      var p = paperById(run.paper);
+      if(p){ var left = run.limit ? Math.max(0, run.limit - (Date.now() - run.t0) / 1000) : null;
+        h += '<div class="card resume noprint"><p>⏸️ <b>' + esc(p.title) + ' · ' + esc(MODES[run.mode].name) + '</b> is in progress' + (left != null ? ' · ' + hms(left) + ' left on the clock' : '') + '.</p>'
+          + '<button class="btn" id="resumeB" type="button">Resume</button><button class="btn ghost" id="dropB" type="button">Discard</button></div>'; }
+    }
+    if(!FULL){
+      h += '<form class="card unlock noprint" id="unlockF"><p>🔒 Unlock all <b>' + META.paperList.length + '</b> papers with the same password you use for ' + esc(META.subject) + ' notes.</p>'
+        + '<input type="password" id="pw" autocomplete="current-password" placeholder="Password" aria-label="Password"><button class="btn" type="submit">Unlock</button><div class="msg" id="pwMsg"></div></form>';
+    }
+    h += '<div class="papers">';
+    META.paperList.forEach(function(pl){
+      var open = FULL || pl.free, mine = H.filter(function(a){ return a.paper === pl.id && a.mode === "full"; });
+      var best = mine.length ? Math.max.apply(null, mine.map(function(a){ return a.score; })) : null;
+      h += '<div class="card paper' + (open ? '' : ' locked') + '"><div class="pt"><span class="num">' + pl.id + '</span><div><b>' + esc(pl.title) + '</b>'
+        + (pl.free ? '<span class="tag">FREE</span>' : (open ? '' : '<span class="tag lock">LOCKED</span>')) + '<div class="note">' + (H.filter(function(a){ return a.paper === pl.id; }).length) + ' attempt(s)</div></div></div>'
+        + (best != null ? '<div class="best">Best: ' + best + ' / 80</div>' : '')
+        + '<div class="acts">' + (open
+          ? '<button class="btn small" data-go="' + pl.id + '" data-mode="full" type="button">Full paper</button><button class="btn small ghost" data-go="' + pl.id + '" data-mode="A" type="button">Part A</button><button class="btn small ghost" data-go="' + pl.id + '" data-mode="B" type="button">Part B</button><button class="btn small ghost" data-print="' + pl.id + '" type="button">🖨 Print</button>'
+          : '<span class="note">Unlock to attempt this paper.</span>') + '</div></div>';
+    });
+    h += '</div>';
+    if(H.length){
+      h += '<div class="card"><h2>Your attempts</h2><div class="tw"><table class="t"><thead><tr><th>Date</th><th>Paper</th><th>Mode</th><th class="n">Marks</th><th class="n">%</th><th class="n">Time</th></tr></thead><tbody>';
+      H.slice().reverse().slice(0, 15).forEach(function(a){
+        h += '<tr><td>' + esc(a.date) + '</td><td>Paper ' + a.paper + '</td><td>' + esc(MODES[a.mode].name) + '</td><td class="n">' + a.score + ' / ' + a.max + '</td><td class="n">' + Math.round(a.score / a.max * 100) + '%</td><td class="n">' + mins(a.secs) + '</td></tr>';
+      });
+      h += '</tbody></table></div><p class="note">Attempts are saved on this device only.</p></div>';
+    }
+    h += '<p class="disclaim">These are practice papers written by Notesflix 101 in the CBSE board pattern (unit marks and question types as per the 2026-27 curriculum). They are not official CBSE papers. For exam answers, also check your NCERT textbook and your teacher.</p>';
+    app.innerHTML = h;
+    var f = document.getElementById("unlockF");
+    if(f) f.addEventListener("submit", function(e){
+      e.preventDefault(); var pw = document.getElementById("pw").value.trim(), msg = document.getElementById("pwMsg");
+      if(!pw) return; msg.textContent = "Checking…";
+      unlockWith(pw).then(function(p){ PAPERS = p; FULL = true; setRaw(passKey(), pw); track("tests_unlock", { series:slug }); home(); })
+        .catch(function(){ msg.textContent = "That password did not work. Check it and try again."; });
+    });
+    app.querySelectorAll("[data-go]").forEach(function(b){ b.addEventListener("click", function(){ instructions(+b.dataset.go, b.dataset.mode); }); });
+    app.querySelectorAll("[data-print]").forEach(function(b){ b.addEventListener("click", function(){ printView(+b.dataset.print, false); }); });
+    var rb = document.getElementById("resumeB"); if(rb) rb.addEventListener("click", function(){ RUN = run; exam(); });
+    var db = document.getElementById("dropB"); if(db) db.addEventListener("click", function(){ if(window.confirm("Discard this attempt? Your answers will be lost.")){ save(RUNKEY, null); home(); } });
+  }
+
+  function qsFor(paper, mode){ var part = MODES[mode].part; return paper.qs.filter(function(q){ return !part || q.part === part; }); }
+  function blocks(qs){ var b = {}; qs.forEach(function(q, i){ (b[q.m] = b[q.m] || []).push(i + 1); }); return b; }
+
+  /* ---------- instructions ---------- */
+  function instructions(pid, mode){
+    var p = paperById(pid); if(!p) return home();
+    var qs = qsFor(p, mode), max = qs.reduce(function(s, q){ return s + q.m; }, 0), B = blocks(qs), M = MODES[mode];
+    var run = load(RUNKEY, null);
+    window.scrollTo(0, 0);
+    var h = '<div class="kick">' + esc(META.subject) + ' · ' + esc(p.title) + '</div><h1>' + esc(M.name) + '</h1>'
+      + '<div class="chips"><span class="chip"><b>' + qs.length + '</b> questions</span><span class="chip"><b>' + max + '</b> marks</span><span class="chip"><b>' + mins(M.mins * 60) + '</b></span></div>'
+      + '<div class="card instr"><h2>General instructions</h2><ol>'
+      + '<li>This paper has ' + qs.length + ' questions. Marks are shown with each question.</li>';
+    Object.keys(B).forEach(function(m){ var a = B[m]; h += '<li>Questions ' + a[0] + ' to ' + a[a.length - 1] + ' carry ' + m + ' mark' + (m > 1 ? 's' : '') + ' each' + (m == 1 ? ' (multiple choice, assertion-reason and case-based)' : m == 3 ? '; answers about 60 to 80 words' : m == 4 ? '; answers about 150 words' : '; answers about 200 words') + '.</li>'; });
+    h += '<li>Answer in your own words in the boxes. Your answers are saved on this device as you type, so you can close the page and resume.</li>'
+      + '<li>The clock keeps running even if you leave the page, as in the real exam. When time is up, the paper is submitted for you.</li>'
+      + '<li>After you submit, multiple-choice questions are marked for you. For written answers, you tick the marking points your answer covers. Be honest: the report is only useful if the marks are real.</li></ol>'
+      + '<label class="opt-row"><input type="checkbox" id="noTimer"> Practise without the timer (time is still recorded)</label>'
+      + (run && !run.done ? '<p class="msg">Another attempt is in progress. Starting this one will discard it.</p>' : '')
+      + '<div class="acts"><button class="btn" id="startB" type="button">Start the paper</button><button class="btn ghost" id="cancelB" type="button">Back</button></div></div>';
+    app.innerHTML = h;
+    document.getElementById("cancelB").addEventListener("click", home);
+    document.getElementById("startB").addEventListener("click", function(){
+      var noT = document.getElementById("noTimer").checked;
+      RUN = { slug:slug, paper:pid, mode:mode, ids:qs.map(function(q){ return q.n; }), ans:{}, rev:{}, vis:{}, qt:{}, cur:0, t0:Date.now(), limit:noT ? 0 : M.mins * 60, done:false };
+      save(RUNKEY, RUN); track("tests_start", { series:slug, paper:pid, mode:mode, timed:!noT });
+      exam();
+    });
+  }
+
+  /* ---------- exam ---------- */
+  var segStart = 0;
+  function runQs(){ var p = paperById(RUN.paper); var by = {}; p.qs.forEach(function(q){ by[q.n] = q; }); return RUN.ids.map(function(n){ return by[n]; }); }
+  function persist(){ save(RUNKEY, RUN); }
+  function flushTime(){ if(!RUN || RUN.done || !segStart) return; var n = RUN.ids[RUN.cur]; RUN.qt[n] = (RUN.qt[n] || 0) + (Date.now() - segStart) / 1000; segStart = Date.now(); }
+  function stopTimer(){ if(timer){ clearInterval(timer); timer = null; } }
+  function answered(n){ var a = RUN.ans[n]; return a != null && String(a).trim() !== ""; }
+  function exam(){
+    var p = paperById(RUN.paper); if(!p){ save(RUNKEY, null); return home(); }
+    if(RUN.limit && (Date.now() - RUN.t0) / 1000 >= RUN.limit){ submit(true); return; }
+    document.getElementById("backLink").textContent = "Save and exit";
+    var qs = runQs(), M = MODES[RUN.mode];
+    app.innerHTML = '<div class="xbar noprint"><div class="r"><b>' + esc(p.title) + '</b><span class="note">' + esc(M.name) + '</span><div class="sp" style="flex:1"></div>'
+      + '<span class="pill" id="clk" aria-live="off"></span><button class="btn small ghost palbtn" id="palB" type="button">▦ Questions</button><button class="btn small" id="subB" type="button">Submit</button></div></div>'
+      + '<div class="xwrap"><section class="qpane" id="qp"></section><aside class="card pal" id="pal"></aside></div><div id="mod"></div>';
+    document.getElementById("subB").addEventListener("click", confirmSubmit);
+    document.getElementById("palB").addEventListener("click", function(){ document.getElementById("pal").classList.toggle("open"); });
+    segStart = Date.now();
+    showQ(RUN.cur);
+    stopTimer(); tick(); timer = setInterval(tick, 1000);
+  }
+  function tick(){
+    if(!RUN || RUN.done) return stopTimer();
+    var el = (Date.now() - RUN.t0) / 1000, c = document.getElementById("clk"); if(!c) return;
+    if(RUN.limit){
+      var left = RUN.limit - el;
+      c.textContent = "⏱ " + hms(left) + " left";
+      c.className = "pill" + (left <= 300 ? " low" : left <= 900 ? " warn" : "");
+      if(left <= 0){ submit(true); return; }
+    } else c.textContent = "⏱ " + hms(el) + " (no limit)";
+    if(Math.round(el) % 10 === 0){ flushTime(); persist(); }
+  }
+  function showQ(i){
+    flushTime();
+    var qs = runQs(); i = Math.max(0, Math.min(qs.length - 1, i)); RUN.cur = i;
+    var q = qs[i], n = q.n; RUN.vis[n] = 1; persist(); segStart = Date.now();
+    var h = '<div class="qhead"><span>Question ' + (i + 1) + ' of ' + qs.length + ' · ' + esc(secOf(q.m)) + '</span><span class="mk">' + q.m + ' mark' + (q.m > 1 ? 's' : '') + '</span></div>';
+    if(q.passage) h += '<div class="passage">' + q.passage + '</div>';
+    if(q.kind === "ar"){
+      h += '<p class="qtext"><b>Assertion (A):</b> ' + q.q + '</p><p class="reason"><b>Reason (R):</b> ' + q.r + '</p><p class="note">Choose the correct option:</p>';
+    } else h += '<p class="qtext">' + q.q + '</p>';
+    if(q.kind === "written"){
+      var v = RUN.ans[n] || "";
+      h += '<label class="note" for="ta">Your answer (' + esc(q.words) + ')</label><textarea id="ta" spellcheck="true">' + esc(v) + '</textarea><div class="wc"><span id="wcn">' + words(v) + ' words</span><span>Saved on this device</span></div>';
+    } else {
+      h += '<div class="opts" role="radiogroup">';
+      q.o.forEach(function(o, k){ h += '<button class="opt' + (RUN.ans[n] === k ? ' sel' : '') + '" data-k="' + k + '" type="button" role="radio" aria-checked="' + (RUN.ans[n] === k) + '"><span class="k">' + "ABCD"[k] + '</span><span>' + o + '</span></button>'; });
+      h += '</div>';
+    }
+    h += '<div class="qnav"><button class="btn ghost" id="prevB" type="button"' + (i ? '' : ' disabled') + '>← Previous</button><div class="mid">'
+      + '<button class="btn ghost small rev' + (RUN.rev[n] ? ' on' : '') + '" id="revB" type="button">' + (RUN.rev[n] ? '★ Marked for review' : '☆ Mark for review') + '</button>'
+      + (q.kind !== "written" ? '<button class="btn ghost small" id="clrB" type="button">Clear</button>' : '')
+      + '</div><button class="btn" id="nextB" type="button">' + (i + 1 < qs.length ? 'Save & next →' : 'Review & submit') + '</button></div>';
+    var qp = document.getElementById("qp"); qp.innerHTML = h;
+    qp.querySelectorAll(".opt").forEach(function(b){ b.addEventListener("click", function(){ RUN.ans[n] = +b.dataset.k; persist(); showQ(i); }); });
+    var ta = document.getElementById("ta");
+    if(ta){ ta.addEventListener("input", function(){ RUN.ans[n] = ta.value; document.getElementById("wcn").textContent = words(ta.value) + " words"; persist(); palette(); }); }
+    document.getElementById("prevB").addEventListener("click", function(){ showQ(i - 1); scrollTop(); });
+    document.getElementById("nextB").addEventListener("click", function(){ if(i + 1 < qs.length){ showQ(i + 1); scrollTop(); } else confirmSubmit(); });
+    document.getElementById("revB").addEventListener("click", function(){ RUN.rev[n] = !RUN.rev[n]; persist(); showQ(i); });
+    var cl = document.getElementById("clrB"); if(cl) cl.addEventListener("click", function(){ delete RUN.ans[n]; persist(); showQ(i); });
+    palette();
+  }
+  function scrollTop(){ var t = document.getElementById("qp"); if(t && t.getBoundingClientRect().top < 0) window.scrollTo(0, 0); }
+  function palette(){
+    var qs = runQs(), B = blocks(qs), h = '<h3>Questions</h3>';
+    Object.keys(B).forEach(function(m){
+      h += '<div class="sec">' + m + ' mark' + (m > 1 ? 's' : '') + '</div><div class="grid">';
+      B[m].forEach(function(no){ var q = qs[no - 1], n = q.n;
+        h += '<button class="pn' + (answered(n) ? ' ans' : RUN.vis[n] ? ' vis' : '') + (RUN.rev[n] ? ' rev' : '') + (no - 1 === RUN.cur ? ' cur' : '') + '" data-i="' + (no - 1) + '" type="button" aria-label="Question ' + no + '">' + no + '</button>'; });
+      h += '</div>';
+    });
+    var a = qs.filter(function(q){ return answered(q.n); }).length;
+    h += '<div class="legend"><span><i class="a"></i>Answered</span><span><i class="v"></i>Seen, not answered</span><span><i></i>Not seen</span><span><i class="r"></i>For review</span></div>'
+      + '<p class="note" style="margin:10px 0 0">' + a + ' of ' + qs.length + ' answered</p>';
+    var pal = document.getElementById("pal"); if(!pal) return; pal.innerHTML = h;
+    pal.querySelectorAll(".pn").forEach(function(b){ b.addEventListener("click", function(){ showQ(+b.dataset.i); pal.classList.remove("open"); scrollTop(); }); });
+  }
+  function confirmSubmit(){
+    flushTime(); persist();
+    var qs = runQs(), un = qs.filter(function(q){ return !answered(q.n); }).length, rv = qs.filter(function(q){ return RUN.rev[q.n]; }).length;
+    var left = RUN.limit ? RUN.limit - (Date.now() - RUN.t0) / 1000 : null;
+    document.getElementById("mod").innerHTML = '<div class="modal" role="dialog" aria-modal="true" aria-labelledby="mt"><div class="card"><h2 id="mt">Submit the paper?</h2>'
+      + '<p>' + (qs.length - un) + ' of ' + qs.length + ' answered' + (un ? ', <b>' + un + ' not answered</b>' : '') + (rv ? ', ' + rv + ' marked for review' : '') + '.</p>'
+      + (left != null ? '<p class="note">' + hms(left) + ' still on the clock.</p>' : '')
+      + '<div class="acts"><button class="btn" id="yesB" type="button">Submit</button><button class="btn ghost" id="noB" type="button">Keep working</button></div></div></div>';
+    document.getElementById("yesB").addEventListener("click", function(){ submit(false); });
+    document.getElementById("noB").addEventListener("click", function(){ document.getElementById("mod").innerHTML = ""; });
+  }
+  function submit(timeUp){
+    flushTime(); stopTimer();
+    RUN.done = true; RUN.timeUp = !!timeUp;
+    RUN.secs = Math.round(RUN.limit ? Math.min(RUN.limit, (Date.now() - RUN.t0) / 1000) : (Date.now() - RUN.t0) / 1000);
+    RUN.marks = {};                                   // written answers: index of ticked points per question
+    persist();
+    track("tests_submit", { series:slug, paper:RUN.paper, mode:RUN.mode, time_up:!!timeUp });
+    document.getElementById("backLink").textContent = "← Back to notes";
+    marking();
+  }
+
+  /* ---------- self-marking of written answers ---------- */
+  function found(pt, ans){ var a = (ans || "").toLowerCase(); return (pt.k || []).some(function(k){ return k && a.indexOf(String(k).toLowerCase()) >= 0; }); }
+  function marking(){
+    var p = paperById(RUN.paper); if(!p){ save(RUNKEY, null); return home(); }
+    stopTimer(); window.scrollTo(0, 0);
+    var qs = runQs(), W = qs.map(function(q, i){ return { q:q, no:i + 1 }; }).filter(function(x){ return x.q.kind === "written" && answered(x.q.n); });
+    if(!W.length){ report(); return; }
+    var h = '<div class="kick">' + esc(p.title) + '</div><h1>Mark your written answers</h1>'
+      + (RUN.timeUp ? '<p class="msg" style="font-size:15px">⏰ Time was up, so the paper was submitted for you.</p>' : '')
+      + '<p class="lead">Multiple-choice questions are already marked. For each written answer below, tick the marking points your answer really covers. A green label means a key word was found in your answer, which is only a hint: tick a point only if you explained it. Open the model answer to compare.</p>';
+    W.forEach(function(x){
+      var q = x.q, t = RUN.marks[q.n] || [];
+      h += '<div class="card mk-q" data-n="' + q.n + '"><div class="qhead"><span>Question ' + x.no + ' · ' + esc(chTitle(q.ch)) + '</span><span class="mk-sum" id="ms' + q.n + '"></span></div>'
+        + (q.passage ? '<details class="model"><summary>Show the case</summary><div class="passage" style="margin-top:8px">' + q.passage + '</div></details>' : '')
+        + '<p class="qtext" style="font-size:17px;margin:8px 0">' + q.q + '</p><div class="note">Your answer (' + words(RUN.ans[q.n]) + ' words)</div><div class="yours">' + esc(RUN.ans[q.n]) + '</div>'
+        + '<div class="pts">';
+      q.points.forEach(function(pt, k){
+        h += '<label class="pt-row"><input type="checkbox" data-n="' + q.n + '" data-k="' + k + '"' + (t.indexOf(k) >= 0 ? ' checked' : '') + '><span>' + pt.p + (found(pt, RUN.ans[q.n]) ? '<span class="found">key word found</span>' : '') + '</span><span class="pm">' + pt.m + ' mark' + (pt.m > 1 ? 's' : '') + '</span></label>';
+      });
+      h += '</div>' + (q.ans ? '<p class="note"><b>Expected answer:</b> ' + esc(q.ans) + '</p>' : '') + '<details class="model"><summary>Model answer</summary><div class="mb">' + q.model + '</div></details></div>';
+    });
+    var skipped = qs.filter(function(q){ return q.kind === "written" && !answered(q.n); }).length;
+    if(skipped) h += '<p class="note">' + skipped + ' written question(s) were left blank and score 0. You will see their model answers in the report.</p>';
+    h += '<div class="acts"><button class="btn" id="repB" type="button">See my report →</button></div>';
+    app.innerHTML = h;
+    function sums(){ W.forEach(function(x){ var q = x.q, t = RUN.marks[q.n] || [], s = t.reduce(function(a, k){ return a + q.points[k].m; }, 0); document.getElementById("ms" + q.n).textContent = s + " / " + q.m; }); }
+    app.querySelectorAll(".pt-row input").forEach(function(cb){ cb.addEventListener("change", function(){
+      var n = cb.dataset.n, k = +cb.dataset.k, t = RUN.marks[n] = RUN.marks[n] || [];
+      if(cb.checked){ if(t.indexOf(k) < 0) t.push(k); } else RUN.marks[n] = t.filter(function(x){ return x !== k; });
+      persist(); sums();
+    }); });
+    sums();
+    document.getElementById("repB").addEventListener("click", report);
+  }
+
+  /* ---------- report ---------- */
+  function scoreOf(q){
+    if(q.kind !== "written") return RUN.ans[q.n] === q.a ? 1 : 0;
+    if(!answered(q.n)) return 0;
+    return (RUN.marks[q.n] || []).reduce(function(s, k){ return s + q.points[k].m; }, 0);
+  }
+  function awardXP(pts){
+    var P = load(PKEY, null) || { done:{}, opened:{}, opens:{}, last:null, xp:{} };
+    P.xp = P.xp || {}; var d = today(), key = "tests:" + slug + ":" + RUN.paper + ":" + RUN.mode;
+    P.xp[d] = P.xp[d] || {}; var had = P.xp[d][key] ? P.xp[d][key].x : 0, gain = Math.max(0, pts - had);
+    if(gain) P.xp[d][key] = { s:META.subject, x:pts };
+    save(PKEY, P); return gain;
+  }
+  function report(){
+    var p = paperById(RUN.paper); if(!p){ save(RUNKEY, null); return home(); }
+    window.scrollTo(0, 0);
+    var qs = runQs(), max = 0, score = 0, bySec = {}, byG = {}, byCh = {}, tSec = {};
+    qs.forEach(function(q){
+      var s = scoreOf(q); max += q.m; score += s;
+      (bySec[q.m] = bySec[q.m] || { s:0, m:0, n:0, a:0 }); bySec[q.m].s += s; bySec[q.m].m += q.m; bySec[q.m].n++; if(answered(q.n)) bySec[q.m].a++;
+      (byG[q.g] = byG[q.g] || { s:0, m:0 }); byG[q.g].s += s; byG[q.g].m += q.m;
+      (byCh[q.ch] = byCh[q.ch] || { s:0, m:0 }); byCh[q.ch].s += s; byCh[q.ch].m += q.m;
+      tSec[q.m] = (tSec[q.m] || 0) + (RUN.qt[q.n] || 0);
+    });
+    var pct = max ? Math.round(score / max * 100) : 0;
+    var prev = hist().filter(function(a){ return a.paper === RUN.paper && a.mode === RUN.mode; }).pop();
+    var first = !RUN.reported;
+    if(first){
+      addHist({ paper:RUN.paper, mode:RUN.mode, date:today(), score:score, max:max, secs:RUN.secs,
+        ch:Object.keys(byCh).reduce(function(o, k){ o[k] = [byCh[k].s, byCh[k].m]; return o; }, {}) });
+      RUN.reported = true; RUN.xp = awardXP(Math.min(150, pct + (pct >= 80 ? 20 : 0))); persist();
+      track("tests_report", { series:slug, paper:RUN.paper, mode:RUN.mode, percent:pct });
+    } else if(prev && prev.date === today() && prev.score === score) prev = hist().filter(function(a){ return a.paper === RUN.paper && a.mode === RUN.mode; }).slice(-2, -1)[0];
+    var col = pct >= 75 ? "var(--green)" : pct >= 50 ? "var(--amber)" : "var(--red)";
+    var verdict = pct >= 90 ? "Outstanding. Board-ready." : pct >= 75 ? "Strong paper. Polish the weak chapters below." : pct >= 50 ? "Good base. Focus on the chapters below." : "Keep going. Revise the chapters below, then retake this paper.";
+    var h = '<div class="kick">' + esc(META.subject) + ' · ' + esc(p.title) + ' · ' + esc(MODES[RUN.mode].name) + '</div><h1>Your result</h1>'
+      + '<div class="score"><div class="ring" style="--p:' + pct + ';--c:' + col + '"><div><span>' + score + '<small>out of ' + max + '</small></span></div></div><div><h2>' + pct + '%</h2><p>' + esc(verdict) + '</p>'
+      + '<p class="note">Time used: ' + mins(RUN.secs) + (RUN.limit ? ' of ' + mins(RUN.limit) : '') + (RUN.timeUp ? ' · submitted when time ran out' : '') + '</p>'
+      + (prev && first ? (score >= prev.score ? '<span class="delta up">▲ ' + (score - prev.score) + ' marks vs your last attempt (' + prev.score + ')</span>' : '<span class="delta down">▼ ' + (prev.score - score) + ' marks vs your last attempt (' + prev.score + ')</span>') : '')
+      + (RUN.xp ? '<span class="xp">+' + RUN.xp + ' XP</span>' : '') + '</div></div>';
+
+    // what to revise next: weakest chapters by percentage
+    var chs = Object.keys(byCh).map(function(k){ return { id:k, s:byCh[k].s, m:byCh[k].m, p:byCh[k].s / byCh[k].m }; }).filter(function(c){ return c.m >= 2; })
+      .sort(function(a, b){ return a.p - b.p || b.m - a.m; });
+    var weak = chs.filter(function(c){ return c.p < 0.8; }).slice(0, 3);
+    h += '<div class="card" style="margin:0 0 16px"><h2>Revise next</h2>';
+    if(weak.length){
+      h += '<div class="focus">';
+      weak.forEach(function(c){ h += '<div class="fitem"><b>' + esc(chTitle(c.id)) + '</b><span class="note">' + c.s + ' / ' + c.m + ' marks</span><a class="btn small ghost" href="index.html#' + c.id + '">Open notes</a><a class="btn small" href="arena/?ch=' + c.id + '">Revision Arena →</a></div>'; });
+      h += '</div>';
+    } else h += '<p class="empty">You scored 80% or more in every chapter. Try the next paper.</p>';
+    h += '</div>';
+
+    // sections with time
+    h += '<div class="rgrid"><div class="card"><h2>By question type</h2><div class="tw"><table class="t"><thead><tr><th>Type</th><th class="n">Marks</th><th class="n">Answered</th><th class="n">Time</th><th class="n">Suggested</th></tr></thead><tbody>';
+    Object.keys(bySec).forEach(function(m){ var b = bySec[m];
+      h += '<tr><td>' + m + '-mark (' + b.n + ')</td><td class="n">' + b.s + ' / ' + b.m + '</td><td class="n">' + b.a + ' / ' + b.n + '</td><td class="n">' + mins(tSec[m]) + '</td><td class="n">' + mins(PACE[m] * 60 * b.n) + '</td></tr>'; });
+    h += '</tbody></table></div><p class="note">Suggested time is a pace that leaves about 15 minutes to revise in a 3-hour paper.</p></div>';
+    h += '<div class="card"><h2>By unit</h2><div class="bars">';
+    META.groups.forEach(function(G){ var b = byG[G.g]; if(!b) return; var pp = Math.round(b.s / b.m * 100);
+      h += '<div class="bar"><span>' + esc(G.name) + '</span><small>' + b.s + ' / ' + b.m + '</small><span class="tr"><i style="width:' + pp + '%;background:' + (pp >= 75 ? 'var(--green)' : pp >= 50 ? 'var(--amber)' : 'var(--red)') + '"></i></span></div>'; });
+    h += '</div></div></div>';
+    h += '<div class="card" style="margin:0 0 16px"><h2>By chapter</h2><div class="bars">';
+    Object.keys(byCh).sort().forEach(function(k){ var b = byCh[k], pp = Math.round(b.s / b.m * 100);
+      h += '<div class="bar"><span>' + esc(chTitle(k)) + '</span><small>' + b.s + ' / ' + b.m + '</small><span class="tr"><i style="width:' + pp + '%;background:' + (pp >= 75 ? 'var(--green)' : pp >= 50 ? 'var(--amber)' : 'var(--red)') + '"></i></span></div>'; });
+    h += '</div></div>';
+
+    // slowest questions
+    var slow = qs.map(function(q, i){ return { q:q, no:i + 1, t:RUN.qt[q.n] || 0, over:(RUN.qt[q.n] || 0) - PACE[q.m] * 60 }; }).filter(function(x){ return x.over > 60; }).sort(function(a, b){ return b.over - a.over; }).slice(0, 5);
+    if(slow.length){
+      h += '<div class="card" style="margin:0 0 16px"><h2>Where time went</h2><div class="tw"><table class="t"><thead><tr><th>Q</th><th>Chapter</th><th class="n">Marks</th><th class="n">Your time</th><th class="n">Suggested</th></tr></thead><tbody>';
+      slow.forEach(function(x){ h += '<tr><td>' + x.no + '</td><td>' + esc(chTitle(x.q.ch)) + '</td><td class="n">' + x.q.m + '</td><td class="n">' + mins(x.t) + '</td><td class="n">' + mins(PACE[x.q.m] * 60) + '</td></tr>'; });
+      h += '</tbody></table></div></div>';
+    }
+
+    // review every question
+    h += '<div class="card" style="margin:0 0 16px"><h2>Review every question</h2><div class="rev-list">';
+    qs.forEach(function(q, i){
+      var s = scoreOf(q), cls = s === q.m ? "full" : s > 0 ? "part" : "zero";
+      h += '<div class="rq ' + cls + '"><div class="h"><span>Q' + (i + 1) + ' · ' + esc(chTitle(q.ch)) + '</span><span>' + s + ' / ' + q.m + '</span></div>';
+      if(q.kind === "ar") h += '<b>A:</b> ' + q.q + '<br><b>R:</b> ' + q.r;
+      else h += (q.passage ? '<details class="model"><summary>Case</summary><div class="passage" style="margin-top:8px">' + q.passage + '</div></details>' : '') + '<div>' + q.q + '</div>';
+      if(q.kind !== "written"){
+        var y = RUN.ans[q.n];
+        if(y !== q.a) h += '<div class="y">Your answer: ' + (y == null ? 'not answered' : "ABCD"[y] + '. ' + q.o[y]) + '</div>';
+        h += '<div class="c">Correct: ' + "ABCD"[q.a] + '. ' + q.o[q.a] + '</div>' + (q.why ? '<div class="x">' + q.why + '</div>' : '');
+      } else {
+        h += (answered(q.n) ? '' : '<div class="y">Not answered</div>') + '<details class="model"><summary>Model answer and marking points</summary><div class="mb">' + q.model
+          + '<ul>' + q.points.map(function(pt){ return '<li>' + pt.p + ' (' + pt.m + ')</li>'; }).join("") + '</ul></div></details>';
+      }
+      h += '</div>';
+    });
+    h += '</div></div>';
+    h += '<div class="acts noprint"><button class="btn" id="againB" type="button">Retake this paper</button><button class="btn ghost" id="homeB" type="button">All papers</button><button class="btn ghost" id="prB" type="button">🖨 Print report</button></div>';
+    h += '<p class="disclaim">Written answers are self-marked. Practice papers by Notesflix 101 in the CBSE pattern; not official CBSE papers.</p>';
+    app.innerHTML = h;
+    var mode = RUN.mode, pid = RUN.paper;
+    document.getElementById("againB").addEventListener("click", function(){ save(RUNKEY, null); RUN = null; instructions(pid, mode); });
+    document.getElementById("homeB").addEventListener("click", function(){ save(RUNKEY, null); RUN = null; home(); });
+    document.getElementById("prB").addEventListener("click", function(){ window.print(); });
+  }
+
+  /* ---------- printable paper / answer key ---------- */
+  function printView(pid, withAns){
+    var p = paperById(pid); if(!p) return home();
+    stopTimer(); window.scrollTo(0, 0);
+    var qs = p.qs, B = blocks(qs);
+    var h = '<div class="acts noprint"><button class="btn" id="pB" type="button">🖨 Print or save as PDF</button><button class="btn ghost" id="kB" type="button">' + (withAns ? 'Show question paper' : 'Show answer key') + '</button><button class="btn ghost" id="bB" type="button">All papers</button></div>'
+      + '<div class="print-paper"><h1>' + esc(META.subject.toUpperCase()) + ' (' + esc(META.code) + ') · CLASS ' + esc(META.cls) + '</h1><p class="ph"><b>' + esc(p.title) + (withAns ? ' · Answer key' : '') + '</b> · Notesflix 101</p>'
+      + '<p class="ph">Time allowed: 3 hours · Maximum marks: 80</p>';
+    if(!withAns){
+      h += '<p><b>General instructions:</b> This paper has 34 questions. ';
+      Object.keys(B).forEach(function(m){ var a = B[m]; h += 'Questions ' + a[0] + '–' + a[a.length - 1] + ' carry ' + m + ' mark' + (m > 1 ? 's' : '') + ' each. '; });
+      h += 'Answers to 3-mark questions about 60–80 words, 4-mark about 150 words, 6-mark about 200 words.</p>';
+    }
+    var last = 0;
+    qs.forEach(function(q, i){
+      if(q.m !== last){ last = q.m; h += '<div class="psec">' + q.m + '-mark questions</div>'; }
+      h += '<div class="pq"><span><b>' + (i + 1) + '.</b></span><div>' + (q.passage ? '<div class="passage">' + q.passage + '</div>' : '');
+      if(q.kind === "ar") h += '<b>Assertion (A):</b> ' + q.q + '<br><b>Reason (R):</b> ' + q.r;
+      else h += q.q;
+      if(q.o) h += '<ul class="po">' + q.o.map(function(o, k){ return '<li>(' + "ABCD"[k] + ') ' + o + '</li>'; }).join("") + '</ul>';
+      if(withAns){
+        if(q.kind !== "written") h += '<div class="ans"><b>Answer: (' + "ABCD"[q.a] + ')</b> ' + q.o[q.a] + (q.why ? '. ' + q.why : '') + '</div>';
+        else h += '<div class="ans">' + q.model + '<b>Marking:</b> ' + q.points.map(function(pt){ return pt.p + ' (' + pt.m + ')'; }).join("; ") + '</div>';
+      }
+      h += '</div><span class="pm">' + q.m + '</span></div>';
+    });
+    h += '<p class="note" style="color:#555">Practice paper by Notesflix 101 in the CBSE board pattern. Not an official CBSE paper.</p></div>';
+    app.innerHTML = h;
+    document.getElementById("pB").addEventListener("click", function(){ window.print(); });
+    document.getElementById("kB").addEventListener("click", function(){ printView(pid, !withAns); });
+    document.getElementById("bB").addEventListener("click", home);
+    track("tests_print", { series:slug, paper:pid, answers:withAns });
+  }
+
+  // leaving mid-exam: keep the time spent on the current question
+  window.addEventListener("pagehide", function(){ if(RUN && !RUN.done){ flushTime(); persist(); } });
+  document.addEventListener("visibilitychange", function(){ if(!RUN || RUN.done) return; if(document.hidden){ flushTime(); persist(); segStart = 0; } else segStart = Date.now(); });
+  document.getElementById("backLink").addEventListener("click", function(e){ if(RUN && !RUN.done){ flushTime(); persist(); } });
+
+  boot();
+})();
+</script>
+</body>
+</html>

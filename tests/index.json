@@ -1,0 +1,13 @@
+{
+ "built": "2026-11-16",
+ "series": [
+  {
+   "slug": "xii-bst",
+   "cls": "XII",
+   "subject": "Business Studies",
+   "papers": 6,
+   "marks": 80,
+   "minutes": 180
+  }
+ ]
+}
