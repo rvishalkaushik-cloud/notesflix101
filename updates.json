@@ -1,21 +1,21 @@
 {
-  "checked": "2026-11-09",
+  "checked": "2026-11-16",
   "items": [
     {
-      "date": "2026-11-09",
+      "date": "2026-11-06",
       "tag": "Date sheet",
-      "status": "Awaited",
-      "title": "2027 board exam date sheet not yet listed",
-      "summary": "As of 9 Nov 2026, no notice for the Class X and XII 2027 main exam date sheet is listed on the official CBSE circulars or press pages. Dates will be shown here once CBSE publishes them. Please check the official site for the latest.",
+      "status": "Confirmed",
+      "title": "Date sheet for Class X and XII Board Exams 2027 issued",
+      "summary": "CBSE has listed a circular titled 'Date Sheet for Class X and Class XII Board Examinations, 2027' dated 6 Nov 2026. The PDF text could not be read here, so please open the official notice to see your paper dates.",
       "source": "CBSE (official)",
-      "url": "https://www.cbse.gov.in/cbsenew/examination_Circular.html"
+      "url": "https://www.cbse.gov.in/cbsenew/documents/Datesheet_ClassX%20_XII_2027_Main_06112026.pdf"
     },
     {
-      "date": "2026-11-09",
+      "date": "2026-11-16",
       "tag": "Practicals",
       "status": "Awaited",
       "title": "2027 practical exam schedule not yet issued",
-      "summary": "As of 9 Nov 2026, no notice on practical exam dates or guidelines for schools in general for the 2027 boards is listed on the official CBSE circulars page. Your school will share dates once CBSE announces them.",
+      "summary": "As of 16 Nov 2026, no notice on practical exam dates or general guidelines for the 2027 boards is listed on the official CBSE circulars page, apart from the winter-bound schools circular. Your school will share dates once CBSE announces them.",
       "source": "CBSE (official)",
       "url": "https://www.cbse.gov.in/cbsenew/examination_Circular.html"
     },
@@ -45,15 +45,6 @@
       "summary": "CBSE published a circular titled 'Correction of LOC data 2026-27' on 2 Nov 2026. The PDF text could not be read, so please check the official notice for the process and dates, and talk to your school.",
       "source": "CBSE (official)",
       "url": "https://www.cbse.gov.in/cbsenew/documents/LOC_Correction_2026_27_02112026.pdf"
-    },
-    {
-      "date": "2026-10-21",
-      "tag": "LOC",
-      "status": "Confirmed",
-      "title": "LOC submission for 2026-27 main exams has closed",
-      "summary": "CBSE issued the LOC circular on 21 Sep 2026 and sent reminders until 21 Oct 2026, which it called the last date. Ask your school to confirm that your name, subjects and details were entered correctly.",
-      "source": "CBSE (official)",
-      "url": "https://www.cbse.gov.in/cbsenew/documents/Reminder_6_Submission_LOC_21102026.pdf"
     },
     {
       "date": "Apr 2026",
