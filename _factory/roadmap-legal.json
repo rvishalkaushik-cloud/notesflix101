@@ -107,6 +107,70 @@
    "status": "todo",
    "palette": 10,
    "order": 3
+  },
+  {
+   "id": "legal12-torts-1",
+   "cls": "XII",
+   "book": "Legal Studies (Class XII), CBSE",
+   "chapter": {
+    "id": "legal12-torts",
+    "num": "3B",
+    "unit": "Unit",
+    "title": "Law of Torts",
+    "short": "Law of Torts",
+    "tagline": "Civil wrongs, from a raised fist to a gas leak — and the compensation the law gives.",
+    "art": "shield",
+    "thumb": "img/legal12-torts.jpg"
+   },
+   "part": 1,
+   "parts": 2,
+   "title": "Civil Wrongs, Maxims and Defamation",
+   "topics": [
+    "Meaning and nature of tort",
+    "Injuria sine damno, damnum sine injuria",
+    "Intentional torts",
+    "Defamation"
+   ],
+   "emojis": [
+    "⚖️",
+    "👊",
+    "📢"
+   ],
+   "status": "todo",
+   "palette": 10,
+   "order": 11
+  },
+  {
+   "id": "legal12-torts-2",
+   "cls": "XII",
+   "book": "Legal Studies (Class XII), CBSE",
+   "chapter": {
+    "id": "legal12-torts",
+    "num": "3B",
+    "unit": "Unit",
+    "title": "Law of Torts",
+    "short": "Law of Torts",
+    "tagline": "Civil wrongs, from a raised fist to a gas leak — and the compensation the law gives.",
+    "art": "shield",
+    "thumb": "img/legal12-torts.jpg"
+   },
+   "part": 2,
+   "parts": 2,
+   "title": "Negligence, Strict and Absolute Liability",
+   "topics": [
+    "Negligence",
+    "Strict liability",
+    "Absolute liability",
+    "Defences and remedies"
+   ],
+   "emojis": [
+    "🚑",
+    "🏭",
+    "☣️"
+   ],
+   "status": "todo",
+   "palette": 10,
+   "order": 12
   }
  ]
 }

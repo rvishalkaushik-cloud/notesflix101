@@ -90,14 +90,14 @@ NFX.gate=function(h,x){
  const G=x.gates,S=shuf(x.scenarios);let i=0,score=0,streak=0,locked=false;
  h.innerHTML='<div class="lg"><div class="lg-stage"><div class="lg-row" style="justify-content:space-between"><span class="lg-pill lg-n"></span><span class="lg-pill lg-st"></span></div>'+
   '<div class="lg-scn"></div><div class="lg-track"><span class="lg-tok">📜</span>'+G.map((g,j)=>'<button type="button" class="lg-g" data-j="'+j+'" aria-label="'+esc(g[1])+'"><b>'+g[0]+'</b><span class="gl">'+g[1]+'</span><span class="gs">'+(g[3]||g[1].split(' ')[0])+'</span></button>').join('')+'</div>'+
-  '<div class="lg-row" style="justify-content:center;margin-top:12px"><button type="button" class="lg-gold lg-all">✅ Every gate passes: it is a CONTRACT</button></div><div class="lg-msg"></div></div></div>';
+  '<div class="lg-row" style="justify-content:center;margin-top:12px"><button type="button" class="lg-gold lg-all">'+(x.allText||'✅ Every gate passes: it is a CONTRACT')+'</button></div><div class="lg-msg"></div></div></div>';
  const $=s=>h.querySelector(s),tok=$('.lg-tok'),gs=[...h.querySelectorAll('.lg-g')];
  function pos(j){const tr=$('.lg-track').getBoundingClientRect(),b=(j<0?null:gs[Math.min(j,gs.length-1)].getBoundingClientRect());tok.style.left=(j<0?-4:(j>=gs.length?tr.width-26:b.left-tr.left+b.width/2-14))+'px'}
  function load(){locked=false;gs.forEach(g=>g.classList.remove('pass','fail'));const s=S[i];$('.lg-n').textContent='Case file '+(i+1)+' / '+S.length;$('.lg-st').textContent='⚖️ '+score+' · 🔥 '+streak;
-  $('.lg-scn').innerHTML=(s.e?'<b style="font-size:1.2rem">'+s.e+'</b> ':'')+s.t+'<br><small style="color:#6b5a2e"><b>Tap the gate it FAILS</b>, or press the gold button if it passes all.</small>';$('.lg-msg').innerHTML='';pos(-1)}
+  $('.lg-scn').innerHTML=(s.e?'<b style="font-size:1.2rem">'+s.e+'</b> ':'')+s.t+'<br><small style="color:#6b5a2e">'+(x.hint||'<b>Tap the gate it FAILS</b>, or press the gold button if it passes all.')+'</small>';$('.lg-msg').innerHTML='';pos(-1)}
  function walk(stop,ok){let j=0;const lim=stop<0?gs.length:stop;(function step(){if(j<lim){gs[j].classList.add('pass');pos(j);j++;setTimeout(step,260)}else{if(stop>=0){gs[stop].classList.add('fail');pos(stop)}else pos(gs.length);fin(ok)}})()}
  function fin(ok){const s=S[i];if(ok){score++;streak++}else streak=0;$('.lg-st').textContent='⚖️ '+score+' · 🔥 '+streak;
-  const res=s.fail<0?'<b>Valid contract.</b>':'Stopped at <b>'+G[s.fail][1]+'</b> ('+G[s.fail][2]+') → <b>'+(s.result||'not a valid contract')+'</b>.';
+  const res=s.fail<0?(x.okText||'<b>Valid contract.</b>'):(x.stopText||'Stopped at')+' <b>'+G[s.fail][1]+'</b> ('+G[s.fail][2]+') → <b>'+(s.result||'not a valid contract')+'</b>.';
   $('.lg-msg').innerHTML='<div class="lg-q">'+(ok?'✅ Correct! ':'❌ Not quite. ')+res+' '+s.why+'<div class="lg-row"><button type="button" class="btn lg-nx">'+(i<S.length-1?'Next case file →':'See my verdict →')+'</button></div></div>';
   $('.lg-nx').onclick=()=>{i++;if(i<S.length)load();else end()}}
  function pick(j){if(locked)return;locked=true;const s=S[i];walk(s.fail,j===s.fail)}
