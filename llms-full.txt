@@ -1,6 +1,6 @@
 # Notesflix 101: every chapter and part
 
-> Interactive CBSE notes for Classes 9 to 12 from Notesflix 101 (founder: Vishal Kaushik). Updated 2026-11-15. Parts marked (free) open without a password.
+> Interactive CBSE notes for Classes 9 to 12 from Notesflix 101 (founder: Vishal Kaushik). Updated 2026-11-16. Parts marked (free) open without a password.
 
 ## Class 9 English (Kaveri)
 
@@ -1248,4 +1248,15 @@ Once it works, make it bigger — by expanding, by adding value, or by joining f
 From your own savings to the stock exchange: how a growing business finds the money.
 
 - Resource Mobilization: Revision Walkthrough (free): https://notesflix101.com/notes/ent-resource-mobilization.html — How a growing business finds money, from owner's savings to outside investors.
+
+## Class 12 Legal Studies
+
+Page: https://notesflix101.com/learn/xii-legal-studies.html
+Syllabus: the CBSE Legal Studies syllabus (2026-27) and the CBSE textbook Legal Studies for Class 12, with current Indian law
+
+### Law of Contract
+
+When a promise becomes something a court will enforce.
+
+- Agreement, Offer and Acceptance (Part 1) (free): https://notesflix101.com/notes/legal12-contract-1.html — Agreement vs contract, the essentials of s.10, offer and acceptance, with two real case briefs, a contract gate game and board-exam practice.
 

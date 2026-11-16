@@ -19,7 +19,8 @@ const SHORT = { 'Social Science (SST)': 'sst', 'Business Studies': 'bst', 'Accou
 const slugOf = (cls, sub) => cls.toLowerCase() + '-' + (SHORT[sub] || sub.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''));
 // textbook names only where they are confirmed (new NCERT books for Class 9, 2026-27)
 const BOOK = { 'IX|Science': 'the new NCERT textbook Exploration (2026-27)', 'IX|Social Science (SST)': 'the new NCERT textbook Understanding Society: India and Beyond (2026-27)',
-  'IX|English (Kaveri)': 'the new NCERT English textbook Kaveri (2026-27)', 'IX|Hindi (Ganga)': 'the new NCERT Hindi textbook Ganga (2026-27)' };
+  'IX|English (Kaveri)': 'the new NCERT English textbook Kaveri (2026-27)', 'IX|Hindi (Ganga)': 'the new NCERT Hindi textbook Ganga (2026-27)',
+  'XI|Legal Studies': 'the CBSE Legal Studies syllabus (2026-27) and the CBSE textbook Legal Studies for Class 11, with current Indian law', 'XII|Legal Studies': 'the CBSE Legal Studies syllabus (2026-27) and the CBSE textbook Legal Studies for Class 12, with current Indian law' };
 const isLocked = f => /const P=\{"s":/.test(fs.readFileSync(path.join(ROOT, f), 'utf8'));
 const numKey = c => [(c.unit || '').includes('Part 2') ? 1 : 0, parseFloat(c.num) || 999];
 

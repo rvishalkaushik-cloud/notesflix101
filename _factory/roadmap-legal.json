@@ -1,0 +1,112 @@
+{
+ "subject": "Legal Studies",
+ "subjImg": "img/subj-legal.jpg",
+ "subjArt": "scale",
+ "subjBlurb": "Courts, contracts, rights and the Indian legal system — learnt by investigating real cases.",
+ "subjEmojis": [
+  "⚖️",
+  "📜",
+  "🏛️"
+ ],
+ "tier": "pass",
+ "parts": [
+  {
+   "id": "legal12-contract-1",
+   "cls": "XII",
+   "book": "Legal Studies (Class XII), CBSE",
+   "chapter": {
+    "id": "legal12-contract",
+    "num": "3A",
+    "unit": "Unit",
+    "title": "Law of Contract",
+    "short": "Law of Contract",
+    "tagline": "When a promise becomes something a court will enforce.",
+    "art": "scale",
+    "thumb": "img/legal12-contract.jpg"
+   },
+   "part": 1,
+   "parts": 3,
+   "title": "Agreement, Offer and Acceptance",
+   "topics": [
+    "Agreement and contract",
+    "Essentials of a valid contract (s.10)",
+    "Offer: meaning and kinds",
+    "Acceptance and communication (ss.4–7)"
+   ],
+   "emojis": [
+    "📜",
+    "🤝",
+    "⚖️"
+   ],
+   "status": "done",
+   "palette": 10,
+   "order": 1,
+   "free": true,
+   "desc": "Agreement vs contract, the essentials of s.10, offer and acceptance, with two real case briefs, a contract gate game and board-exam practice.",
+   "published": "2026-11-16"
+  },
+  {
+   "id": "legal12-contract-2",
+   "cls": "XII",
+   "book": "Legal Studies (Class XII), CBSE",
+   "chapter": {
+    "id": "legal12-contract",
+    "num": "3A",
+    "unit": "Unit",
+    "title": "Law of Contract",
+    "short": "Law of Contract",
+    "tagline": "When a promise becomes something a court will enforce.",
+    "art": "scale",
+    "thumb": "img/legal12-contract.jpg"
+   },
+   "part": 2,
+   "parts": 3,
+   "title": "Capacity, Free Consent and Consideration",
+   "topics": [
+    "Capacity (s.11), minor’s agreement",
+    "Free consent: coercion, undue influence, fraud, misrepresentation, mistake",
+    "Consideration (s.2(d), s.25)",
+    "Void and voidable agreements"
+   ],
+   "emojis": [
+    "👤",
+    "🕊️",
+    "💰"
+   ],
+   "status": "todo",
+   "palette": 10,
+   "order": 2
+  },
+  {
+   "id": "legal12-contract-3",
+   "cls": "XII",
+   "book": "Legal Studies (Class XII), CBSE",
+   "chapter": {
+    "id": "legal12-contract",
+    "num": "3A",
+    "unit": "Unit",
+    "title": "Law of Contract",
+    "short": "Law of Contract",
+    "tagline": "When a promise becomes something a court will enforce.",
+    "art": "scale",
+    "thumb": "img/legal12-contract.jpg"
+   },
+   "part": 3,
+   "parts": 3,
+   "title": "Types, Discharge and Remedies",
+   "topics": [
+    "Types of contracts",
+    "Discharge of contract, frustration (s.56)",
+    "Remedies for breach (s.73)"
+   ],
+   "emojis": [
+    "🧾",
+    "🌋",
+    "🏛️"
+   ],
+   "status": "todo",
+   "palette": 10,
+   "order": 3
+  }
+ ]
+}
