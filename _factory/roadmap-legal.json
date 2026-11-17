@@ -383,6 +383,40 @@
    "order": 51,
    "free": true,
    "published": "2026-11-17"
+  },
+  {
+   "id": "legal12-judiciary-1",
+   "cls": "XII",
+   "book": "Legal Studies (Class XII), CBSE",
+   "chapter": {
+    "id": "legal12-judiciary",
+    "num": "1",
+    "unit": "Unit",
+    "title": "Judiciary",
+    "short": "Judiciary",
+    "tagline": "Courts, judges and judicial review — how India’s independent judiciary guards the Constitution.",
+    "art": "scale",
+    "thumb": "img/legal12-judiciary.jpg"
+   },
+   "part": 1,
+   "parts": 1,
+   "title": "Courts, Judges and Judicial Review",
+   "topics": [
+    "Structure and jurisdiction",
+    "Appointment and removal of judges",
+    "Judicial review and basic structure",
+    "Legal officers and tribunals"
+   ],
+   "emojis": [
+    "🏛️",
+    "⚖️",
+    "👩‍⚖️"
+   ],
+   "status": "done",
+   "palette": 10,
+   "order": 1,
+   "free": true,
+   "published": "2026-11-17"
   }
  ]
 }
