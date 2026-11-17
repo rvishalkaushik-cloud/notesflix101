@@ -1254,6 +1254,18 @@ From your own savings to the stock exchange: how a growing business finds the mo
 Page: https://notesflix101.com/learn/xii-legal-studies.html
 Syllabus: the CBSE Legal Studies syllabus (2026-27) and the CBSE textbook Legal Studies for Class 12, with current Indian law
 
+### Judiciary
+
+Courts, judges and judicial review — how India’s independent judiciary guards the Constitution.
+
+- Courts, Judges and Judicial Review (free): https://notesflix101.com/notes/legal12-judiciary-1.html — Story, animations, 3D board, simulations and board-exam practice on Structure and jurisdiction, Appointment and removal of judges, Judicial review and basic structure.
+
+### Alternative Dispute Resolution
+
+Arbitration, mediation, conciliation, Lok Adalats and the Ombudsman — justice outside the courtroom.
+
+- Arbitration, Mediation, Lok Adalat (free): https://notesflix101.com/notes/legal12-adr-1.html — Story, animations, 3D board, simulations and board-exam practice on Adversarial vs inquisitorial; meaning of ADR, Arbitration, Mediation and conciliation.
+
 ### Law of Contract
 
 When a promise becomes something a court will enforce.
@@ -1261,6 +1273,12 @@ When a promise becomes something a court will enforce.
 - Agreement, Offer and Acceptance (Part 1) (free): https://notesflix101.com/notes/legal12-contract-1.html — Agreement vs contract, the essentials of s.10, offer and acceptance, with two real case briefs, a contract gate game and board-exam practice.
 - Capacity, Free Consent and Consideration (Part 2) (free): https://notesflix101.com/notes/legal12-contract-2.html — Story, animations, 3D board, simulations and board-exam practice on Capacity (s.11), minor’s agreement, Free consent: coercion, undue influence, fraud, misrepresentation, mistake, Consideration (s.2(d), s.25).
 - Types, Discharge and Remedies (Part 3) (free): https://notesflix101.com/notes/legal12-contract-3.html — Story, animations, 3D board, simulations and board-exam practice on Types of contracts, Discharge of contract, frustration (s.56), Remedies for breach (s.73).
+
+### Intellectual Property Rights
+
+Copyright, patents, trademarks, designs and GIs — how Indian law protects ideas.
+
+- Copyright, Patents, Trademarks, Designs and GI (free): https://notesflix101.com/notes/legal12-ipr-1.html — Story, animations, 3D board, simulations and board-exam practice on Copyright, Patents and s.3(d), Trademarks, designs, GI.
 
 ### Law of Property
 
@@ -1274,4 +1292,46 @@ Civil wrongs, from a raised fist to a gas leak — and the compensation the law 
 
 - Civil Wrongs, Maxims and Defamation (Part 1) (free): https://notesflix101.com/notes/legal12-torts-1.html — Story, animations, 3D board, simulations and board-exam practice on Meaning and nature of tort, Injuria sine damno, damnum sine injuria, Intentional torts.
 - Negligence, Strict and Absolute Liability (Part 2) (free): https://notesflix101.com/notes/legal12-torts-2.html — Story, animations, 3D board, simulations and board-exam practice on Negligence, Strict liability, Absolute liability.
+
+### Forms of Legal Entities
+
+Sole trader, partnership, LLP, company and non-profits — who owns, who pays, who survives.
+
+- Sole Trader to Company (free): https://notesflix101.com/notes/legal12-entities-1.html — Story, animations, 3D board, simulations and board-exam practice on Sole proprietorship and partnership, LLP, Company and corporate veil.
+
+### Law and Sustainable Development
+
+Growth without destroying the Earth — Constitution, green laws, court principles and the NGT.
+
+- Environment, Courts and the NGT (free): https://notesflix101.com/notes/legal12-sustdev-1.html — Story, animations, 3D board, simulations and board-exam practice on Sustainable development, Constitution and environmental Acts, Polluter pays, precaution, public trust.
+
+### Criminal Laws in India
+
+BNS, BNSS and BSA — what a crime is, how a case runs, and what changed in 2024.
+
+- Crime, Procedure and the 2024 Codes (free): https://notesflix101.com/notes/legal12-criminal-1.html — Story, animations, 3D board, simulations and board-exam practice on Elements and stages of crime, General exceptions, FIR to trial.
+
+### Human Rights in India
+
+Rights every human is born with, how courts protect them, and the commissions you can approach.
+
+- Human Rights and Commissions (free): https://notesflix101.com/notes/legal12-hr-1.html — Story, animations, 3D board, simulations and board-exam practice on Meaning and UDHR, Constitution and courts, NHRC and SHRCs.
+
+### International Law
+
+How nations make and keep rules — treaties, custom, the UN and the World Court.
+
+- Sources, Treaties, UN and ICJ (free): https://notesflix101.com/notes/legal12-intl-1.html — Story, animations, 3D board, simulations and board-exam practice on Meaning and sources, Treaties and India, UN and peaceful settlement.
+
+### Legal Profession in India
+
+Advocates Act, Bar Councils, professional ethics and a changing profession.
+
+- Advocates, Bar Councils, Ethics (free): https://notesflix101.com/notes/legal12-prof-1.html — Story, animations, 3D board, simulations and board-exam practice on Advocates Act and Bar Councils, Becoming an advocate, Professional ethics.
+
+### Legal Services
+
+Free legal aid as a right — Art 39A, NALSA, eligibility and delivery.
+
+- Free Legal Aid and NALSA (free): https://notesflix101.com/notes/legal12-ls-1.html — Story, animations, 3D board, simulations and board-exam practice on Constitution and landmark cases, LSA Act 1987 structure, Who is eligible (s.12).
 
