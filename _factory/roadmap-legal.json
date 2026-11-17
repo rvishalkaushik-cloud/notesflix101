@@ -632,7 +632,7 @@
     "unit": "Unit",
     "title": "Basic Features of the Constitution",
     "short": "Basic Features of the Constitution",
-    "tagline": "",
+    "tagline": "Preamble, rights, duties, federalism, amendment and administrative law.",
     "art": "scale",
     "thumb": "img/legal11-const.jpg"
    },
@@ -700,7 +700,7 @@
     "unit": "Unit",
     "title": "Jurisprudence, Nature and Sources of Law",
     "short": "Jurisprudence, Nature and Sources of Law",
-    "tagline": "",
+    "tagline": "What law is, how it is classified, and where it comes from — plus law reform and cyber laws.",
     "art": "scale",
     "thumb": "img/legal11-juris.jpg"
    },
@@ -721,6 +721,40 @@
    "status": "done",
    "palette": 10,
    "order": 302,
+   "free": true,
+   "published": "2026-11-17"
+  },
+  {
+   "id": "legal11-jud-1",
+   "cls": "XI",
+   "book": "Legal Studies (Class XI), CBSE",
+   "chapter": {
+    "id": "legal11-jud",
+    "num": "4",
+    "unit": "Unit",
+    "title": "Judiciary",
+    "short": "Judiciary",
+    "tagline": "Courts, civil and criminal process, police, family courts and tribunals.",
+    "art": "scale",
+    "thumb": "img/legal11-jud.jpg"
+   },
+   "part": 1,
+   "parts": 1,
+   "title": "Courts and Civil Process",
+   "topics": [
+    "Structure of courts",
+    "Jurisdiction",
+    "Stages of a civil suit",
+    "Appeals, res judicata, execution"
+   ],
+   "emojis": [
+    "🏛️",
+    "📄",
+    "⚖️"
+   ],
+   "status": "done",
+   "palette": 10,
+   "order": 401,
    "free": true,
    "published": "2026-11-17"
   }
