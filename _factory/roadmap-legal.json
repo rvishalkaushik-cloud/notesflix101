@@ -807,7 +807,7 @@
     "thumb": "img/legal11-fam.jpg"
    },
    "part": 1,
-   "parts": 1,
+   "parts": 2,
    "title": "Marriage, Divorce, Adoption, Child Rights",
    "topics": [
     "Marriage",
@@ -823,6 +823,40 @@
    "status": "done",
    "palette": 10,
    "order": 501,
+   "free": true,
+   "published": "2026-11-17"
+  },
+  {
+   "id": "legal11-fam-2",
+   "cls": "XI",
+   "book": "Legal Studies (Class XI), CBSE",
+   "chapter": {
+    "id": "legal11-fam",
+    "num": "5",
+    "unit": "Unit",
+    "title": "Family Justice System",
+    "short": "Family Justice System",
+    "tagline": "Marriage, divorce, adoption, child rights, succession and protection of women.",
+    "art": "scale",
+    "thumb": "img/legal11-fam.jpg"
+   },
+   "part": 2,
+   "parts": 2,
+   "title": "Succession and Protection of Women",
+   "topics": [
+    "Hindu succession",
+    "Muslim and Christian succession; wills",
+    "Domestic violence and dowry",
+    "POSH and BNS offences"
+   ],
+   "emojis": [
+    "🏠",
+    "📜",
+    "🛡️"
+   ],
+   "status": "done",
+   "palette": 10,
+   "order": 502,
    "free": true,
    "published": "2026-11-17"
   }
