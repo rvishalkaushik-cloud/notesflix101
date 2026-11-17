@@ -739,7 +739,7 @@
     "thumb": "img/legal11-jud.jpg"
    },
    "part": 1,
-   "parts": 1,
+   "parts": 2,
    "title": "Courts and Civil Process",
    "topics": [
     "Structure of courts",
@@ -755,6 +755,40 @@
    "status": "done",
    "palette": 10,
    "order": 401,
+   "free": true,
+   "published": "2026-11-17"
+  },
+  {
+   "id": "legal11-jud-2",
+   "cls": "XI",
+   "book": "Legal Studies (Class XI), CBSE",
+   "chapter": {
+    "id": "legal11-jud",
+    "num": "4",
+    "unit": "Unit",
+    "title": "Judiciary",
+    "short": "Judiciary",
+    "tagline": "Courts, civil and criminal process, police, family courts and tribunals.",
+    "art": "scale",
+    "thumb": "img/legal11-jud.jpg"
+   },
+   "part": 2,
+   "parts": 2,
+   "title": "Criminal Process, Police, Family Courts, Tribunals",
+   "topics": [
+    "FIR, arrest, investigation",
+    "Trial and double jeopardy",
+    "Police and reforms",
+    "Family courts and tribunals"
+   ],
+   "emojis": [
+    "🚔",
+    "⚖️",
+    "🏠"
+   ],
+   "status": "done",
+   "palette": 10,
+   "order": 402,
    "free": true,
    "published": "2026-11-17"
   }
