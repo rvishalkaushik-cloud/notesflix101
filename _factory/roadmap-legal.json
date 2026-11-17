@@ -553,6 +553,40 @@
    "order": 81,
    "free": true,
    "published": "2026-11-17"
+  },
+  {
+   "id": "legal11-polinst-1",
+   "cls": "XI",
+   "book": "Legal Studies (Class XI), CBSE",
+   "chapter": {
+    "id": "legal11-polinst",
+    "num": "1",
+    "unit": "Unit",
+    "title": "Introduction to Political Institutions",
+    "short": "Introduction to Political Institutions",
+    "tagline": "The State, Art 12, forms of government and separation of powers.",
+    "art": "scale",
+    "thumb": "img/legal11-polinst.jpg"
+   },
+   "part": 1,
+   "parts": 1,
+   "title": "State, Government, Separation of Powers",
+   "topics": [
+    "Concept of State",
+    "State under Art 12",
+    "Forms and organs of government",
+    "Separation of powers"
+   ],
+   "emojis": [
+    "🏛️",
+    "👑",
+    "⚖️"
+   ],
+   "status": "done",
+   "palette": 10,
+   "order": 101,
+   "free": true,
+   "published": "2026-11-17"
   }
  ]
 }
