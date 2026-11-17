@@ -791,6 +791,40 @@
    "order": 402,
    "free": true,
    "published": "2026-11-17"
+  },
+  {
+   "id": "legal11-fam-1",
+   "cls": "XI",
+   "book": "Legal Studies (Class XI), CBSE",
+   "chapter": {
+    "id": "legal11-fam",
+    "num": "5",
+    "unit": "Unit",
+    "title": "Family Justice System",
+    "short": "Family Justice System",
+    "tagline": "Marriage, divorce, adoption, child rights, succession and protection of women.",
+    "art": "scale",
+    "thumb": "img/legal11-fam.jpg"
+   },
+   "part": 1,
+   "parts": 1,
+   "title": "Marriage, Divorce, Adoption, Child Rights",
+   "topics": [
+    "Marriage",
+    "Divorce",
+    "Adoption",
+    "Rights of the child"
+   ],
+   "emojis": [
+    "💍",
+    "👨‍👩‍👧",
+    "🧒"
+   ],
+   "status": "done",
+   "palette": 10,
+   "order": 501,
+   "free": true,
+   "published": "2026-11-17"
   }
  ]
 }
