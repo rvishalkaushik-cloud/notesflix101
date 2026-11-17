@@ -671,7 +671,7 @@
     "thumb": "img/legal11-juris.jpg"
    },
    "part": 1,
-   "parts": 1,
+   "parts": 2,
    "title": "Nature, Classification and Sources",
    "topics": [
     "Meaning and schools of law",
@@ -687,6 +687,40 @@
    "status": "done",
    "palette": 10,
    "order": 301,
+   "free": true,
+   "published": "2026-11-17"
+  },
+  {
+   "id": "legal11-juris-2",
+   "cls": "XI",
+   "book": "Legal Studies (Class XI), CBSE",
+   "chapter": {
+    "id": "legal11-juris",
+    "num": "3",
+    "unit": "Unit",
+    "title": "Jurisprudence, Nature and Sources of Law",
+    "short": "Jurisprudence, Nature and Sources of Law",
+    "tagline": "",
+    "art": "scale",
+    "thumb": "img/legal11-juris.jpg"
+   },
+   "part": 2,
+   "parts": 2,
+   "title": "Law Reform and Cyber Laws",
+   "topics": [
+    "Law reform and Law Commission",
+    "Judicial activism and PIL",
+    "IT Act 2000",
+    "Cyber crimes and privacy"
+   ],
+   "emojis": [
+    "🔄",
+    "💻",
+    "🔐"
+   ],
+   "status": "done",
+   "palette": 10,
+   "order": 302,
    "free": true,
    "published": "2026-11-17"
   }
