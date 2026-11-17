@@ -281,6 +281,40 @@
    "order": 41,
    "free": true,
    "published": "2026-11-17"
+  },
+  {
+   "id": "legal12-entities-1",
+   "cls": "XII",
+   "book": "Legal Studies (Class XII), CBSE",
+   "chapter": {
+    "id": "legal12-entities",
+    "num": "4B",
+    "unit": "Unit",
+    "title": "Forms of Legal Entities",
+    "short": "Forms of Legal Entities",
+    "tagline": "Sole trader, partnership, LLP, company and non-profits — who owns, who pays, who survives.",
+    "art": "scale",
+    "thumb": "img/legal12-entities.jpg"
+   },
+   "part": 1,
+   "parts": 1,
+   "title": "Sole Trader to Company",
+   "topics": [
+    "Sole proprietorship and partnership",
+    "LLP",
+    "Company and corporate veil",
+    "Trusts, societies, cooperatives"
+   ],
+   "emojis": [
+    "🧑‍💼",
+    "🤝",
+    "🏢"
+   ],
+   "status": "done",
+   "palette": 10,
+   "order": 42,
+   "free": true,
+   "published": "2026-11-17"
   }
  ]
 }
