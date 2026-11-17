@@ -451,6 +451,40 @@
    "order": 2,
    "free": true,
    "published": "2026-11-17"
+  },
+  {
+   "id": "legal12-intl-1",
+   "cls": "XII",
+   "book": "Legal Studies (Class XII), CBSE",
+   "chapter": {
+    "id": "legal12-intl",
+    "num": "6",
+    "unit": "Unit",
+    "title": "International Law",
+    "short": "International Law",
+    "tagline": "How nations make and keep rules — treaties, custom, the UN and the World Court.",
+    "art": "scale",
+    "thumb": "img/legal12-intl.jpg"
+   },
+   "part": 1,
+   "parts": 1,
+   "title": "Sources, Treaties, UN and ICJ",
+   "topics": [
+    "Meaning and sources",
+    "Treaties and India",
+    "UN and peaceful settlement",
+    "International Court of Justice"
+   ],
+   "emojis": [
+    "🌍",
+    "🕊️",
+    "⚖️"
+   ],
+   "status": "done",
+   "palette": 10,
+   "order": 61,
+   "free": true,
+   "published": "2026-11-17"
   }
  ]
 }
