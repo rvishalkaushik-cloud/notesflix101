@@ -109,8 +109,8 @@ function mascot(){
 /* ---------- routing ---------- */
 var MODS = [
   {k:"quick", n:"Quick Revision", e:"📖", d:"Revise the whole chapter: concept cards, mind map, tables and exam points."},
-  {k:"cases", n:"Case Study Lab", e:"🧪", d:"Real business situations. Find the concept, write the answer, check it against the marking scheme.", b:"Most important"},
-  {k:"flash", n:"Flashcard Challenge", e:"🃏", d:"Flip cards for definitions, features, principles and differences."},
+  {k:"cases", n:"Case Study Lab", e:"🧪", d:"Real-life case studies and competency questions. Find the concept, write the answer, check it against the marking scheme.", b:"Most important"},
+  {k:"flash", n:"Flashcard Challenge", e:"🃏", d:"Flip cards for definitions, formulas, key facts and differences."},
   {k:"practice", n:"Question Practice", e:"🎯", d:"MCQ, A&R, true/false, match, fill-ups and 1 to 6 mark answers with solutions."},
   {k:"find", n:"Find the Concept", e:"🔍", d:"Read the situation, spot the concept. Five game modes against the clock."},
   {k:"battle", n:"Chapter Battle", e:"🏆", d:"A timed, random chapter test with a full performance report."}
@@ -280,7 +280,7 @@ var csIdx = 0;
 function cases(){
   var list = D.cases;
   var c = list[csIdx];
-  var html = head("cases", "Read the business situation, identify the concept, write your answer, then mark it against the CBSE-style scheme.") +
+  var html = head("cases", "Read the situation, identify the concept, write your answer, then mark it against the CBSE-style scheme.") +
     '<div class="caselist" role="tablist">' + list.map(function(x, i){
       return '<button class="cpill' + (i === csIdx ? " on" : "") + (P.cs[x.id] ? " done" : "") + '" data-i="' + i + '" role="tab" aria-selected="' + (i === csIdx) + '"><span class="lvl">' + "★★★".slice(0, x.lvl) + '<i aria-hidden="true">' + "★★★".slice(0, 3 - x.lvl) + "</i>" + " " + ["","Easy","Moderate","Challenging"][x.lvl] + '</span><b>' + esc(x.title) + '</b>' +
         (P.cs[x.id] ? '<span style="color:var(--green)">✓ ' + P.cs[x.id].s + '/' + P.cs[x.id].m + '</span>' : '<span class="muted">' + x.qs.length + ' question' + (x.qs.length > 1 ? "s" : "") + '</span>') + '</button>';
@@ -516,7 +516,7 @@ function gSpot(){
     }
     var it = items[i], opts = shuffle(it.o.map(function(o, j){ return {t:o, ok:j === it.a}; })), left = T;
     ROOT.innerHTML = gHead("⚡ Spot It") + '<div class="hud"><span class="h">Q<b>' + (i + 1) + '/' + items.length + '</b></span><span class="h">Score<b id="sc">' + score + '</b></span><span class="h">Streak<b>' + streakN + '🔥</b></span><span class="tbar" aria-hidden="true"><i id="tb" style="width:100%"></i></span><span class="h">⏱<b id="tl">' + T + '</b></span></div>' +
-      '<div class="situ"><div class="lbl">Business situation</div>' + it.s + '</div><p class="qtext">' + (it.ask || "Identify the concept.") + '</p>' +
+      '<div class="situ"><div class="lbl">Situation</div>' + it.s + '</div><p class="qtext">' + (it.ask || "Identify the concept.") + '</p>' +
       '<div class="opts">' + opts.map(function(o, j){ return '<button class="opt" data-j="' + j + '"><span class="k">' + "ABCD"[j] + '</span><span>' + o.t + '</span></button>'; }).join("") + '</div><div id="fo"></div>';
     bindBack();
     var answered = false;
@@ -640,7 +640,7 @@ function gExplain(){
     if(i >= items.length){ ROOT.innerHTML = gHead("✍️ Explain It") + endBox("Reasons compared", right, items.length); bindBack(); bindEnd(gExplain, right); return; }
     var it = items[i], sel = null;
     ROOT.innerHTML = gHead("✍️ Explain It") + '<div class="hud"><span class="h">Situation<b>' + (i + 1) + '/' + items.length + '</b></span></div>' +
-      '<div class="situ"><div class="lbl">Business situation</div>' + it.s + '</div><p class="qtext">1. Which concept is this?</p><div class="opts">' +
+      '<div class="situ"><div class="lbl">Situation</div>' + it.s + '</div><p class="qtext">1. Which concept is this?</p><div class="opts">' +
       it.o.map(function(o, j){ return '<button class="opt" data-j="' + j + '"><span class="k">' + "ABCD"[j] + '</span><span>' + o + '</span></button>'; }).join("") + '</div>' +
       '<p class="qtext" style="margin-top:12px">2. Why? Point to the words in the situation that prove it (one or two lines).</p><textarea class="ans" style="min-height:70px" aria-label="Your reason"></textarea>' +
       '<div class="btns" style="margin-top:10px"><button class="btn pri" id="ex">Compare with the expert</button></div><div id="fo"></div>';

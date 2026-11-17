@@ -344,3 +344,9 @@ table.cmp tr:nth-child(even) td{background:rgba(255,255,255,.025)}
 .askin{background:var(--bg2,#1c1442);border:2px solid var(--yel,#ffd84d);border-radius:18px;padding:20px;max-width:420px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.5)}
 .askin p{margin:0 0 14px;font-size:17px;font-weight:600}
 @keyframes fadein{from{opacity:0}to{opacity:1}}
+
+/* tables inside answers and revision cards (Accountancy ledgers, Science data, comparisons) */
+.fb table,.card-b table,.cardb table,.sec table:not(.cmp){border-collapse:collapse;width:100%;margin:8px 0 10px;font-size:14px;display:block;overflow-x:auto}
+.fb th,.fb td,.card-b th,.card-b td,.cardb th,.cardb td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+.fb th,.card-b th,.cardb th{background:var(--panel2);color:var(--yel);font-weight:700}
+.fb td:not(:first-child){white-space:nowrap}
