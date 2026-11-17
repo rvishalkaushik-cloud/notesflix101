@@ -171,6 +171,38 @@
    "status": "todo",
    "palette": 10,
    "order": 12
+  },
+  {
+   "id": "legal12-property-1",
+   "cls": "XII",
+   "book": "Legal Studies (Class XII), CBSE",
+   "chapter": {
+    "id": "legal12-property",
+    "num": "3C",
+    "unit": "Unit",
+    "title": "Law of Property",
+    "short": "Law of Property",
+    "tagline": "Kinds of property, ownership and possession, and how property passes from one person to another.",
+    "art": "home",
+    "thumb": "img/legal12-property.jpg"
+   },
+   "part": 1,
+   "parts": 1,
+   "title": "Kinds, Ownership and Transfer",
+   "topics": [
+    "Meaning and kinds of property",
+    "Ownership and possession",
+    "Transfer of property (ss.5–6 TPA)",
+    "Sale, mortgage, lease, exchange, gift"
+   ],
+   "emojis": [
+    "🏠",
+    "🔑",
+    "📜"
+   ],
+   "status": "todo",
+   "palette": 10,
+   "order": 21
   }
  ]
 }
