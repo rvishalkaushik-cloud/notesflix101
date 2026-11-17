@@ -106,10 +106,11 @@
     "🌋",
     "🏛️"
    ],
-   "status": "todo",
+   "status": "done",
    "palette": 10,
    "order": 3,
-   "free": true
+   "free": true,
+   "published": "2026-11-17"
   },
   {
    "id": "legal12-torts-1",
