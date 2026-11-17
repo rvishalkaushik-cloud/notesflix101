@@ -174,10 +174,11 @@
     "🏭",
     "☣️"
    ],
-   "status": "todo",
+   "status": "done",
    "palette": 10,
    "order": 12,
-   "free": true
+   "free": true,
+   "published": "2026-11-17"
   },
   {
    "id": "legal12-property-1",
