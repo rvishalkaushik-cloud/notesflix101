@@ -587,6 +587,40 @@
    "order": 101,
    "free": true,
    "published": "2026-11-17"
+  },
+  {
+   "id": "legal11-const-1",
+   "cls": "XI",
+   "book": "Legal Studies (Class XI), CBSE",
+   "chapter": {
+    "id": "legal11-const",
+    "num": "2",
+    "unit": "Unit",
+    "title": "Basic Features of the Constitution",
+    "short": "Basic Features of the Constitution",
+    "tagline": "Preamble, rights, duties, federalism, amendment and administrative law.",
+    "art": "scale",
+    "thumb": "img/legal11-const.jpg"
+   },
+   "part": 1,
+   "parts": 1,
+   "title": "Salient Features of the Constitution",
+   "topics": [
+    "Preamble",
+    "Rights, DPSP and duties",
+    "Federalism, Schedules, Emergency",
+    "Amendment and basic structure"
+   ],
+   "emojis": [
+    "📜",
+    "🇮🇳",
+    "🧱"
+   ],
+   "status": "done",
+   "palette": 10,
+   "order": 201,
+   "free": true,
+   "published": "2026-11-17"
   }
  ]
 }
