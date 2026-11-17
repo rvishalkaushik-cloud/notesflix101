@@ -655,6 +655,40 @@
    "order": 202,
    "free": true,
    "published": "2026-11-17"
+  },
+  {
+   "id": "legal11-juris-1",
+   "cls": "XI",
+   "book": "Legal Studies (Class XI), CBSE",
+   "chapter": {
+    "id": "legal11-juris",
+    "num": "3",
+    "unit": "Unit",
+    "title": "Jurisprudence, Nature and Sources of Law",
+    "short": "Jurisprudence, Nature and Sources of Law",
+    "tagline": "What law is, how it is classified, and where it comes from — plus law reform and cyber laws.",
+    "art": "scale",
+    "thumb": "img/legal11-juris.jpg"
+   },
+   "part": 1,
+   "parts": 1,
+   "title": "Nature, Classification and Sources",
+   "topics": [
+    "Meaning and schools of law",
+    "Classification of law",
+    "Custom",
+    "Precedent and legislation"
+   ],
+   "emojis": [
+    "📖",
+    "🧠",
+    "⚖️"
+   ],
+   "status": "done",
+   "palette": 10,
+   "order": 301,
+   "free": true,
+   "published": "2026-11-17"
   }
  ]
 }
