@@ -213,6 +213,40 @@
    "order": 21,
    "free": true,
    "published": "2026-11-17"
+  },
+  {
+   "id": "legal12-ipr-1",
+   "cls": "XII",
+   "book": "Legal Studies (Class XII), CBSE",
+   "chapter": {
+    "id": "legal12-ipr",
+    "num": "3D",
+    "unit": "Unit",
+    "title": "Intellectual Property Rights",
+    "short": "Intellectual Property Rights",
+    "tagline": "Copyright, patents, trademarks, designs and GIs — how Indian law protects ideas.",
+    "art": "scale",
+    "thumb": "img/legal12-ipr.jpg"
+   },
+   "part": 1,
+   "parts": 1,
+   "title": "Copyright, Patents, Trademarks, Designs and GI",
+   "topics": [
+    "Copyright",
+    "Patents and s.3(d)",
+    "Trademarks, designs, GI",
+    "Infringement and remedies"
+   ],
+   "emojis": [
+    "©️",
+    "💡",
+    "™️"
+   ],
+   "status": "done",
+   "palette": 10,
+   "order": 31,
+   "free": true,
+   "published": "2026-11-17"
   }
  ]
 }
