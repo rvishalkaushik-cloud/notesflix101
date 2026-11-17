@@ -1,6 +1,6 @@
 # Notesflix 101: every chapter and part
 
-> Interactive CBSE notes for Classes 9 to 12 from Notesflix 101 (founder: Vishal Kaushik). Updated 2026-11-16. Parts marked (free) open without a password.
+> Interactive CBSE notes for Classes 9 to 12 from Notesflix 101 (founder: Vishal Kaushik). Updated 2026-11-17. Parts marked (free) open without a password.
 
 ## Class 9 English (Kaveri)
 
@@ -1259,4 +1259,19 @@ Syllabus: the CBSE Legal Studies syllabus (2026-27) and the CBSE textbook Legal 
 When a promise becomes something a court will enforce.
 
 - Agreement, Offer and Acceptance (Part 1) (free): https://notesflix101.com/notes/legal12-contract-1.html — Agreement vs contract, the essentials of s.10, offer and acceptance, with two real case briefs, a contract gate game and board-exam practice.
+- Capacity, Free Consent and Consideration (Part 2) (free): https://notesflix101.com/notes/legal12-contract-2.html — Story, animations, 3D board, simulations and board-exam practice on Capacity (s.11), minor’s agreement, Free consent: coercion, undue influence, fraud, misrepresentation, mistake, Consideration (s.2(d), s.25).
+- Types, Discharge and Remedies (Part 3) (free): https://notesflix101.com/notes/legal12-contract-3.html — Story, animations, 3D board, simulations and board-exam practice on Types of contracts, Discharge of contract, frustration (s.56), Remedies for breach (s.73).
+
+### Law of Property
+
+Kinds of property, ownership and possession, and how property passes from one person to another.
+
+- Kinds, Ownership and Transfer (free): https://notesflix101.com/notes/legal12-property-1.html — Story, animations, 3D board, simulations and board-exam practice on Meaning and kinds of property, Ownership and possession, Transfer of property (ss.5–6 TPA).
+
+### Law of Torts
+
+Civil wrongs, from a raised fist to a gas leak — and the compensation the law gives.
+
+- Civil Wrongs, Maxims and Defamation (Part 1) (free): https://notesflix101.com/notes/legal12-torts-1.html — Story, animations, 3D board, simulations and board-exam practice on Meaning and nature of tort, Injuria sine damno, damnum sine injuria, Intentional torts.
+- Negligence, Strict and Absolute Liability (Part 2) (free): https://notesflix101.com/notes/legal12-torts-2.html — Story, animations, 3D board, simulations and board-exam practice on Negligence, Strict liability, Absolute liability.
 
