@@ -519,6 +519,40 @@
    "order": 71,
    "free": true,
    "published": "2026-11-17"
+  },
+  {
+   "id": "legal12-ls-1",
+   "cls": "XII",
+   "book": "Legal Studies (Class XII), CBSE",
+   "chapter": {
+    "id": "legal12-ls",
+    "num": "8",
+    "unit": "Unit",
+    "title": "Legal Services",
+    "short": "Legal Services",
+    "tagline": "Free legal aid as a right — Art 39A, NALSA, eligibility and delivery.",
+    "art": "scale",
+    "thumb": "img/legal12-ls.jpg"
+   },
+   "part": 1,
+   "parts": 1,
+   "title": "Free Legal Aid and NALSA",
+   "topics": [
+    "Constitution and landmark cases",
+    "LSA Act 1987 structure",
+    "Who is eligible (s.12)",
+    "How services reach people"
+   ],
+   "emojis": [
+    "🆓",
+    "⚖️",
+    "🤲"
+   ],
+   "status": "done",
+   "palette": 10,
+   "order": 81,
+   "free": true,
+   "published": "2026-11-17"
   }
  ]
 }
