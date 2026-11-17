@@ -485,6 +485,40 @@
    "order": 61,
    "free": true,
    "published": "2026-11-17"
+  },
+  {
+   "id": "legal12-prof-1",
+   "cls": "XII",
+   "book": "Legal Studies (Class XII), CBSE",
+   "chapter": {
+    "id": "legal12-prof",
+    "num": "7",
+    "unit": "Unit",
+    "title": "Legal Profession in India",
+    "short": "Legal Profession in India",
+    "tagline": "Advocates Act, Bar Councils, professional ethics and a changing profession.",
+    "art": "scale",
+    "thumb": "img/legal12-prof.jpg"
+   },
+   "part": 1,
+   "parts": 1,
+   "title": "Advocates, Bar Councils, Ethics",
+   "topics": [
+    "Advocates Act and Bar Councils",
+    "Becoming an advocate",
+    "Professional ethics",
+    "Legal education and change"
+   ],
+   "emojis": [
+    "🧑‍⚖️",
+    "📜",
+    "🖤"
+   ],
+   "status": "done",
+   "palette": 10,
+   "order": 71,
+   "free": true,
+   "published": "2026-11-17"
   }
  ]
 }
