@@ -247,6 +247,40 @@
    "order": 31,
    "free": true,
    "published": "2026-11-17"
+  },
+  {
+   "id": "legal12-sustdev-1",
+   "cls": "XII",
+   "book": "Legal Studies (Class XII), CBSE",
+   "chapter": {
+    "id": "legal12-sustdev",
+    "num": "4A",
+    "unit": "Unit",
+    "title": "Law and Sustainable Development",
+    "short": "Law and Sustainable Development",
+    "tagline": "Growth without destroying the Earth — Constitution, green laws, court principles and the NGT.",
+    "art": "scale",
+    "thumb": "img/legal12-sustdev.jpg"
+   },
+   "part": 1,
+   "parts": 1,
+   "title": "Environment, Courts and the NGT",
+   "topics": [
+    "Sustainable development",
+    "Constitution and environmental Acts",
+    "Polluter pays, precaution, public trust",
+    "National Green Tribunal"
+   ],
+   "emojis": [
+    "🌍",
+    "🏭",
+    "🌳"
+   ],
+   "status": "done",
+   "palette": 10,
+   "order": 41,
+   "free": true,
+   "published": "2026-11-17"
   }
  ]
 }
