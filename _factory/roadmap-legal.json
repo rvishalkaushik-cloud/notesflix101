@@ -349,6 +349,40 @@
    "order": 43,
    "free": true,
    "published": "2026-11-17"
+  },
+  {
+   "id": "legal12-hr-1",
+   "cls": "XII",
+   "book": "Legal Studies (Class XII), CBSE",
+   "chapter": {
+    "id": "legal12-hr",
+    "num": "5",
+    "unit": "Unit",
+    "title": "Human Rights in India",
+    "short": "Human Rights in India",
+    "tagline": "Rights every human is born with, how courts protect them, and the commissions you can approach.",
+    "art": "scale",
+    "thumb": "img/legal12-hr.jpg"
+   },
+   "part": 1,
+   "parts": 1,
+   "title": "Human Rights and Commissions",
+   "topics": [
+    "Meaning and UDHR",
+    "Constitution and courts",
+    "NHRC and SHRCs",
+    "NCW, NCPCR, NCM, NCSC, NCST, NCBC"
+   ],
+   "emojis": [
+    "🕊️",
+    "✊",
+    "⚖️"
+   ],
+   "status": "done",
+   "palette": 10,
+   "order": 51,
+   "free": true,
+   "published": "2026-11-17"
   }
  ]
 }
