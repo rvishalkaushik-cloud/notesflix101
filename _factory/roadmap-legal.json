@@ -417,6 +417,40 @@
    "order": 1,
    "free": true,
    "published": "2026-11-17"
+  },
+  {
+   "id": "legal12-adr-1",
+   "cls": "XII",
+   "book": "Legal Studies (Class XII), CBSE",
+   "chapter": {
+    "id": "legal12-adr",
+    "num": "2",
+    "unit": "Unit",
+    "title": "Alternative Dispute Resolution",
+    "short": "Alternative Dispute Resolution",
+    "tagline": "Arbitration, mediation, conciliation, Lok Adalats and the Ombudsman — justice outside the courtroom.",
+    "art": "scale",
+    "thumb": "img/legal12-adr.jpg"
+   },
+   "part": 1,
+   "parts": 1,
+   "title": "Arbitration, Mediation, Lok Adalat",
+   "topics": [
+    "Adversarial vs inquisitorial; meaning of ADR",
+    "Arbitration",
+    "Mediation and conciliation",
+    "Lok Adalat, Ombudsman, Lokpal"
+   ],
+   "emojis": [
+    "🤝",
+    "⚖️",
+    "🕊️"
+   ],
+   "status": "done",
+   "palette": 10,
+   "order": 2,
+   "free": true,
+   "published": "2026-11-17"
   }
  ]
 }
