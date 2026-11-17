@@ -315,6 +315,40 @@
    "order": 42,
    "free": true,
    "published": "2026-11-17"
+  },
+  {
+   "id": "legal12-criminal-1",
+   "cls": "XII",
+   "book": "Legal Studies (Class XII), CBSE",
+   "chapter": {
+    "id": "legal12-criminal",
+    "num": "4C",
+    "unit": "Unit",
+    "title": "Criminal Laws in India",
+    "short": "Criminal Laws in India",
+    "tagline": "BNS, BNSS and BSA — what a crime is, how a case runs, and what changed in 2024.",
+    "art": "scale",
+    "thumb": "img/legal12-criminal.jpg"
+   },
+   "part": 1,
+   "parts": 1,
+   "title": "Crime, Procedure and the 2024 Codes",
+   "topics": [
+    "Elements and stages of crime",
+    "General exceptions",
+    "FIR to trial",
+    "2024 changes and landmark rulings"
+   ],
+   "emojis": [
+    "🚔",
+    "⚖️",
+    "📜"
+   ],
+   "status": "done",
+   "palette": 10,
+   "order": 43,
+   "free": true,
+   "published": "2026-11-17"
   }
  ]
 }
