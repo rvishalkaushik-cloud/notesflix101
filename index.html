@@ -29,7 +29,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&family=Luckiest+Guy&family=Caveat:wght@600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&family=Poppins:wght@600;700;800&family=Luckiest+Guy&family=Caveat:wght@600;700&display=swap">
 <style>
 /* Layout: a cinema billboard on top, then horizontal shelves of hand-drawn note posters. */
 :root{
@@ -862,6 +862,233 @@ body.nx-lock{overflow:hidden}
 .nf-hub summary{font:700 15px var(--body);cursor:pointer}.nf-hub details p{color:var(--paper-dim);margin:8px 0 0;font:500 14px/1.5 var(--body)}
 footer .copy{font-family:var(--body)}
 footer .copy b{color:var(--paper)}
+
+/* ==================== Premium homepage redesign (Nov 2026) ==================== */
+:root{
+  --hx-bg:#090909; --hx-bg2:#141416; --hx-card:#19191C; --hx-red:#F20D19; --hx-text:#FFFFFF; --hx-dim:#A7A7A7;
+  --hx-line:rgba(255,255,255,.08); --hx-glass:rgba(25,25,28,.72);
+  --hx-display:'Poppins','Barlow','Segoe UI',system-ui,sans-serif;
+}
+body.nz-landing{background:var(--hx-bg)}
+body.nz-landing::after{display:none}
+@media (min-width:1101px){ body.nz-landing .wrap{padding-left:max(28px,env(safe-area-inset-left,0px));padding-right:max(28px,env(safe-area-inset-right,0px))} }
+
+/* ---------- header ---------- */
+.topbar.hx-top{background:rgba(9,9,9,.92);backdrop-filter:blur(14px) saturate(1.2);-webkit-backdrop-filter:blur(14px) saturate(1.2);border-bottom:1px solid var(--hx-line)}
+.topbar.hx-top.solid{background:rgba(9,9,9,.97);border-bottom:1px solid var(--hx-line)}
+.hx-top .wrap{gap:18px;padding-block:10px;flex-wrap:nowrap}
+.topbar .hx-logo{display:flex;align-items:center;gap:10px;font-family:var(--hx-display);text-shadow:none;letter-spacing:0;color:#fff;flex:0 0 auto}
+.hx-mark{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;color:#fff;background:linear-gradient(145deg,#ff2a35,#b3060f);box-shadow:0 6px 18px -6px rgba(242,13,25,.9),inset 0 1px 0 rgba(255,255,255,.25)}
+.hx-mark svg{width:20px;height:20px;margin-left:2px}
+.hx-lt{display:flex;flex-direction:column;line-height:1}
+.hx-name{font:800 22px/1 var(--hx-display);letter-spacing:-.01em;color:var(--hx-red)}
+.hx-name span{color:#fff}
+.hx-lt small{font:500 11.5px/1.2 var(--body);color:#d9d9d9;margin-top:3px;letter-spacing:.01em}
+.topbar .hx-nav{display:flex;align-items:center;gap:4px;flex-wrap:nowrap}
+.topbar .hx-nav a{position:relative;font:600 14.5px var(--body);color:#e6e6e6;text-decoration:none;padding:8px 13px;border-radius:999px;white-space:nowrap;transition:background .2s ease,color .2s ease}
+.topbar .hx-nav a:hover{background:rgba(255,255,255,.06);color:#fff}
+.topbar .hx-nav a.on{background:var(--hx-red);color:#fff;box-shadow:0 6px 18px -8px rgba(242,13,25,.95)}
+.topbar .hx-nav .hx-gold span{font-size:13px}
+.search.hx-search{background:var(--hx-bg2);border:1px solid var(--hx-line);border-radius:12px;padding:8px 10px 8px 12px;gap:8px;flex:0 1 300px;min-width:0}
+.hx-search:focus-within{border-color:rgba(242,13,25,.6);box-shadow:0 0 0 3px rgba(242,13,25,.15)}
+.hx-si{width:18px;height:18px;flex:0 0 18px;fill:none;stroke:#bdbdbd;stroke-width:2;stroke-linecap:round}
+.hx-search input{width:100%;font-size:15px}
+.hx-kbd{font:700 11px var(--body);color:#9a9a9a;border:1px solid rgba(255,255,255,.14);border-radius:6px;padding:2px 7px;flex:0 0 auto}
+.hx-bell,.hx-mail{position:relative;width:40px;height:40px;flex:0 0 40px;border-radius:50%;display:grid;place-items:center;color:#e6e6e6;text-decoration:none;border:1px solid var(--hx-line);background:var(--hx-bg2);transition:border-color .2s ease,color .2s ease}
+.hx-bell:hover,.hx-mail:hover{color:#fff;border-color:rgba(255,255,255,.25)}
+.hx-bell svg,.hx-mail svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.hx-dot{position:absolute;top:8px;right:9px;width:9px;height:9px;border-radius:50%;background:var(--hx-red);box-shadow:0 0 0 2px var(--hx-bg)}
+.hx-top .acct-wrap{order:0}
+.hx-top .btn.hx-acct{border:1px solid var(--hx-line);border-radius:999px;background:var(--hx-bg2);box-shadow:none;padding:5px 14px 5px 5px;gap:9px;font:700 14px var(--body);min-height:40px}
+.hx-top .btn.hx-acct:not(:has(.hx-av)){padding:8px 16px}
+.hx-av{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#2b2b31,#1b1b20);border:1px solid rgba(255,255,255,.15);font:800 12px var(--body);letter-spacing:.02em}
+.hx-top #installBtn{border-radius:999px;box-shadow:none;border:1px solid var(--hx-line);background:var(--hx-bg2)}
+
+/* ---------- hero ---------- */
+.billboard{border-bottom:0}
+.billboard .wrap::before,.bb-doodles{display:none}
+.bb-bg{background:radial-gradient(900px 520px at 78% 30%,rgba(242,13,25,.5),transparent 62%),radial-gradient(700px 360px at 10% 0%,rgba(242,13,25,.14),transparent 60%),linear-gradient(180deg,#140406 0%,#0b0506 55%,var(--hx-bg) 100%)}
+.bb-fade{background:linear-gradient(90deg,rgba(9,9,9,.92) 0%,rgba(9,9,9,.6) 42%,rgba(9,9,9,0) 70%),linear-gradient(180deg,rgba(9,9,9,0) 70%,var(--hx-bg) 100%)}
+.billboard .wrap{padding-block:clamp(34px,6vw,70px) clamp(26px,4vw,46px)}
+.bb-grid{gap:clamp(20px,4vw,56px)}
+.hx-kick{display:flex;align-items:center;gap:14px;font:700 13px var(--body);letter-spacing:.16em;color:#fff;margin:0 0 16px}
+.hx-kick::after{content:"";width:72px;height:2px;background:var(--hx-red);border-radius:2px}
+.billboard h1.hx-h1{font:800 clamp(40px,6.2vw,76px)/1.02 var(--hx-display);letter-spacing:-.035em;margin:0 0 18px;text-shadow:none;color:#fff}
+.billboard h1.hx-h1 em{font-style:normal;color:var(--hx-red);background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='14' preserveAspectRatio='none'><path d='M4 11c40-6 92-8 150-5 16 1 28 2 42 4' fill='none' stroke='%23F20D19' stroke-width='5' stroke-linecap='round'/></svg>");background-position:30% 100%;background-size:78% 12px;padding-bottom:.12em}
+.bb-sub.hx-sub{font:500 clamp(16px,1.6vw,19px)/1.55 var(--body);color:#d4d4d4;max-width:52ch;margin:0 0 26px}
+.hx-actions{gap:14px;margin:0 0 22px}
+.hx-btn{display:inline-flex;align-items:center;gap:10px;font:700 16px var(--body);padding:14px 26px;border-radius:12px;text-decoration:none;color:#fff;transition:transform .18s ease,box-shadow .2s ease,background .2s ease,border-color .2s ease;min-height:50px}
+.hx-btn svg{width:16px;height:16px}
+.hx-btn-red{background:linear-gradient(180deg,#ff1b26,#d50a14);box-shadow:0 12px 30px -10px rgba(242,13,25,.9),inset 0 1px 0 rgba(255,255,255,.2)}
+.hx-btn-red:hover{transform:translateY(-2px);box-shadow:0 16px 36px -10px rgba(242,13,25,1),inset 0 1px 0 rgba(255,255,255,.2)}
+.hx-btn-line{border:1.5px solid rgba(255,255,255,.45);background:rgba(255,255,255,.03)}
+.hx-btn-line:hover{border-color:#fff;background:rgba(255,255,255,.08);transform:translateY(-2px)}
+.hx-meta{font:600 13px var(--body);color:var(--hx-dim);gap:8px 14px;margin:0}
+.hx-meta .pill{border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:3px 10px}
+.hx-meta .countdown{border-radius:999px;transform:none}
+
+/* device mockup: the intro video plays inside the laptop */
+.hx-dev{position:relative;padding:4% 14% 8% 0;perspective:1600px}
+.hx-laptop{position:relative;transform:rotateY(-16deg) rotateX(4deg);transform-style:preserve-3d;filter:drop-shadow(0 40px 50px rgba(0,0,0,.6))}
+.hx-screen{background:#0d0d10;border:2px solid #2a2a30;border-radius:16px 16px 6px 6px;padding:10px;box-shadow:0 0 70px -16px rgba(242,13,25,.75),inset 0 0 0 1px rgba(255,255,255,.05)}
+.hx-screen .adbox{border:0;border-radius:8px;box-shadow:none}
+.hx-base{height:16px;margin:0 -7%;border-radius:2px 2px 16px 16px;background:linear-gradient(180deg,#d7d7dc,#8b8b92 60%,#5b5b62);box-shadow:0 18px 30px rgba(0,0,0,.55)}
+.hx-base::after{content:"";display:block;width:16%;height:6px;margin:0 auto;border-radius:0 0 8px 8px;background:#76767d}
+.hx-phone{position:absolute;right:0;bottom:2%;width:31%;aspect-ratio:9/18.5;border-radius:26px;padding:22px 9px 10px;background:linear-gradient(180deg,#141418,#0b0b0e);border:3px solid #2c2c33;box-shadow:0 30px 50px rgba(0,0,0,.65),0 0 40px -12px rgba(242,13,25,.6);transform:rotateY(-12deg) rotateZ(2deg);display:flex;flex-direction:column;gap:7px}
+.hx-notch{position:absolute;top:7px;left:50%;width:34%;height:9px;margin-left:-17%;border-radius:9px;background:#000}
+.hx-plogo{font:800 clamp(9px,1vw,13px) var(--hx-display);color:var(--hx-red);margin:2px 4px 4px;letter-spacing:-.01em}
+.hx-plogo b{color:#fff}
+.hx-prow{display:flex;align-items:center;gap:7px;padding:8px 9px;border-radius:9px;font:700 clamp(9px,.95vw,12.5px) var(--body);color:#fff;border:1px solid rgba(255,255,255,.08)}
+.hx-prow i{font-style:normal;font-size:1.15em}
+.hx-prow.p1{background:linear-gradient(90deg,rgba(168,85,247,.55),rgba(168,85,247,.15))}
+.hx-prow.p2{background:linear-gradient(90deg,rgba(34,197,94,.5),rgba(34,197,94,.12))}
+.hx-prow.p3{background:linear-gradient(90deg,rgba(249,115,22,.55),rgba(249,115,22,.14))}
+.hx-prow.p4{background:linear-gradient(90deg,rgba(59,130,246,.55),rgba(59,130,246,.14))}
+
+/* ---------- landing sections ---------- */
+.nx-home.hx-home{max-width:1320px;padding:4px clamp(16px,2.2vw,28px) 10px}
+.hx-feat{display:grid;grid-template-columns:repeat(4,1fr);margin:0 0 34px;border-radius:18px;background:linear-gradient(180deg,rgba(242,13,25,.1),rgba(242,13,25,.03)),var(--hx-glass);border:1px solid rgba(242,13,25,.35);box-shadow:0 0 50px -24px rgba(242,13,25,.8),inset 0 1px 0 rgba(255,255,255,.05);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);overflow:hidden}
+.hx-fi{display:flex;align-items:center;gap:14px;padding:18px 22px;text-decoration:none;color:#fff;position:relative;transition:background .2s ease}
+.hx-fi+.hx-fi::before{content:"";position:absolute;left:0;top:22%;bottom:22%;width:1px;background:rgba(255,255,255,.1)}
+.hx-fi:hover{background:rgba(242,13,25,.08)}
+.hx-fic{width:40px;height:40px;flex:0 0 40px;color:#ff3a43;filter:drop-shadow(0 0 10px rgba(242,13,25,.55))}
+.hx-fic svg{width:100%;height:100%;stroke-width:1.6}
+.hx-ft{display:flex;flex-direction:column;gap:2px;min-width:0}
+.hx-ft b{font:700 16.5px var(--body)}
+.hx-ft small{font:500 13px var(--body);color:var(--hx-dim)}
+.nx-head.hx-head{align-items:center;gap:10px 18px;margin:0 0 14px}
+.hx-head h2{position:relative;font:800 clamp(24px,2.6vw,30px)/1.15 var(--hx-display);letter-spacing:-.02em;color:#fff;margin:0;padding-bottom:6px}
+.hx-head h2::after{content:"";position:absolute;left:0;bottom:-2px;width:46%;height:4px;border-radius:4px;background:var(--hx-red)}
+.hx-head > span{font:500 14px var(--body);color:#cfcfcf}
+.hx-pill{margin-left:auto;font:700 14px var(--body);color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.35);border-radius:10px;padding:9px 14px;white-space:nowrap;transition:border-color .2s ease,background .2s ease}
+.hx-pill:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.hx-link{margin-left:auto;font:700 14px var(--body);color:#ff3a43;text-decoration:none;white-space:nowrap}
+.hx-link:hover{text-decoration:underline}
+#nxClasses{scroll-margin-top:84px}
+
+/* the signature 3D class cards: same build, refined proportions and a deeper hover */
+.hx-home .nx-row{gap:clamp(14px,1.8vw,24px);padding:10px 6px 28px;perspective:1200px}
+.hx-home .nx-card{height:clamp(150px,13vw,176px);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s ease}
+.hx-home .nx-t{font-size:clamp(28px,2.6vw,36px)}
+.hx-home .nx-s{font-size:clamp(14px,1.25vw,17px)}
+@media (hover:hover) and (pointer:fine){
+  .hx-home .nx-card:hover{transform:translateY(-8px) rotateY(var(--ry,-10deg)) rotateX(var(--rx,4deg)) skewY(-2deg);box-shadow:inset 0 0 0 1px rgba(255,255,255,.22),0 0 60px 0 var(--g),0 34px 60px rgba(0,0,0,.65)}
+  .hx-home .nx-card:hover .nx-ic{transform:translateZ(60px) rotate(-4deg) scale(1.06)}
+}
+.hx-home .nx-ic{transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.hx-home .nx-login{margin:4px 0 34px}
+
+/* subjects */
+.hx-sec{margin:0 0 34px}
+.hx-sec .hx-head{display:flex;align-items:center;flex-wrap:wrap;gap:10px 18px;margin:0 0 16px}
+.hx-subj{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:12px}
+.hx-sc{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-height:104px;padding:14px 8px 12px;border-radius:16px;background:var(--hx-card);border:1px solid var(--hx-line);color:#fff;text-decoration:none;text-align:center;cursor:pointer;font:inherit;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease,background .2s ease}
+.hx-sc:hover:not(:disabled){transform:translateY(-4px);border-color:color-mix(in srgb,var(--c) 55%,transparent);box-shadow:0 14px 30px -14px color-mix(in srgb,var(--c) 70%,transparent);background:#1d1d21}
+.hx-sc:focus-visible{outline:2px solid var(--c);outline-offset:2px}
+.hx-sic{width:34px;height:34px;color:var(--c);filter:drop-shadow(0 0 8px color-mix(in srgb,var(--c) 45%,transparent))}
+.hx-sic svg{width:100%;height:100%;stroke-width:1.7}
+.hx-sc b{font:700 14px/1.2 var(--body)}
+.hx-sc small{font:600 11.5px var(--body);color:var(--hx-dim)}
+.hx-sc.is-soon{cursor:default;opacity:.55}
+.hx-sc.is-soon small{color:#7d7d7d}
+
+/* updates banner and cards */
+.hx-upd{display:flex;align-items:center;gap:16px 22px;flex-wrap:wrap;padding:18px 24px;border-radius:18px;text-decoration:none;color:#fff;margin:0 0 10px;
+  background:linear-gradient(90deg,rgba(242,13,25,.32),rgba(242,13,25,.08) 55%,rgba(242,13,25,.18)),var(--hx-bg2);border:1px solid rgba(242,13,25,.45);box-shadow:0 0 50px -24px rgba(242,13,25,.9)}
+.hx-uic{width:40px;height:40px;color:#ff3a43;flex:0 0 40px}
+.hx-uic svg{width:100%;height:100%}
+.hx-upd b{font:800 24px var(--hx-display);letter-spacing:-.02em;padding-right:22px;border-right:1px solid rgba(255,255,255,.18)}
+.hx-ut{flex:1 1 260px;font:500 15px var(--body);color:#e2e2e2}
+.hx-ubtn{font:700 15px var(--body);border:1.5px solid rgba(255,255,255,.7);border-radius:12px;padding:10px 18px;white-space:nowrap;transition:background .2s ease}
+.hx-upd:hover .hx-ubtn{background:rgba(255,255,255,.1)}
+body.nz-landing .updates{border-bottom:0;padding-top:18px}
+body.nz-landing .updates .row-head h2{font:800 26px var(--hx-display);letter-spacing:-.02em;background-image:none;padding-bottom:0}
+body.nz-landing .upd{background:var(--hx-card);border:1px solid var(--hx-line);border-radius:16px;box-shadow:none;transition:transform .2s ease,border-color .2s ease}
+body.nz-landing .upd:hover{transform:translateY(-3px);border-color:rgba(242,13,25,.45)}
+.upd-top{justify-content:space-between}
+.upd-tag{border-radius:999px;background:rgba(242,13,25,.14);border-color:rgba(242,13,25,.45);color:#ff8a90}
+.upd-date{font:600 12.5px var(--body);color:var(--hx-dim)}
+body.nz-landing .upd h3{font:700 18px/1.3 var(--body);letter-spacing:0}
+.upd-more{color:#ff3a43 !important}
+
+/* ---------- responsive ---------- */
+@media (max-width:1180px){
+  .hx-top .wrap{flex-wrap:wrap}
+  .search.hx-search{flex:1 1 220px}
+  .hx-subj{grid-template-columns:repeat(5,minmax(0,1fr))}
+}
+@media (max-width:980px){
+  .bb-grid{grid-template-columns:1fr}
+  .hx-dev{max-width:620px;margin:0 auto;padding-right:16%}
+  .hx-feat{grid-template-columns:repeat(2,1fr)}
+  .hx-fi:nth-child(3)::before{display:none}
+  .hx-fi:nth-child(n+3){border-top:1px solid rgba(255,255,255,.08)}
+  .hx-home .nx-row{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:860px){
+  .topbar .hx-nav{display:flex;order:5;flex:1 1 100%;overflow-x:auto;scrollbar-width:none;margin:0 -4px;padding:2px 0}
+  .topbar .hx-nav::-webkit-scrollbar{display:none}
+  .topbar .hx-nav a{font-size:13.5px;padding:7px 12px}
+  .search.hx-search{order:4;flex:1 1 100%}
+  .hx-kbd{display:none}
+  .hx-top .wrap{gap:10px 10px}
+  .hx-top .spacer{display:none}
+  .topbar .hx-logo{margin-right:auto}
+}
+@media (max-width:640px){
+  .hx-lt small{display:none}
+  .hx-name{font-size:20px}
+  .hx-mark{width:32px;height:32px;border-radius:9px}
+  .hx-hi{display:none}
+  .hx-top .btn.hx-acct{padding:4px}
+  .hx-top .btn.hx-acct:not(:has(.hx-av)){padding:8px 14px}
+  .hx-top .acct-wrap{order:0;margin-left:0}
+  .topbar .hx-logo{order:-1}
+  .hx-actions{flex-direction:column;align-items:stretch}
+  .hx-btn{justify-content:center}
+  .hx-subj{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+  .hx-sc{min-height:96px}
+  .hx-feat{grid-template-columns:1fr 1fr}
+  .hx-fi{padding:14px 12px;gap:10px}
+  .hx-fic{width:30px;height:30px;flex-basis:30px}
+  .hx-ft b{font-size:14px}
+  .hx-ft small{font-size:11.5px}
+  .hx-upd{padding:16px}
+  .hx-upd b{border-right:0;padding-right:0;font-size:21px}
+  .hx-ubtn{width:100%;text-align:center}
+  .hx-pill{margin-left:0}
+  .hx-home .nx-row{gap:14px;padding:8px 2px 22px}
+  .hx-home .nx-card{height:132px;padding:14px;border-radius:16px}
+  .hx-home .nx-t{font-size:24px}
+  .hx-home .nx-s{font-size:13px;margin-top:5px}
+  .hx-home .nx-ic{width:62px;height:62px;right:8px;bottom:6px}
+  .hx-dev{padding:2% 18% 6% 0}
+  .hx-phone{border-radius:18px;padding:16px 6px 8px;gap:5px}
+  .hx-prow{padding:5px 6px;border-radius:7px;gap:5px}
+}
+/* follow-up polish */
+.hx-screen .ad-sound{left:12px;right:auto;bottom:12px;font-size:12px;padding:6px 11px}
+.hx-phone{width:26%;aspect-ratio:9/17;bottom:-4%;right:1%}
+.hx-pfoot{margin-top:auto;padding:7px 8px;border-radius:9px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);font:700 clamp(8px,.8vw,11px) var(--body);color:#cfcfcf}
+.hx-pfoot i{display:block;height:5px;margin-top:5px;border-radius:5px;background:linear-gradient(90deg,var(--hx-red) 62%,rgba(255,255,255,.12) 62%)}
+@media (min-width:981px){.bb-grid{grid-template-columns:1.08fr .92fr}}
+.billboard h1.hx-h1{font-size:clamp(38px,5.2vw,68px)}
+.billboard .wrap{padding-bottom:clamp(20px,3vw,34px)}
+body.nz-landing .premium h2,body.nz-landing .access .row-head h2,body.nz-landing .nf-hub h2{font-family:var(--hx-display);font-weight:800;letter-spacing:-.02em}
+@media (max-width:980px){
+  .hx-home .nx-row{display:grid;grid-template-columns:repeat(2,1fr);overflow:visible;margin:0;padding:8px 4px 22px;scroll-snap-type:none}
+  .hx-home .nx-row .nx-card{width:auto;flex:none}
+}
+@media (max-width:640px){
+  .hx-subj .hx-sc:last-child{display:none}
+  .hx-phone{width:30%;bottom:-6%}
+  .hx-pfoot{display:none}
+  .hx-screen .ad-sound{font-size:11px;padding:4px 8px;left:8px;bottom:8px}
+}
+@media (prefers-reduced-motion:reduce){
+  .hx-home .nx-card,.hx-sc,.hx-btn,.upd{transition:none !important}
+  .hx-home .nx-card:hover,.hx-sc:hover,.hx-btn:hover,.upd:hover{transform:none !important}
+}
 </style>
 </head>
 <body>
@@ -2191,25 +2418,31 @@ CHAPTERS.forEach(function(c){
 </script>
 <!-- ======================= END OF EDITABLE BLOCK ======================= -->
 
-<header class="topbar" id="topbar">
+<header class="topbar hx-top" id="topbar">
   <div class="wrap">
-    <a class="logo" href="#top">NOTESFLIX <span>101</span></a>
-    <nav>
-      <a href="#browse">Chapters</a>
+    <a class="logo hx-logo" href="#top" id="logoHome" aria-label="Notesflix 101 home">
+      <span class="hx-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M9 5.5v21l17-10.5z" fill="currentColor"/></svg></span>
+      <span class="hx-lt"><span class="hx-name">NOTESFLIX <span>101</span></span><small>Interactive CBSE Notes &amp; Practice</small></span>
+    </a>
+    <nav class="hx-nav" aria-label="Main">
+      <a href="#top" id="navHome" class="on">Home</a>
+      <a href="#nxClasses" id="navCh">Chapters</a>
+      <a href="marathon.html">Practice</a>
       <a id="navUpd" href="#updates" hidden>CBSE Updates</a>
-      <a href="#premium">Complete Notes</a>
+      <a href="#premium" class="hx-gold">Complete Set <span aria-hidden="true">👑</span></a>
     </nav>
     <div class="spacer"></div>
-    <div class="search"><span aria-hidden="true">⌕</span><input id="q" type="search" placeholder="Search a topic" aria-label="Search notes"></div>
+    <div class="search hx-search"><svg class="hx-si" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="q" type="search" placeholder="Search chapters, topics…" aria-label="Search notes"><kbd class="hx-kbd" aria-hidden="true">/</kbd></div>
+    <a class="hx-bell" id="bellBtn" href="#updates" aria-label="CBSE updates"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 16V11a6 6 0 1 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></svg><i class="hx-dot" id="bellDot" hidden></i></a>
     <div class="acct-wrap" id="acctWrap" hidden>
-      <button class="btn btn-ghost" id="acct" type="button">Sign in</button>
+      <button class="btn btn-ghost hx-acct" id="acct" type="button">Sign in</button>
       <div class="acct-menu" id="acctMenu" hidden>
         <div class="acct-mail" id="acctMail"></div>
         <button class="btn btn-ghost" id="acctOut" type="button">Sign out</button>
       </div>
     </div>
     <button class="btn btn-ghost" id="installBtn" type="button">Install</button>
-    <a class="btn btn-red" id="waTop" href="mailto:support@notesflix101.com">✉ Email us</a>
+    <a class="hx-mail" id="waTop" href="mailto:support@notesflix101.com" aria-label="Email us" title="Email us"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg></a>
   </div>
 </header>
 
@@ -2220,25 +2453,40 @@ CHAPTERS.forEach(function(c){
   <div class="wrap">
    <div class="bb-grid">
     <div class="bb-inner">
-      <div class="kicker"><b>C&amp;S</b> CLASSES · GURUGRAM</div>
-      <h1>Notes you can <em>binge</em>.</h1>
-      <p class="bb-sub">Interactive CBSE notes for Classes 9 to 12: Science, SST, English and Hindi for Classes 9 and 10, and Business Studies, Accountancy, Economics and Entrepreneurship for Classes 11 and 12. Many parts are free, every subject has a practice marathon, and the other parts open with a password from Notesflix 101. <mark>How to get access is at the bottom of this page.</mark></p>
-      <div class="bb-meta">
+      <div class="kicker hx-kick">CBSE CLASSES 9 – 12</div>
+      <h1 class="hx-h1">Notes You Can <em>Binge.</em></h1>
+      <p class="bb-sub hx-sub">Interactive, chapter-wise CBSE notes, practice, case studies, revision tools and more — for Classes 9 to 12.</p>
+      <div class="bb-actions hx-actions">
+        <a class="hx-btn hx-btn-red" href="#nxClasses" id="startRead"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12-7.5z" fill="currentColor"/></svg>Start Reading</a>
+        <a class="hx-btn hx-btn-line" href="#premium"><span aria-hidden="true">👑</span>Get the Complete Set</a>
+      </div>
+      <div class="bb-meta hx-meta">
         <span class="pill">CLASS 9 – 12</span>
-        <span class="pill">8 SUBJECTS</span>
         <span id="countMeta">28 notes</span>
         <span class="countdown" id="countdown" hidden></span>
-      </div>
-      <div class="bb-actions">
-        <a class="btn btn-light btn-lg" href="#shelves">▶ Start reading</a>
-        <a class="btn btn-ghost btn-lg" href="#premium">ⓘ Get the complete set</a>
       </div>
     </div>
 
     <div class="bb-right">
-     <div class="adbox" id="adbox">
-      <video id="adVid" src="media/intro.mp4" poster="media/intro-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="Notesflix 101 intro video"></video>
-      <button type="button" id="adSound" class="ad-sound" aria-pressed="false" aria-label="Turn sound on">🔇 Sound off</button>
+     <div class="hx-dev">
+      <div class="hx-laptop">
+       <div class="hx-screen">
+        <div class="adbox" id="adbox">
+         <video id="adVid" src="media/intro.mp4" poster="media/intro-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="Notesflix 101 intro video"></video>
+         <button type="button" id="adSound" class="ad-sound" aria-pressed="false" aria-label="Turn sound on">🔇 Sound off</button>
+        </div>
+       </div>
+       <div class="hx-base"></div>
+      </div>
+      <div class="hx-phone" aria-hidden="true">
+       <div class="hx-notch"></div>
+       <div class="hx-plogo">NOTESFLIX <b>101</b></div>
+       <div class="hx-prow p1"><i>🎮</i>Practice</div>
+       <div class="hx-prow p2"><i>🎯</i>Revision</div>
+       <div class="hx-prow p3"><i>📁</i>Case Studies</div>
+       <div class="hx-prow p4"><i>🏆</i>Games</div>
+       <div class="hx-pfoot">Today's goal · 3 of 5 parts<i></i></div>
+      </div>
      </div>
     </div>
    </div>
@@ -3637,7 +3885,16 @@ CHAPTERS.forEach(function(c){
     people:'<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/><circle cx="17" cy="9" r="2.5"/><path d="M16.5 14.5c2.5 0 4.3 1.6 5 4.5"/>',
     stack:'<path d="M3 17l9 4 9-4M3 12l9 4 9-4M12 3l9 4-9 4-9-4z"/>',
     scale:'<path d="M12 3v18M7 21h10M4 7h16M6 7l-3 7a3 3 0 0 0 6 0zM18 7l-3 7a3 3 0 0 0 6 0z"/>',
-    user:'<circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4.2-6 8-6s7 2 8 6"/>'
+    user:'<circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4.2-6 8-6s7 2 8 6"/>',
+    atom:'<circle cx="12" cy="12" r="1.6"/><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/>',
+    leaf:'<path d="M5 19c0-9 6-14 15-14 0 9-5 15-14 15"/><path d="M5 19c3-4 6-6.5 10-8.5"/>',
+    abook:'<path d="M3 5.5c3-1 6-1 9 1 3-2 6-2 9-1v13c-3-1-6-1-9 1-3-2-6-2-9-1z"/><path d="M12 6.5v13M6 9.5h3M6 12.5h3M15 9.5h3M15 12.5h3"/>',
+    grid:'<rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><rect x="13" y="13" width="7" height="7" rx="2"/>',
+    bolt:'<path d="M13 2L4 14h7l-1 8 9-12h-7z"/>',
+    pad:'<path d="M7 7h10a5 5 0 0 1 4.9 6l-.7 3.4a2.4 2.4 0 0 1-4.1 1.1L14.6 15H9.4l-2.5 2.5a2.4 2.4 0 0 1-4.1-1.1L2.1 13A5 5 0 0 1 7 7z"/><path d="M7 10v3M5.5 11.5h3M15.5 11h.01M17.5 13h.01"/>',
+    target:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.5"/><circle cx="12" cy="12" r="2"/>',
+    coins:'<ellipse cx="9" cy="7" rx="6" ry="2.6"/><path d="M3 7v4c0 1.4 2.7 2.6 6 2.6s6-1.2 6-2.6V7"/><path d="M9 13.6v3.8c0 1.4 2.7 2.6 6 2.6s6-1.2 6-2.6v-4c0-1.4-2.7-2.6-6-2.6"/>',
+    chart:'<path d="M4 20V10M9 20V6M14 20v-8M19 20V4"/><path d="M3 20h18"/>'
   };
   var NX_SUBJ = { "Accountancy":"calc", "Business Studies":"bars", "Economics":"trend", "Entrepreneurship":"bulb",
     "Science":"flask", "Physics":"flask", "Chemistry":"flask", "Legal Studies":"scale", "Biology":"flask", "Social Science (SST)":"globe",
@@ -3783,30 +4040,89 @@ CHAPTERS.forEach(function(c){
     return a;
   }
 
+  function goLanding(target){
+    if(activeSubject || filter){ activeSubject = ""; activeClass = ""; if(filter){ filter = ""; var qi = document.getElementById("q"); if(qi) qi.value = ""; } paintTabs(); render(); }
+    var el = target && document.getElementById(target);
+    if(el) el.scrollIntoView({ behavior:"smooth", block:"start" }); else window.scrollTo({ top:0, behavior:"smooth" });
+  }
+  function hxFeatures(){
+    var d = document.createElement("div");
+    d.className = "hx-feat";
+    [["bolt","Interactive Notes","Learn, Practise, Revise","#nxClasses"],
+     ["pad","Chapter Games","Learn with Fun","#nxClasses"],
+     ["target","Practice Arenas","MCQs, Case Studies & More","marathon.html"],
+     ["chart","CBSE Updates","Datesheets, Circulars & Samples","#updates"]].forEach(function(f){
+      var a = document.createElement("a");
+      a.className = "hx-fi"; a.href = f[3];
+      a.innerHTML = '<span class="hx-fic">' + nxIco(f[0]) + '</span><span class="hx-ft"><b>' + esc(f[1]) + '</b><small>' + esc(f[2]) + '</small></span>';
+      if(f[3].charAt(0) === "#") a.addEventListener("click", function(ev){ ev.preventDefault(); goLanding(f[3].slice(1)); });
+      d.appendChild(a);
+    });
+    return d;
+  }
+  var HX_SUBJECTS = [
+    ["Accountancy","calc","#4da3ff"], ["Business Studies","bars","#ff5470"], ["Economics","coins","#f5b301"],
+    ["Chemistry","flask","#22d3ee"], ["Physics","atom","#c084fc"], ["Biology","leaf","#4ade80"],
+    ["Mathematics","pi","#60a5fa"], ["English","abook","#f472b6"], ["Legal Studies","scale","#fbbf24"]
+  ];
+  function hxSubjects(){
+    var sec = document.createElement("section");
+    sec.className = "hx-sec"; sec.setAttribute("aria-label", "Explore by subject");
+    sec.innerHTML = '<div class="hx-head"><h2>Explore by Subject</h2><a class="hx-link" href="#subjects">View All Subjects →</a></div>';
+    var g = document.createElement("div"); g.className = "hx-subj";
+    HX_SUBJECTS.forEach(function(s){
+      var name = s[0];
+      if(name === "English" && !subjectCount("English") && subjectCount("English (Kaveri)")) name = "English (Kaveri)";
+      var n = subjectCount(name), b = document.createElement("button");
+      b.type = "button"; b.className = "hx-sc" + (n ? "" : " is-soon"); b.style.setProperty("--c", s[2]);
+      b.innerHTML = '<span class="hx-sic">' + nxIco(s[1]) + '</span><b>' + esc(s[0]) + '</b><small>' + (n ? n + (n === 1 ? " chapter" : " chapters") : "Coming soon") + '</small>';
+      if(n) b.addEventListener("click", function(){ pickedClass = ""; pickSubject(name); });
+      else b.disabled = true;
+      g.appendChild(b);
+    });
+    var more = document.createElement("a");
+    more.className = "hx-sc"; more.href = "#subjects"; more.style.setProperty("--c", "#a7a7a7");
+    more.innerHTML = '<span class="hx-sic">' + nxIco("grid") + '</span><b>More</b><small>All subjects</small>';
+    g.appendChild(more);
+    sec.appendChild(g);
+    return sec;
+  }
+  function hxUpdates(){
+    var a = document.createElement("a");
+    a.className = "hx-upd"; a.href = "#updates";
+    a.innerHTML = '<span class="hx-uic">' + nxIco("mega") + '</span><b>CBSE Updates</b><span class="hx-ut">Latest circulars, date sheets, sample papers and important announcements.</span><span class="hx-ubtn">View Updates →</span>';
+    a.addEventListener("click", function(ev){ ev.preventDefault(); var u = document.getElementById("updates"); if(u && !u.hidden) u.scrollIntoView({ behavior:"smooth", block:"start" }); });
+    return a;
+  }
   function homeView(){
     var wrap = document.createElement("div");
-    wrap.className = "nx-home";
-    if(!cloudUid) wrap.appendChild(loginCard());
+    wrap.className = "nx-home hx-home";
+    wrap.appendChild(hxFeatures());
     var h = document.createElement("div");
-    h.className = "nx-head";
-    h.innerHTML = '<h2>Explore by Class</h2><span>Tap a class to see its subjects</span>';
+    h.className = "nx-head hx-head"; h.id = "nxClasses";
+    h.innerHTML = '<h2>Explore by Class</h2><span>Choose your class and start learning</span><a class="hx-pill" href="#premium">View Complete Set →</a>';
     wrap.appendChild(h);
     var row = document.createElement("div");
     row.className = "nx-row";
     CLASS_CARDS.forEach(function(c){ row.appendChild(classCard(c)); });
     wrap.appendChild(row);
-    var mr = document.createElement("a");
-    mr.className = "nx-mara";
-    mr.href = "marathon.html";
-    mr.innerHTML = '<span class="nx-mi">🏁</span><span class="nx-mt"><b>Practice Marathons</b><span>A weekly marathon for every subject, plus sprints, mega marathons and chapter practice</span></span><span class="nx-mg">Start →</span>';
-    wrap.appendChild(mr);
-    var up = document.createElement("a");
-    up.className = "nx-upd";
-    up.href = "#updates";
-    up.innerHTML = '<span class="nx-ui">' + nxIco("mega") + '</span><b>CBSE Updates</b><span class="nx-ut">Latest circulars, date sheets, sample papers and more</span><span class="nx-uv">View all →</span>';
-    wrap.appendChild(up);
+    if(!cloudUid) wrap.appendChild(loginCard());
+    wrap.appendChild(hxSubjects());
+    wrap.appendChild(hxUpdates());
     return wrap;
   }
+
+  /* header: Home / Chapters go back to the landing page; "/" or Ctrl/Cmd+K focuses search */
+  (function(){
+    function hook(id, target){ var a = document.getElementById(id); if(a) a.addEventListener("click", function(ev){ ev.preventDefault(); goLanding(target); }); }
+    hook("navHome", ""); hook("logoHome", ""); hook("navCh", "nxClasses"); hook("startRead", "nxClasses");
+    document.addEventListener("keydown", function(ev){
+      var tag = (ev.target && ev.target.tagName) || "";
+      if((ev.key === "/" && !/INPUT|TEXTAREA|SELECT/.test(tag)) || ((ev.ctrlKey || ev.metaKey) && (ev.key === "k" || ev.key === "K"))){
+        var q = document.getElementById("q"); if(q){ ev.preventDefault(); q.focus(); }
+      }
+    });
+  })();
 
   /* ACCOUNTANCY LAB row under Class 12 Accountancy: every lab chapter, each opens lab/?ch=<id> */
   var LAB_CHAPTERS = [
@@ -4506,16 +4822,22 @@ CHAPTERS.forEach(function(c){
     items.forEach(function(it){
       var card=el('article','upd');
       var top=el('div','upd-top'); top.appendChild(el('span','upd-tag',it.tag||'Update'));
-      if(it.status){var st=el('span','upd-status '+it.status,it.status); top.appendChild(st);}
+      top.appendChild(el('span','upd-date',fmt(it.date)));
       card.appendChild(top);
       card.appendChild(el('h3',null,it.title||''));
       card.appendChild(el('p',null,it.summary||''));
-      var foot=el('div','upd-foot'); foot.appendChild(el('span',null,fmt(it.date)));
-      if(it.url&&/^https:\/\//.test(it.url)){var a=el('a',null,(it.source||'Source')+' \u2197'); a.href=it.url; a.target='_blank'; a.rel='noopener noreferrer'; foot.appendChild(a);}
+      var foot=el('div','upd-foot');
+      if(it.status){foot.appendChild(el('span','upd-status '+it.status,it.status));} else foot.appendChild(el('span',null,''));
+      if(it.url&&/^https:\/\//.test(it.url)){var a=el('a','upd-more','Read more \u2192'); a.href=it.url; a.target='_blank'; a.rel='noopener noreferrer'; a.title=(it.source||'Source'); foot.appendChild(a);}
       card.appendChild(foot); rail.appendChild(card);
     });
     document.getElementById('updMeta').textContent=d.checked?('Checked '+fmt(d.checked)):'';
     sec.hidden=false;
+    try{ var newest=items.map(function(x){return x.date||'';}).sort().pop(), seen=localStorage.getItem('notesflix101.updSeen')||'';
+      var dot=document.getElementById('bellDot'), bell=document.getElementById('bellBtn');
+      if(dot && newest>seen) dot.hidden=false;
+      if(bell) bell.addEventListener('click',function(){ try{localStorage.setItem('notesflix101.updSeen',newest);}catch(e){} if(dot) dot.hidden=true; });
+    }catch(e){}
     ['navUpd','footUpd'].forEach(function(id){var n=document.getElementById(id); if(n) n.hidden=false;});
   }).catch(function(){});
 })();
@@ -4542,7 +4864,9 @@ CHAPTERS.forEach(function(c){
 
   function render(){
     if (user) {
-      btn.textContent = 'Hi, ' + ((user.displayName || user.email || 'Student').split(' ')[0]);
+      var nm = (user.displayName || user.email || 'Student').trim();
+      var ini = nm.split(/[\s@.]+/).filter(Boolean).slice(0, 2).map(function(w){ return w.charAt(0).toUpperCase(); }).join('');
+      btn.innerHTML = '<span class="hx-av">' + ini.replace(/[^A-Z0-9]/g, '') + '</span><span class="hx-hi">Hi, ' + nm.split(' ')[0].replace(/[<>&"]/g, '') + '</span>';
       mail.textContent = user.email || '';
     } else {
       btn.textContent = 'Sign in';
