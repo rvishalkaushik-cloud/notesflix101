@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head><script async src="https://www.googletagmanager.com/gtag/js?id=G-GGM18EJQC8"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-GGM18EJQC8");</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>My Study Planner | Notesflix 101</title>
+<meta name="description" content="A day-by-day study plan up to your exam, built from Notesflix chapters, Revision Arena, Answer Writing Lab and previous-year questions.">
+<meta name="theme-color" content="#0b0b0f">
+<link rel="icon" href="img/icon-192.png">
+<style>
+:root{--bg:#0b0b0f;--panel:#14141b;--panel2:#1b1b24;--line:rgba(255,255,255,.1);--ink:#f5f5f7;--dim:#a7a7b5;--red:#e50914;--green:#22c55e;--amber:#f5b301;--violet:#b847ff;--teal:#14d6c3;--blue:#4da3ff;--body:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:500 16px/1.55 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}button,input,select{font:inherit;color:inherit}button{cursor:pointer}
+.top{position:sticky;top:0;z-index:30;background:rgba(11,11,15,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .in{max-width:980px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:10px}
+.logo{font:800 22px/1 var(--body);text-decoration:none;color:var(--red)}.logo span{color:#fff}.sp{flex:1}
+.back{color:var(--dim);text-decoration:none;font:700 13px var(--body);border:1px solid var(--line);border-radius:999px;padding:7px 12px;background:none}
+main{max-width:980px;margin:0 auto;padding:22px 16px 90px}
+.kick{font:800 12px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--violet)}
+h1{font:800 32px/1.1 var(--body);margin:6px 0 8px;letter-spacing:-.02em}
+h2{font:800 19px/1.3 var(--body);margin:0 0 10px}
+.lead{color:var(--dim);margin:0 0 18px;max-width:720px}
+.note{color:var(--dim);font-size:13px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px;margin:0 0 14px}
+label.f{display:block;font:800 13px var(--body);margin:0 0 6px;color:#dcdce4}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+input[type=date],select,input[type=number]{width:100%;background:#0b0b0f;border:1px solid var(--line);border-radius:10px;padding:10px 12px;color:#fff}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:var(--panel2);border-radius:999px;padding:7px 12px;font:700 13.5px var(--body);color:var(--dim)}
+.chip.on{background:#fff;color:#000;border-color:#fff}
+.btn{border:0;border-radius:11px;padding:11px 18px;font:800 15px var(--body);background:var(--red);color:#fff;box-shadow:0 8px 22px -8px rgba(229,9,20,.7)}
+.btn.ghost{background:transparent;border:1px solid var(--line);box-shadow:none;font-size:13px;padding:8px 12px}
+.warn{padding:10px 12px;border-radius:12px;background:rgba(245,179,1,.1);border:1px solid rgba(245,179,1,.35);font-size:14px;margin:0 0 14px}
+/* dashboard */
+.hero{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center}
+.ring{width:96px;height:96px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--green) calc(var(--p)*1%),var(--panel2) 0)}
+.ring b{width:76px;height:76px;border-radius:50%;background:var(--panel);display:grid;place-items:center;font:800 20px var(--body)}
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.stat{background:var(--panel2);border-radius:12px;padding:8px 12px;font-size:12.5px;color:var(--dim)}.stat b{display:block;font:800 18px var(--body);color:#fff}
+.days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px;margin:0 0 14px}
+.day{border:1px solid var(--line);background:var(--panel);border-radius:12px;padding:8px 4px;text-align:center;font-size:12px;color:var(--dim)}
+.day b{display:block;font:800 16px var(--body);color:#fff}
+.day.on{border-color:var(--violet);background:rgba(184,71,255,.12)}
+.day.rest{opacity:.5}
+.day .dots{display:flex;justify-content:center;flex-wrap:wrap;gap:2px;margin-top:4px;min-height:6px;overflow:hidden;max-height:14px;font-size:10px}
+.day .dots i{width:6px;height:6px;border-radius:50%;background:var(--panel2)}.day .dots i.ok{background:var(--green)}
+.task{display:flex;gap:12px;align-items:center;padding:11px 12px;border-radius:12px;background:var(--panel2);border:1px solid var(--line);margin:0 0 8px}
+.task.done{opacity:.6}.task.done .tt{text-decoration:line-through}
+.task .ck{flex:0 0 26px;height:26px;border-radius:8px;border:2px solid var(--dim);display:grid;place-items:center;font:800 14px var(--body);background:none}
+.task.done .ck{background:var(--green);border-color:var(--green);color:#04210f}
+.task .tb{flex:1;min-width:0}
+.task .tt{font:700 14.5px/1.35 var(--body)}
+.task .ts{font-size:12px;color:var(--dim);margin-top:2px}
+.task .go{flex:0 0 auto;font:800 12.5px var(--body);text-decoration:none;border-radius:999px;padding:7px 12px;color:#fff;background:var(--c,#333)}
+.k-read{--c:#e50914}.k-arena{--c:#7c3aed}.k-pyq{--c:#0e7490}.k-write{--c:#b45309}.k-battle{--c:#7c3aed}.k-test{--c:#15803d}
+.bars{display:grid;gap:10px}
+.bar{font-size:13.5px}.bar .bl{display:flex;justify-content:space-between;margin-bottom:4px}.bar .bt{height:9px;background:var(--panel2);border-radius:9px;overflow:hidden}.bar .bt i{display:block;height:100%;background:linear-gradient(90deg,var(--teal),var(--green))}
+details.wk{border-top:1px solid var(--line);padding:8px 0}
+details.wk summary{cursor:pointer;font:800 14px var(--body);list-style:none;display:flex;gap:8px}
+details.wk summary::-webkit-details-marker{display:none}
+.dl{margin:8px 0 0 0}.dl h4{margin:10px 0 6px;font:800 13px var(--body);color:var(--dim)}
+.phase{font:800 11px var(--body);letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:999px;background:rgba(184,71,255,.18);color:#e3c4ff}
+@media (max-width:640px){h1{font-size:26px}.row{grid-template-columns:1fr}.hero{grid-template-columns:1fr}.task .go{padding:6px 10px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="in"><a class="logo" href="index.html">NOTES<span>FLIX</span> 101</a><span class="sp"></span><a class="back" href="index.html">← Home</a></div></header>
+<main id="app"><p class="note">Loading…</p></main>
+<script>
+(function(){
+  "use strict";
+  var KEY = "notesflix101.plan", DATA = null, app = document.getElementById("app");
+  var DAYN = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"], MON = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  function esc(s){ return String(s == null ? "" : s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+  function ld(k, d){ try{ return JSON.parse(localStorage.getItem(k)) || d; }catch(e){ return d; } }
+  function sv(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
+  function ymd(d){ return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); }
+  function parse(s){ var p = s.split("-"); return new Date(+p[0], +p[1] - 1, +p[2]); }
+  function today(){ var q = new URLSearchParams(location.search).get("today"); return q ? parse(q) : new Date(new Date().toDateString()); }
+  function nice(s){ var d = parse(s); return DAYN[d.getDay()] + " " + d.getDate() + " " + MON[d.getMonth()]; }
+  function track(ev, p){ try{ if(window.gtag) gtag("event", ev, p || {}); }catch(e){} }
+
+  /* ---------- build a plan ---------- */
+  function build(cfg){
+    var subs = cfg.subjects.map(function(s){ return { name:s, d:DATA[cfg.cls][s] }; });
+    var start = today(), end = parse(cfg.exam), days = [];
+    for(var d = new Date(start); d < end; d.setDate(d.getDate() + 1)){ var dd = new Date(d); days.push({ date:ymd(dd), rest:cfg.rest && dd.getDay() === 0, tasks:[] }); }
+    var work = days.filter(function(x){ return !x.rest; });
+    var N = work.length, cap = cfg.hours * 60;
+    var revN = N >= 28 ? Math.max(7, Math.round(N * 0.22)) : (N >= 14 ? 5 : 0);
+    var learnDays = work.slice(0, N - revN), revDays = work.slice(N - revN);
+    // learning queues, most-asked chapters first when the subject has board data
+    var queues = subs.map(function(s){
+      var chs = s.d.chapters.filter(function(c){ return !cfg.skip[c.id]; }).slice();
+      if(cfg.order === "asked" && s.d.pyq) chs.sort(function(a, b){ return b.w - a.w || (parseFloat(a.num) || 0) - (parseFloat(b.num) || 0); });
+      return { s:s, chs:chs };
+    });
+    var need = 0; queues.forEach(function(q){ q.chs.forEach(function(c){ c.parts.forEach(function(p){ need += p.m; }); need += (c.arena ? 20 : 0) + (q.s.d.pyq ? 20 : 0); }); });
+    var have = learnDays.length * cap, quick = {};
+    if(need > have){ // switch the least-asked chapters to quick revision until the plan fits
+      var all = []; queues.forEach(function(q){ q.chs.forEach(function(c){ all.push(c); }); });
+      all.sort(function(a, b){ return a.w - b.w; });
+      for(var i = 0; i < all.length && need > have; i++){ var c = all[i]; if(!c.arena) continue; var full = 0; c.parts.forEach(function(p){ full += p.m; }); quick[c.id] = 1; need -= full - 25; }
+    }
+    queues.forEach(function(q){
+      q.t = [];
+      q.chs.forEach(function(c){
+        var base = { subj:q.s.name, ch:c.id, chT:c.title };
+        if(quick[c.id]) q.t.push(Object.assign({ kind:"arena", m:25, title:"Quick revision: " + c.title, url:"arena/?ch=" + c.id + "#quick", ref:c.id }, base));
+        else c.parts.forEach(function(p){ q.t.push(Object.assign({ kind:"read", m:p.m, title:"Read: " + (p.t.indexOf(c.title) === 0 ? p.t : c.title + " — " + p.t), url:p.url, ref:p.id }, base)); });
+        if(c.arena && !quick[c.id]) q.t.push(Object.assign({ kind:"arena", m:20, title:"Revision Arena: " + c.title, url:"arena/?ch=" + c.id, ref:c.id }, base));
+        if(q.s.d.pyq) q.t.push(Object.assign({ kind:"pyq", m:20, title:"Board questions: " + c.title, url:"pyq.html?s=" + q.s.d.pyq + "#" + c.id, ref:c.id }, base));
+      });
+    });
+    var left = 0;
+    learnDays.forEach(function(day, di){
+      var used = 0, k = di % queues.length, tries = 0, touched = {};
+      // one Answer Writing Lab task per subject per week
+      queues.forEach(function(q, qi){ if(q.s.d.write && di % 7 === (qi * 2) % 7){ day.tasks.push({ subj:q.s.name, kind:"write", m:15, title:"Answer Writing Lab: practise 2 questions", url:"writing.html?s=" + q.s.d.write }); used += 15; } });
+      while(tries < queues.length * 3){
+        var q = queues[k % queues.length]; k++; tries++;
+        if(!q.t.length) continue;
+        if(Object.keys(touched).length >= 2 && !touched[q.s.name]) continue;
+        var t = q.t[0];
+        if(used + t.m > cap + 10 && used > 0) continue;
+        day.tasks.push(q.t.shift()); used += t.m; touched[q.s.name] = 1; tries = 0;
+        if(used >= cap) break;
+      }
+    });
+    queues.forEach(function(q){ left += q.t.length; });
+    // revision phase: chapter battles on most-asked chapters, mixed board questions, a weekly test
+    var revPool = []; queues.forEach(function(q){ q.chs.slice().sort(function(a, b){ return b.w - a.w; }).forEach(function(c){ revPool.push({ q:q, c:c }); }); });
+    revDays.forEach(function(day, i){
+      var used = 0, n = 0;
+      if(i % 7 === 6 && cfg.cls === "XII" && cfg.subjects.indexOf("Business Studies") >= 0 && cap >= 180){ day.tasks.push({ subj:"Business Studies", kind:"test", m:180, title:"Board Test Series: one full paper (3 hours)", url:"tests.html" }); return; }
+      while(used < cap && n < 12){
+        var p = revPool[(i * 3 + n) % revPool.length]; n++;
+        if(p.c.arena){ day.tasks.push({ subj:p.q.s.name, ch:p.c.id, kind:"battle", m:15, title:"Chapter Battle: " + p.c.title, url:"arena/?ch=" + p.c.id + "#battle", ref:p.c.id }); used += 15; }
+        if(p.q.s.d.pyq && used < cap){ day.tasks.push({ subj:p.q.s.name, ch:p.c.id, kind:"pyq", m:25, title:"Mixed board questions: " + p.c.title, url:"pyq.html?s=" + p.q.s.d.pyq + "#" + p.c.id }); used += 25; }
+        else if(!p.c.arena && used < cap){ day.tasks.push({ subj:p.q.s.name, ch:p.c.id, kind:"read", m:25, title:"Re-read summary: " + p.c.title, url:p.c.parts[0].url }); used += 25; }
+      }
+    });
+    var id = 0; days.forEach(function(day){ day.tasks.forEach(function(t){ t.id = "t" + (++id); }); day.phase = revDays.indexOf(day) >= 0 ? "revise" : "learn"; });
+    return { cfg:cfg, days:days, done:{}, created:ymd(today()), quick:Object.keys(quick).length, short:left, revFrom:revDays.length ? revDays[0].date : null };
+  }
+
+  /* ---------- auto-detect finished work from other parts of the site ---------- */
+  function autoDone(t){
+    var P = ld("notesflix101.progress", {}), A = ld("nf.arena.v1", { ch:{} });
+    if(t.kind === "read" && t.ref && P.done && P.done[t.ref]) return true;
+    if((t.kind === "arena" || t.kind === "battle") && t.ref && A.ch && A.ch[t.ref] && A.ch[t.ref].days){
+      var ds = Object.keys(A.ch[t.ref].days); return ds.some(function(k){ return k >= (t.kind === "battle" ? t.date : "0"); });
+    }
+    return false;
+  }
+  function isDone(plan, t){ return !!plan.done[t.id] || autoDone(t); }
+
+  /* ---------- screens ---------- */
+  function setup(prev){
+    var cfg = prev || { cls:"XII", subjects:[], exam:"", hours:3, rest:true, order:"asked", skip:{} };
+    function paint(){
+      var subs = Object.keys(DATA[cfg.cls] || {});
+      var h = '<div class="kick">My Study Planner</div><h1>Your day-by-day plan to the exam</h1>'
+        + '<p class="lead">Tell us your class, subjects, exam date and study time. We will build a plan from Notesflix chapters, Revision Arena, board questions and the Answer Writing Lab, and tick things off as you finish them.</p>'
+        + '<div class="card"><label class="f">1. Your class</label><div class="chips">' + ["XII","XI","X","IX"].map(function(c){ return '<button class="chip' + (cfg.cls === c ? " on" : "") + '" data-cls="' + c + '">Class ' + c + '</button>'; }).join("") + '</div></div>'
+        + '<div class="card"><label class="f">2. Subjects to plan</label><div class="chips">' + subs.map(function(s){ return '<button class="chip' + (cfg.subjects.indexOf(s) >= 0 ? " on" : "") + '" data-sub="' + esc(s) + '">' + esc(s) + '</button>'; }).join("") + '</div></div>'
+        + '<div class="card"><div class="row"><div><label class="f">3. Exam date</label><input type="date" id="exam" value="' + esc(cfg.exam) + '" min="' + ymd(today()) + '"><p class="note">Use your first board paper or school exam date.</p></div>'
+        + '<div><label class="f">4. Study time per day</label><select id="hours">' + [1,1.5,2,2.5,3,4,5,6].map(function(x){ return '<option value="' + x + '"' + (+cfg.hours === x ? " selected" : "") + '>' + x + ' hour' + (x > 1 ? "s" : "") + '</option>'; }).join("") + '</select></div></div>'
+        + '<div class="row" style="margin-top:12px"><div><label class="f">5. Sundays</label><div class="chips"><button class="chip' + (cfg.rest ? " on" : "") + '" data-rest="1">Keep Sunday free</button><button class="chip' + (!cfg.rest ? " on" : "") + '" data-rest="0">Study on Sunday</button></div></div>'
+        + '<div><label class="f">6. Chapter order</label><div class="chips"><button class="chip' + (cfg.order === "asked" ? " on" : "") + '" data-ord="asked">Most-asked first</button><button class="chip' + (cfg.order === "book" ? " on" : "") + '" data-ord="book">Book order</button></div></div></div></div>'
+        + '<button class="btn" id="go">Build my plan →</button> <span class="note" id="msg"></span>';
+      app.innerHTML = h;
+      app.querySelectorAll("[data-cls]").forEach(function(b){ b.onclick = function(){ cfg.cls = b.getAttribute("data-cls"); cfg.subjects = []; paint(); }; });
+      app.querySelectorAll("[data-sub]").forEach(function(b){ b.onclick = function(){ var s = b.getAttribute("data-sub"), i = cfg.subjects.indexOf(s); if(i >= 0) cfg.subjects.splice(i, 1); else cfg.subjects.push(s); b.classList.toggle("on"); }; });
+      app.querySelectorAll("[data-rest]").forEach(function(b){ b.onclick = function(){ cfg.rest = b.getAttribute("data-rest") === "1"; paint(); }; });
+      app.querySelectorAll("[data-ord]").forEach(function(b){ b.onclick = function(){ cfg.order = b.getAttribute("data-ord"); paint(); }; });
+      document.getElementById("exam").onchange = function(){ cfg.exam = this.value; };
+      document.getElementById("hours").onchange = function(){ cfg.hours = +this.value; };
+      document.getElementById("go").onclick = function(){
+        var msg = document.getElementById("msg");
+        if(!cfg.subjects.length){ msg.textContent = "Pick at least one subject."; return; }
+        if(!cfg.exam || parse(cfg.exam) <= today()){ msg.textContent = "Pick an exam date in the future."; return; }
+        var plan = build(cfg); sv(KEY, plan); track("plan_create", { cls:cfg.cls, n:cfg.subjects.length, days:plan.days.length }); dash(plan);
+      };
+    }
+    paint();
+  }
+
+  function dash(plan, pick){
+    var t0 = ymd(today()), cfg = plan.cfg;
+    plan.days.forEach(function(d){ d.tasks.forEach(function(t){ t.date = d.date; }); });
+    var all = []; plan.days.forEach(function(d){ all = all.concat(d.tasks); });
+    var doneN = all.filter(function(t){ return isDone(plan, t); }).length;
+    var pct = all.length ? Math.round(doneN / all.length * 100) : 0;
+    var left = Math.round((parse(cfg.exam) - today()) / 864e5);
+    var sel = pick || t0;
+    var dayObj = plan.days.filter(function(d){ return d.date === sel; })[0];
+    var behind = all.filter(function(t){ return t.date < t0 && !isDone(plan, t); });
+    function taskHtml(t){
+      var d = isDone(plan, t);
+      return '<div class="task k-' + t.kind + (d ? " done" : "") + '" data-id="' + t.id + '"><button class="ck" aria-label="Mark done">' + (d ? "✓" : "") + '</button><div class="tb"><div class="tt">' + esc(t.title) + '</div><div class="ts">' + esc(t.subj) + ' · ' + t.m + ' min</div></div>' + (t.url ? '<a class="go" href="' + esc(t.url) + '">Open</a>' : '') + '</div>';
+    }
+    // week strip around the selected day
+    var idx = Math.max(0, plan.days.findIndex(function(d){ return d.date === t0; })), strip = plan.days.slice(Math.max(0, idx - 1), Math.max(0, idx - 1) + 7);
+    var subs = cfg.subjects.map(function(s){ var ts = all.filter(function(t){ return t.subj === s; }); var dn = ts.filter(function(t){ return isDone(plan, t); }).length; return [s, ts.length ? Math.round(dn / ts.length * 100) : 0, dn, ts.length]; });
+    var h = '<div class="kick">My Study Planner · Class ' + esc(cfg.cls) + '</div><h1>' + left + ' days to your exam</h1>'
+      + '<div class="card hero"><div class="ring" style="--p:' + pct + '"><b>' + pct + '%</b></div><div><b>' + doneN + ' of ' + all.length + ' tasks done</b><div class="stats"><span class="stat"><b>' + nice(cfg.exam) + '</b>exam</span><span class="stat"><b>' + cfg.hours + ' h</b>a day</span><span class="stat"><b>' + (plan.revFrom ? nice(plan.revFrom) : "—") + '</b>revision starts</span></div></div></div>'
+      + (plan.quick ? '<div class="warn">⏳ Your time is tight, so ' + plan.quick + ' of the least-asked chapters are set as <b>quick revision</b> in the Revision Arena instead of full notes. Add study time per day to read them fully.</div>' : '')
+      + (plan.short ? '<div class="warn">⚠️ Even with quick revision, ' + plan.short + ' tasks did not fit before revision starts. Choose a later date or more hours.</div>' : '')
+      + '<div class="days">' + strip.map(function(d){ var dt = parse(d.date), ok = d.tasks.filter(function(t){ return isDone(plan, t); }).length; return '<button class="day' + (d.date === sel ? " on" : "") + (d.rest ? " rest" : "") + '" data-day="' + d.date + '">' + DAYN[dt.getDay()] + '<b>' + dt.getDate() + '</b><span class="dots">' + (d.rest ? "rest" : d.tasks.slice(0, 6).map(function(t){ return '<i class="' + (isDone(plan, t) ? "ok" : "") + '"></i>'; }).join("")) + '</span></button>'; }).join("") + '</div>'
+      + '<div class="card"><h2>' + (sel === t0 ? "Today" : nice(sel)) + (dayObj && dayObj.phase === "revise" ? ' <span class="phase">Revision phase</span>' : '') + '</h2>'
+      + (dayObj ? (dayObj.rest ? '<p class="note">Rest day. Recharge for tomorrow. 🌿</p>' : dayObj.tasks.map(taskHtml).join("") || '<p class="note">Nothing planned.</p>') : '<p class="note">This day is outside your plan.</p>') + '</div>'
+      + (behind.length ? '<div class="card"><h2>Catch up (' + behind.length + ')</h2><p class="note" style="margin:0 0 8px">Unfinished tasks from earlier days. Do these first when you have time.</p>' + behind.slice(0, 6).map(taskHtml).join("") + '</div>' : '')
+      + '<div class="card"><h2>Subject progress</h2><div class="bars">' + subs.map(function(s){ return '<div class="bar"><div class="bl"><b>' + esc(s[0]) + '</b><span class="note">' + s[2] + '/' + s[3] + ' · ' + s[1] + '%</span></div><div class="bt"><i style="width:' + s[1] + '%"></i></div></div>'; }).join("") + '</div></div>'
+      + '<div class="card"><h2>Full plan</h2>' + weeks(plan) + '</div>'
+      + '<button class="btn ghost" id="edit">✏️ Change plan</button> <button class="btn ghost" id="reset">Start over</button>';
+    app.innerHTML = h;
+    app.querySelectorAll(".task .ck").forEach(function(b){ b.onclick = function(){ var id = b.closest(".task").getAttribute("data-id"); if(plan.done[id]) delete plan.done[id]; else plan.done[id] = 1; sv(KEY, plan); dash(plan, sel); track("plan_tick"); }; });
+    app.querySelectorAll("[data-day]").forEach(function(b){ b.onclick = function(){ dash(plan, b.getAttribute("data-day")); }; });
+    document.getElementById("edit").onclick = function(){ setup(plan.cfg); };
+    document.getElementById("reset").onclick = function(){ if(confirmReset()){ localStorage.removeItem(KEY); setup(); } };
+  }
+  function confirmReset(){ return window.confirm ? window.confirm("Delete this plan and start over? Your progress in notes and the Arena stays.") : true; }
+  function weeks(plan){
+    var out = "", wk = [], n = 0;
+    plan.days.forEach(function(d, i){ wk.push(d); if(wk.length === 7 || i === plan.days.length - 1){ n++;
+      var tasks = 0, mins = 0; wk.forEach(function(x){ tasks += x.tasks.length; x.tasks.forEach(function(t){ mins += t.m; }); });
+      out += '<details class="wk"><summary>Week ' + n + ' · ' + nice(wk[0].date) + ' – ' + nice(wk[wk.length - 1].date) + ' <span class="note">· ' + tasks + ' tasks · ' + Math.round(mins / 60) + ' h' + (wk[0].phase === "revise" ? " · revision" : "") + '</span></summary><div class="dl">'
+        + wk.map(function(x){ return '<h4>' + nice(x.date) + (x.rest ? " · rest" : "") + '</h4>' + x.tasks.map(function(t){ return '<div class="ts" style="margin:0 0 4px">' + (isDone(plan, t) ? "✅ " : "▫️ ") + esc(t.title) + ' <span class="note">(' + t.m + ' min)</span></div>'; }).join(""); }).join("") + '</div></details>';
+      wk = []; } });
+    return out;
+  }
+
+  fetch("planner/data.json").then(function(r){ return r.json(); }).then(function(d){
+    DATA = d; var plan = ld(KEY, null);
+    if(plan && plan.days && parse(plan.cfg.exam) > today()) dash(plan); else setup(plan && plan.cfg);
+  }).catch(function(){ app.innerHTML = '<p class="note">Could not load the planner. Check your connection.</p>'; });
+})();
+</script>
+</body>
+</html>
