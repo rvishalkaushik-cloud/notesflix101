@@ -103,7 +103,7 @@ textarea:focus{outline:2px solid rgba(229,9,20,.5);border-color:transparent}
 .ans .sc{display:flex;align-items:center;gap:10px;margin:0 0 10px}
 .ans .sc .big{font:800 26px/1 var(--body)}
 .ans.weak .big{color:#ff8fa3}.ans.good .big{color:#ffd66b}.ans.full .big{color:#7ee2a0}
-.ans .body{font-size:15.5px;line-height:1.7;color:#ececf1}
+.ans .body{font-size:15.5px;line-height:1.7;color:#ececf1;overflow-x:auto;-webkit-overflow-scrolling:touch}
 .ans .body p{margin:0 0 8px}
 .ans .body table{border-collapse:collapse;width:100%;margin:6px 0 10px;font-size:14px}
 .ans .body th,.ans .body td{border:1px solid rgba(255,255,255,.18);padding:6px 8px;text-align:left;vertical-align:top}
@@ -131,6 +131,9 @@ textarea:focus{outline:2px solid rgba(229,9,20,.5);border-color:transparent}
   h1{font-size:27px}.qtext{font-size:17px}
   .tab{font-size:13px;padding:9px 4px}
   .step .sh .note{display:none}
+  .ans{padding:12px}
+  .ans .body table{font-size:13px;line-height:1.45;min-width:500px}
+  .ans .body th,.ans .body td{padding:5px 6px}
 }
 </style>
 </head>
