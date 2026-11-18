@@ -855,6 +855,8 @@ body.nx-lock{overflow:hidden}
 .nx-mara.nx-write{background:linear-gradient(120deg,rgba(245,179,1,.2),rgba(229,9,20,.16));border-color:rgba(245,179,1,.5);box-shadow:0 0 30px -14px rgba(245,179,1,.9)}
 .nx-mara.nx-write:hover{box-shadow:0 0 40px -10px rgba(245,179,1,1)}
 .nx-mara.nx-write .nx-mg{background:#f5b301;color:#2a1c00}
+.nx-mara.nx-pyq{background:linear-gradient(120deg,rgba(20,214,195,.18),rgba(77,163,255,.16));border-color:rgba(77,163,255,.5);box-shadow:0 0 30px -14px rgba(77,163,255,.9)}
+.nx-mara.nx-pyq .nx-mg{background:#4da3ff;color:#04152a}
 .nf-hub{max-width:1180px;margin:30px auto 0;padding:0 16px;color:var(--paper)}
 .nf-hub h2{font:400 30px/1 var(--display);letter-spacing:.02em;margin:0 0 14px}
 .nf-hub .g{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin:0 0 26px}
@@ -3226,6 +3228,8 @@ CHAPTERS.forEach(function(c){
       if(tb) host.appendChild(tb);
       var wb = writeBanner(activeSubject, activeClass || pickedClass);
       if(wb) host.appendChild(wb);
+      var pb = pyqBanner(activeSubject, activeClass || pickedClass);
+      if(pb) host.appendChild(pb);
       var mb = marathonBanner(activeSubject, activeClass || pickedClass);
       if(mb) host.appendChild(mb);
       var svHero = subjectHero(activeSubject, activeClass);
@@ -4023,6 +4027,17 @@ CHAPTERS.forEach(function(c){
   fetch("tests/index.json", { cache:"no-cache" }).then(function(r){ return r.ok ? r.json() : null; }).then(function(d){
     if(d && d.series){ TESTS = d.series; if(activeSubject && !filter) render(); }
   }).catch(function(){});
+  function pyqBanner(sub, cl){
+    var P = {"XII|Business Studies":"xii-bst","XII|Accountancy":"xii-acc","XII|Economics":"xii-eco","XII|Entrepreneurship":"xii-ent","XII|Chemistry":"xii-chem","XII|Legal Studies":"xii-legal","X|Science":"x-sci","X|Social Science (SST)":"x-sst"};
+    var slug = cl ? P[cl + "|" + sub] : null;
+    if(!slug){ var hits = []; for(var k in P){ if(k.split("|")[1] === sub) hits.push(P[k]); } if(hits.length !== 1) return null; slug = hits[0]; }
+    var a = document.createElement("a");
+    a.className = "nx-mara nx-pyq";
+    a.href = "pyq.html?s=" + slug;
+    a.innerHTML = '<span class="nx-mi">📜</span><span class="nx-mt"><b>Previous Year Questions · ' + esc(sub) + '</b>'
+      + '<span>Real CBSE board questions 2023–2026 · chapter-wise · most-asked chapters</span></span><span class="nx-mg">Open →</span>';
+    return a;
+  }
   function writeBanner(sub, cl){
     var W = {"XII|Business Studies":"xii-bst","XII|Accountancy":"xii-acc","XII|Economics":"xii-eco","XII|Entrepreneurship":"xii-ent","XII|Chemistry":"xii-chem","XII|Legal Studies":"xii-legal",
       "XI|Business Studies":"xi-bst","XI|Economics":"xi-eco","XI|Physics":"xi-phy","XI|Legal Studies":"xi-legal",
