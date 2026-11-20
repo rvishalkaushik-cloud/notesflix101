@@ -78,6 +78,32 @@
     ctx.toast('LEVEL ' + NFA.lvl + ' · ' + NFA.LEVELS[NFA.lvl] + ' · hearts refilled');
   };
 
+  /* ---------- read-first card: the game waits while the student reads the question and its options ----------
+     opts: [{t, tag, col}]  tag = where the option will appear (LEFT, 1st barrel, TOP …). Returns {now} like checkpoint. */
+  NFA.readOn = function () { try { return localStorage.getItem('nfa.readfirst') !== 'off'; } catch (e) { return true; } };
+  NFA.readFirst = function (ctx, host, ask, opts, done) {
+    if (!NFA.readOn() || NFA.T > 1) { done(); return null; }
+    var ov = el('div'); ov.style.cssText = 'position:absolute;inset:0;background:#0b0a24e6;display:flex;align-items:center;justify-content:center;z-index:6;padding:12px';
+    var card = el('div', 'nfa-card'); card.style.cssText = 'max-width:360px;width:100%;border:2px solid #ffd24d;max-height:100%;overflow:auto';
+    card.innerHTML = '<div class="nfa-eyebrow">📖 Read first · the game is waiting</div>' +
+      '<div style="font:800 17px/1.35 system-ui;margin:8px 0 10px;color:#fff">' + esc(ask) + '</div>' +
+      opts.map(function (o) { return '<div style="display:flex;gap:8px;align-items:center;margin:6px 0;padding:9px 10px;border-radius:12px;background:#ffffff12;border-left:6px solid ' + (o.col || '#4dfff0') + '">' +
+        '<span style="flex:none;font:800 11px system-ui;color:#0b0a24;background:' + (o.col || '#4dfff0') + ';border-radius:8px;padding:3px 7px">' + esc(o.tag) + '</span>' +
+        '<span style="font:700 15px/1.3 system-ui;color:#fff">' + esc(o.t) + '</span></div>'; }).join('');
+    var go = el('button', 'nfa-btn', 'I\'m ready ▶'); go.style.cssText += ';width:100%;margin-top:10px;font-size:17px;min-height:50px';
+    var off = el('label', 'nfa-mute'); off.style.cssText = 'display:flex;gap:6px;align-items:center;justify-content:center;margin-top:8px;font-size:12px;cursor:pointer';
+    off.innerHTML = '<input type="checkbox"> Skip reading screens (fast mode)';
+    card.appendChild(go); card.appendChild(off); ov.appendChild(card); host.appendChild(ov);
+    var fin = false;
+    function end() { if (fin) return; fin = true; ov.remove(); document.removeEventListener('keydown', key, true); done(); }
+    function key(e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.stopPropagation(); end(); } }
+    go.onclick = end; document.addEventListener('keydown', key, true);
+    off.querySelector('input').onchange = function () { try { localStorage.setItem('nfa.readfirst', this.checked ? 'off' : 'on'); } catch (e) { } };
+    setTimeout(function () { try { go.focus(); } catch (e) { } }, 50);
+    ctx.cleanup(function () { if (!fin) { fin = true; ov.remove(); document.removeEventListener('keydown', key, true); } });
+    return { now: end };
+  };
+
   /* ---------- typed checkpoint (for numericals) ---------- */
   NFA.checkpoint = function (ctx, host, q, done) {
     var ov = el('div'); ov.style.cssText = 'position:absolute;inset:0;background:#0009;display:flex;align-items:center;justify-content:center;z-index:5;padding:14px';
@@ -197,7 +223,9 @@
           Object.keys(uniq).forEach(function (l) { var b = new THREE.Mesh(new THREE.BoxGeometry(LANE - 0.4, 0.8, 0.5), new THREE.MeshLambertMaterial({ color: 0xe0304a, flatShading: true })); b.position.set((l - 1) * LANE, 0.4, 0); hg.add(b); var st = new THREE.Mesh(new THREE.BoxGeometry(LANE - 0.4, 0.18, 0.52), new THREE.MeshBasicMaterial({ color: 0xffffff })); st.position.set((l - 1) * LANE, 0.55, 0); hg.add(st); });
           hg.position.z = hz; sc.add(hg); items.push({ k: 'hurdle', z: hz, obj: hg, lanes: Object.keys(uniq).map(Number), hit: false }); } });
       }
-      function setBanner() { var nxt = items.filter(function (r) { return (r.k === 'gate' || r.k === 'calc') && !r.hit; })[0]; if (nxt) banner(nxt.k === 'calc' ? 'Pit stop ahead: work out the number' : nxt.c.prompt); else banner('Finish line!'); }
+      function setBanner() { var nxt = items.filter(function (r) { return (r.k === 'gate' || r.k === 'calc') && !r.hit; })[0]; if (nxt) banner(nxt.k === 'calc' ? 'Pit stop ahead: work out the number' : nxt.c.prompt); else banner('Finish line!');  readGate(nxt); }
+      var readC = null; function readGate(nxt) { if (!nxt || nxt.k !== 'gate' || nxt.c === readC || done) return; readC = nxt.c; var cols = ['#5b8cff', '#ff9a4d', '#b77dff'], tags = ['LEFT', 'MIDDLE', 'RIGHT']; hold = true;
+        var rf = NFA.readFirst(ctx, host, nxt.c.prompt, nxt.c.opts.map(function (o, i) { return { t: o.t, tag: tags[i], col: cols[i] }; }), function () { hold = false; }); if (rf) window.__cp = rf; }
       function jump() { if (py <= 0.001 && !hold && !done) { vy = 9.4; NFA.sfx('jump'); } }
       function mv(d) { if (!hold) lane = Math.max(0, Math.min(2, lane + d)); }
       NFA.keys(ctx, { ArrowLeft: function () { mv(-1); }, ArrowRight: function () { mv(1); }, a: function () { mv(-1); }, d: function () { mv(1); }, ArrowUp: jump, w: jump, ' ': jump });
@@ -241,7 +269,7 @@
       }
       hud(); for (var k0 = 0; k0 < 2 && ci < cs.length; k0++) { spawnRow(cs[ci++]); nextRow += ROW; } setBanner();
       var last = performance.now(), run = true, rid;
-      function frame(now) { if (!run) return; var dt = Math.min(0.05, (now - last) / 1000); last = now; if (!ctx.isPaused()) { step(dt); } anim(ctx.isPaused() ? 0 : dt); ren.render(sc, cam); rid = requestAnimationFrame(frame); }
+      function frame(now) { if (!run) return; var dt = Math.min(0.05, (now - last) / 1000); last = now; if (!ctx.isPaused()) { step(dt); } anim(ctx.isPaused() || hold ? 0 : dt); ren.render(sc, cam); rid = requestAnimationFrame(frame); }
       rid = requestAnimationFrame(frame);
       ctx.cleanup(function () { run = false; cancelAnimationFrame(rid); try { ren.dispose(); } catch (e) { } host.remove(); });
       window.__auto = function () {

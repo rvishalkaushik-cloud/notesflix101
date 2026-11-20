@@ -514,7 +514,10 @@ function gSpot(){
       ROOT.innerHTML = gHead("⚡ Spot It") + endBox("Round over", right, items.length, '<p>Score: <b style="color:var(--yel)">' + score + ' points</b>' + (score >= (P.fdBest || 0) ? ' · Personal best!' : '') + '</p>');
       bindBack(); bindEnd(gSpot, right); return;
     }
-    var it = items[i], opts = shuffle(it.o.map(function(o, j){ return {t:o, ok:j === it.a}; })), left = T;
+    var it = items[i], opts = shuffle(it.o.map(function(o, j){ return {t:o, ok:j === it.a}; }));
+    /* reading time grows with the text: 20 s minimum, about 1 s per 2.5 words, at most 75 s */
+    var words = String(it.s + " " + (it.ask || "") + " " + it.o.join(" ")).replace(/<[^>]+>/g, " ").split(/\s+/).filter(Boolean).length;
+    T = Math.min(75, Math.max(20, Math.round(8 + words / 2.5))); var left = T;
     ROOT.innerHTML = gHead("⚡ Spot It") + '<div class="hud"><span class="h">Q<b>' + (i + 1) + '/' + items.length + '</b></span><span class="h">Score<b id="sc">' + score + '</b></span><span class="h">Streak<b>' + streakN + '🔥</b></span><span class="tbar" aria-hidden="true"><i id="tb" style="width:100%"></i></span><span class="h">⏱<b id="tl">' + T + '</b></span></div>' +
       '<div class="situ"><div class="lbl">Situation</div>' + it.s + '</div><p class="qtext">' + (it.ask || "Identify the concept.") + '</p>' +
       '<div class="opts">' + opts.map(function(o, j){ return '<button class="opt" data-j="' + j + '"><span class="k">' + "ABCD"[j] + '</span><span>' + o.t + '</span></button>'; }).join("") + '</div><div id="fo"></div>';
