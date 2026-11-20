@@ -1,3 +1,4 @@
+function nfOrd(q){var n=q[1].length,a=[],h=0,t=String(q[0]);for(var k=0;k<n;k++)a.push(k);if(/Assertion/.test(t))return a;for(var j=0;j<t.length;j++)h=(h*31+t.charCodeAt(j))%9973;var r=(h>>3)%n;return a.slice(r).concat(a.slice(0,r));}
 /* Notesflix "Board practice" panel. Needs window.NF_EXAM = {title, pyq, write, quick:[[q,[opts],ansIndex,why,src]], long:[{m,q,src,pts:[],tip}], cases:[{m,q,src,ask,pts:[]}]} */
 (function(){
 var E=window.NF_EXAM; if(!E||document.getElementById('nfx-fab'))return;
@@ -42,7 +43,7 @@ function draw(){
  var h='';
  if(cur==='quick'){var done=E.quick.filter(function(q,i){return S['q'+i]!=null}).length,ok=E.quick.filter(function(q,i){return S['q'+i]===q[2]}).length;
   h+='<p class="sc">Score: '+ok+' / '+E.quick.length+' · answered '+done+'</p>';
-  E.quick.forEach(function(q,i){var a=S['q'+i];h+='<div class="cd" style="--c:'+cols[i%6]+'">'+chips(1,q[4],cols[i%6])+'<p class="q">'+esc(q[0])+'</p>'+q[1].map(function(o,k){var c=a==null?'':(k===q[2]?'ok':(k===a?'no':''));return '<button type="button" class="op '+c+'" data-q="'+i+'" data-k="'+k+'">'+String.fromCharCode(65+k)+'. '+esc(o)+'</button>'}).join('')+(a!=null?'<div class="why">'+(a===q[2]?'✅ ':'❌ ')+esc(q[3])+'</div>':'')+'</div>'});}
+  E.quick.forEach(function(q,i){var a=S['q'+i];h+='<div class="cd" style="--c:'+cols[i%6]+'">'+chips(1,q[4],cols[i%6])+'<p class="q">'+esc(q[0])+'</p>'+nfOrd(q).map(function(k,p){var o=q[1][k];var c=a==null?'':(k===q[2]?'ok':(k===a?'no':''));return '<button type="button" class="op '+c+'" data-q="'+i+'" data-k="'+k+'">'+String.fromCharCode(65+p)+'. '+esc(o)+'</button>'}).join('')+(a!=null?'<div class="why">'+(a===q[2]?'✅ ':'❌ ')+esc(q[3])+'</div>':'')+'</div>'});}
  if(cur==='long'||cur==='cases'){E[cur].forEach(function(q,i){var id=cur[0]+i,c=cols[(i+2)%6],op=S['o'+id];
   h+='<div class="cd" style="--c:'+c+'">'+chips(q.m,q.src,c)+'<p class="q">'+esc(q.q)+'</p>'+(q.ask?'<p class="q" style="color:#ffd23f">'+esc(q.ask)+'</p>':'')+
   (op?'<ol>'+q.pts.map(function(p){return '<li>'+p+'</li>'}).join('')+'</ol>'+(q.tip?'<div class="tip">💡 '+q.tip+'</div>':'')+selfRate(id):'<button type="button" class="rv" data-o="'+id+'">✍️ Try it in your notebook, then tap to see the answer points</button>')+'</div>'});}
