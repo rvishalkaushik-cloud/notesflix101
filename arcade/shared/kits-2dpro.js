@@ -25,7 +25,9 @@
         var rx = x + 3 * 290 + 20; objs.push({ k: 'rock', x: rx, hit: false }); nextX = rx + 400;
       }
       function curC() { var o = objs.filter(function (q) { return (q.k === 'can' || q.k === 'calc') && !q.hit; })[0]; return o ? o.c : null; }
-      function setBanner() { var c = curC(); banner(c ? (c.k === 'calc' ? 'Pit stop ahead: work out the number' : c.prompt) : 'Reach the flag!'); }
+      function setBanner() { var c = curC(); banner(c ? (c.k === 'calc' ? 'Pit stop ahead: work out the number' : c.prompt) : 'Reach the flag!');  readRow(c); }
+      var readC = null; function readRow(c) { if (!c || c.k === 'calc' || c === readC || done) return; readC = c; hold = true; var cols = ['#4dfff0', '#ffd24d', '#ff8fd0'], tags = ['1st BARREL', '2nd BARREL', '3rd BARREL'];
+        var rf = NFA.readFirst(ctx, host, c.prompt + ' (drive through the right one, jump the others)', c.opts.map(function (o, i) { return { t: o.t, tag: tags[i], col: cols[i] }; }), function () { hold = false; }); if (rf) window.__cp = rf; }
       function jump() { if (!car.air && !hold && !done) { car.vy = -470; car.air = true; NFA.sfx('jump'); puff(car.x, car.y + 14, '#e8d8b0', 8); } }
       NFA.keys(ctx, { ArrowRight: function () { gas = true; }, d: function () { gas = true; }, ArrowLeft: function () { brake = true; }, a: function () { brake = true; }, ArrowUp: jump, w: jump, ' ': jump });
       var ku = function (e) { if (e.key === 'ArrowRight' || e.key === 'd') gas = false; if (e.key === 'ArrowLeft' || e.key === 'a') brake = false; }; window.addEventListener('keyup', ku); ctx.cleanup(function () { window.removeEventListener('keyup', ku); });
@@ -235,7 +237,9 @@
       var py = 220, vy = 0, up = false, lives = 5, done = false, hold = false, t = 0, solved = 0, ci = 0, nextX = 520, objs = [], parts = [], flash = 0, shake = 0, wx = 0, SP = 190, PX = 90, imm = 0;
       var Y = [100, 220, 340];
       function hud() { ctx.setHud({ Lives: '❤'.repeat(Math.max(0, lives)), Level: NFA.LEVELS[NFA.lvl], Columns: solved + '/' + cs.length }); } ctx.heal = function () { lives = 5; hud(); }; setTimeout(function () { ctx.toast('LEVEL 1 · EASY'); }, 400);
-      function setBanner() { var o = objs.filter(function (q) { return q.k !== 'zap' && !q.done; })[0]; bn.innerHTML = '🎯 <span style="color:#ffd24d">' + esc(o ? (o.k === 'calc' ? 'Pit stop ahead: work out the number' : o.c.prompt) : 'Finish line!') + '</span>'; }
+      function setBanner() { var o = objs.filter(function (q) { return q.k !== 'zap' && !q.done; })[0]; bn.innerHTML = '🎯 <span style="color:#ffd24d">' + esc(o ? (o.k === 'calc' ? 'Pit stop ahead: work out the number' : o.c.prompt) : 'Finish line!') + '</span>';  readCol(o); }
+      var readC = null; function readCol(o) { if (!o || o.k !== 'col' || o.c === readC || done) return; readC = o.c; hold = true; var nm = { 100: 'TOP', 220: 'MIDDLE', 340: 'BOTTOM' }, cl = { 100: '#4dfff0', 220: '#ffd24d', 340: '#ff8fd0' };
+        var bs = o.b.slice().sort(function (a, b) { return a.y - b.y; }); var rf = NFA.readFirst(ctx, host, o.c.prompt, bs.map(function (b) { return { t: b.o.t, tag: nm[b.y] || '', col: cl[b.y] }; }), function () { hold = false; }); if (rf) window.__cp = rf; }
       function hurt(m) { if (imm > 0) return; lives--; imm = 1.0; shake = 0.4; flash = 0.35; NFA.sfx('hit'); if (m) NFA.say(nt, false, m); hud(); if (lives <= 0 && !done) { done = true; ctx.finish(false); } }
       function burst(x, y, col, n) { for (var i = 0; i < n; i++) parts.push({ x: x, y: y, vx: (Math.random() - 0.5) * 240, vy: (Math.random() - 0.5) * 240, life: 0.7, col: col }); }
       function spawn(c) {
