@@ -1938,6 +1938,17 @@ const CHAPTERS = [
         url:"notes/pol12-15-2.html", keys:"communalism secularism democracy Shah Bano Hindutva Savarkar BJP rise Ayodhya 1992 Liberhan Commission Godhra Gujarat 2002 NHRC new consensus economic policy backward castes state parties pragmatism Lok Sabha 2004 UPA growing consensus Class 12 Political Science Politics in India chapter 8" }
     ] },
 
+  { id:"hist12-ch1", cls:"XII", subject:"History", num:"1", title:"Bricks, Beads and Bones: The Harappan Civilisation",
+    tagline:"Phases, diet and farming, Mohenjodaro’s planned city, crafts, raw materials and trade, seals and script, authority, decline and discovery.",
+    art:"documents", thumb:"img/hist12-ch1.jpg", episodes:[
+      { id:"hist12-1-1", title:"Life, City and Crafts", mins:15, tier:"free", art:"documents", added:"2026-11-22",
+        desc:"Themes in Indian History Part I, Theme 1: the phases of the Harappan civilisation, subsistence and farming, Mohenjodaro’s Citadel and Lower Town, houses and drains, social differences and craft production at Chanhudaro, with a sorter, practice answers and a quiz.",
+        url:"notes/hist12-1-1.html", keys:"Harappan civilisation Indus Valley Bricks Beads and Bones Mature Harappan 2600 1900 BCE subsistence crops animals plough Kalibangan Shortughai canals Dholavira reservoir Mohenjodaro citadel lower town Great Bath drainage wells burials luxuries faience Chanhudaro beads craft Class 12 History theme 1" },
+      { id:"hist12-1-2", title:"Trade, Seals, Authority and Discovery", mins:15, tier:"pass", art:"documents", added:"2026-11-22",
+        desc:"Procuring raw materials, contact with Oman and Mesopotamia, seals, script and weights, ancient authority, the end of the civilisation, its discovery by archaeologists and problems of interpretation, with explorers, a four-site sorter, a source-based question, a map question and a quiz.",
+        url:"notes/hist12-1-2.html", keys:"Harappan trade raw materials Nageshwar Balakot Shortughai Lothal Khetri Ganeshwar Jodhpura Oman Dilmun Magan Meluhha seals sealings script weights chert binary authority palace priest-king end decline Cunningham Daya Ram Sahni Banerji John Marshall Wheeler mother goddess proto-Shiva Class 12 History theme 1" }
+    ] },
+
   { id:"ent-u5", cls:"XII", subject:"Entrepreneurship", unit:"Unit", num:"5", title:"Business Arithmetic",
     tagline:"Break-even, cash flow, working capital, EOQ and returns: the numbers every founder must know.",
     art:"coins", thumb:"img/ent-u5.jpg", episodes:[
@@ -4748,11 +4759,12 @@ CHAPTERS.forEach(function(c){
     pad:'<path d="M7 7h10a5 5 0 0 1 4.9 6l-.7 3.4a2.4 2.4 0 0 1-4.1 1.1L14.6 15H9.4l-2.5 2.5a2.4 2.4 0 0 1-4.1-1.1L2.1 13A5 5 0 0 1 7 7z"/><path d="M7 10v3M5.5 11.5h3M15.5 11h.01M17.5 13h.01"/>',
     target:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.5"/><circle cx="12" cy="12" r="2"/>',
     coins:'<ellipse cx="9" cy="7" rx="6" ry="2.6"/><path d="M3 7v4c0 1.4 2.7 2.6 6 2.6s6-1.2 6-2.6V7"/><path d="M9 13.6v3.8c0 1.4 2.7 2.6 6 2.6s6-1.2 6-2.6v-4c0-1.4-2.7-2.6-6-2.6"/>',
+    pillar:'<path d="M3 21h18M5 18h14M6 18V9M10 18V9M14 18V9M18 18V9M3 9l9-5 9 5z"/>',
     chart:'<path d="M4 20V10M9 20V6M14 20v-8M19 20V4"/><path d="M3 20h18"/>'
   };
   var NX_SUBJ = { "Accountancy":"calc", "Business Studies":"bars", "Economics":"trend", "Entrepreneurship":"bulb",
     "Science":"flask", "Physics":"flask", "Chemistry":"flask", "Legal Studies":"scale", "Biology":"flask", "Social Science (SST)":"globe",
-    "Geography":"globe", "Mathematics":"pi", "Computer Science":"stack", "Political Science":"people",
+    "Geography":"globe", "Mathematics":"pi", "Computer Science":"stack", "Political Science":"people", "History":"pillar",
     "Psychology":"people", "Sociology":"people", "Commerce":"trend", "Humanities":"people" };
   function nxIco(k){ return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (NX_ICONS[k] || NX_ICONS.book) + '</svg>'; }
   var CLASS_CARDS = [
