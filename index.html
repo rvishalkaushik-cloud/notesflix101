@@ -3927,6 +3927,13 @@ CHAPTERS.forEach(function(c){
   try{ var raw = localStorage.getItem(KEY); if(raw) student = JSON.parse(raw); }catch(e){}
   function saveStudent(o){ try{ localStorage.setItem(KEY, JSON.stringify(o)); }catch(e){} }
   function unlocked(){ return !!student || !!cloudUid; }
+  /* ---------- funnel analytics (no personal details are sent) ---------- */
+  function nfTrack(ev, p){ try{ if(window.gtag) gtag("event", ev, p || {}); }catch(err){} }
+  function noteInfo(n){
+    var o = { note_id: n.id, tier: n.tier || "" };
+    try{ for(var i=0;i<CHAPTERS.length;i++){ var c=CHAPTERS[i]; if((c.episodes||[]).some(function(x){ return x.id===n.id; })){ o.chapter_id=c.id; o.subject=c.subject; o.class_level=c.cls; break; } } }catch(err){}
+    return o;
+  }
 
   /* ---------- what the student has read (this browser only) ---------- */
   var PKEY = "notesflix101.progress", P = { done:{}, opened:{}, opens:{}, last:null, xp:{} };
@@ -3989,6 +3996,7 @@ CHAPTERS.forEach(function(c){
   }
   function shareNote(e){
     var msg = e.title + " — free interactive notes from Notesflix 101\n" + noteLink(e);
+    nfTrack("share", { method:"whatsapp", content_type:"note", item_id:e.id });
     var a = document.createElement("a");
     a.href = "https://wa.me/?text=" + encodeURIComponent(msg);
     a.target = "_blank"; a.rel = "noopener";
@@ -4000,7 +4008,7 @@ CHAPTERS.forEach(function(c){
   var askPaid = "Hello Notesflix 101 team,\n\nI would like access to the complete notes.\n\nName:\nClass:\nSchool:\nGmail ID I will sign in with:\n";
   ["waTop","waMain","waFoot"].forEach(function(id){
     var el = document.getElementById(id);
-    if(el){ el.href = waLink(askPaid, "Notesflix 101 access request"); }
+    if(el){ el.href = waLink(askPaid, "Notesflix 101 access request"); el.addEventListener("click", function(){ nfTrack("contact_click", { method:"email", link_id:id }); }); }
   });
 
   /* ---------- browse: classes, chapters, episodes ---------- */
@@ -5433,7 +5441,10 @@ CHAPTERS.forEach(function(c){
     awardXP(n.id, "open", XP_OPEN);
     saveP();
     render();
+    var info = noteInfo(n);
+    nfTrack("note_click", info);
     if(n.tier === "free" || unlocked()){ go(n.url); return; }
+    nfTrack("paywall_view", info);
     pending = n; openModal();
   }
 
@@ -5477,6 +5488,7 @@ CHAPTERS.forEach(function(c){
 
     student = { name:name, cls:cls, phone:phone, school:school, at:new Date().toISOString() };
     saveStudent(student);
+    nfTrack("generate_lead", { method:"unlock_form", class_level: cls, note_id: pending ? pending.id : "" });
 
     var msg = "Hello Notesflix 101 team! I just unlocked the free notes on Notesflix 101."
       + "\nName: " + name
@@ -6206,6 +6218,7 @@ CHAPTERS.forEach(function(c){
       const provider = new firebase.auth.GoogleAuthProvider();
       provider.setCustomParameters({ prompt: 'select_account' });
       const res = await auth.signInWithPopup(provider);
+      try { if (window.gtag) gtag('event', (res.additionalUserInfo && res.additionalUserInfo.isNewUser) ? 'sign_up' : 'login', { method: 'Google', page: 'home' }); } catch (_) {}
       await saveStudent(res.user);
     } catch (e) {
       // pop-up blocked (common on phones): use the full sign-in page instead

@@ -132,6 +132,7 @@ a{color:var(--gold)}
       const provider = new firebase.auth.GoogleAuthProvider();
       provider.setCustomParameters({ prompt: 'select_account' });
       const res = await auth.signInWithPopup(provider);
+      try { if (window.gtag) gtag('event', (res.additionalUserInfo && res.additionalUserInfo.isNewUser) ? 'sign_up' : 'login', { method: 'Google', page: 'login' }); } catch (_) {}
       await saveStudent(res.user);
     } catch (e) {
       fail('Sign-in did not work. Try again, and allow pop-ups for this site.');
