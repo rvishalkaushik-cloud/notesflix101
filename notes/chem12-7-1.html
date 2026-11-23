@@ -49,6 +49,8 @@ function show(html){
   location.replace(url);
 }
 function fail(msg){document.getElementById('err').textContent=msg;}
+const NOTE=(location.pathname.split('/').pop()||'').replace(/\.html$/,'');
+function trk(ev,p,cb){let d=false;const f=()=>{if(!d){d=true;cb&&cb();}};try{if(window.gtag){gtag('event',ev,Object.assign({note_id:NOTE},p||{},{event_callback:f,event_timeout:700}));setTimeout(f,800);}else f();}catch(e){f();}}
 (async()=>{
   const cfg=window.NF_AUTH||{};
   if(cfg.requireLogin){
@@ -57,11 +59,12 @@ function fail(msg){document.getElementById('err').textContent=msg;}
       firebase.initializeApp(cfg.firebase);
       user=await new Promise(res=>{const un=firebase.auth().onAuthStateChanged(u=>{un();res(u)})});
     }catch(e){user=null}
-    if(!user){document.getElementById('need').hidden=false;return}
+    if(!user){document.getElementById('need').hidden=false;trk('note_gate',{gate:'login'});document.querySelector('#need a').addEventListener('click',()=>trk('login_click',{from:'note'}));return}
   }
   document.getElementById('gate').hidden=false;
   let saved=null;try{saved=localStorage.getItem(KEY)}catch(e){}
-  if(saved){try{show(await open(saved));return}catch(e){fail('The saved password no longer works. Please enter the current one.')}}
+  if(saved){try{const h=await open(saved);trk('note_unlock',{method:'saved'},()=>show(h));return}catch(e){fail('The saved password no longer works. Please enter the current one.')}}
+  trk('note_gate',{gate:'password'});
   document.getElementById('gate').addEventListener('submit',async ev=>{
     ev.preventDefault();
     const pw=document.getElementById('pw').value;
@@ -69,8 +72,8 @@ function fail(msg){document.getElementById('err').textContent=msg;}
     try{
       const html=await open(pw);
       try{localStorage.setItem(KEY,pw)}catch(e){}
-      show(html);
-    }catch(e){fail('That password is not right. Check with your teacher.')}
+      trk('note_unlock',{method:'typed'},()=>show(html));
+    }catch(e){trk('note_unlock_fail');fail('That password is not right. Check with your teacher.')}
   });
 })();
 </script></body></html>
