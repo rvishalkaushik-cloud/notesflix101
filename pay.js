@@ -67,7 +67,7 @@
     show('<h2 id="nfpTitle">Get the Notesflix Pass</h2>' +
       (note ? "<p>“" + esc(note.title || "This part") + "” is part of the Pass.</p>" : "<p>Unlock every part of every chapter.</p>") +
       '<ul class="nfp-pts"><li>All locked parts, all subjects and classes</li><li>New chapters added every week</li><li>Pay once, no auto-renewal</li></ul>' +
-      (user ? plans + '<div class="nfp-msg" role="status"></div><p style="margin-top:10px;font-size:12px">Secure payment by Razorpay (UPI, cards, net banking). Signed in as ' + esc(user.email || "") + ".</p>"
+      (user ? plans + '<div class="nfp-msg" role="status"></div><p style="margin-top:10px;font-size:12px">Secure payment by Razorpay (UPI, cards, net banking). Signed in as ' + esc(user.email || "") + ".</p>" + '<p style="margin-top:6px;font-size:12px">By paying you agree to the <a href="terms.html" target="_blank" rel="noopener" style="color:#f5c518">Terms &amp; Refund Policy</a>. Payments are final once the Pass is active.</p>'
             : '<p>Sign in with Google first, so the Pass is saved to your account on every device.</p><button class="nfp-btn" type="button" id="nfpSignin">Sign in with Google</button>'));
     box.querySelectorAll(".nfp-plan").forEach(function (b) { b.onclick = function () { buy(b.getAttribute("data-plan")); }; });
     var si = document.getElementById("nfpSignin");
