@@ -9,11 +9,21 @@
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
 
   /* ---------- pass status from Firestore (students can read only their own pass) ---------- */
+  /* Students who joined before this moment (27 Nov 2026, IST) keep free access to every note. Matches firestore.rules. */
+  var GRANDFATHER_BEFORE = new Date("2026-11-26T18:30:00Z");
+  var grand = false;
   function loadPass() {
-    if (!on || !user || !window.firebase || !firebase.firestore) { until = null; paintMenu(); fire(); return; }
+    if (!on || !user || !window.firebase || !firebase.firestore) { until = null; grand = false; paintMenu(); fire(); return; }
     firebase.firestore().collection("passes").doc(user.uid).get().then(function (d) {
-      var u = d.exists && d.data().until; until = u && u.toDate ? u.toDate() : null; paintMenu(); fire();
-    }).catch(function () { until = null; paintMenu(); fire(); });
+      var u = d.exists && d.data().until; until = u && u.toDate ? u.toDate() : null;
+      if (active()) { paintMenu(); fire(); return; }
+      return firebase.firestore().collection("students").doc(user.uid).get().then(function (s) {
+        var j = s.exists && s.data().joinedAt; var jd = j && j.toDate ? j.toDate() : null;
+        grand = !!(jd && jd < GRANDFATHER_BEFORE);
+        if (grand) until = new Date("2100-01-01T00:00:00Z");
+        paintMenu(); fire();
+      });
+    }).catch(function () { until = null; grand = false; paintMenu(); fire(); });
   }
   function fire() { document.dispatchEvent(new CustomEvent("nf:pass", { detail: { active: active(), until: until } })); }
 
@@ -121,7 +131,7 @@
     if (!el) { el = document.createElement("div"); el.id = "nfpMenu"; el.className = "nfp-menu"; var out = document.getElementById("acctOut"); menu.insertBefore(el, out || null); }
     if (!user) { el.hidden = true; return; }
     el.hidden = false;
-    el.innerHTML = active() ? "Pass: <b>active</b> till " + fmtDate(until) : 'No Pass yet · <a href="#getpass" style="color:#ff6b6b;font-weight:700">Get Pass from ₹' + esc(((C.plans || [])[0] || {}).rupees || "") + "</a>";
+    el.innerHTML = grand ? "Existing student · <b>free access</b>" : active() ? "Pass: <b>active</b> till " + fmtDate(until) : 'No Pass yet · <a href="#getpass" style="color:#ff6b6b;font-weight:700">Get Pass from ₹' + esc(((C.plans || [])[0] || {}).rupees || "") + "</a>";
   }
 
   /* ---------- wiring ---------- */
