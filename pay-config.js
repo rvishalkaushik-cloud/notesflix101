@@ -3,8 +3,8 @@
 // worker: the URL of the Cloudflare Worker (for example https://notesflix-pay.YOURNAME.workers.dev).
 // Prices shown here are for display; the Worker decides the real amount (keep both the same).
 window.NF_PAY = {
-  enabled: false,
-  worker: "",
+  enabled: true,
+  worker: "https://notesflix-pay.r-vishalkaushik.workers.dev",
   plans: [
     { id: "m1", name: "Monthly", rupees: 37, days: 30, note: "Try it for a month" },
     { id: "m6", name: "6 months", rupees: 179, days: 182, note: "≈ ₹30 a month" },
