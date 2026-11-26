@@ -1,14 +1,38 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function hasPass() {
+      return signedIn()
+        && exists(/databases/$(database)/documents/passes/$(request.auth.uid))
+        && get(/databases/$(database)/documents/passes/$(request.auth.uid)).data.until > request.time;
+    }
     // each student can read and write only their own record
     match /students/{uid} {
-      allow read, write: if request.auth != null && request.auth.uid == uid;
+      allow read, write: if signedIn() && request.auth.uid == uid;
     }
     // public XP board: anyone can read first name, class and daily XP; only the owner can write
     match /xp/{uid} {
       allow read: if true;
-      allow write: if request.auth != null && request.auth.uid == uid;
+      allow write: if signedIn() && request.auth.uid == uid;
+    }
+    // Notesflix Pass: a student can read only their own pass; only the payments Worker (service account) writes it
+    match /passes/{uid} {
+      allow read: if signedIn() && request.auth.uid == uid;
+      allow write: if false;
+    }
+    // payment records: Worker only
+    match /payments/{id} {
+      allow read, write: if false;
+    }
+    // note keys: "free" opens free parts for any signed-in student, "pass" opens every part for active Pass holders
+    match /vault/free {
+      allow read: if signedIn();
+      allow write: if false;
+    }
+    match /vault/pass {
+      allow read: if hasPass();
+      allow write: if false;
     }
   }
 }
