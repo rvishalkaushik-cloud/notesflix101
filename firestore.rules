@@ -3,9 +3,13 @@ service cloud.firestore {
   match /databases/{database}/documents {
     function signedIn() { return request.auth != null; }
     function hasPass() {
-      return signedIn()
-        && exists(/databases/$(database)/documents/passes/$(request.auth.uid))
-        && get(/databases/$(database)/documents/passes/$(request.auth.uid)).data.until > request.time;
+      return signedIn() && (
+        (exists(/databases/$(database)/documents/passes/$(request.auth.uid))
+          && get(/databases/$(database)/documents/passes/$(request.auth.uid)).data.until > request.time)
+        // existing students (joined before 27 Nov 2026 IST) keep free access; matches pay.js
+        || (exists(/databases/$(database)/documents/students/$(request.auth.uid))
+          && get(/databases/$(database)/documents/students/$(request.auth.uid)).data.joinedAt < timestamp.date(2026, 11, 26, 18, 30, 0))
+      );
     }
     // each student can read and write only their own record
     match /students/{uid} {
