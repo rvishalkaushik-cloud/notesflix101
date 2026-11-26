@@ -23,7 +23,7 @@ self.addEventListener("fetch", (e) => {
   if (/\.mp4$/i.test(new URL(req.url).pathname) || req.headers.has("range")) return;
 
   // CBSE updates: always try the network first so students see the latest, cached when offline
-  if (new URL(req.url).pathname.endsWith("/updates.json") || new URL(req.url).pathname.includes("/marathon/") || new URL(req.url).pathname.includes("/tests/") || new URL(req.url).pathname.includes("/arcade/") || new URL(req.url).pathname.includes("/arena/") || new URL(req.url).pathname.includes("/lab/") || new URL(req.url).pathname.includes("/writing") || new URL(req.url).pathname.includes("/pyq")) {
+  if (new URL(req.url).pathname.endsWith("/updates.json") || new URL(req.url).pathname.endsWith("/pay-config.js") || new URL(req.url).pathname.endsWith("/auth-config.js") || new URL(req.url).pathname.includes("/marathon/") || new URL(req.url).pathname.includes("/tests/") || new URL(req.url).pathname.includes("/arcade/") || new URL(req.url).pathname.includes("/arena/") || new URL(req.url).pathname.includes("/lab/") || new URL(req.url).pathname.includes("/writing") || new URL(req.url).pathname.includes("/pyq")) {
     e.respondWith(
       fetch(req)
         .then((res) => {

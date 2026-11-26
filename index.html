@@ -3938,6 +3938,7 @@ CHAPTERS.forEach(function(c){
   try{ var raw = localStorage.getItem(KEY); if(raw) student = JSON.parse(raw); }catch(e){}
   function saveStudent(o){ try{ localStorage.setItem(KEY, JSON.stringify(o)); }catch(e){} }
   function unlocked(){ return !!student || !!cloudUid; }
+  function hasClassPw(){ try{ return !!localStorage.getItem("nf101.pass"); }catch(err){ return false; } }
   /* ---------- funnel analytics (no personal details are sent) ---------- */
   function nfTrack(ev, p){ try{ if(window.gtag) gtag("event", ev, p || {}); }catch(err){} }
   function noteInfo(n){
@@ -5454,6 +5455,11 @@ CHAPTERS.forEach(function(c){
     render();
     var info = noteInfo(n);
     nfTrack("note_click", info);
+    if(n.tier !== "free" && window.NFPay && NFPay.enabled() && !NFPay.active() && !hasClassPw()){
+      nfTrack("paywall_view", Object.assign({ wall:"pass" }, info));
+      NFPay.open(n, function(){ go(n.url); });
+      return;
+    }
     if(n.tier === "free" || unlocked()){ go(n.url); return; }
     nfTrack("paywall_view", info);
     pending = n; openModal();
@@ -6240,6 +6246,8 @@ CHAPTERS.forEach(function(c){
   document.addEventListener('click', e => { if (!wrap.contains(e.target)) menu.hidden = true; });
 })();
 </script>
+<script src="pay-config.js"></script>
+<script src="pay.js"></script>
 <script>
 (function(){
   var v=document.getElementById('adVid'),b=document.getElementById('adSound');if(!v||!b)return;
