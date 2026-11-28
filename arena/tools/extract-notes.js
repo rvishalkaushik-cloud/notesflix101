@@ -1,10 +1,11 @@
 // node extract.js <chapterId>  -> prints the readable text of every part of that chapter (decrypting locked notes)
 const fs=require('fs'),path=require('path'),vm=require('vm'),{webcrypto:c}=require('crypto');
-const R=require('path').join(__dirname,'..','..'), PW=process.env.NF_PASS;
+const R=require('path').join(__dirname,'..','..'), PWS=[process.env.NF_PASS,process.env.NF_FREE].filter(Boolean);
 const h=fs.readFileSync(R+'/index.html','utf8');
 const CH=vm.runInNewContext('('+h.match(/const CHAPTERS = (\[[\s\S]*?\n\]);/)[1]+')',{});
 const RX=/const P=(\{"s":"[^"]*","i":"[^"]*","c":"[^"]*"\});/;
-async function open(src){const m=src.match(RX);if(!m)return src;const P=JSON.parse(m[1]),b=s=>Buffer.from(s,'base64');
+async function open(src){const m=src.match(RX);if(!m)return src;for(const PW of PWS){try{return await open1(m,PW)}catch(e){}}return '(could not decrypt)';}
+async function open1(m,PW){const P=JSON.parse(m[1]),b=s=>Buffer.from(s,'base64');
  const base=await c.subtle.importKey('raw',new TextEncoder().encode(PW),'PBKDF2',false,['deriveKey']);
  const k=await c.subtle.deriveKey({name:'PBKDF2',salt:b(P.s),iterations:250000,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);
  return new TextDecoder().decode(await c.subtle.decrypt({name:'AES-GCM',iv:b(P.i)},k,b(P.c)));}

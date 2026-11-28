@@ -15,6 +15,6 @@ git commit -q -F - <<EOF
 Revision Arena: add $*
 
 Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
-Claude-Session: https://claude.ai/code/session_01LL9vFME2ncbHxqWktsKqbq
+Claude-Session: https://claude.ai/code/session_01LL9vFMfHq32Lq49WhCz5Ci
 EOF
 git -c push.negotiate=true push origin main 2>&1 | tail -1
